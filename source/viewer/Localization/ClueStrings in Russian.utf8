@@ -1,0 +1,287 @@
+> Here are the strings I would like converted.  While I know that some of
+> these strings are going to be changed quite soon, I wanted to make a quick
+> check of my code to see if any strings won't fit after the conversion.
+
+Translation partially depends on context - so my may be not so perfect as you expect 
+> I would also like to know what format you use for dates, times, and
+> numbers:
+> May 23, 2000
+23 мая 2000
+> 12:42.52pm
+12:42.52  (24 hour scheme!!!)
+> 100,000
+100 000  (thousands separator is space or nothing, decimal point oficially is comma, but dot may be too))
+> 
+> Thanks a bunch.
+> Jeff Braun
+> 
+> resource('CSTR', 100, "FileStartStop")
+> {
+> 	"This starts or stops Clue retrieval"
+Russian = "Запускает или останавливает извлечение"
+> }
+> resource('CSTR', 110, "FileImport")
+> {
+> 	"Import a file into Clue"
+Russian = "Импорт файла в Clue"
+> }
+> resource('CSTR', 120, "FileExport")
+> {
+> 	"Export the current view to a file"
+Russian = "Экспорт вида в файл"
+> }
+> resource('CSTR', 130, "FileClose")
+> {
+> 	"Close this window"
+Russian = "Закрыть окно"
+> }
+> resource('CSTR', 140, "FilterClassBirth")
+> {
+> 	"when selected, allows CT_CLASS_BIRTH events through"
+Russian = "если выбрано, разрешено прохождение события CT_CLASS_BIRTH "
+> }
+> resource('CSTR', 150, "FilterClassDeath")
+> {
+> 	"when selected, allows CT_CLASS_DEATH events through"
+Russian = "если выбрано, разрешено прохождение события CT_CLASS_DEATH"
+> }
+> resource('CSTR', 160, "MethodEnter")
+> {
+> 	"when selected, allows CT_METHOD_ENTER events through"
+Russian = "если выбрано, разрешено прохождение события CT_METHOD_ENTER"
+> }
+> resource('CSTR', 170, "MethodExit")
+> {
+> 	"when selected, allows CT_METHOD_EXIT events through"
+Russian = "если выбрано, разрешено прохождение события CT_METHOD_EXIT"
+> }
+> resource('CSTR', 180, "Info")
+> {
+> 	"when selected, allows CT_INFO events through"
+Russian = "если выбрано, разрешено прохождение события CT_INFO"
+> }
+> resource('CSTR', 190, "Warning")
+> {
+> 	"when selected, allows CT_WARNING events through"
+Russian = "если выбрано, разрешено прохождение события CT_WARNING"
+> }
+> resource('CSTR', 200, "Error")
+> {
+> 	"when selected, allows CT_ERROR events through"
+Russian = "если выбрано, разрешено прохождение события CT_ERRO"
+> }
+> resource('CSTR', 210, "FileAbout")
+> {
+> 	"show information about this program"
+Russian = "Показать сведения об этой программе"
+> }
+> resource('CSTR', 220, "FileAbout")
+> {
+> 	"Start retrieving Clues"
+Russian = "Запустить извлечение"
+> }
+> resource('CSTR', 230, "Stop")
+> {
+> 	"Stop retrieving Clues"
+Russian = "Остановить извлечение"
+> }
+> extern const char * STR_OK
+> 	= "OK";
+Russian = "Да"
+> extern const char * STR_CANCEL
+> 	= "Cancel";
+Russian = "Нет"
+> extern const char * STR_WINDOW_TITLE_ABOUT
+> 	= "About Clue";
+Russian = "О Clue"
+> extern const char * STR_WINDOW_TITLE_PROPERTIES
+> 	= "Properties: '%s'";
+Russian = "Свойства: '%s'"
+> extern const char* STR_MNU_FILE
+> 	= "File";
+Russian = "Файл"
+> extern const char* STR_MNU_FILE_START
+> 	= "Start";
+Russian = "Старт"
+> extern const char* STR_MNU_FILE_STOP
+> 	= "Стоп";
+Russian = "Импорт вида..."
+> extern const char* STR_MNU_FILE_IMPORT
+> 	= "Import View...";
+Russian = ""
+> extern const char* STR_MNU_FILE_EXPORT
+> 	= "Export View...";
+Russian = "Экспорт вида..."
+> extern const char* STR_MNU_FILE_ABOUT
+> 	= "About...";
+Russian = "O..."
+> extern const char* STR_MNU_FILE_CLOSE
+> 	= "Close";
+Russian = "Закрыть"
+> extern const char* STR_MNU_WINDOW
+> 	= "Window";
+Russian = "Окно"
+> extern const char* STR_MNU_VIEW_LIVE
+> 	= "Live Updates";
+Russian = "Обновления"
+> extern const char* STR_MNU_EMPTY_ITEM
+> 	= "(Empty menu)";
+Russian = "(Пустое меню)"
+> extern const char* STR_LABEL_CTRL
+> 	= "Label:";
+Russian = "Метка:"
+> extern const char* STR_HIDE_USER_MENUS
+> 	= "Hide User Menus";
+Russian = "Спрятать меню пользователя"
+> extern const char* STR_LARGE_TEST_ICONS
+> 	= "Large Test Icons";
+Russian = "Большие тестовые иконки"
+> extern const char* STR_ADD_MENU
+> 	= "Add Menu";
+Russian = "Добавить Меню"
+> extern const char* STR_ADD_ITEM
+> 	= "Add Item";
+Russian = "Добавить пункт"
+> extern const char* STR_ADD_SEP
+> 	= "Add Separator";
+Russian = "Добавить разделитель"
+> extern const char* STR_DELETE_MENU
+> 	= "Delete";
+Russian = "Удалить"
+> extern const char* STR_STATUS_TEST
+> 	= "Test item selected: ";
+Russian = "Тестовый пункт выбран"
+> extern const char* STR_STATUS_USER
+> 	= "Menu item selected: ";
+Russian = "Пункт меню выбран"
+> extern const char* STR_STATUS_ADD_MENU
+> 	= "Added menu: ";
+Russian = "Добавленное меню"
+> extern const char* STR_STATUS_ADD_ITEM
+> 	= "Added menu item: ";
+Russian = "Добавленный пункт меню"
+> extern const char* STR_STATUS_ADD_SEPARATOR
+> 	= "Added separator menu item";
+Russian = "Добавленный разделитель меню"
+> extern const char* STR_STATUS_DELETE_MENU
+> 	= "Deleted menu: ";
+Russian = "Удалённое меню"
+> extern const char* STR_STATUS_DELETE_ITEM
+> 	= "Deleted menu item: ";
+Russian = "Удалённый пункт меню"
+> extern const char* STR_STATUS_DELETE_SEPARATOR
+> 	= "Deleted separator menu item";
+Russian = "Удаленный разделитель меню"
+> extern const char * STR_TEAM_COLUMN_VISIBLE
+> 	= "Visible";
+Russian = "Видимый"
+> extern const char * STR_TEAM_COLUMN_ICON
+> 	= "Icon";
+Russian = "Иконка"
+> extern const char * STR_TEAM_COLUMN_TEAM_ID
+> 	= "Team ID";
+Russian = "ID группы"
+> extern const char * STR_TEAM_COLUMN_APP_NAME
+> 	= "Name";
+Russian = "Имя"
+> extern const char * STR_TEAM_COLUMN_QUEUE_LENGTH
+> 	= "Queue Length";
+Russian = "Длина очереди"
+> extern const char * STR_TEAM_COLUMN_VIEW_FILTER
+> 	= "View Filter";
+Russian = "Фильтр видов"
+> extern const char * STR_LABEL_TEAMS
+> 	= "Teams:";
+Russian = "Пучки:"
+> extern const char * STR_CLUE_COLUMN_TYPE
+> 	= "Type";
+Russian = "Тип"
+> extern const char * STR_CLUE_COLUMN_METHOD
+> 	= "Method";
+Russian = "Метод"
+> extern const char * STR_CLUE_COLUMN_CLASS
+> 	= "Class";
+Russian = "Класс"
+> extern const char * STR_CLUE_COLUMN_FILE
+> 	= "File";
+Russian = "Файл"
+> extern const char * STR_CLUE_COLUMN_LINE
+> 	= "Line";
+Russian = "Строка"
+> extern const char * STR_CLUE_COLUMN_THREAD_ID
+> 	= "Thread ID";
+Russian = "ID нити"
+> extern const char * STR_CLUE_COLUMN_SEQUENCE
+> 	= "Sequence";
+Russian = "Последовательность"
+> extern const char * STR_CLUE_COLUMN_DATE
+> 	= "Date";
+Russian = "Дата"
+> extern const char * STR_CLUE_COLUMN_TIME
+> 	= "Time";
+Russian = "Время"
+> extern const char * STR_CLUE_COLUMN_DETAILS
+> 	= "Details";
+Russian = "Детали"
+> extern const char * STR_CLUE_TAB_TITLE
+> 	= "Team: %li";
+Russian = "Пучок: %li"
+> extern const char * STR_WINDOW_TITLE_LIVE
+> 	= "Clue - Live!";
+Russian = ""
+> extern const char * STR_GLOBAL_EVENT_SELECTION
+> 	= "Global Event Selection :";
+Russian = "Выбор глобального события"
+> extern const char * STR_CT_CLASS_BIRTH_DESCRIPTION
+> 	= "Class Constructor";
+Russian = "Конструктор класса"
+> extern const char * STR_CT_CLASS_DEATH_DESCRIPTION
+> 	= "Class Destructor";
+Russian = "Деструктор класса"
+> extern const char * STR_CT_METHOD_ENTER_DESCRIPTION
+> 	= "Class Method enter";
+Russian = "Вход метода класса"
+> extern const char * STR_CT_METHOD_EXIT_DESCRIPTION
+> 	= "Class Method exit";
+Russian = "Выход метода класса"
+> extern const char * STR_CT_AUDIT_SUCCESS_DESCRIPTION
+> 	= "Audit success";
+Russian = "Успех проверки"
+> extern const char * STR_CT_AUDIT_FAILURE_DESCRIPTION
+> 	= "Audit failure";
+Russian = "Провал проверки"
+> extern const char * STR_CT_INFO_DESCRIPTION
+> 	= "Information";
+Russian = "Информация"
+> extern const char * STR_CT_WARNING_DESCRIPTION
+> 	= "Warning";
+Russian = "Предупреждение"
+> extern const char * STR_CT_ERROR_DESCRIPTION
+> 	= "Error";
+Russian = "Ошибка"
+> extern const char * STR_EVENT_QUEUE_LENGTH
+> 	= "Event Queue Length (%li)";
+Russian = "Длина очереди событий"
+> extern const char * STR_EVENT_QUEUE_LIMIT_HIGH
+> 	= "100,000";
+Russian = "100 000"
+> extern const char * STR_TEAM_PROPERTY_COLUMN_VIEW
+> 	= "View";
+Russian = "Вид"
+> extern const char * STR_TEAM_PROPERTY_COLUMN_TYPE
+> 	= "Type";
+Russian = "Тип"
+> extern const char * STR_TEAM_PROPERTY_COLUMN_DESCRIPTION
+> 	= "Description";
+Russian = "Описание"
+> extern const char * STR_TEAM_PROPERTY_COLUMN_VALUE
+> 	= "Value";
+Russian = "Значение"
+> extern const char * STR_ABOUT_VERSION
+> 	= "version: %lu.%lu.%lu";
+Russian = ""версия: %lu.%lu.%lu""
+> Jeff Braun
+
+Some terms havent rock-steady translation in russian yet, but I've tryin' to do this task.
+Sergei Dolgov
+
