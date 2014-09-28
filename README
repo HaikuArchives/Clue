@@ -2,9 +2,11 @@ Clue
 
 By:	        Jeff Braun and Mathew Hounsell
 Version:    2.1.0 Alpha/Development for Zeta 1.1.0 (et al)
-Contact:    mat_geek@yahoo.com.au
-Web:        www.beunited.org
+Contact:    mat_geek at yahoo.com.au
+Web:        http://web.archive.org/web/20070826055004/http://brauns.dyndns.org/BeOS/Clue/
 Date:       2006 May 30
+License:    LGPLv2
+Originally from: http://sourceforge.net/projects/clue/
 
 Contained in the Zip file should be:
 
@@ -48,7 +50,7 @@ Mathew Hounsell
 
 P.S. Thank you Jeff Braun for creating and open sourcing this fantastic tool.
 
-P.P.S. A very special thanks goes out to Brian Tietz (btietz@biomail.ucsd.edu)
+P.P.S. A very special thanks goes out to Brian Tietz (btietz at biomail.ucsd.edu)
 for providing code from his SantasGiftBag.  I took out a big portion of his code
 Jeff didn't need, and changed his mouse handling code so that it didn't poll,
 but used the preferred MouseMoved events instead.
