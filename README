@@ -49,8 +49,3 @@ Thanks,
 Mathew Hounsell
 
 P.S. Thank you Jeff Braun for creating and open sourcing this fantastic tool.
-
-P.P.S. A very special thanks goes out to Brian Tietz (btietz at biomail.ucsd.edu)
-for providing code from his SantasGiftBag.  I took out a big portion of his code
-Jeff didn't need, and changed his mouse handling code so that it didn't poll,
-but used the preferred MouseMoved events instead.
