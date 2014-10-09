@@ -553,7 +553,7 @@ TheApp :: MessageReceived
 			PRINT (("MSG_MENU_FILE_IMPORT\n"));
 			if (!m_OpenPanel)
 			{
-				m_OpenPanel = new BFilePanel (B_OPEN_PANEL, NULL, NULL, 0, true, NULL, new RefFilter);
+				m_OpenPanel = new BFilePanel(B_OPEN_PANEL, NULL, NULL, 0, true);
 				SetFilePanelColors ();
 
 			}

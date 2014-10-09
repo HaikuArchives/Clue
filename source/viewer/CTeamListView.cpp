@@ -10,6 +10,7 @@
 include header files
 ***************************************************************/
 #define DEBUG 1
+#define CLUE_ON_ZETA_HACK
 #include <Window.h>
 #include <Menu.h>
 #include <MenuItem.h>

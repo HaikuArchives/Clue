@@ -5,11 +5,7 @@
 #include <View.h>
 #endif
 
-#ifdef CLUE_ON_ZETA_HACK
-#ifndef _TEXT_CONTROL_H
 #include <TextControl.h>
-#endif
-#endif
 
 class BOutlineListView;
 class BListItem;
