@@ -3,9 +3,7 @@
 
 #include "ClueBuild.h"
 
-#if defined(CLUE_ON_ZETA_HACK) && defined(CLUE_FOR_ZETA_GL)
 #include <OpenGLKit.h>
-#endif
 
 void GetStatusTDescription (BString &, status_t, int32, const char *);
 

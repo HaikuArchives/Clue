@@ -87,11 +87,13 @@ Inspect_BTranslatorRoster
 
 		int32 aInt32A (0);
 		int32 aInt32B (0);
+		const char* pChar = NULL;
+		/* // Removed by waddlesplash, Haiku doesn't support ->Version()
 		const char * pChar (inValue->Version (&aInt32A, &aInt32B));
 
 		if (NULL != pChar)
 			strDetails << tabindent << "Version= " << pChar << ", CurVersion= " << aInt32A << ", MinVersion= " << aInt32B << g_pNewline;
-		else
+		else */
 			strDetails << tabindent << "Version= " << ", CurVersion= " << aInt32A << ", MinVersion= " << aInt32B << g_pNewline;
 
 		translator_id * ids (NULL);

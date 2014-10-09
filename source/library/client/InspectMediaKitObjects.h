@@ -3,6 +3,7 @@
 
 class BMultiChannelControl;
 class BMediaEncoder;
+class BMediaDecoder;
 
 void Inspect_BMediaEncoder (BString &, BMediaEncoder *, int32, const char *);
 void Inspect_BMultiChannelControl (BString &, BMultiChannelControl *, int32, const char *);

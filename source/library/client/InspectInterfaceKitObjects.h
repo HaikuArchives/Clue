@@ -7,7 +7,7 @@ void Inspect_BAlert (BString &, BAlert *, int32, const char *);
 void Inspect_BBitmap (BString &, BBitmap *, int32, const char *);
 void Inspect_BBox (BString &, BBox *, int32, const char *);
 void Inspect_BButton (BString &, BButton *, int32, const char *);
-#ifndef CLUE_ON_ZETA_HACK
+#ifdef CLUE_ON_ZETA_HACK
 	void Inspect_BChannelControl (BString &, BChannelControl *, int32, const char *);
 	void Inspect_BChannelSlider (BString &, BChannelSlider *, int32, const char *);
 #endif
@@ -23,10 +23,6 @@ void Inspect_BMenu (BString &, BMenu *, int32, const char *);
 void Inspect_BMenuBar (BString &, BMenuBar *, int32, const char *);
 void Inspect_BMenuField (BString &, BMenuField *, int32, const char *);
 void Inspect_BMenuItem (BString &, BMenuItem *, int32, const char *);
-#ifndef CLUE_ON_ZETA_HACK
-	void Inspect_BOptionControl (BString &, BOptionControl *, int32, const char *);
-	void Inspect_BOptionPopUp (BString &, BOptionPopUp *, int32, const char *);
-#endif
 void Inspect_BOutlineListView (BString &, BOutlineListView *, int32, const char *);
 void Inspect_BPicture (BString &, BPicture *, int32, const char *);
 void Inspect_BPictureButton (BString &, BPictureButton *, int32, const char *);

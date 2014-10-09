@@ -1,6 +1,8 @@
 #include "ClueBuild.h"
 #include <Be.h>
 
+#include <MediaDefs.h>
+
 #include <UnicodeBlockObjects.h>
 
 #include "Inspect_Enums.h"
@@ -1201,16 +1203,10 @@ Inspect_Struct_mouse_map
 
 	if (NULL != inValue)
 	{
-#ifdef CLUE_ON_ZETA_HACK
 		for (int i = 0; i < 3; ++i)
 		{
 	 		strDetails << tabindent << "button[" << i << "]=" << inValue->button[i] << g_pNewline;
 		}
-#else
- 		strDetails << tabindent << "left= " << inValue->left << g_pNewline;
-		strDetails << tabindent << "right= " << inValue->right << g_pNewline;
-		strDetails << tabindent << "middle= " << inValue->middle << g_pNewline;
-#endif
 	}
 	else
 	{
@@ -1363,59 +1359,12 @@ Inspect_Struct_flavor_info
 
 		GetHexString (hexbuf, (int32) inValue->kinds);
 		strDetails << tabindent << "kinds= (" << hexbuf << "), ";
-#ifndef CLUE_ON_ZETA_HACK
-		if (B_BUFFER_PRODUCER & inValue)
-		{
-			strDetails << "B_BUFFER_PRODUCER, ";
-		}
-		if (B_BUFFER_CONSUMER & inValue)
-		{
-			strDetails << "B_BUFFER_CONSUMER, ";
-		}
-		if (B_TIME_SOURCE & inValue)
-		{
-			strDetails << "B_TIME_SOURCE, ";
-		}
-		if (B_CONTROLLABLE & inValue)
-		{
-			strDetails << "B_CONTROLLABLE, ";
-		}
-		if (B_FILE_INTERFACE & inValue)
-		{
-			strDetails << "B_FILE_INTERFACE, ";
-		}
-		if (B_ENTITY_INTERFACE & inValue)
-		{
-			strDetails << "B_ENTITY_INTERFACE, ";
-		}
-		if (B_PHYSICAL_INPUT & inValue)
-		{
-			strDetails << "B_PHYSICAL_INPUT, ";
-		}
-		if (B_PHYSICAL_OUTPUT & inValue)
-		{
-			strDetails << "B_PHYSICAL_OUTPUT, ";
-		}
-		if (B_SYSTEM_MIXER & inValue)
-		{
-			strDetails << "B_SYSTEM_MIXER, ";
-		}
-#endif
 		strDetails.RemoveLast (",");
 		strDetails << g_pNewline;
 
 		GetHexString (hexbuf, (int32) inValue->flavor_flags);
 		strDetails << tabindent << "flavor_flags= (" << hexbuf << "), ";
-#ifndef CLUE_ON_ZETA_HACK
-		if (B_FLAVOR_IS_GLOBAL & inValue)
-		{
-			strDetails << "B_FLAVOR_IS_GLOBAL, ";
-		}
-		if (B_FLAVOR_IS_LOCAL & inValue)
-		{
-			strDetails << "B_FLAVOR_IS_LOCAL, ";
-		}
-#endif
+
 		strDetails.RemoveLast (",");
 		strDetails << g_pNewline;
 
@@ -1766,28 +1715,14 @@ Inspect_Struct_media_encoded_audio_format
 
 	if (NULL != inValue)
 	{
-#ifndef CLUE_ON_ZETA_HACK
-		Inspect_Struct_media_raw_audio_format (strDetails, inValue->output, inIndent, "output= ");
-#endif
-
 		GetHexString (hexbuf, (int32) inValue->encoding);
 		strDetails << tabindent << "encoding= (" << hexbuf << "), ";
-#ifndef CLUE_ON_ZETA_HACK
-		if (B_ANY & inValue)
-		{
-			strDetails << "B_ANY, ";
-		}
-#endif
 
 		strDetails.RemoveLast (",");
 		strDetails << g_pNewline;
 
 		strDetails << tabindent << "bit_rate= " << inValue->bit_rate << g_pNewline;
 		strDetails << tabindent << "frame_size= " << inValue->frame_size << g_pNewline;
-
-#ifndef CLUE_ON_ZETA_HACK
-		Inspect_Struct_media_multi_audio_info (strDetails, inValue->multi_info, inIndent, "multi_info= ");
-#endif
 
 		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
@@ -1952,9 +1887,6 @@ Inspect_Struct_media_raw_video_format
 		strDetails << tabindent << "orientation= " << inValue->orientation << g_pNewline;
 		strDetails << tabindent << "pixel_width_aspect= " << inValue->pixel_width_aspect << g_pNewline;
 		strDetails << tabindent << "pixel_height_aspect= " << inValue->pixel_height_aspect << g_pNewline;
-#ifndef CLUE_ON_ZETA_HACK
-		Inspect_Struct_media_video_display_info (strDetails, inValue->display, inIndent, "display= ");
-#endif
 	}
 	else
 	{
@@ -2053,18 +1985,9 @@ Inspect_Struct_media_encoded_video_format
 
 	if (NULL != inValue)
 	{
-#ifndef CLUE_ON_ZETA_HACK
-		Inspect_Struct_media_raw_video_format (strDetails, inValue->output, inIndent, "output= ");
-#endif
 		strDetails << tabindent << "avg_bit_rate= " << inValue->avg_bit_rate << g_pNewline;
 		strDetails << tabindent << "max_bit_rate= " << inValue->max_bit_rate << g_pNewline;
 		strDetails << tabindent << "encoding= " << inValue->encoding;
-#ifndef CLUE_ON_ZETA_HACK
-		if (B_ANY == inValue->encoding)
-		{
-			strDetails << ", B_ANY";
-		}
-#endif
 		strDetails << g_pNewline;
 		strDetails << tabindent << "frame_size= " << inValue->frame_size << g_pNewline;
 		strDetails << tabindent << "forward_history= " << inValue->forward_history << g_pNewline;
@@ -2246,15 +2169,15 @@ Inspect_Struct_media_multistream_format
 		GetHexString (hexbuf, (int32) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << ", " << inValue->flags << "), ";
 #ifndef CLUE_ON_ZETA_HACK
-		if (B_HEADER_HAS_FLAGS & inValue->flags)
+		if (media_multistream_format::B_HEADER_HAS_FLAGS & inValue->flags)
 		{
 			strDetails << "B_HEADER_HAS_FLAGS, ";
 		}
-		if (B_CLEAN_BUFFERS & inValue->flags)
+		if (media_multistream_format::B_CLEAN_BUFFERS & inValue->flags)
 		{
 			strDetails << "B_CLEAN_BUFFERS, ";
 		}
-		if (B_HOMOGENOUS_BUFFERS & inValue->flags)
+		if (media_multistream_format::B_HOMOGENOUS_BUFFERS & inValue->flags)
 		{
 			strDetails << "B_HOMOGENOUS_BUFFERS, ";
 		}
@@ -2264,11 +2187,11 @@ Inspect_Struct_media_multistream_format
 
 		strDetails << tabindent << "format= " << inValue->format;
 #ifndef CLUE_ON_ZETA_HACK
-		if (inValue->format >= B_FIRST_USER_TYPE)
+		if (inValue->format >= media_multistream_format::B_FIRST_USER_TYPE)
 		{
 			strDetails << ", B_FIRST_USER_TYPE range\n";
 		}
-		else if (inValue->format >= B_PRIVATE)
+		else if (inValue->format >= media_multistream_format::B_PRIVATE)
 		{
 			strDetails << ", B_PRIVATE range\n";
 		}
@@ -2276,22 +2199,22 @@ Inspect_Struct_media_multistream_format
 		{
 			switch (inValue->format)
 			{
-			case B_ANY:
+			case media_multistream_format::B_ANY:
 				strDetails << ", B_ANY\n";
 				break;
-			case B_VID:
+			case media_multistream_format::B_VID:
 				strDetails << ", B_VID\n";
 				break;
-			case B_AVI:
+			case media_multistream_format::B_AVI:
 				strDetails << ", B_AVI\n";
 				break;
-			case B_MPEG1:
+			case media_multistream_format::B_MPEG1:
 				strDetails << ", B_MPEG1\n";
 				break;
-			case B_MPEG2:
+			case media_multistream_format::B_MPEG2:
 				strDetails << ", B_MPEG2\n";
 				break;
-			case B_QUICKTIME:
+			case media_multistream_format::B_QUICKTIME:
 				strDetails << ", B_QUICKTIME\n";
 				break;
 			default:
@@ -2362,15 +2285,15 @@ Inspect_Struct_media_multistream_header
 		GetHexString (hexbuf, aUint32);
 		strDetails << tabindent << "flags= (" << hexbuf << ", " << aUint32 << "), ";
 #ifndef CLUE_ON_ZETA_HACK
-		if (B_MASTER_HEADER & aUint32)
+		if (media_multistream_header::B_MASTER_HEADER & aUint32)
 		{
 			strDetails << "B_MASTER_HEADER, ";
 		}
-		if (B_SUBSTREAM_HEADER & aUint32)
+		if (media_multistream_header::B_SUBSTREAM_HEADER & aUint32)
 		{
 			strDetails << "B_SUBSTREAM_HEADER, ";
 		}
-		if (B_COMPLETE_BUFFER & aUint32)
+		if (media_multistream_header::B_COMPLETE_BUFFER & aUint32)
 		{
 			strDetails << "B_COMPLETE_BUFFER, ";
 		}

@@ -2137,82 +2137,7 @@ Inspect_Enum_mail_flags
 }
 
 
-/***************************************************************
-defined in FindDirectory.h as:
-typedef enum {
-	//	Per volume directories.  When asking for these
-	//	directories, a volume must be specified, or the call will assume
-	//	the boot volume.
-
-	B_DESKTOP_DIRECTORY				= 0,
-	B_TRASH_DIRECTORY,
-
-	//	BeOS directories.  These are mostly accessed read-only.
-
-	B_BEOS_DIRECTORY				= 1000,
-	B_BEOS_SYSTEM_DIRECTORY,
-	B_BEOS_ADDONS_DIRECTORY,
-	B_BEOS_BOOT_DIRECTORY,
-	B_BEOS_FONTS_DIRECTORY,
-	B_BEOS_LIB_DIRECTORY,
- 	B_BEOS_SERVERS_DIRECTORY,
-	B_BEOS_APPS_DIRECTORY,
-	B_BEOS_BIN_DIRECTORY,
-	B_BEOS_ETC_DIRECTORY,
-	B_BEOS_DOCUMENTATION_DIRECTORY,
-	B_BEOS_PREFERENCES_DIRECTORY,
-	B_BEOS_TRANSLATORS_DIRECTORY,
-	B_BEOS_MEDIA_NODES_DIRECTORY,
-	B_BEOS_SOUNDS_DIRECTORY,
-
-	//	Common directories, shared among all users.
-
-	B_COMMON_DIRECTORY				= 2000,
-	B_COMMON_SYSTEM_DIRECTORY,
-	B_COMMON_ADDONS_DIRECTORY,
-	B_COMMON_BOOT_DIRECTORY,
-	B_COMMON_FONTS_DIRECTORY,
-	B_COMMON_LIB_DIRECTORY,
-	B_COMMON_SERVERS_DIRECTORY,
-	B_COMMON_BIN_DIRECTORY,
-	B_COMMON_ETC_DIRECTORY,
-	B_COMMON_DOCUMENTATION_DIRECTORY,
-	B_COMMON_SETTINGS_DIRECTORY,
-	B_COMMON_DEVELOP_DIRECTORY,
-	B_COMMON_LOG_DIRECTORY,
-	B_COMMON_SPOOL_DIRECTORY,
-	B_COMMON_TEMP_DIRECTORY,
-	B_COMMON_VAR_DIRECTORY,
-	B_COMMON_TRANSLATORS_DIRECTORY,
-	B_COMMON_MEDIA_NODES_DIRECTORY,
-	B_COMMON_SOUNDS_DIRECTORY,
-
-
-	//	User directories.  These are interpreted in the context
-	//	of the user making the find_directory call.
-
-	B_USER_DIRECTORY				= 3000,
-	B_USER_CONFIG_DIRECTORY,
-	B_USER_ADDONS_DIRECTORY,
-	B_USER_BOOT_DIRECTORY,
-	B_USER_FONTS_DIRECTORY,
-	B_USER_LIB_DIRECTORY,
-	B_USER_SETTINGS_DIRECTORY,
-	B_USER_DESKBAR_DIRECTORY,
-	B_USER_PRINTERS_DIRECTORY,
-	B_USER_TRANSLATORS_DIRECTORY,
-	B_USER_MEDIA_NODES_DIRECTORY,
-	B_USER_SOUNDS_DIRECTORY,
-
-	//	Global directories.
-
-	B_APPS_DIRECTORY				= 4000,
-	B_PREFERENCES_DIRECTORY,
-	B_UTILITIES_DIRECTORY
-
-} directory_which;
-
-***************************************************************/
+// TODO: B_USER_...
 void
 Inspect_Enum_directory_which
 	(
@@ -2240,107 +2165,77 @@ Inspect_Enum_directory_which
 		case B_TRASH_DIRECTORY:
 			strDetails << "B_TRASH_DIRECTORY\n";
 			break;
-		case B_BEOS_DIRECTORY:
-			strDetails << "B_BEOS_DIRECTORY\n";
+		case B_SYSTEM_DIRECTORY:
+			strDetails << "B_SYSTEM_DIRECTORY\n";
 			break;
-		case B_BEOS_SYSTEM_DIRECTORY:
-			strDetails << "B_BEOS_SYSTEM_DIRECTORY\n";
+		case B_SYSTEM_ADDONS_DIRECTORY:
+			strDetails << "B_SYSTEM_ADDONS_DIRECTORY\n";
 			break;
-		case B_BEOS_ADDONS_DIRECTORY:
-			strDetails << "B_BEOS_ADDONS_DIRECTORY\n";
+		case B_SYSTEM_BOOT_DIRECTORY:
+			strDetails << "B_SYSTEM_BOOT_DIRECTORY\n";
 			break;
-		case B_BEOS_BOOT_DIRECTORY:
-			strDetails << "B_BEOS_BOOT_DIRECTORY\n";
+		case B_SYSTEM_FONTS_DIRECTORY:
+			strDetails << "B_SYSTEM_FONTS_DIRECTORY\n";
 			break;
-		case B_BEOS_FONTS_DIRECTORY:
-			strDetails << "B_BEOS_FONTS_DIRECTORY\n";
+		case B_SYSTEM_LIB_DIRECTORY:
+			strDetails << "B_SYSTEM_LIB_DIRECTORY\n";
 			break;
-		case B_BEOS_LIB_DIRECTORY:
-			strDetails << "B_BEOS_LIB_DIRECTORY\n";
+		case B_SYSTEM_SERVERS_DIRECTORY:
+			strDetails << "B_SYSTEM_SERVERS_DIRECTORY\n";
 			break;
-		case B_BEOS_SERVERS_DIRECTORY:
-			strDetails << "B_BEOS_SERVERS_DIRECTORY\n";
+		case B_SYSTEM_APPS_DIRECTORY:
+			strDetails << "B_SYSTEM_APPS_DIRECTORY\n";
 			break;
-		case B_BEOS_APPS_DIRECTORY:
-			strDetails << "B_BEOS_APPS_DIRECTORY\n";
+		case B_SYSTEM_BIN_DIRECTORY:
+			strDetails << "B_SYSTEM_BIN_DIRECTORY\n";
 			break;
-		case B_BEOS_BIN_DIRECTORY:
-			strDetails << "B_BEOS_BIN_DIRECTORY\n";
+		case B_SYSTEM_ETC_DIRECTORY:
+			strDetails << "B_SYSTEM_ETC_DIRECTORY\n";
 			break;
-		case B_BEOS_ETC_DIRECTORY:
-			strDetails << "B_BEOS_ETC_DIRECTORY\n";
+		case B_SYSTEM_DOCUMENTATION_DIRECTORY:
+			strDetails << "B_SYSTEM_DOCUMENTATION_DIRECTORY\n";
 			break;
-		case B_BEOS_DOCUMENTATION_DIRECTORY:
-			strDetails << "B_BEOS_DOCUMENTATION_DIRECTORY\n";
+		case B_SYSTEM_PREFERENCES_DIRECTORY:
+			strDetails << "B_SYSTEM_PREFERENCES_DIRECTORY\n";
 			break;
-		case B_BEOS_PREFERENCES_DIRECTORY:
-			strDetails << "B_BEOS_PREFERENCES_DIRECTORY\n";
+		case B_SYSTEM_TRANSLATORS_DIRECTORY:
+			strDetails << "B_SYSTEM_TRANSLATORS_DIRECTORY\n";
 			break;
-		case B_BEOS_TRANSLATORS_DIRECTORY:
-			strDetails << "B_BEOS_TRANSLATORS_DIRECTORY\n";
+		case B_SYSTEM_MEDIA_NODES_DIRECTORY:
+			strDetails << "B_SYSTEM_MEDIA_NODES_DIRECTORY\n";
 			break;
-		case B_BEOS_MEDIA_NODES_DIRECTORY:
-			strDetails << "B_BEOS_MEDIA_NODES_DIRECTORY\n";
+		case B_SYSTEM_SOUNDS_DIRECTORY:
+			strDetails << "B_SYSTEM_SOUNDS_DIRECTORY\n";
 			break;
-		case B_BEOS_SOUNDS_DIRECTORY:
-			strDetails << "B_BEOS_SOUNDS_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_DIRECTORY\n";
 			break;
-		case B_COMMON_DIRECTORY:
-			strDetails << "B_COMMON_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_ADDONS_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_ADDONS_DIRECTORY\n";
 			break;
-		case B_COMMON_SYSTEM_DIRECTORY:
-			strDetails << "B_COMMON_SYSTEM_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_FONTS_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_FONTS_DIRECTORY\n";
 			break;
-		case B_COMMON_ADDONS_DIRECTORY:
-			strDetails << "B_COMMON_ADDONS_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_LIB_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_LIB_DIRECTORY\n";
 			break;
-		case B_COMMON_BOOT_DIRECTORY:
-			strDetails << "B_COMMON_BOOT_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_BIN_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_BIN_DIRECTORY\n";
 			break;
-		case B_COMMON_FONTS_DIRECTORY:
-			strDetails << "B_COMMON_FONTS_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_DOCUMENTATION_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_DOCUMENTATION_DIRECTORY\n";
 			break;
-		case B_COMMON_LIB_DIRECTORY:
-			strDetails << "B_COMMON_LIB_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_DEVELOP_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_DEVELOP_DIRECTORY\n";
 			break;
-		case B_COMMON_SERVERS_DIRECTORY:
-			strDetails << "B_COMMON_SERVERS_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_TRANSLATORS_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_TRANSLATORS_DIRECTORY\n";
 			break;
-		case B_COMMON_BIN_DIRECTORY:
-			strDetails << "B_COMMON_BIN_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_MEDIA_NODES_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_MEDIA_NODES_DIRECTORY\n";
 			break;
-		case B_COMMON_ETC_DIRECTORY:
-			strDetails << "B_COMMON_ETC_DIRECTORY\n";
-			break;
-		case B_COMMON_DOCUMENTATION_DIRECTORY:
-			strDetails << "B_COMMON_DOCUMENTATION_DIRECTORY\n";
-			break;
-		case B_COMMON_SETTINGS_DIRECTORY:
-			strDetails << "B_COMMON_SETTINGS_DIRECTORY\n";
-			break;
-		case B_COMMON_DEVELOP_DIRECTORY:
-			strDetails << "B_COMMON_DEVELOP_DIRECTORY\n";
-			break;
-		case B_COMMON_LOG_DIRECTORY:
-			strDetails << "B_COMMON_LOG_DIRECTORY\n";
-			break;
-		case B_COMMON_SPOOL_DIRECTORY:
-			strDetails << "B_COMMON_SPOOL_DIRECTORY\n";
-			break;
-		case B_COMMON_TEMP_DIRECTORY:
-			strDetails << "B_COMMON_TEMP_DIRECTORY\n";
-			break;
-		case B_COMMON_VAR_DIRECTORY:
-			strDetails << "B_COMMON_VAR_DIRECTORY\n";
-			break;
-		case B_COMMON_TRANSLATORS_DIRECTORY:
-			strDetails << "B_COMMON_TRANSLATORS_DIRECTORY\n";
-			break;
-		case B_COMMON_MEDIA_NODES_DIRECTORY:
-			strDetails << "B_COMMON_MEDIA_NODES_DIRECTORY\n";
-			break;
-		case B_COMMON_SOUNDS_DIRECTORY:
-			strDetails << "B_COMMON_SOUNDS_DIRECTORY\n";
+		case B_SYSTEM_NONPACKAGED_SOUNDS_DIRECTORY:
+			strDetails << "B_SYSTEM_NONPACKAGED_SOUNDS_DIRECTORY\n";
 			break;
 		case B_USER_DIRECTORY:
 			strDetails << "B_USER_DIRECTORY\n";
@@ -4687,301 +4582,6 @@ Inspect_Enum_thread_state
 	}
 }
 
-
-/***************************************************************
-defined in OS.h as:
-typedef enum cpu_types {
-	B_CPU_PPC_601	= 1,
-	B_CPU_PPC_603	= 2,
-	B_CPU_PPC_603e	= 3,
-	B_CPU_PPC_604	= 4,
-	B_CPU_PPC_604e	= 5,
-	B_CPU_PPC_750   = 6,
-	B_CPU_PPC_686	= 13,
-	B_CPU_AMD_29K,
-	B_CPU_X86,
-	B_CPU_MC6502,
-	B_CPU_Z80,
-	B_CPU_ALPHA,
-	B_CPU_MIPS,
-	B_CPU_HPPA,
-	B_CPU_M68K,
-	B_CPU_ARM,
-	B_CPU_SH,
-	B_CPU_SPARC,
-
-	B_CPU_INTEL_X86 = 0x1000,
-	B_CPU_INTEL_PENTIUM = 0x1051,
-	B_CPU_INTEL_PENTIUM75,
-	B_CPU_INTEL_PENTIUM_486_OVERDRIVE,
-	B_CPU_INTEL_PENTIUM_MMX,
-	B_CPU_INTEL_PENTIUM_MMX_MODEL_4 = B_CPU_INTEL_PENTIUM_MMX,
-	B_CPU_INTEL_PENTIUM_MMX_MODEL_8 = 0x1058,
-	B_CPU_INTEL_PENTIUM75_486_OVERDRIVE,
-	B_CPU_INTEL_PENTIUM_PRO = 0x1061,
-	B_CPU_INTEL_PENTIUM_II = 0x1063,
-	B_CPU_INTEL_PENTIUM_II_MODEL_3 = 0x1063,
-	B_CPU_INTEL_PENTIUM_II_MODEL_5 = 0x1065,
-	B_CPU_INTEL_CELERON = 0x1066,
-	B_CPU_INTEL_PENTIUM_III = 0x1067,
-	B_CPU_INTEL_PENTIUM_III_MODEL_8 = 0x1068,
-	
-	B_CPU_AMD_X86 = 0x1100,
-	B_CPU_AMD_K5_MODEL0 = 0x1150,
-	B_CPU_AMD_K5_MODEL1,
-	B_CPU_AMD_K5_MODEL2,
-	B_CPU_AMD_K5_MODEL3,
-
-	B_CPU_AMD_K6_MODEL6 = 0x1156,
-	B_CPU_AMD_K6_MODEL7 = 0x1157,
-
-	B_CPU_AMD_K6_MODEL8 = 0x1158,
-	B_CPU_AMD_K6_2 = 0x1158,
-
-	B_CPU_AMD_K6_MODEL9 = 0x1159,
-	B_CPU_AMD_K6_III = 0x1159,
-	
-	B_CPU_AMD_ATHLON_MODEL1 = 0x1161,
-
-	B_CPU_CYRIX_X86 = 0x1200,
-	B_CPU_CYRIX_GXm = 0x1254,
-	B_CPU_CYRIX_6x86MX = 0x1260,
-
-	B_CPU_IDT_X86 = 0x1300,
-	B_CPU_IDT_WINCHIP_C6 = 0x1354,
-	B_CPU_IDT_WINCHIP_2 = 0x1358,
-	
-	B_CPU_RISE_X86 = 0x1400,
-	B_CPU_RISE_mP6 = 0x1450
-
-} cpu_type;
-
-TODO: this will take a bit longer to do than I'm willing right now!
-***************************************************************/
-void
-Inspect_Enum_cpu_type
-	(
-	BString & strDetails
-,	cpu_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
-{
-	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
-		tabindent << g_pIndentation;
-	}
-
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
-	strDetails << tabindent << pDescription << "[cpu_type enum, " << hexbuf << "] ";
-
-	switch (inValue)
-	{
-	case B_CPU_PPC_601:
-		strDetails << "B_CPU_PPC_601\n";
-		break;
-	case B_CPU_PPC_603:
-		strDetails << "B_CPU_PPC_603\n";
-		break;
-	case B_CPU_PPC_603e:
-		strDetails << "B_CPU_PPC_603e\n";
-		break;
-	case B_CPU_PPC_604:
-		strDetails << "B_CPU_PPC_604\n";
-		break;
-	case B_CPU_PPC_604e:
-		strDetails << "B_CPU_PPC_604e\n";
-		break;
-	case B_CPU_PPC_750:
-		strDetails << "B_CPU_PPC_750\n";
-		break;
-	case B_CPU_PPC_686:
-		strDetails << "B_CPU_PPC_686\n";
-		break;
-	case B_CPU_AMD_29K:
-		strDetails << "B_CPU_AMD_29K\n";
-		break;
-	case B_CPU_X86:
-		strDetails << "B_CPU_X86\n";
-		break;
-	case B_CPU_MC6502:
-		strDetails << "B_CPU_MC6502\n";
-		break;
-	case B_CPU_Z80:
-		strDetails << "B_CPU_Z80\n";
-		break;
-	case B_CPU_ALPHA:
-		strDetails << "B_CPU_ALPHA\n";
-		break;
-	case B_CPU_MIPS:
-		strDetails << "B_CPU_MIPS\n";
-		break;
-	case B_CPU_HPPA:
-		strDetails << "B_CPU_HPPA\n";
-		break;
-	case B_CPU_M68K:
-		strDetails << "B_CPU_M68K\n";
-		break;
-	case B_CPU_ARM:
-		strDetails << "B_CPU_ARM\n";
-		break;
-	case B_CPU_SH:
-		strDetails << "B_CPU_SH\n";
-		break;
-	default:
-		if (B_CPU_INTEL_X86 == (B_CPU_X86_VENDOR_MASK & inValue))
-		{
-			strDetails << "B_CPU_INTEL_X86";
-			switch (inValue)
-			{
-				case B_CPU_INTEL_PENTIUM:
-					strDetails << ", B_CPU_INTEL_PENTIUM";
-					break;
-				case B_CPU_INTEL_PENTIUM75:
-					strDetails << ", B_CPU_INTEL_PENTIUM75";
-					break;
-				case B_CPU_INTEL_PENTIUM_486_OVERDRIVE:
-					strDetails << ", B_CPU_INTEL_PENTIUM_486_OVERDRIVE";
-					break;
-//				case B_CPU_INTEL_PENTIUM_MMX:
-//					strDetails << ", B_CPU_INTEL_PENTIUM_MMX";
-//					break;
-				case B_CPU_INTEL_PENTIUM_MMX_MODEL_4: //B_CPU_INTEL_PENTIUM_MMX
-					strDetails << ", B_CPU_INTEL_PENTIUM_MMX_MODEL_4";
-					break;
-				case B_CPU_INTEL_PENTIUM_MMX_MODEL_8:
-					strDetails << ", B_CPU_INTEL_PENTIUM_MMX_MODEL_8";
-					break;
-				case B_CPU_INTEL_PENTIUM75_486_OVERDRIVE:
-					strDetails << ", B_CPU_INTEL_PENTIUM75_486_OVERDRIVE";
-					break;
-				case B_CPU_INTEL_PENTIUM_PRO:
-					strDetails << ", B_CPU_INTEL_PENTIUM_PRO";
-					break;
-//				case B_CPU_INTEL_PENTIUM_II:
-//					strDetails << ", B_CPU_INTEL_PENTIUM_II";
-//					break;
-				case B_CPU_INTEL_PENTIUM_II_MODEL_3: //B_CPU_INTEL_PENTIUM_II
-					strDetails << ", B_CPU_INTEL_PENTIUM_II_MODEL_3";
-					break;
-				case B_CPU_INTEL_PENTIUM_II_MODEL_5:
-					strDetails << ", B_CPU_INTEL_PENTIUM_II_MODEL_5";
-					break;
-				case B_CPU_INTEL_CELERON:
-					strDetails << ", B_CPU_INTEL_CELERON";
-					break;
-				case B_CPU_INTEL_PENTIUM_III:
-					strDetails << ", B_CPU_INTEL_PENTIUM_III";
-					break;
-				case B_CPU_INTEL_PENTIUM_III_MODEL_8:
-					strDetails << ", B_CPU_INTEL_PENTIUM_III_MODEL_8";
-					break;
-				default:
-					strDetails << ", unknown variant";
-					break;
-			}
-		}
-		else if (B_CPU_AMD_X86 == (B_CPU_X86_VENDOR_MASK & inValue))
-		{
-			strDetails << "B_CPU_AMD_X86";
-			switch (inValue)
-			{
-				case B_CPU_AMD_K5_MODEL0:
-					strDetails << ", B_CPU_AMD_K5_MODEL0";
-					break;
-				case B_CPU_AMD_K5_MODEL1:
-					strDetails << ", B_CPU_AMD_K5_MODEL1";
-					break;
-				case B_CPU_AMD_K5_MODEL2:
-					strDetails << ", B_CPU_AMD_K5_MODEL2";
-					break;
-				case B_CPU_AMD_K5_MODEL3:
-					strDetails << ", B_CPU_AMD_K5_MODEL3";
-					break;
-				case B_CPU_AMD_K6_MODEL6:
-					strDetails << ", B_CPU_AMD_K6_MODEL6";
-					break;
-				case B_CPU_AMD_K6_MODEL7:
-					strDetails << ", B_CPU_AMD_K6_MODEL7";
-					break;
-//				case B_CPU_AMD_K6_MODEL8:
-//					strDetails << ", B_CPU_AMD_K6_MODEL8";
-//					break;
-				case B_CPU_AMD_K6_2: //also B_CPU_AMD_K6_MODEL8
-					strDetails << ", B_CPU_AMD_K6_2";
-					break;
-//				case B_CPU_AMD_K6_MODEL9:
-//					strDetails << ", B_CPU_AMD_K6_MODEL9";
-//					break;
-				case B_CPU_AMD_K6_III: //B_CPU_AMD_K6_MODEL9
-					strDetails << ", B_CPU_AMD_K6_III";
-					break;
-				case B_CPU_AMD_ATHLON_MODEL1:
-					strDetails << ", B_CPU_AMD_ATHLON_MODEL1";
-					break;
-				default:
-					strDetails << ", unknown variant";
-					break;
-			}
-		}
-		else if (B_CPU_CYRIX_X86 == (B_CPU_X86_VENDOR_MASK & inValue))
-		{
-			strDetails << "B_CPU_CYRIX_X86";
-			switch (inValue)
-			{
-				case B_CPU_CYRIX_GXm:
-					strDetails << ", B_CPU_CYRIX_GXm";
-					break;
-				case B_CPU_CYRIX_6x86MX:
-					strDetails << ", B_CPU_CYRIX_6x86MX";
-					break;
-				default:
-					strDetails << ", unknown variant";
-					break;
-			}
-		}
-		else if (B_CPU_IDT_X86 == (B_CPU_X86_VENDOR_MASK & inValue))
-		{
-			strDetails << "B_CPU_IDT_X86";
-			switch (inValue)
-			{
-				case B_CPU_IDT_WINCHIP_C6:
-					strDetails << ", B_CPU_IDT_WINCHIP_C6";
-					break;
-				case B_CPU_IDT_WINCHIP_2:
-					strDetails << ", B_CPU_IDT_WINCHIP_2";
-					break;
-				default:
-					strDetails << ", unknown variant";
-					break;
-			}
-		}
-		else if (B_CPU_RISE_X86 == (B_CPU_X86_VENDOR_MASK & inValue))
-		{
-			strDetails << "B_CPU_RISE_X86";
-			switch (inValue)
-			{
-				case B_CPU_RISE_mP6:
-					strDetails << ", B_CPU_RISE_mP6";
-					break;
-				default:
-					strDetails << ", unknown variant";
-					break;
-			}
-		}
-		else
-		{
-			strDetails << ", unknown variant";
-		}
-
-		strDetails << g_pNewline;
-		break;
-	}
-}
-
-
 /***************************************************************
 defined in PropertyInfo.h as:
 enum value_kind {
@@ -5639,144 +5239,6 @@ Inspect_Enum_window_alignment
 			break;
 		case B_PIXEL_ALIGNMENT:
 			strDetails << "B_PIXEL_ALIGNMENT\n";
-			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-}
-
-
-/***************************************************************
-defined in TranslationErrors.h as:
-enum B_TRANSLATION_ERROR {
-	B_TRANSLATION_BASE_ERROR = B_TRANSLATION_ERROR_BASE,
-	B_NO_TRANSLATOR = B_TRANSLATION_BASE_ERROR,	//	no translator exists for data
-	B_ILLEGAL_DATA,	//	data is not what it said it was
-	// aliases
-	B_NOT_INITIALIZED = B_NO_INIT
-};
-
-***************************************************************/
-void
-Inspect_Enum_B_TRANSLATION_ERROR
-	(
-	BString & strDetails
-,	B_TRANSLATION_ERROR inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
-{
-	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
-		tabindent << g_pIndentation;
-	}
-
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
-	strDetails << tabindent << pDescription << "[B_TRANSLATION_ERROR enum, " << hexbuf << "] ";
-
-	switch (inValue)
-	{
-		case B_NO_TRANSLATOR:
-			strDetails << "B_NO_TRANSLATOR, no translator exists for data\n";
-			break;
-		case B_ILLEGAL_DATA:
-			strDetails << "B_ILLEGAL_DATA, data is not what it said it was\n";
-			break;
-		case B_NOT_INITIALIZED:
-			strDetails << "B_NOT_INITIALIZED\n";
-			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-}
-
-
-/***************************************************************
-defined in OS.h as:
-typedef enum platform_types {
-	B_BEBOX_PLATFORM = 0,
-	B_MAC_PLATFORM,
-	B_AT_CLONE_PLATFORM,
-	B_ENIAC_PLATFORM,
-	B_APPLE_II_PLATFORM,
-	B_CRAY_PLATFORM,
-	B_LISA_PLATFORM,
-	B_TI_994A_PLATFORM,
-	B_TIMEX_SINCLAIR_PLATFORM,
-	B_ORAC_1_PLATFORM,
-	B_HAL_PLATFORM,
-	B_BESM_6_PLATFORM,
-	B_MK_61_PLATFORM,
-	B_NINTENDO_64_PLATFORM
-} platform_type;
-
-***************************************************************/
-void
-Inspect_Enum_platform_type
-	(
-	BString & strDetails
-,	platform_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
-{
-	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
-		tabindent << g_pIndentation;
-	}
-
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
-	strDetails << tabindent << pDescription << "[platform_type enum, " << hexbuf << "] ";
-
-	switch (inValue)
-	{
-		case B_BEBOX_PLATFORM:
-			strDetails << "B_BEBOX_PLATFORM\n";
-			break;
-		case B_MAC_PLATFORM:
-			strDetails << "B_MAC_PLATFORM\n";
-			break;
-		case B_AT_CLONE_PLATFORM:
-			strDetails << "B_AT_CLONE_PLATFORM\n";
-			break;
-		case B_ENIAC_PLATFORM:
-			strDetails << "B_ENIAC_PLATFORM\n";
-			break;
-		case B_APPLE_II_PLATFORM:
-			strDetails << "B_APPLE_II_PLATFORM\n";
-			break;
-		case B_CRAY_PLATFORM:
-			strDetails << "B_CRAY_PLATFORM\n";
-			break;
-		case B_LISA_PLATFORM:
-			strDetails << "B_LISA_PLATFORM\n";
-			break;
-		case B_TI_994A_PLATFORM:
-			strDetails << "B_TI_994A_PLATFORM\n";
-			break;
-		case B_TIMEX_SINCLAIR_PLATFORM:
-			strDetails << "B_TIMEX_SINCLAIR_PLATFORM\n";
-			break;
-		case B_ORAC_1_PLATFORM:
-			strDetails << "B_ORAC_1_PLATFORM\n";
-			break;
-		case B_HAL_PLATFORM:
-			strDetails << "B_HAL_PLATFORM\n";
-			break;
-		case B_BESM_6_PLATFORM:
-			strDetails << "B_BESM_6_PLATFORM\n";
-			break;
-		case B_MK_61_PLATFORM:
-			strDetails << "B_MK_61_PLATFORM\n";
-			break;
-		case B_NINTENDO_64_PLATFORM:
-			strDetails << "B_NINTENDO_64_PLATFORM\n";
 			break;
 		default:
 			strDetails << "unknown\n";

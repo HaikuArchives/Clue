@@ -279,10 +279,6 @@ struct FingerPrint
 	void TraceObject (ClueCategory, ClueEvent, uint32, const char *, const char *, timecode_type, const char * inDescription = NULL);
 #endif
 
-#ifdef _TRANSLATION_ERRORS_H
-	void TraceObject (ClueCategory, ClueEvent, uint32, const char *, const char *, B_TRANSLATION_ERROR, const char * inDescription = NULL);
-#endif
-
 #ifdef _TRANSLATOR_FORMATS_H
 	void TraceObject (ClueCategory, ClueEvent, uint32, const char *, const char *, TranslatorGroups, const char * inDescription = NULL);
 #endif

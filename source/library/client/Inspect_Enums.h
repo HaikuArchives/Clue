@@ -77,7 +77,6 @@ void Inspect_Enum_synth_mode (BString &, synth_mode, int32, const char *);
 void Inspect_Enum_midi_axe (BString &, midi_axe, int32, const char *);
 void Inspect_Enum_icon_size (BString &, icon_size, int32, const char *);
 void Inspect_Enum_thread_state (BString &, thread_state, int32, const char *);
-void Inspect_Enum_cpu_type (BString &, cpu_type, int32, const char *);
 void Inspect_Enum_value_kind (BString &, value_kind, int32, const char *);
 void Inspect_Enum_query_op (BString &, query_op, int32, const char *);
 void Inspect_Enum_data_rate (BString &, data_rate, int32, const char *);
@@ -89,9 +88,6 @@ void Inspect_Enum_interpolation_mode (BString &, interpolation_mode, int32, cons
 void Inspect_Enum_reverb_mode (BString &, reverb_mode, int32, const char *);
 void Inspect_Enum_tab_position (BString &, tab_position, int32, const char *);
 void Inspect_Enum_timecode_type (BString &, timecode_type, int32, const char *);
-void Inspect_Enum_window_alignment (BString &, window_alignment, int32, const char *);
-void Inspect_Enum_B_TRANSLATION_ERROR (BString &, B_TRANSLATION_ERROR, int32, const char *);
-void Inspect_Enum_platform_type (BString &, platform_type, int32, const char *);
 void Inspect_Enum_alert_type (BString &, alert_type, int32, const char *);
 void Inspect_Enum_button_spacing (BString &, button_spacing, int32, const char *);
 void Inspect_Enum_TranslatorGroups (BString &, TranslatorGroups, int32, const char *);
