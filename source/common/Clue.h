@@ -528,7 +528,7 @@ struct FingerPrint
 	void TraceObject (ClueCategory, ClueEvent, uint32, const char *, const char *, BFileInterface *, const char * inDescription = NULL);
 #endif
 
-#ifdef _FONT_H
+#if defined(_FONT_H) || defined (_FONT_H_)
 	void TraceObject (ClueCategory, ClueEvent, uint32, const char *, const char *, unicode_block *, const char * inDescription = NULL);
 	void TraceObject (ClueCategory, ClueEvent, uint32, const char *, const char *, BFont *, const char * inDescription = NULL);
 #endif
