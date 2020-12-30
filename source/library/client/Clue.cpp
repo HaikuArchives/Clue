@@ -3,10 +3,6 @@
 #include <E-mail.h>
 #include <MediaEncoder.h>
 
-#ifndef B_ZETA_VERSION
-#include <MultiChannelControl.h>
-#endif
-
 #ifndef _STDIO_H
 #include <stdio.h>
 #endif
