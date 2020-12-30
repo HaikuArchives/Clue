@@ -30,6 +30,9 @@
 #endif
 
 
+class BPrintJob;
+
+
 class PrintViewa : public BView
 {
 	public:
