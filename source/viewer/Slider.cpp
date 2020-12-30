@@ -43,7 +43,7 @@ Slider :: Slider
 ,	BMessage * message
 ,	int32 minValue
 ,	int32 maxValue
-,	thumb_style thumbType = B_BLOCK_THUMB
+,	thumb_style thumbType
 ,	uint32 resizingMode
 ,	uint32 flags
 	)
