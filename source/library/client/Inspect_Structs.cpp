@@ -2680,9 +2680,7 @@ Inspect_Struct_media_file_format
 	if (NULL != inValue)
 	{
 		strDetails << tabindent << "capabilities= " << inValue->capabilities << g_pNewline;
-#ifndef CLUE_ON_ZETA_HACK
-		Inspect_Struct_media_file_format_id (strDetails, inValue->id, inIndent, "id= ");
-#endif
+		Inspect_Struct_media_file_format_id (strDetails, &inValue->id, inIndent, "id= ");
 		Inspect_Enum_media_format_family (strDetails, inValue->family, inIndent, "family= ");
 		strDetails << tabindent << "version= " << inValue->version << g_pNewline;
 		strDetails << tabindent << "_reserved_[]= not implemented in this release\n";
