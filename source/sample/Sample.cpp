@@ -431,9 +431,10 @@ CView :: MessageReceived
 			BRect rect (Bounds ());
 			TRACE_OBJECT ((CC_INTERFACE, CR_OBJECT, &rect, "a rect"));
 
-			be_app->Lock ();  //needs to be locked!!!
-			TRACE_OBJECT ((CC_APPLICATION, CR_OBJECT, be_app, "be_app"));
-			be_app->Unlock ();
+			//FIXME TRACE_OBJECT for BApplication seems to be missing
+			//be_app->Lock ();  //needs to be locked!!!
+			//TRACE_OBJECT ((CC_APPLICATION, CR_OBJECT, be_app, "be_app"));
+			//be_app->Unlock ();
 
 			TRACE_OBJECT ((CC_APPLICATION, CR_OBJECT, &be_app_messenger, "be_app_messenger"));
 
