@@ -38,8 +38,8 @@
 
 const int32 CREDIT_ENTRIES = 21;
 
-char Credits[CREDIT_ENTRIES][45] =
-{  //123456789012345678901234567890123456789012345
+char Credits[CREDIT_ENTRIES][45] = {
+	//123456789012345678901234567890123456789012345
 	"Clue",
 	"brought to you by these wonderful people:",
 	"----------------------------------------",
@@ -67,10 +67,10 @@ char Credits[CREDIT_ENTRIES][45] =
 /******************************************************************************************************
 *******************************************************************************************************/
 CreditsView :: CreditsView
-	(
+(
 	void
-	)
-:	BView (BRect (0,0,250,150), "Credits View", B_FOLLOW_NONE, B_WILL_DRAW | B_PULSE_NEEDED)
+)
+	:	BView(BRect(0, 0, 250, 150), "Credits View", B_FOLLOW_NONE, B_WILL_DRAW | B_PULSE_NEEDED)
 {
 }
 
@@ -79,34 +79,33 @@ CreditsView :: CreditsView
 *******************************************************************************************************/
 void
 CreditsView :: Draw
-	(
+(
 	BRect updateRect
-	)
+)
 {
-	float tfh (0); //total font height
+	float tfh(0);  //total font height
 //	BFont font;
 	//float parheight (Parent()->Bounds().Height());
 	font_height fh;
-	GetFontHeight (&fh);
+	GetFontHeight(&fh);
 	tfh = fh.ascent + fh.descent + fh.leading;
-/*
-	PRINT (("updaterect: %f, %f.\n",updateRect.top, updateRect.bottom));
-	BRect ptOrg (Frame ());
-	PRINT (("Frame = %f, %f.\n", ptOrg.top, ptOrg.bottom));
- 	BScrollBar * psbar = ((BScrollView *)Parent())->ScrollBar (B_VERTICAL);
-	if (psbar)
-	{
-		float min, max;
-		psbar->GetRange (&min, &max);
-		PRINT (("sbar value = %f, min=%f,  max=%f\n", psbar->Value (), min, max));
-	}	
-	else
-		PRINT (("couldn't get scrollbar.\n"));
-*/
-	for (int32 i (0); i < CREDIT_ENTRIES; i++)
-	{
-		MovePenTo (0, 150 + i * tfh);
-		DrawString (Credits[i]);
+	/*
+		PRINT (("updaterect: %f, %f.\n",updateRect.top, updateRect.bottom));
+		BRect ptOrg (Frame ());
+		PRINT (("Frame = %f, %f.\n", ptOrg.top, ptOrg.bottom));
+	 	BScrollBar * psbar = ((BScrollView *)Parent())->ScrollBar (B_VERTICAL);
+		if (psbar)
+		{
+			float min, max;
+			psbar->GetRange (&min, &max);
+			PRINT (("sbar value = %f, min=%f,  max=%f\n", psbar->Value (), min, max));
+		}
+		else
+			PRINT (("couldn't get scrollbar.\n"));
+	*/
+	for (int32 i(0); i < CREDIT_ENTRIES; i++) {
+		MovePenTo(0, 150 + i * tfh);
+		DrawString(Credits[i]);
 	}
 }
 
@@ -115,25 +114,22 @@ CreditsView :: Draw
 *******************************************************************************************************/
 void
 CreditsView :: GetPreferredSize
-	(
-	float * width
-,	float * height
-	)
+(
+	float* width
+	,	float* height
+)
 {
 	//PRINT (("\n\nGetPrefSize.\n\n\n"));
-	BScrollView * pSV (dynamic_cast<BScrollView *>(Parent ()));
-	if (pSV)
-	{
-		BRect rcParent (pSV->Bounds ());
-		float parheight (rcParent.Height());
+	BScrollView* pSV(dynamic_cast<BScrollView*>(Parent()));
+	if (pSV) {
+		BRect rcParent(pSV->Bounds());
+		float parheight(rcParent.Height());
 		font_height fh;
-		GetFontHeight (&fh);
-		float tfh (fh.ascent + fh.descent + fh.leading);
-		*height = tfh * CREDIT_ENTRIES + parheight;
+		GetFontHeight(&fh);
+		float tfh(fh.ascent + fh.descent + fh.leading);
+		*height = tfh* CREDIT_ENTRIES + parheight;
 		*width = 250;
-	}
-	else
-	{
+	} else {
 		*height = 10;
 		*width = 10;
 	}
@@ -144,15 +140,15 @@ CreditsView :: GetPreferredSize
 *******************************************************************************************************/
 void
 CreditsView :: AttachedToWindow
-	(
+(
 	void
-	)
+)
 {
-	PRINT (("CCreditsView :: AttachedToWindow\n"));
-	rgb_color parview (Parent()->Parent()->ViewColor ());
-	SetViewColor (parview);
-	SetLowColor (parview);//ViewColor ());
-	ResizeToPreferred ();
+	PRINT(("CCreditsView :: AttachedToWindow\n"));
+	rgb_color parview(Parent()->Parent()->ViewColor());
+	SetViewColor(parview);
+	SetLowColor(parview); //ViewColor ());
+	ResizeToPreferred();
 }
 
 
@@ -160,19 +156,15 @@ CreditsView :: AttachedToWindow
 *******************************************************************************************************/
 void
 CreditsView :: Pulse
-	(
+(
 	void
-	)
+)
 {
-	float currheight (Bounds ().Height ());
- 	BScrollBar * psbar (dynamic_cast<BScrollView *>(Parent())->ScrollBar (B_VERTICAL));
-	if (psbar->Value () >= currheight)
-	{
-		ScrollTo (0, 0);
-	}	
+	float currheight(Bounds().Height());
+	BScrollBar* psbar(dynamic_cast<BScrollView*>(Parent())->ScrollBar(B_VERTICAL));
+	if (psbar->Value() >= currheight)
+		ScrollTo(0, 0);
 	else
-	{
-		ScrollBy (0, 2);
-	}
+		ScrollBy(0, 2);
 }
 

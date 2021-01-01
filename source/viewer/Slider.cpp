@@ -1,4 +1,4 @@
-/*	
+/*
 	2000 Jeff Braun
 	web: www.citylinq.com/brauns
 	email1: yobkadon@hotmail.com
@@ -36,24 +36,23 @@ globals
 /***************************************************************
 ***************************************************************/
 Slider :: Slider
-	(
+(
 	BRect frame
-,	const char * name
-,	const char * label
-,	BMessage * message
-,	int32 minValue
-,	int32 maxValue
-,	thumb_style thumbType
-,	uint32 resizingMode
-,	uint32 flags
-	)
-:	BSlider (frame, name, label, message, minValue, maxValue, thumbType, resizingMode, flags)
-,	m_label (NULL)
+	,	const char* name
+	,	const char* label
+	,	BMessage* message
+	,	int32 minValue
+	,	int32 maxValue
+	,	thumb_style thumbType
+	,	uint32 resizingMode
+	,	uint32 flags
+)
+	:	BSlider(frame, name, label, message, minValue, maxValue, thumbType, resizingMode, flags)
+	,	m_label(NULL)
 {
-	if (label)
-	{
-		m_label = new char[strlen (label) + 1];
-		strcpy (m_label, label);
+	if (label) {
+		m_label = new char[strlen(label) + 1];
+		strcpy(m_label, label);
 	}
 }
 
@@ -61,14 +60,12 @@ Slider :: Slider
 /***************************************************************
 ***************************************************************/
 Slider :: ~Slider
-	(
+(
 	void
-	)
+)
 {
 	if (m_label)
-	{
 		delete [] m_label;
-	}
 }
 
 
@@ -76,16 +73,15 @@ Slider :: ~Slider
 ***************************************************************/
 void
 Slider :: SetValue
-	(
+(
 	int32 value
-	)
+)
 {
-	BSlider::SetValue (value);
-	if (m_label)
-	{
-		char str[strlen (m_label) + 11]; //len of string + 1 for null + 10 for max int32 val of 2,147,483,648
-		int32 val (Value ());
-		sprintf (str, m_label, val);
-		SetLabel (str);
+	BSlider::SetValue(value);
+	if (m_label) {
+		char str[strlen(m_label) + 11];  //len of string + 1 for null + 10 for max int32 val of 2,147,483,648
+		int32 val(Value());
+		sprintf(str, m_label, val);
+		SetLabel(str);
 	}
 }

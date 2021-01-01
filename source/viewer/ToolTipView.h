@@ -35,8 +35,8 @@ struct tool_tip {
 	bool				tip_timed_out;
 	BPoint				start;
 	BRect				bounds;
-	class ToolTipView	*tool_tip_view;
-	BWindow				*tool_tip_window;
+	class ToolTipView*	tool_tip_view;
+	BWindow*				tool_tip_window;
 	bigtime_t			start_time;
 	bigtime_t			expire_time;
 	tool_tip_settings	settings;
@@ -44,24 +44,23 @@ struct tool_tip {
 
 
 //====================================================================
-class ToolTipView : public BView
-{
-	public:
-							ToolTipView (tool_tip_settings * settings = NULL);
-							~ToolTipView (void);
-		virtual void		AllAttached (void);
-		virtual void		Draw (BRect);
-		virtual void		MessageReceived (BMessage *);
+class ToolTipView : public BView {
+public:
+	ToolTipView(tool_tip_settings* settings = NULL);
+	~ToolTipView(void);
+	virtual void		AllAttached(void);
+	virtual void		Draw(BRect);
+	virtual void		MessageReceived(BMessage*);
 
-		void				GetSettings (tool_tip_settings *);
-		void				SetSettings (tool_tip_settings *);
-	private:
-		void				AdjustWindow();
-		static status_t		ToolTipThread (tool_tip *);
-	private: //properties
-		char *				fString;
-		thread_id			fThread;
-		tool_tip			fTip;
+	void				GetSettings(tool_tip_settings*);
+	void				SetSettings(tool_tip_settings*);
+private:
+	void				AdjustWindow();
+	static status_t		ToolTipThread(tool_tip*);
+private: //properties
+	char* 				fString;
+	thread_id			fThread;
+	tool_tip			fTip;
 };
 
 #endif //_TOOLTIP_H

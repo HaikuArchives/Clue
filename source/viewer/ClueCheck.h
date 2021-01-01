@@ -20,7 +20,7 @@ bool
 ClueCheckExpr
 (
 	bool								result
-,	char const * const					expression
+	,	char const* const					expression
 )
 {
 	if (! result)
@@ -39,7 +39,7 @@ template <typename T>
 bool
 ClueCheck
 (
-	T const &
+	T const&
 )
 {
 	return (true);

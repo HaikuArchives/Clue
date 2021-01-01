@@ -14,48 +14,42 @@
 //char buf[200 + B_PATH_NAME_LENGTH] = "";
 //char TypeCodeUnknown[20] = "";
 
-extern const char * pTrue;
-extern const char * pFalse;
-extern const char * g_pIndentation;
-extern const char * g_pFailedWithError;
-extern const char * g_pNewline;
+extern const char* pTrue;
+extern const char* pFalse;
+extern const char* g_pIndentation;
+extern const char* g_pFailedWithError;
+extern const char* g_pNewline;
 
 
 /***************************************************************
 ***************************************************************/
 void
 Inspect_BMediaEncoder
-	(
-	BString & strDetails
-,	BMediaEncoder * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaEncoder* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaEncoder object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaEncoder was NULL\n";
-	}
 }
 
 
@@ -63,37 +57,31 @@ Inspect_BMediaEncoder
 ***************************************************************/
 void
 Inspect_BMultiChannelControl
-	(
-	BString & strDetails
-,	BMultiChannelControl * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMultiChannelControl* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMultiChannelControl object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMultiChannelControl was NULL\n";
-	}
 }
 
 
@@ -101,37 +89,31 @@ Inspect_BMultiChannelControl
 ***************************************************************/
 void
 Inspect_BBuffer
-	(
-	BString & strDetails
-,	BBuffer * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BBuffer* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BBuffer object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BBuffer was NULL\n";
-	}
 }
 
 
@@ -139,37 +121,31 @@ Inspect_BBuffer
 ***************************************************************/
 void
 Inspect_BSmallBuffer
-	(
-	BString & strDetails
-,	BSmallBuffer * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BSmallBuffer* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSmallBuffer object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BSmallBuffer was NULL\n";
-	}
 }
 
 
@@ -177,37 +153,31 @@ Inspect_BSmallBuffer
 ***************************************************************/
 void
 Inspect_BBufferConsumer
-	(
-	BString & strDetails
-,	BBufferConsumer * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BBufferConsumer* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BBufferConsumer object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BBufferConsumer was NULL\n";
-	}
 }
 
 
@@ -215,37 +185,31 @@ Inspect_BBufferConsumer
 ***************************************************************/
 void
 Inspect_BBufferGroup
-	(
-	BString & strDetails
-,	BBufferGroup * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BBufferGroup* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BBufferGroup object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BBufferGroup was NULL\n";
-	}
 }
 
 
@@ -253,37 +217,31 @@ Inspect_BBufferGroup
 ***************************************************************/
 void
 Inspect_BBufferProducer
-	(
-	BString & strDetails
-,	BBufferProducer * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BBufferProducer* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BBufferProducer object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BBufferProducer was NULL\n";
-	}
 }
 
 
@@ -291,37 +249,31 @@ Inspect_BBufferProducer
 ***************************************************************/
 void
 Inspect_BParameterWeb
-	(
-	BString & strDetails
-,	BParameterWeb * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BParameterWeb* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BParameterWeb object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BParameterWeb was NULL\n";
-	}
 }
 
 
@@ -329,37 +281,31 @@ Inspect_BParameterWeb
 ***************************************************************/
 void
 Inspect_BParameterGroup
-	(
-	BString & strDetails
-,	BParameterGroup * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BParameterGroup* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BParameterGroup object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BParameterGroup was NULL\n";
-	}
 }
 
 
@@ -367,37 +313,31 @@ Inspect_BParameterGroup
 ***************************************************************/
 void
 Inspect_BParameter
-	(
-	BString & strDetails
-,	BParameter * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BParameter* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[v object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BParameter was NULL\n";
-	}
 }
 
 
@@ -405,37 +345,31 @@ Inspect_BParameter
 ***************************************************************/
 void
 Inspect_BContinuousParameter
-	(
-	BString & strDetails
-,	BContinuousParameter * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BContinuousParameter* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BContinuousParameter object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BContinuousParameter was NULL\n";
-	}
 }
 
 
@@ -443,37 +377,31 @@ Inspect_BContinuousParameter
 ***************************************************************/
 void
 Inspect_BDiscreteParameter
-	(
-	BString & strDetails
-,	BDiscreteParameter * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BDiscreteParameter* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BDiscreteParameter object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BDiscreteParameter was NULL\n";
-	}
 }
 
 
@@ -481,37 +409,31 @@ Inspect_BDiscreteParameter
 ***************************************************************/
 void
 Inspect_BNullParameter
-	(
-	BString & strDetails
-,	BNullParameter * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BNullParameter* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BNullParameter object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BNullParameter was NULL\n";
-	}
 }
 
 
@@ -519,37 +441,31 @@ Inspect_BNullParameter
 ***************************************************************/
 void
 Inspect_BControllable
-	(
-	BString & strDetails
-,	BControllable * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BControllable* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BControllable object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BControllable was NULL\n";
-	}
 }
 
 
@@ -557,37 +473,31 @@ Inspect_BControllable
 ***************************************************************/
 void
 Inspect_BMediaTheme
-	(
-	BString & strDetails
-,	BMediaTheme * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaTheme* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaTheme object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaTheme was NULL\n";
-	}
 }
 
 
@@ -595,37 +505,31 @@ Inspect_BMediaTheme
 ***************************************************************/
 void
 Inspect_BMediaAddOn
-	(
-	BString & strDetails
-,	BMediaAddOn * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaAddOn* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaAddOn object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaAddOn was NULL\n";
-	}
 }
 
 
@@ -633,37 +537,31 @@ Inspect_BMediaAddOn
 ***************************************************************/
 void
 Inspect_BMediaDecoder
-	(
-	BString & strDetails
-,	BMediaDecoder * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaDecoder* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaDecoder object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaDecoder was NULL\n";
-	}
 }
 
 
@@ -671,37 +569,31 @@ Inspect_BMediaDecoder
 ***************************************************************/
 void
 Inspect_BMediaEventLooper
-	(
-	BString & strDetails
-,	BMediaEventLooper * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaEventLooper* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaEventLooper object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaEventLooper was NULL\n";
-	}
 }
 
 
@@ -709,37 +601,31 @@ Inspect_BMediaEventLooper
 ***************************************************************/
 void
 Inspect_BMediaFile
-	(
-	BString & strDetails
-,	BMediaFile * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaFile* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaFile object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaFile was NULL\n";
-	}
 }
 
 
@@ -747,37 +633,31 @@ Inspect_BMediaFile
 ***************************************************************/
 void
 Inspect_BMediaFiles
-	(
-	BString & strDetails
-,	BMediaFiles * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaFiles* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaFiles object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaFiles was NULL\n";
-	}
 }
 
 
@@ -785,37 +665,31 @@ Inspect_BMediaFiles
 ***************************************************************/
 void
 Inspect_media_node
-	(
-	BString & strDetails
-,	media_node * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_node* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_node object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_node was NULL\n";
-	}
 }
 
 
@@ -823,37 +697,31 @@ Inspect_media_node
 ***************************************************************/
 void
 Inspect_BMediaNode
-	(
-	BString & strDetails
-,	BMediaNode * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaNode* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaNode object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaNode was NULL\n";
-	}
 }
 
 
@@ -861,37 +729,31 @@ Inspect_BMediaNode
 ***************************************************************/
 void
 Inspect_BMediaRoster
-	(
-	BString & strDetails
-,	BMediaRoster * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaRoster* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaRoster object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaRoster was NULL\n";
-	}
 }
 
 
@@ -899,37 +761,31 @@ Inspect_BMediaRoster
 ***************************************************************/
 void
 Inspect_BMediaTrack
-	(
-	BString & strDetails
-,	BMediaTrack * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaTrack* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaTrack object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaTrack was NULL\n";
-	}
 }
 
 
@@ -937,37 +793,31 @@ Inspect_BMediaTrack
 ***************************************************************/
 void
 Inspect_BMediaFormats
-	(
-	BString & strDetails
-,	BMediaFormats * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMediaFormats* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMediaFormats object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BMediaFormats was NULL\n";
-	}
 }
 
 
@@ -975,37 +825,31 @@ Inspect_BMediaFormats
 ***************************************************************/
 void
 Inspect_BSound
-	(
-	BString & strDetails
-,	BSound * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BSound* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BSound was NULL\n";
-	}
 }
 
 
@@ -1013,37 +857,31 @@ Inspect_BSound
 ***************************************************************/
 void
 Inspect_BSoundFile
-	(
-	BString & strDetails
-,	BSoundFile * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BSoundFile* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSoundFile object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BSoundFile was NULL\n";
-	}
 }
 
 
@@ -1051,37 +889,31 @@ Inspect_BSoundFile
 ***************************************************************/
 void
 Inspect_BSoundPlayer
-	(
-	BString & strDetails
-,	BSoundPlayer * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BSoundPlayer* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSoundPlayer object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BSoundPlayer was NULL\n";
-	}
 }
 
 
@@ -1089,37 +921,31 @@ Inspect_BSoundPlayer
 ***************************************************************/
 void
 Inspect_BTimeCode
-	(
-	BString & strDetails
-,	BTimeCode * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BTimeCode* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTimeCode object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BTimeCode was NULL\n";
-	}
 }
 
 
@@ -1127,37 +953,31 @@ Inspect_BTimeCode
 ***************************************************************/
 void
 Inspect_BTimedEventQueue
-	(
-	BString & strDetails
-,	BTimedEventQueue * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BTimedEventQueue* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTimedEventQueue object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BTimedEventQueue was NULL\n";
-	}
 }
 
 
@@ -1165,37 +985,31 @@ Inspect_BTimedEventQueue
 ***************************************************************/
 void
 Inspect_BTimeSource
-	(
-	BString & strDetails
-,	BTimeSource * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BTimeSource* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTimeSource object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BTimeSource was NULL\n";
-	}
 }
 
 
@@ -1203,37 +1017,31 @@ Inspect_BTimeSource
 ***************************************************************/
 void
 Inspect_BFileInterface
-	(
-	BString & strDetails
-,	BFileInterface * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BFileInterface* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BFileInterface object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BFileInterface was NULL\n";
-	}
 }
 
 

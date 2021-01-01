@@ -1,4 +1,4 @@
-/*	
+/*
 	1999 Jeff Braun
 	web: www.citylinq.com/brauns
 	email1: yobkadon@hotmail.com
@@ -21,16 +21,16 @@ extern"C" void SetMallocLeakChecking(bool);
 /***************************************************************
 ***************************************************************/
 int main
-	(
+(
 	void
-	)
+)
 {
 #ifdef DEBUG
-	SetNewLeakChecking (true);
-	SetMallocLeakChecking (true);
+	SetNewLeakChecking(true);
+	SetMallocLeakChecking(true);
 #endif
-	TheApp * pApplication (new TheApp);
-	pApplication->Run ();
+	TheApp* pApplication(new TheApp);
+	pApplication->Run();
 	delete pApplication;
 	return (0);
 }

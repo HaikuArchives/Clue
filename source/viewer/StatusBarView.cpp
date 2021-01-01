@@ -1,4 +1,4 @@
-/*	
+/*
 	2000 Jeff Braun
 	web: www.citylinq.com/brauns
 	email1: yobkadon@hotmail.com
@@ -78,30 +78,29 @@ include header files
 /***************************************************************
 ***************************************************************/
 StatusBarView :: StatusBarView
-	(
+(
 	BRect rcFrame
-	)
-:	BView (rcFrame, "StatusBarView", B_FOLLOW_BOTTOM | B_FOLLOW_LEFT_RIGHT, B_WILL_DRAW)
-,	m_text (NULL)
-,	m_runner (NULL)
+)
+	:	BView(rcFrame, "StatusBarView", B_FOLLOW_BOTTOM | B_FOLLOW_LEFT_RIGHT, B_WILL_DRAW)
+	,	m_text(NULL)
+	,	m_runner(NULL)
 {
-	SetViewColor (ui_color (B_PANEL_BACKGROUND_COLOR));
-	m_text = (char *) new char[1];
-	strcpy (m_text, "");
+	SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
+	m_text = (char*) new char[1];
+	strcpy(m_text, "");
 
-	SetFontSize (10.0);
+	SetFontSize(10.0);
 }
 
 
 /***************************************************************
 ***************************************************************/
 StatusBarView :: ~StatusBarView
-	(
+(
 	void
-	)
+)
 {
-	if (m_runner)
-	{
+	if (m_runner) {
 		delete m_runner;
 		m_runner = NULL;
 	}
@@ -113,29 +112,26 @@ StatusBarView :: ~StatusBarView
 ***************************************************************/
 void
 StatusBarView :: MessageReceived
-	(
-	BMessage * msg
-	)
+(
+	BMessage* msg
+)
 {
-	switch (msg->what)
-	{
-		case 'cler':
-			{
-			if (m_runner)
-			{
-				delete m_runner;
-				m_runner = NULL;
-			}
-			delete [] m_text;
-			m_text = (char *) new char[1];
-			strcpy (m_text, "");
-			BRect rc (Bounds ());
-			rc.top = 1.0;
-			Invalidate (rc);
+	switch (msg->what) {
+		case 'cler': {
+				if (m_runner) {
+					delete m_runner;
+					m_runner = NULL;
+				}
+				delete [] m_text;
+				m_text = (char*) new char[1];
+				strcpy(m_text, "");
+				BRect rc(Bounds());
+				rc.top = 1.0;
+				Invalidate(rc);
 			}
 			break;
 		default:
-			BView::MessageReceived (msg);
+			BView::MessageReceived(msg);
 	}
 }
 
@@ -144,9 +140,9 @@ StatusBarView :: MessageReceived
 ***************************************************************/
 void
 StatusBarView :: AllAttached
-	(
+(
 	void
-	)
+)
 {
 }
 
@@ -155,21 +151,21 @@ StatusBarView :: AllAttached
 ***************************************************************/
 void
 StatusBarView :: Draw
-	(
+(
 	BRect updateRect
-	)
+)
 {
 	//SetHighColor (ViewColor ());
 	//FillRect (updateRect);
-	SetHighColor (CLR_SHADOW_GREY);
-	StrokeLine (BPoint (updateRect.left, 0), BPoint (updateRect.right, 0));
+	SetHighColor(CLR_SHADOW_GREY);
+	StrokeLine(BPoint(updateRect.left, 0), BPoint(updateRect.right, 0));
 	BFont font;
-	GetFont (&font);
+	GetFont(&font);
 	font_height fh;
-	font.GetHeight (&fh);
-	SetHighColor (CLR_BLACK);
-	SetLowColor (ViewColor ());
-	DrawString (m_text, BPoint (5, fh.ascent + fh.leading));
+	font.GetHeight(&fh);
+	SetHighColor(CLR_BLACK);
+	SetLowColor(ViewColor());
+	DrawString(m_text, BPoint(5, fh.ascent + fh.leading));
 }
 
 
@@ -177,24 +173,22 @@ StatusBarView :: Draw
 ***************************************************************/
 void
 StatusBarView :: SetPaneText
-	(
-	const char * message)
+(
+	const char* message)
 {
 	delete [] m_text;
-	m_text = (char *) new char[strlen (message) + 1];
-	strcpy (m_text, message);
-	BRect rc (Bounds ());
+	m_text = (char*) new char[strlen(message) + 1];
+	strcpy(m_text, message);
+	BRect rc(Bounds());
 	rc.top = 1.0;
-	Invalidate (rc);
+	Invalidate(rc);
 
 	if (m_runner)
-	{
 		delete m_runner;
-	}
-		
-	BMessage msg ('cler');
-	m_runner = reinterpret_cast<BMessageRunner *> (new BMessageRunner (BMessenger (this),
-													&msg, 3000000, 1));
+
+	BMessage msg('cler');
+	m_runner = reinterpret_cast<BMessageRunner*>(new BMessageRunner(BMessenger(this),
+			&msg, 3000000, 1));
 }
 
 /***************************************************************
@@ -222,7 +216,7 @@ CStatusBarView :: SetPaneText
 		{
 			delete m_runner;
 		}
-		
+
 		BMessage msg ('cler');
 		m_runner = reinterpret_cast<BMessageRunner *> (new BMessageRunner (BMessenger (this),
 														&msg, 3000000, 1));

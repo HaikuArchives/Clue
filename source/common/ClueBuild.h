@@ -4,7 +4,7 @@
 #include <OS.h>
 
 #ifdef B_ZETA_VERSION
-#define CLUE_ON_ZETA_HACK 
+#define CLUE_ON_ZETA_HACK
 #endif
 
 //

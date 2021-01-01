@@ -1,7 +1,7 @@
 /*
-	
+
 	DropView.cpp
-	
+
 */
 /*
 	Copyright 1999, Be Incorporated.   All Rights Reserved.
@@ -35,40 +35,36 @@
 /***************************************************************
 ***************************************************************/
 DragMessageView :: DragMessageView
-	(
+(
 	BRect rect
-,	const char * name
-,	ColumnListView * CLV
-	)
-:	BStringView (rect, name, "Drag over me!", B_FOLLOW_LEFT_RIGHT, B_WILL_DRAW)
-,	m_ColumnListView (CLV)
-,	m_message (NULL)
+	,	const char* name
+	,	ColumnListView* CLV
+)
+	:	BStringView(rect, name, "Drag over me!", B_FOLLOW_LEFT_RIGHT, B_WILL_DRAW)
+	,	m_ColumnListView(CLV)
+	,	m_message(NULL)
 {
 	//Set up the font for the text
-	SetFont (be_bold_font);
-	SetFontSize (24);
+	SetFont(be_bold_font);
+	SetFontSize(24);
 }
 
 
 DragMessageView :: ~DragMessageView
-	(
+(
 	void
-	)
+)
 {
-	int32			index (m_ColumnListView->CountItems ());
-	DragMessageItem *		dmi (NULL);
+	int32			index(m_ColumnListView->CountItems());
+	DragMessageItem* 		dmi(NULL);
 
-	while (index--)
-	{
-		dmi = (DragMessageItem *) m_ColumnListView->RemoveItem (index);
+	while (index--) {
+		dmi = (DragMessageItem*) m_ColumnListView->RemoveItem(index);
 		if (dmi)
-		{
 			delete dmi;
-		}
 	}
 
-	if (m_message)
-	{
+	if (m_message) {
 		delete m_message;
 		m_message = NULL;
 	}
@@ -78,26 +74,26 @@ DragMessageView :: ~DragMessageView
 ***************************************************************/
 void
 DragMessageView :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-   	entry_ref ref;
- 	switch ( message->what ){
-   		case B_SIMPLE_DATA:
-   			// Look for a ref in the message
-   			if( message->FindRef("refs", &ref) == B_OK ){
+	entry_ref ref;
+	switch (message->what) {
+		case B_SIMPLE_DATA:
+			// Look for a ref in the message
+			if (message->FindRef("refs", &ref) == B_OK) {
 				// Call SetText() to change the string in the view
-   				SetText( ref.name );
-   			}else{
-   				// Call inherited if we didn't handle the message
-   				BStringView::MessageReceived(message);
-   			}
-   			break;
-   		default:
-   			// Call inherited if we didn't handle the message
-   			BStringView::MessageReceived(message);
-   			break;
+				SetText(ref.name);
+			} else {
+				// Call inherited if we didn't handle the message
+				BStringView::MessageReceived(message);
+			}
+			break;
+		default:
+			// Call inherited if we didn't handle the message
+			BStringView::MessageReceived(message);
+			break;
 	}
 }
 
@@ -106,28 +102,20 @@ DragMessageView :: MessageReceived
 ***************************************************************/
 void
 DragMessageView :: MouseMoved
-	(
+(
 	BPoint point
-,	uint32 transit
-,	const BMessage * message
-	)
+	,	uint32 transit
+	,	const BMessage* message
+)
 {
-	if (B_ENTERED_VIEW == transit)
-	{
-		if (message)
-		{
-			SetText ("Found message.");
-			ProcessMessage (message);
-		}
-		else
-		{
-			SetText ("No message found.");
-		}
-	}
-	else if (B_EXITED_VIEW == transit)
-	{
-		SetText ("Drag over me!");
-	}
+	if (B_ENTERED_VIEW == transit) {
+		if (message) {
+			SetText("Found message.");
+			ProcessMessage(message);
+		} else
+			SetText("No message found.");
+	} else if (B_EXITED_VIEW == transit)
+		SetText("Drag over me!");
 }
 
 
@@ -135,28 +123,23 @@ DragMessageView :: MouseMoved
 ***************************************************************/
 void
 DragMessageView :: ProcessMessage
-	(
-	const BMessage * message
-	)
+(
+	const BMessage* message
+)
 {
-	int32				index (m_ColumnListView->CountItems ());
-	DragMessageItem *	dmi (NULL);
+	int32				index(m_ColumnListView->CountItems());
+	DragMessageItem* 	dmi(NULL);
 
-	while (index--)
-	{
-		dmi = (DragMessageItem *) m_ColumnListView->RemoveItem (index);
+	while (index--) {
+		dmi = (DragMessageItem*) m_ColumnListView->RemoveItem(index);
 		if (dmi)
-		{
 			delete dmi;
-		}
 	}
 
 	if (m_message)
-	{
 		delete m_message;
-	}
 
-	m_message = new BMessage (*message);
+	m_message = new BMessage(*message);
 
 //	index = m_message->CountNames (B_ANY_TYPE);
 //	while (index--)
@@ -165,17 +148,16 @@ DragMessageView :: ProcessMessage
 //		m_ColumnListView->AddItem (dmi);
 //	}
 #ifdef CLUE_ON_ZETA_HACK
-	char const * name (NULL);
+	char const* name(NULL);
 #else
-	char * name (NULL);
+	char* name(NULL);
 #endif
-	uint32 type (0);
-	int32 count (0);
-	
-	for (int32 i (0); B_OK == m_message->GetInfo (B_ANY_TYPE, i, &name, &type, &count); i++)
-	{
-		dmi = new DragMessageItem (m_message, name, type, count);
-		m_ColumnListView->AddItem (dmi);
+	uint32 type(0);
+	int32 count(0);
+
+	for (int32 i(0); B_OK == m_message->GetInfo(B_ANY_TYPE, i, &name, &type, &count); i++) {
+		dmi = new DragMessageItem(m_message, name, type, count);
+		m_ColumnListView->AddItem(dmi);
 	}
 }
 

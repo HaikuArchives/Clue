@@ -24,21 +24,20 @@ class BWindow;
 /*----------------------------------------------------------------*/
 /*----- BMenuItem class ------------------------------------------*/
 
-class BitmapMenuItem : public BMenuItem
-{
-	public:
-						BitmapMenuItem (BWindow *, BBitmap *, const char *, const char *, BMessage *, char shortcut = 0, uint32 modifiers = 0);
-		virtual			~BitmapMenuItem (void);
-	protected:
+class BitmapMenuItem : public BMenuItem {
+public:
+	BitmapMenuItem(BWindow*, BBitmap*, const char*, const char*, BMessage*, char shortcut = 0, uint32 modifiers = 0);
+	virtual			~BitmapMenuItem(void);
+protected:
 
-		virtual	void	GetContentSize (float *, float *);
-		virtual	void	DrawContent (void);
-		virtual	void	Highlight (bool);
-/*----- Private or reserved -----------------------------------------*/
-	private:
-		BWindow *		m_pWnd;
-		char *			m_sbar_message;
-		BBitmap *		m_bmp;
+	virtual	void	GetContentSize(float*, float*);
+	virtual	void	DrawContent(void);
+	virtual	void	Highlight(bool);
+	/*----- Private or reserved -----------------------------------------*/
+private:
+	BWindow* 		m_pWnd;
+	char* 			m_sbar_message;
+	BBitmap* 		m_bmp;
 };
 
 #endif /* _BITMAP_MENU_ITEM_H */

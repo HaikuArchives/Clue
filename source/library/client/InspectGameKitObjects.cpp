@@ -13,48 +13,42 @@
 //char buf[200 + B_PATH_NAME_LENGTH] = "";
 //char TypeCodeUnknown[20] = "";
 
-extern const char * pTrue;
-extern const char * pFalse;
-extern const char * g_pIndentation;
-extern const char * g_pFailedWithError;
-extern const char * g_pNewline;
+extern const char* pTrue;
+extern const char* pFalse;
+extern const char* g_pIndentation;
+extern const char* g_pFailedWithError;
+extern const char* g_pNewline;
 
 
 /***************************************************************
 ***************************************************************/
 void
 Inspect_BStreamingGameSound
-	(
-	BString & strDetails
-,	BStreamingGameSound * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BStreamingGameSound* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BStreamingGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BStreamingGameSound was NULL\n";
-	}
 }
 
 
@@ -62,37 +56,31 @@ Inspect_BStreamingGameSound
 ***************************************************************/
 void
 Inspect_BSimpleGameSound
-	(
-	BString & strDetails
-,	BSimpleGameSound * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BSimpleGameSound* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSimpleGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BSimpleGameSound was NULL\n";
-	}
 }
 
 
@@ -100,37 +88,31 @@ Inspect_BSimpleGameSound
 ***************************************************************/
 void
 Inspect_BPushGameSound
-	(
-	BString & strDetails
-,	BPushGameSound * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BPushGameSound* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BPushGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BPushGameSound was NULL\n";
-	}
 }
 
 
@@ -138,37 +120,31 @@ Inspect_BPushGameSound
 ***************************************************************/
 void
 Inspect_BFileGameSound
-	(
-	BString & strDetails
-,	BFileGameSound * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BFileGameSound* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BFileGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BFileGameSound was NULL\n";
-	}
 }
 
 
@@ -176,37 +152,31 @@ Inspect_BFileGameSound
 ***************************************************************/
 void
 Inspect_BDirectWindow
-	(
-	BString & strDetails
-,	BDirectWindow * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BDirectWindow* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BDirectWindow object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BDirectWindow was NULL\n";
-	}
 }
 
 
@@ -214,37 +184,31 @@ Inspect_BDirectWindow
 ***************************************************************/
 void
 Inspect_BGameSound
-	(
-	BString & strDetails
-,	BGameSound * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BGameSound* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
 	char hexbuf[20];
-	GetHexString (hexbuf, (intptr_t) inValue);
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BGameSound was NULL\n";
-	}
 }
 
 

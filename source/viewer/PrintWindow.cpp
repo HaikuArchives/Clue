@@ -1,4 +1,4 @@
-/*	
+/*
 	1999 Jeff Braun
 	web: www.citylinq.com/brauns
 	email1: yobkadon@hotmail.com
@@ -94,29 +94,28 @@ include header files
 extern BMessage g_Settings;
 
 
-PrintWindow * PrintWindow::m_PrintWindow (NULL);
+PrintWindow* PrintWindow::m_PrintWindow(NULL);
 
-class PrintRedirector : public BMessageFilter
-{
-	public:
-		PrintRedirector (PrintViewa * pHandler)
-		:	BMessageFilter (B_PROGRAMMED_DELIVERY, B_LOCAL_SOURCE, 'data')
-		,	m_NewHandler (pHandler)
-		{
-		};
+class PrintRedirector : public BMessageFilter {
+public:
+	PrintRedirector(PrintViewa* pHandler)
+		:	BMessageFilter(B_PROGRAMMED_DELIVERY, B_LOCAL_SOURCE, 'data')
+		,	m_NewHandler(pHandler)
+	{
+	};
 
-		virtual filter_result	Filter(BMessage *msg, BHandler **target)
-		{
+	virtual filter_result	Filter(BMessage* msg, BHandler** target)
+	{
 //			PrintViewa * pPV (NULL);
 //			pPV = dynamic_cast<PrintViewa *>(m_NewHandler);
 //			pPV->MessageReceived (msg);
 //			return (B_SKIP_MESSAGE);
 
-			*target = m_NewHandler;
-			return B_DISPATCH_MESSAGE;
-		};
-	private:
-		PrintViewa *	m_NewHandler;
+		*target = m_NewHandler;
+		return B_DISPATCH_MESSAGE;
+	};
+private:
+	PrintViewa* 	m_NewHandler;
 };
 
 /***************************************************************
@@ -127,58 +126,57 @@ const declarations
 /***************************************************************
 ***************************************************************/
 PrintWindow :: PrintWindow
-	(
+(
 	void
-	)
-:	BWindow(BRect (100, 80, 450, 300), "Clue Print Queue", B_DOCUMENT_WINDOW, B_ASYNCHRONOUS_CONTROLS)
+)
+	:	BWindow(BRect(100, 80, 450, 300), "Clue Print Queue", B_DOCUMENT_WINDOW, B_ASYNCHRONOUS_CONTROLS)
 {
-	PrintViewa * pPV (new PrintViewa (Bounds ()));
-	AddCommonFilter (new PrintRedirector (pPV));
-	AddChild (pPV);
+	PrintViewa* pPV(new PrintViewa(Bounds()));
+	AddCommonFilter(new PrintRedirector(pPV));
+	AddChild(pPV);
 //	AddFilter (new PrintRedirector (pPV));
-	Register ();
+	Register();
 }
 
 
 /***************************************************************
 ***************************************************************/
 PrintWindow :: ~PrintWindow
-	(
+(
 	void
-	)
+)
 {
 	m_PrintWindow = NULL;
-	UnRegister ();
+	UnRegister();
 }
 
 
 void
 PrintWindow :: DispatchMessage
-	(
-	BMessage * message
-,	BHandler * handler
-	)
+(
+	BMessage* message
+	,	BHandler* handler
+)
 {
 	//const char * pStr (handler->Name ());
-	BWindow::DispatchMessage (message, handler);
+	BWindow::DispatchMessage(message, handler);
 }
 
 /***************************************************************
 ***************************************************************/
 void
 PrintWindow :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	switch (message->what)
-	{
+	switch (message->what) {
 		case 'data':
 //			m_PV->MessageReceived ();
-			PRINT (("request a print\n"));
+			PRINT(("request a print\n"));
 			break;
 		default:
-			BWindow::MessageReceived (message);
+			BWindow::MessageReceived(message);
 			break;
 	}
 }
@@ -188,9 +186,9 @@ PrintWindow :: MessageReceived
 ***************************************************************/
 bool
 PrintWindow :: QuitRequested
-	(
+(
 	void
-	)
+)
 {
 	return (true);
 }
@@ -200,9 +198,9 @@ PrintWindow :: QuitRequested
 ***************************************************************/
 void
 PrintWindow :: MenusBeginning
-	(
+(
 	void
-	)
+)
 {
 }
 
@@ -211,16 +209,16 @@ PrintWindow :: MenusBeginning
 ***************************************************************/
 void
 PrintWindow :: Register
-	(
+(
 	void
-	)
+)
 {
-	BMessenger messenger (be_app);
-	BMessage message (MSG_WINDOW_REGISTRY_ADD);
-	message.AddBool ("Printer", true);
-	message.AddString ("title", Title ());
-	message.AddPointer ("window", this);
-	messenger.SendMessage (&message, this);
+	BMessenger messenger(be_app);
+	BMessage message(MSG_WINDOW_REGISTRY_ADD);
+	message.AddBool("Printer", true);
+	message.AddString("title", Title());
+	message.AddPointer("window", this);
+	messenger.SendMessage(&message, this);
 }
 
 
@@ -234,30 +232,29 @@ HelloWindow::Unregister
 ***************************************************************/
 void
 PrintWindow :: UnRegister
-	(
+(
 	void
-	)
+)
 {
-	BMessenger messenger (be_app);
-	BMessage message (MSG_WINDOW_REGISTRY_SUB);
-	message.AddPointer ("window", this);
-	messenger.SendMessage (&message);
+	BMessenger messenger(be_app);
+	BMessage message(MSG_WINDOW_REGISTRY_SUB);
+	message.AddPointer("window", this);
+	messenger.SendMessage(&message);
 }
 
 
 /***************************************************************
 ***************************************************************/
-PrintWindow *
+PrintWindow*
 PrintWindow :: Create
-	(
+(
 	void
-	)
+)
 {
 	//need to put a lock here!
-	if (NULL == m_PrintWindow)
-	{
-		m_PrintWindow = new PrintWindow ();
-		m_PrintWindow->Show ();
+	if (NULL == m_PrintWindow) {
+		m_PrintWindow = new PrintWindow();
+		m_PrintWindow->Show();
 	}
 	//need to unlock here!
 	return (m_PrintWindow);

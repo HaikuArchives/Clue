@@ -104,35 +104,35 @@ extern BMessage g_Settings;
 
 
 EditColorView :: EditColorView
-	(
+(
 	BRect frame
-,	BMessage * message
-	)
-:	EditView (frame, message, "EditColorView", B_FOLLOW_ALL_SIDES)
-,	m_ColorControl (NULL)
-,	m_view (NULL)
+	,	BMessage* message
+)
+	:	EditView(frame, message, "EditColorView", B_FOLLOW_ALL_SIDES)
+	,	m_ColorControl(NULL)
+	,	m_view(NULL)
 {
-	SetViewColor (CLR_TOOLBAR_GREY);
+	SetViewColor(CLR_TOOLBAR_GREY);
 
-	m_ColorControl = new BColorControl (BPoint (10, 20), B_CELLS_32x8, 1, "The Color Control",
-		new BMessage ('colr'));
-	AddChild (m_ColorControl);
-	m_ColorControl->ResizeToPreferred ();
-	BRect rect (m_ColorControl->Bounds());
-	float w (rect.Width ());
-	rect.top = 30.0f + rect.Height ();
+	m_ColorControl = new BColorControl(BPoint(10, 20), B_CELLS_32x8, 1, "The Color Control",
+									   new BMessage('colr'));
+	AddChild(m_ColorControl);
+	m_ColorControl->ResizeToPreferred();
+	BRect rect(m_ColorControl->Bounds());
+	float w(rect.Width());
+	rect.top = 30.0f + rect.Height();
 	rect.bottom = rect.top + 30.0f;
 	rect.left = 10.0f;
 	rect.right = rect.left + w;
-	m_view = new BView (rect, "shownewcolor", B_FOLLOW_NONE, 0);
-	AddChild (m_view);
+	m_view = new BView(rect, "shownewcolor", B_FOLLOW_NONE, 0);
+	AddChild(m_view);
 }
 
 
 EditColorView :: ~EditColorView
-	(
+(
 	void
-	)
+)
 {
 }
 
@@ -141,28 +141,23 @@ EditColorView :: ~EditColorView
 ***************************************************************/
 void
 EditColorView :: MessageReceived
-	(
-	BMessage * msg
-	)
+(
+	BMessage* msg
+)
 {
-	switch (msg->what)
-	{
-		case 'colr':
-			{
-			PreferencesView * PV (dynamic_cast<PreferencesView *>(Parent ()));
-			m_view->SetViewColor (m_ColorControl->ValueAsColor ());
-			PV->SetDirty ();
-			m_view->Invalidate (); //tell it to redraw with new color
+	switch (msg->what) {
+		case 'colr': {
+				PreferencesView* PV(dynamic_cast<PreferencesView*>(Parent()));
+				m_view->SetViewColor(m_ColorControl->ValueAsColor());
+				PV->SetDirty();
+				m_view->Invalidate();  //tell it to redraw with new color
 			}
 			break;
-		case B_OBSERVER_NOTICE_CHANGE:
-			{
-			uint32 change (0);
-			msg->FindInt32(B_OBSERVE_WHAT_CHANGE, (int32 *) &change);
-			switch (change)
-			{
-			case MSG_SETTINGS_CHANGED:
-				{
+		case B_OBSERVER_NOTICE_CHANGE: {
+				uint32 change(0);
+				msg->FindInt32(B_OBSERVE_WHAT_CHANGE, (int32*) &change);
+				switch (change) {
+					case MSG_SETTINGS_CHANGED: {
 //				BMessage msgtmp;
 //				if (B_OK == g_Settings.FindMessage ("Background Color", &msgtmp))
 //				{
@@ -170,47 +165,44 @@ EditColorView :: MessageReceived
 //					ssize_t numBytes (0);
 //					if (B_OK == msgtmp.FindData ("value", B_RGB_COLOR_TYPE, (const void **) &clr, &numBytes))
 //					{
-						SetViewColor (CLR_BACKGROUND);
-						SetLowColor (CLR_BACKGROUND);
-						Invalidate ();
-						m_ColorControl->SetViewColor (CLR_BACKGROUND);
-						m_ColorControl->SetLowColor (CLR_BACKGROUND);
-						m_ColorControl->Invalidate ();
-						BView * child (NULL);
-						child = m_ColorControl->ChildAt (0);
-						if (child)
-						{
-							child->SetViewColor (CLR_BACKGROUND);
-							child->SetLowColor (CLR_BACKGROUND);
-							child->Invalidate ();
-						}
-						child = m_ColorControl->ChildAt (1);
-						if (child)
-						{
-							child->SetViewColor (CLR_BACKGROUND);
-							child->SetLowColor (CLR_BACKGROUND);
-							child->Invalidate ();
-						}
-						child = m_ColorControl->ChildAt (2);
-						if (child)
-						{
-							child->SetViewColor (CLR_BACKGROUND);
-							child->SetLowColor (CLR_BACKGROUND);
-							child->Invalidate ();
-						}
+							SetViewColor(CLR_BACKGROUND);
+							SetLowColor(CLR_BACKGROUND);
+							Invalidate();
+							m_ColorControl->SetViewColor(CLR_BACKGROUND);
+							m_ColorControl->SetLowColor(CLR_BACKGROUND);
+							m_ColorControl->Invalidate();
+							BView* child(NULL);
+							child = m_ColorControl->ChildAt(0);
+							if (child) {
+								child->SetViewColor(CLR_BACKGROUND);
+								child->SetLowColor(CLR_BACKGROUND);
+								child->Invalidate();
+							}
+							child = m_ColorControl->ChildAt(1);
+							if (child) {
+								child->SetViewColor(CLR_BACKGROUND);
+								child->SetLowColor(CLR_BACKGROUND);
+								child->Invalidate();
+							}
+							child = m_ColorControl->ChildAt(2);
+							if (child) {
+								child->SetViewColor(CLR_BACKGROUND);
+								child->SetLowColor(CLR_BACKGROUND);
+								child->Invalidate();
+							}
 //					}
 //				}
 //				else
 //				{
 //					PRINT (("didn't find setting for Background Color\n"));
 //				}
+						}
+						break;
 				}
-				break;
-			}
 			}
 			break;
 		default:
-			BView::MessageReceived (msg);
+			BView::MessageReceived(msg);
 	}
 }
 
@@ -218,20 +210,18 @@ EditColorView :: MessageReceived
 /***************************************************************
 ***************************************************************/
 void
-EditColorView :: AllAttached (void)
+EditColorView :: AllAttached(void)
 {
-	BMessage msg ('colr');
-	EditView::AllAttached ();
-	m_ColorControl->SetTarget ((BHandler *) this);
-	m_ColorControl->SetValue (m_color);
+	BMessage msg('colr');
+	EditView::AllAttached();
+	m_ColorControl->SetTarget((BHandler*) this);
+	m_ColorControl->SetValue(m_color);
 //	m_view->SetViewColor (m_ColorControl->ValueAsColor ());
 //	m_view->Invalidate ();
-	MessageReceived (&msg);
-	BWindow * pwnd (Window ());
+	MessageReceived(&msg);
+	BWindow* pwnd(Window());
 	if (pwnd)
-	{
-		((BHandler *)pwnd)->StartWatching ((BHandler *) this, MSG_SETTINGS_CHANGED);
-	}
+		((BHandler*)pwnd)->StartWatching((BHandler*) this, MSG_SETTINGS_CHANGED);
 }
 
 
@@ -239,11 +229,11 @@ EditColorView :: AllAttached (void)
 *******************************************************************************************************/
 void
 EditColorView :: AttachedToWindow
-	(
+(
 	void
-	)
+)
 {
-	EditView::AttachedToWindow ();
+	EditView::AttachedToWindow();
 //	m_ColorControl->SetValue (m_color);
 //	m_ColorControl->Invalidate ();
 //	m_view->SetViewColor (m_ColorControl->ValueAsColor ());
@@ -257,16 +247,14 @@ EditColorView :: AttachedToWindow
 *******************************************************************************************************/
 void
 EditColorView :: DetachedFromWindow
-	(
+(
 	void
-	)
+)
 {
-	EditView::DetachedFromWindow ();
-	BWindow * pwnd (Window ());
+	EditView::DetachedFromWindow();
+	BWindow* pwnd(Window());
 	if (pwnd)
-	{
-		((BHandler *)pwnd)->StopWatching ((BHandler *) this, MSG_SETTINGS_CHANGED);
-	}
+		((BHandler*)pwnd)->StopWatching((BHandler*) this, MSG_SETTINGS_CHANGED);
 }
 
 
@@ -274,14 +262,14 @@ EditColorView :: DetachedFromWindow
 *******************************************************************************************************/
 void
 EditColorView :: Draw
-	(
+(
 	BRect updateRect
-	)
+)
 {
-	EditView::Draw (updateRect);
-	BRect rc (m_view->Frame ());
-	rc.InsetBy (-1.0f, -1.0f);
-	StrokeRect (rc);
+	EditView::Draw(updateRect);
+	BRect rc(m_view->Frame());
+	rc.InsetBy(-1.0f, -1.0f);
+	StrokeRect(rc);
 }
 
 
@@ -289,37 +277,35 @@ EditColorView :: Draw
 ***************************************************************/
 bool
 EditColorView :: Save
-	(
+(
 	void
-	)
+)
 {
-	PRINT (("EditColorView::Save\n"));
-	m_Message->MakeEmpty ();
-	rgb_color colorpref = m_ColorControl->ValueAsColor ();
+	PRINT(("EditColorView::Save\n"));
+	m_Message->MakeEmpty();
+	rgb_color colorpref = m_ColorControl->ValueAsColor();
 	colorpref.alpha = 255;
-	m_Message->AddData ("value", B_RGB_COLOR_TYPE, &colorpref, sizeof(rgb_color));
-	PRINT (("   color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
+	m_Message->AddData("value", B_RGB_COLOR_TYPE, &colorpref, sizeof(rgb_color));
+	PRINT(("   color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
 	return true;
 }
 
 bool
 EditColorView :: PopulateData
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	bool retval (false);
-	rgb_color * pColor (NULL);
-	ssize_t numBytes (0);
+	bool retval(false);
+	rgb_color* pColor(NULL);
+	ssize_t numBytes(0);
 
-	PRINT (("\n\nEditColorView\n"));
+	PRINT(("\n\nEditColorView\n"));
 
-	if (message->FindData ("value", B_RGB_COLOR_TYPE, (const void **) &pColor, &numBytes) == B_OK)
-	{
-		if (numBytes == sizeof(rgb_color))
-		{
-			memcpy (&m_color, pColor, numBytes);
-			PRINT (("   EVC: color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
+	if (message->FindData("value", B_RGB_COLOR_TYPE, (const void**) &pColor, &numBytes) == B_OK) {
+		if (numBytes == sizeof(rgb_color)) {
+			memcpy(&m_color, pColor, numBytes);
+			PRINT(("   EVC: color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
 			retval = true;
 		}
 	}
@@ -330,19 +316,17 @@ EditColorView :: PopulateData
 
 /***************************************************************
 ***************************************************************/
-EditColorView *
+EditColorView*
 EditColorView :: Create
-	(
+(
 	BRect frame
-,	BMessage * message
-	)
+	,	BMessage* message
+)
 {
-	EditColorView * pObject (new EditColorView (frame, message));
+	EditColorView* pObject(new EditColorView(frame, message));
 
-	if (pObject)
-	{
-		if (false == pObject->PopulateData (message))
-		{
+	if (pObject) {
+		if (false == pObject->PopulateData(message)) {
 			delete pObject;
 			pObject = NULL;
 		}

@@ -37,30 +37,29 @@ class BView;
 //******************************************************************************************************
 //**** CLVListItem CLASS DECLARATION
 //******************************************************************************************************
-class PropertyItem : public CLVListItem
-{
-	public:
-		//Constructor and destructor
-							PropertyItem (uint32);
-		
-		virtual void		DrawItemColumn (BView *, BRect, int32, bool);
-								//column_index (0-N) is based on the order in which the columns were added
-								//to the ColumnListView, not the display order.  An index of -1 indicates
-								//that the program needs to draw a blank area beyond the last column.  The
-								//main purpose is to allow the highlighting bar to continue all the way to
-								//the end of the ColumnListView, even after the end of the last column.
-		virtual void		Update (BView *, const BFont *);
+class PropertyItem : public CLVListItem {
+public:
+	//Constructor and destructor
+	PropertyItem(uint32);
 
-	public:
-		void				SetFilter (uint32 flags);
-		uint32				Filter (void);
-	private:
-							PropertyItem (const PropertyItem &);
-							PropertyItem & operator= (PropertyItem &);
-	public:
-		uint32				m_ClueInfoIndex;
-		ClueEvent			m_Event;
-		bool				m_selected;
+	virtual void		DrawItemColumn(BView*, BRect, int32, bool);
+	//column_index (0-N) is based on the order in which the columns were added
+	//to the ColumnListView, not the display order.  An index of -1 indicates
+	//that the program needs to draw a blank area beyond the last column.  The
+	//main purpose is to allow the highlighting bar to continue all the way to
+	//the end of the ColumnListView, even after the end of the last column.
+	virtual void		Update(BView*, const BFont*);
+
+public:
+	void				SetFilter(uint32 flags);
+	uint32				Filter(void);
+private:
+	PropertyItem(const PropertyItem&);
+	PropertyItem& operator= (PropertyItem&);
+public:
+	uint32				m_ClueInfoIndex;
+	ClueEvent			m_Event;
+	bool				m_selected;
 };
 
 
