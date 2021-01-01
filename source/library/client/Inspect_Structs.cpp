@@ -2571,9 +2571,9 @@ Inspect_Struct_media_header
 		strDetails << tabindent << "owner= " << inValue->owner << g_pNewline;
 		strDetails << tabindent << "user_data_type= " << inValue->user_data_type << g_pNewline;
 		strDetails << tabindent << "user_data[]= not implemented in this release\n";
-
-		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
-		strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
+		//FIXME update for Haiku
+		//strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
+		//strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
 
 		strDetails << tabindent << "file_pos= " << inValue->file_pos << g_pNewline;
 		strDetails << tabindent << "orig_size= " << inValue->orig_size << g_pNewline;
@@ -4067,14 +4067,15 @@ Inspect_Struct_system_info
 
 	if (NULL != inValue)
 	{
-		strDetails << tabindent << "id= " << inValue->id[0] << inValue->id[1] << g_pNewline;
+		//FIXME update for Haiku
+		//strDetails << tabindent << "id= " << inValue->id[0] << inValue->id[1] << g_pNewline;
 		strDetails << tabindent << "boot_time= " << inValue->boot_time << g_pNewline;
 		strDetails << tabindent << "cpu_count= " << inValue->cpu_count << g_pNewline;
-		Inspect_Enum_cpu_type (strDetails, inValue->cpu_type, inIndent, "  |  cpu_type= ");
-		strDetails << tabindent << "cpu_revision= " << inValue->cpu_revision << g_pNewline;
-		strDetails << tabindent << "cpu_clock_speed= " << inValue->cpu_clock_speed << g_pNewline;
-		strDetails << tabindent << "bus_clock_speed= " << inValue->bus_clock_speed << g_pNewline;
-		Inspect_Enum_platform_type (strDetails, inValue->platform_type, inIndent, "  |  platform_type= ");
+		//Inspect_Enum_cpu_type (strDetails, inValue->cpu_type, inIndent, "  |  cpu_type= ");
+		//strDetails << tabindent << "cpu_revision= " << inValue->cpu_revision << g_pNewline;
+		//strDetails << tabindent << "cpu_clock_speed= " << inValue->cpu_clock_speed << g_pNewline;
+		//strDetails << tabindent << "bus_clock_speed= " << inValue->bus_clock_speed << g_pNewline;
+		//Inspect_Enum_platform_type (strDetails, inValue->platform_type, inIndent, "  |  platform_type= ");
 		strDetails << tabindent << "max_pages= " << inValue->max_pages << g_pNewline;
 		strDetails << tabindent << "used_pages= " << inValue->used_pages << g_pNewline;
 		strDetails << tabindent << "page_faults= " << inValue->page_faults << g_pNewline;
@@ -4090,7 +4091,7 @@ Inspect_Struct_system_info
 		strDetails << tabindent << "kernel_build_date= " << inValue->kernel_build_date << g_pNewline;
 		strDetails << tabindent << "kernel_build_time= " << inValue->kernel_build_time << g_pNewline;
 		strDetails << tabindent << "kernel_version= " << inValue->kernel_version << g_pNewline;
-		strDetails << tabindent << "_busy_wait_time= " << inValue->_busy_wait_time << g_pNewline;
+		//strDetails << tabindent << "_busy_wait_time= " << inValue->_busy_wait_time << g_pNewline;
 	}
 	else
 	{
