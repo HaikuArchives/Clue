@@ -51,8 +51,8 @@ Inspect_Struct_buffer_clone_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[buffer_clone_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -62,7 +62,7 @@ Inspect_Struct_buffer_clone_info
 		strDetails << tabindent << "area= " << inValue->area << g_pNewline;
 		strDetails << tabindent << "offset= " << inValue->offset << g_pNewline;
 		strDetails << tabindent << "size= " << inValue->size << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->flags);
+		GetHexString (hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << "), " << inValue->flags << g_pNewline;
 	}
 	else
@@ -108,8 +108,8 @@ Inspect_Struct_direct_buffer_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[direct_buffer_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -153,8 +153,8 @@ Inspect_Struct_mail_pop_account
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mail_pop_account object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -220,8 +220,8 @@ Inspect_Struct_mail_notification
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mail_notification object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -271,8 +271,8 @@ Inspect_Struct_entry_ref
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[entry_ref struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -312,8 +312,8 @@ Inspect_Struct_edge_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[edge_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -352,8 +352,8 @@ Inspect_Struct_font_height
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[font_height object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -392,8 +392,8 @@ Inspect_Struct_escapement_delta
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[escapement_delta object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -434,8 +434,8 @@ Inspect_Struct_tuned_font_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[tuned_font_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -486,8 +486,8 @@ Inspect_Struct_gs_audio_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_audio_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -531,8 +531,8 @@ Inspect_Struct_gs_attribute
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_attribute object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -602,8 +602,8 @@ Inspect_Struct_gs_attribute_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_attribute_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -669,8 +669,8 @@ Inspect_Struct_pattern
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[pattern object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -723,8 +723,8 @@ Inspect_Struct_rgb_color
 		}
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[rgb_color struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -766,8 +766,8 @@ Inspect_Struct_color_map
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[color_map object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -811,8 +811,8 @@ Inspect_Struct_overlay_rect_limits
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[overlay_rect_limits object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -861,8 +861,8 @@ Inspect_Struct_overlay_restrictions
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[overlay_restrictions object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -901,8 +901,8 @@ Inspect_Struct_screen_id
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[screen_id object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -954,8 +954,8 @@ Inspect_Struct_image_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[image_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1001,8 +1001,8 @@ Inspect_Struct_key_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[key_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 	if (NULL != inValue)
@@ -1125,8 +1125,8 @@ Inspect_Struct_key_map
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[key_map object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1196,8 +1196,8 @@ Inspect_Struct_mouse_map
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mouse_map object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1239,8 +1239,8 @@ Inspect_Struct_scroll_bar_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[scroll_bar_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1286,8 +1286,8 @@ Inspect_Struct_dormant_node_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[dormant_node_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1344,8 +1344,8 @@ Inspect_Struct_flavor_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[flavor_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1357,12 +1357,12 @@ Inspect_Struct_flavor_info
 		if (inValue->info != NULL)
 			strDetails << tabindent << "info= " << inValue->info << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->kinds);
+		GetHexString (hexbuf, (intptr_t) inValue->kinds);
 		strDetails << tabindent << "kinds= (" << hexbuf << "), ";
 		strDetails.RemoveLast (",");
 		strDetails << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->flavor_flags);
+		GetHexString (hexbuf, (intptr_t) inValue->flavor_flags);
 		strDetails << tabindent << "flavor_flags= (" << hexbuf << "), ";
 
 		strDetails.RemoveLast (",");
@@ -1373,11 +1373,11 @@ Inspect_Struct_flavor_info
 		strDetails << tabindent << "possible_count= " << inValue->possible_count << g_pNewline;
 		strDetails << tabindent << "in_format_count= " << inValue->in_format_count << g_pNewline;
 		strDetails << tabindent << "in_format_flags= " << inValue->in_format_flags << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->in_formats);
+		GetHexString (hexbuf, (intptr_t) inValue->in_formats);
 		strDetails << tabindent << "in_formats= pointer value is: " << hexbuf << g_pNewline;
 		strDetails << tabindent << "out_format_count= " << inValue->out_format_count << g_pNewline;
 		strDetails << tabindent << "out_format_flags= " << inValue->out_format_flags << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->out_formats);
+		GetHexString (hexbuf, (intptr_t) inValue->out_formats);
 		strDetails << tabindent << "out_formats= pointer value is: " << hexbuf << g_pNewline;
 		strDetails << tabindent << "_reserved= not implemented in this release\n";
 	}
@@ -1430,8 +1430,8 @@ Inspect_Struct_dormant_flavor_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[dormant_flavor_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1472,8 +1472,8 @@ Inspect_Struct_media_destination
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_destination object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1515,8 +1515,8 @@ Inspect_Struct_media_source
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_source object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1568,8 +1568,8 @@ Inspect_Struct_media_raw_audio_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_raw_audio_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1610,8 +1610,8 @@ Inspect_Struct_media_audio_header
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_audio_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1651,17 +1651,17 @@ Inspect_Struct_media_multi_audio_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multi_audio_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
 	if (NULL != inValue)
 	{
-		GetHexString (hexbuf, (int32) inValue->channel_mask);
+		GetHexString (hexbuf, (intptr_t) inValue->channel_mask);
 		strDetails << tabindent << "channel_mask= (" << hexbuf << "), " << inValue->channel_mask << g_pNewline;
 		strDetails << tabindent << "valid_bits= " << inValue->valid_bits << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->matrix_mask);
+		GetHexString (hexbuf, (intptr_t) inValue->matrix_mask);
 		strDetails << tabindent << "matrix_mask= (" << hexbuf << "), " << inValue->matrix_mask << g_pNewline;
 		strDetails << tabindent << "_reserved_b[0]= " << inValue->_reserved_b[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_b[1]= " << inValue->_reserved_b[1] << g_pNewline;
@@ -1708,14 +1708,14 @@ Inspect_Struct_media_encoded_audio_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_audio_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
 	if (NULL != inValue)
 	{
-		GetHexString (hexbuf, (int32) inValue->encoding);
+		GetHexString (hexbuf, (intptr_t) inValue->encoding);
 		strDetails << tabindent << "encoding= (" << hexbuf << "), ";
 
 		strDetails.RemoveLast (",");
@@ -1761,8 +1761,8 @@ Inspect_Struct_media_encoded_audio_header
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_audio_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1813,8 +1813,8 @@ Inspect_Struct_media_video_display_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_video_display_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1827,7 +1827,7 @@ Inspect_Struct_media_video_display_info
 		strDetails << tabindent << "pixel_offset= " << inValue->pixel_offset << g_pNewline;
 		strDetails << tabindent << "line_offset= " << inValue->line_offset << g_pNewline;
 		
-		GetHexString (hexbuf, (int32) inValue->flags);
+		GetHexString (hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << "), " << hexbuf << g_pNewline;
 
 		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
@@ -1873,8 +1873,8 @@ Inspect_Struct_media_raw_video_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_raw_video_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1922,8 +1922,8 @@ Inspect_Struct_media_video_header
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_video_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1978,8 +1978,8 @@ Inspect_Struct_media_encoded_video_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_video_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2039,8 +2039,8 @@ Inspect_Struct_media_encoded_video_header
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_video_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2064,7 +2064,7 @@ Inspect_Struct_media_encoded_video_header
 		strDetails << g_pNewline;
 		strDetails << tabindent << "forward_history= " << inValue->forward_history << g_pNewline;
 		strDetails << tabindent << "backward_history= " << inValue->backward_history << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->unused_mask);
+		GetHexString (hexbuf, (intptr_t) inValue->unused_mask);
 		strDetails << tabindent << "unused_mask= (" << hexbuf << "), " << inValue->unused_mask << g_pNewline;
 
 		strDetails << tabindent << "_reserved_2[0]= " << inValue->_reserved_2[0] << g_pNewline;
@@ -2154,8 +2154,8 @@ Inspect_Struct_media_multistream_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multistream_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2166,7 +2166,7 @@ Inspect_Struct_media_multistream_format
 		strDetails << tabindent << "avg_chunk_size= " << inValue->avg_chunk_size << g_pNewline;
 		strDetails << tabindent << "max_chunk_size= " << inValue->max_chunk_size << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->flags);
+		GetHexString (hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << ", " << inValue->flags << "), ";
 #ifndef CLUE_ON_ZETA_HACK
 		if (media_multistream_format::B_HEADER_HAS_FLAGS & inValue->flags)
@@ -2266,15 +2266,15 @@ Inspect_Struct_media_multistream_header
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multistream_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
 	if (NULL != inValue)
 	{
 		strDetails << tabindent << "_reserved_= not implemented in this release\n";
-		GetHexString (hexbuf, (int32) inValue->unused_mask);
+		GetHexString (hexbuf, (intptr_t) inValue->unused_mask);
 		strDetails << tabindent << "unused_mask= (" << hexbuf << ") " << inValue->unused_mask << g_pNewline;
 
 		strDetails << tabindent << "_reserved_2[0]= " << inValue->_reserved_2[0] << g_pNewline;
@@ -2381,8 +2381,8 @@ Inspect_Struct_media_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2435,8 +2435,8 @@ Inspect_Struct_media_seek_tag
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_seek_tag object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2481,8 +2481,8 @@ Inspect_Struct_media_header_time_code
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_header_time_code object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2553,8 +2553,8 @@ Inspect_Struct_media_header
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2609,8 +2609,8 @@ Inspect_Struct_media_file_format_id
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_file_format_id object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2672,8 +2672,8 @@ Inspect_Struct_media_file_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_file_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2734,8 +2734,8 @@ Inspect_Struct_media_encode_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encode_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2776,8 +2776,8 @@ Inspect_Struct_encode_parameters
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[encode_parameters object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2820,8 +2820,8 @@ Inspect_Struct_media_decode_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_decode_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2865,8 +2865,8 @@ Inspect_Struct_media_input
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_input object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2910,8 +2910,8 @@ Inspect_Struct_media_output
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_output object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2953,8 +2953,8 @@ Inspect_Struct_live_node_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[live_node_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3008,8 +3008,8 @@ Inspect_Struct_media_request_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_request_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3053,8 +3053,8 @@ Inspect_Struct_media_node_attribute
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_node_attribute object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3096,8 +3096,8 @@ Inspect_Struct_media_codec_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_codec_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3133,8 +3133,8 @@ Inspect_Struct_GUID
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[GUID object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3170,8 +3170,8 @@ Inspect_Struct_media_beos_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_beos_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3208,8 +3208,8 @@ Inspect_Struct_media_quicktime_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_quicktime_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3245,8 +3245,8 @@ Inspect_Struct_media_avi_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_avi_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3282,8 +3282,8 @@ Inspect_Struct_media_avr_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_avr_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3319,8 +3319,8 @@ Inspect_Struct_media_asf_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_asf_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3356,8 +3356,8 @@ Inspect_Struct_media_mpeg_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_mpeg_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3393,8 +3393,8 @@ Inspect_Struct_media_wav_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_wav_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3430,8 +3430,8 @@ Inspect_Struct_media_aiff_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_aiff_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3468,8 +3468,8 @@ Inspect_Struct_media_misc_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_misc_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3524,8 +3524,8 @@ Inspect_Struct_media_format_description
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3569,8 +3569,8 @@ Inspect_Struct_node_ref
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[node_ref object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3610,8 +3610,8 @@ Inspect_Struct_compound_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[compound_type object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3654,8 +3654,8 @@ Inspect_Struct_property_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[property_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3696,8 +3696,8 @@ Inspect_Struct_value_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[value_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3743,8 +3743,8 @@ Inspect_Struct_area_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[area_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3785,8 +3785,8 @@ Inspect_Struct_port_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[port_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3826,8 +3826,8 @@ Inspect_Struct_sem_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[sem_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3872,8 +3872,8 @@ Inspect_Struct_thread_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[thread_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3910,8 +3910,8 @@ Inspect_Struct_team_usage_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[team_usage_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3957,8 +3957,8 @@ Inspect_Struct_team_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[team_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -3994,8 +3994,8 @@ Inspect_Struct_cpu_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[cpu_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4060,8 +4060,8 @@ Inspect_Struct_system_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[system_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4143,8 +4143,8 @@ Inspect_Struct_media_timed_event
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_timed_event object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4184,8 +4184,8 @@ Inspect_Struct_TranslatorBitmap
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorBitmap object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4226,8 +4226,8 @@ Inspect_Struct_TranslatorSound
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4265,8 +4265,8 @@ Inspect_Struct_TranslatorStyledTextRecordHeader
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextRecordHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4308,8 +4308,8 @@ Inspect_Struct_TranslatorStyledTextStreamHeader
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextStreamHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4351,8 +4351,8 @@ Inspect_Struct_TranslatorStyledTextTextHeader
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextTextHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4395,8 +4395,8 @@ Inspect_Struct_TranslatorStyledTextStyleHeader
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextStyleHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4437,8 +4437,8 @@ Inspect_Struct_clipping_rect
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[clipping_rect object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4476,8 +4476,8 @@ Inspect_Struct_text_run
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[text_run object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4514,8 +4514,8 @@ Inspect_Struct_text_run_array
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[text_run_array object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4558,8 +4558,8 @@ Inspect_Struct_timecode_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[timecode_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4600,8 +4600,8 @@ Inspect_Struct_translation_format
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[translation_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4643,8 +4643,8 @@ Inspect_Struct_translator_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[translator_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4689,8 +4689,8 @@ Inspect_Struct_display_timing_constraints
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[display_timing_constraints object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4744,8 +4744,8 @@ Inspect_Struct_display_timing
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[display_timing object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4821,8 +4821,8 @@ Inspect_Struct_display_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[display_mode object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4902,8 +4902,8 @@ Inspect_Struct_accelerant_device_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[accelerant_device_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4950,8 +4950,8 @@ Inspect_Struct_version_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[version_info struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -4996,8 +4996,8 @@ Inspect_Struct_attr_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[attr_info struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -5042,8 +5042,8 @@ Inspect_Struct_app_info
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[app_info struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -5055,7 +5055,7 @@ Inspect_Struct_app_info
 		strDetails << tabindent << "team= " << inValue->team << g_pNewline;
 		strDetails << tabindent << "port= " << inValue->port << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->flags);
+		GetHexString (hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << ") ";
 		switch (B_LAUNCH_MASK & inValue->flags)
 		{

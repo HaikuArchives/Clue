@@ -13,10 +13,11 @@ void
 GetHexString
 	(
 	char * inoutBuffer
-,	int32 inValue
+,	intptr_t inValue
 	)
 {
-	sprintf (inoutBuffer, "%#010x", inValue);
+	//TODO decrease width for 32 bit pointers
+	sprintf (inoutBuffer, "%#018" PRIxPTR, inValue);
 }
 
 

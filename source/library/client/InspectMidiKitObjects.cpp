@@ -37,8 +37,8 @@ Inspect_BMidi
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMidi object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -75,8 +75,8 @@ Inspect_BMidiPort
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMidiPort object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -113,8 +113,8 @@ Inspect_BMidiStore
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMidiStore object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -151,8 +151,8 @@ Inspect_BMidiSynth
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMidiSynth object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -189,8 +189,8 @@ Inspect_BMidiSynthFile
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMidiSynthFile object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -227,8 +227,8 @@ Inspect_BMidiText
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMidiText object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -265,8 +265,8 @@ Inspect_BSynth
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSynth object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -303,8 +303,8 @@ Inspect_BSamples
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSamples object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 

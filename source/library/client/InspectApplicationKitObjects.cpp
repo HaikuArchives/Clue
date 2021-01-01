@@ -1239,8 +1239,8 @@ Inspect_BHandler
 	}
 
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BHandler object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1253,7 +1253,7 @@ Inspect_BHandler
 		status_t aStatusT (inValue->GetSupportedSuites (&msg));
 		if (B_OK == aStatusT)
 		{
-			GetHexString (hexbuf, (int32) &msg);
+			GetHexString (hexbuf, (intptr_t) &msg);
 			strDetails << tabindent << "GetSupportedSuites: [BMessage object, ptr=" << hexbuf << "]\n";
 			Inspect_BMessage (strDetails, &msg, inIndent + 1, B_EMPTY_STRING, 1, 1);
 		}
@@ -1290,8 +1290,8 @@ Inspect_BInvoker
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BInvoker object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1302,7 +1302,7 @@ Inspect_BInvoker
 		}
 		else
 		{
-			GetHexString (hexbuf, (int32) pMsg);
+			GetHexString (hexbuf, (intptr_t) pMsg);
 			strDetails << tabindent << "Message: [BMessage object, ptr=" << hexbuf << "]\n";
 			Inspect_BMessage (strDetails, pMsg, inIndent + 1, B_EMPTY_STRING, 1, 1);
 		}
@@ -1335,8 +1335,8 @@ Inspect_BLooper
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BLooper object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1389,8 +1389,8 @@ Inspect_BApplication
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BApplication object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1452,8 +1452,8 @@ Inspect_BClipboard
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BClipboard object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1465,7 +1465,7 @@ Inspect_BClipboard
 		if (aBool)
 		{
 			BMessage * pMessage (inValue->Data ());
-			GetHexString (hexbuf, (int32) pMessage);
+			GetHexString (hexbuf, (intptr_t) pMessage);
 			strDetails << tabindent << "Data: [BMessage object, ptr=" << hexbuf << "]\n";
 			Inspect_BMessage (strDetails, pMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
 			strDetails << tabindent << "LocalCount= " << inValue->LocalCount () << g_pNewline;
@@ -1502,8 +1502,8 @@ Inspect_BMessageFilter
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessageFilter object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1546,8 +1546,8 @@ Inspect_BMessageQueue
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessageQueue object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1580,8 +1580,8 @@ Inspect_BMessageRunner
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessageRunner object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1633,8 +1633,8 @@ Inspect_BMessenger
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessenger object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1672,8 +1672,8 @@ Inspect_BFlattenable
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BFlattenable object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1707,8 +1707,8 @@ Inspect_BPropertyInfo
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BPropertyInfo object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1747,8 +1747,8 @@ Inspect_BRoster
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BRoster object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1768,12 +1768,12 @@ Inspect_BRoster
 		}
 
 		BMessage aMessage;
-		GetHexString (hexbuf, (int32) &aMessage);
+		GetHexString (hexbuf, (intptr_t) &aMessage);
 		strDetails << tabindent << "GetRecentDocuments: [BMessage object, ptr=" << hexbuf << "]\n";
 		inValue->GetRecentDocuments (&aMessage, 10);
 		Inspect_BMessage (strDetails, &aMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
 
-		GetHexString (hexbuf, (int32) &aMessage);
+		GetHexString (hexbuf, (intptr_t) &aMessage);
 		strDetails << tabindent << "GetRecentFolders: [BMessage object, ptr=" << hexbuf << "]\n";
 		inValue->GetRecentFolders (&aMessage, 10);
 		Inspect_BMessage (strDetails, &aMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);

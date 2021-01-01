@@ -82,8 +82,8 @@ Inspect_Enum_button_width
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[button_width enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -137,8 +137,8 @@ Inspect_Enum_file_panel_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[file_panel_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -189,8 +189,8 @@ Inspect_Enum_file_panel_button
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[file_panel_button enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -242,8 +242,8 @@ Inspect_Enum_menu_bar_border
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 
 	strDetails << tabindent << pDescription << "[menu_bar_border enum, " << hexbuf << "] ";
 //	strDetails << tabindent << pDescription << "[menu_bar_border object, ptr=" << hexbuf << "]\n";
@@ -305,8 +305,8 @@ Inspect_Enum_window_feel
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_feel enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -376,8 +376,8 @@ Inspect_Enum_window_look
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_look enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -444,8 +444,8 @@ Inspect_Enum_window_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_type enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -511,8 +511,8 @@ Inspect_Enum_join_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[join_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -573,8 +573,8 @@ Inspect_Enum_cap_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[cap_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -637,8 +637,8 @@ Inspect_Enum_drawing_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[drawing_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -717,8 +717,8 @@ Inspect_Enum_undo_state
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[undo_state enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -782,8 +782,8 @@ Inspect_Enum_alignment
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[alignment enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -833,8 +833,8 @@ Inspect_Class_unicode_block
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[unicode_block object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1013,8 +1013,8 @@ Inspect_Enum_font_direction
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[font_direction enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1063,8 +1063,8 @@ Inspect_Enum_font_file_format
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[font_file_format enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1113,8 +1113,8 @@ Inspect_Enum_message_source
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[message_source enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1167,8 +1167,8 @@ Inspect_Enum_message_delivery
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[message_delivery enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1218,8 +1218,8 @@ Inspect_Flags_mode_t
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[mode_t flag, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1348,8 +1348,8 @@ Inspect_Enum_thumb_style
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[thumb_style enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1398,8 +1398,8 @@ Inspect_Enum_orientation
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[orientation enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1452,8 +1452,8 @@ Inspect_Enum_hash_mark_location
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[hash_mark_location enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1512,8 +1512,8 @@ Inspect_Enum_color_control_layout
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[color_control_layout enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1574,8 +1574,8 @@ Inspect_Enum_border_style
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[border_style enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1628,8 +1628,8 @@ Inspect_Enum_color_space
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[color_space enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
@@ -1809,8 +1809,8 @@ Inspect_Enum_swap_action
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[swap_action enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -1861,8 +1861,8 @@ Inspect_Enum_info_location
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[info_location enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -1906,8 +1906,8 @@ Inspect_Enum_version_kind
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[version_kind enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -1948,8 +1948,8 @@ Inspect_Enum_media_parameter_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_parameter_flags enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -1998,8 +1998,8 @@ Inspect_Enum_direct_buffer_state
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[direct_buffer_state enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2058,8 +2058,8 @@ Inspect_Enum_direct_driver_state
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[direct_driver_state enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2099,8 +2099,8 @@ Inspect_Enum_mail_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mail_flags enum, " << hexbuf << "], ";
 	if (B_MAIL_PENDING & inValue)
 	{
@@ -2153,8 +2153,8 @@ Inspect_Enum_directory_which
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[directory_which enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2312,8 +2312,8 @@ Inspect_Enum_font_metric_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[font_metric_mode enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2364,8 +2364,8 @@ Inspect_Enum_gs_attributes
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_attributes enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2427,8 +2427,8 @@ Inspect_Enum_buffer_orientation
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[buffer_orientation enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2468,8 +2468,8 @@ Inspect_Enum_buffer_layout
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[buffer_layout enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2507,8 +2507,8 @@ Inspect_Enum_source_alpha
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[source_alpha enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2549,8 +2549,8 @@ Inspect_Enum_alpha_function
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[alpha_function enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2593,8 +2593,8 @@ Inspect_Enum_image_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[image_type enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2643,8 +2643,8 @@ Inspect_Enum_input_method_op
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[input_method_op enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2692,8 +2692,8 @@ Inspect_Enum_input_device_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[input_device_type enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2739,8 +2739,8 @@ Inspect_Enum_input_device_notification
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[input_device_notification enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2787,8 +2787,8 @@ Inspect_Enum_list_view_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[list_view_type enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2843,8 +2843,8 @@ Inspect_Enum_media_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_type enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -2932,8 +2932,8 @@ Inspect_Enum_node_kind
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[node_kind enum, " << hexbuf << "], ";
 	if (B_BUFFER_PRODUCER & inValue)
 	{
@@ -3011,8 +3011,8 @@ Inspect_Enum_video_orientation
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[video_orientation enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3055,8 +3055,8 @@ Inspect_Enum_media_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_flags enum, " << hexbuf << "] ";
 /*
 	switch (inValue)
@@ -3096,8 +3096,8 @@ Inspect_Enum_media_producer_status
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_producer_status enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3143,8 +3143,8 @@ Inspect_Enum_media_realtime_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_realtime_flags enum, " << hexbuf << "], ";
 	if (B_MEDIA_REALTIME_ANYKIND == inValue)
 	{
@@ -3204,8 +3204,8 @@ Inspect_Enum_media_frame_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_frame_flags enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3260,8 +3260,8 @@ Inspect_Enum_media_multi_channels
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multi_channels enum, " << hexbuf << "], ";
 	if (B_CHANNEL_LEFT & inValue)
 	{
@@ -3378,8 +3378,8 @@ Inspect_Enum_media_multi_matrix
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multi_matrix enum, " << hexbuf << "] ";
 /*
 	switch (inValue)
@@ -3420,8 +3420,8 @@ Inspect_Enum_media_display_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_display_flags enum, " << hexbuf << "], ";
 	if (B_F1_DOMINANT & inValue)
 	{
@@ -3483,8 +3483,8 @@ Inspect_Enum_media_format_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format_flags enum, " << hexbuf << "], ";
 	if (B_MEDIA_MAUI_UNDEFINED_FLAGS & inValue)
 	{
@@ -3558,8 +3558,8 @@ Inspect_Enum_media_format_family
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format_family enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3625,8 +3625,8 @@ Inspect_Enum_media_seek_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_seek_type enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3669,8 +3669,8 @@ Inspect_Enum_media_file_accept_format_flags
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_file_accept_format_flags enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3711,8 +3711,8 @@ Inspect_Enum_mpeg_id
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mpeg_id enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3763,8 +3763,8 @@ Inspect_Enum_menu_layout
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[menu_layout enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3808,8 +3808,8 @@ Inspect_Enum_filter_result
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[filter_result enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -3853,8 +3853,8 @@ Inspect_Enum_synth_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[synth_mode enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4078,8 +4078,8 @@ Inspect_Enum_midi_axe
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[midi_axe enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4506,8 +4506,8 @@ Inspect_Enum_icon_size
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[icon_size enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4552,8 +4552,8 @@ Inspect_Enum_thread_state
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[thread_state enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4605,8 +4605,8 @@ Inspect_Enum_value_kind
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[value_kind enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4659,8 +4659,8 @@ Inspect_Enum_query_op
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[query_op enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4738,8 +4738,8 @@ Inspect_Enum_data_rate
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[data_rate enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4831,8 +4831,8 @@ Inspect_Enum_data_bits
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[data_bits enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4870,8 +4870,8 @@ Inspect_Enum_stop_bits
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[stop_bits enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4909,8 +4909,8 @@ Inspect_Enum_parity_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[parity_mode enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -4956,8 +4956,8 @@ Inspect_Enum_node_flavor
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[node_flavor enum, " << hexbuf << "] ";
 
 	if (B_ANY_NODE == inValue)
@@ -5007,8 +5007,8 @@ Inspect_Enum_interpolation_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[interpolation_mode enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -5057,8 +5057,8 @@ Inspect_Enum_reverb_mode
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[reverb_mode enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -5112,8 +5112,8 @@ Inspect_Enum_tab_position
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[tab_position enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -5165,8 +5165,8 @@ Inspect_Enum_timecode_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[timecode_type enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -5228,8 +5228,8 @@ Inspect_Enum_window_alignment
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_alignment enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -5272,8 +5272,8 @@ Inspect_Enum_alert_type
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[alert_type enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -5321,8 +5321,8 @@ Inspect_Enum_button_spacing
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[button_spacing enum, " << hexbuf << "] ";
 
 	switch (inValue)
@@ -5367,8 +5367,8 @@ Inspect_Enum_TranslatorGroups
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorGroups enum, " << hexbuf << "] ";
 
 	switch (inValue)

@@ -32,8 +32,8 @@ Inspect_BStopWatch
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BStopWatch object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -66,8 +66,8 @@ Inspect_BLocker
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BLocker object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -116,8 +116,8 @@ Inspect_BBufferIO
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BBufferIO object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -156,8 +156,8 @@ Inspect_BString
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BString object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -192,8 +192,8 @@ Inspect_BList
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BList object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -231,8 +231,8 @@ Inspect_BAutolock
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BAutolock object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 

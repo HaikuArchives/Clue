@@ -37,8 +37,8 @@ Inspect_BSerialPort
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSerialPort object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -75,8 +75,8 @@ Inspect_BJoystick
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BJoystick object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 

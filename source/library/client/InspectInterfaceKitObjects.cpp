@@ -46,8 +46,8 @@ ShowViewHeirerarchy
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	i = inValue->CountChildren ();
 	strDetails << tabindent <<  "[" << inIndex << "] " << inValue->Name () <<
 		" (ptr=" << hexbuf << ", has " << i << (1 == i ? " child)\n" : " children)\n");
@@ -87,8 +87,8 @@ Inspect_BWindow
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BWindow object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -214,8 +214,8 @@ Inspect_BView
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BView object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -433,8 +433,8 @@ Inspect_BPoint
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BPoint object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -467,8 +467,8 @@ Inspect_BBitmap
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BBitmap object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -509,8 +509,8 @@ Inspect_BRect
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BRect object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -557,8 +557,8 @@ Inspect_BFont
 		uint16 aUInt16 (0);
 		uint8 aUInt8 (0);
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BFont object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -734,8 +734,8 @@ Inspect_BControl
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BControl object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -793,8 +793,8 @@ Inspect_BTextView
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BTextView object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -864,21 +864,21 @@ Inspect_BListView
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BListView object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
 		strDetails << tabindent << "CountItems= " << inValue->CountItems () << g_pNewline;
 		strDetails << tabindent << "IsEmpty= " << (inValue->IsEmpty () ? pTrue : pFalse);
 		BMessage * pMsg (inValue->InvocationMessage ());
-		GetHexString (hexbuf, (int32) pMsg);
+		GetHexString (hexbuf, (intptr_t) pMsg);
 		strDetails << tabindent << "InvocationMessage: [BMessage object, ptr=" << hexbuf << "]\n";
 		Inspect_BMessage (strDetails, pMsg, inIndent + 1, B_EMPTY_STRING, 1, 1);
 		list_view_type aListViewType (inValue->ListType ());
 		strDetails << tabindent << "ListType= " << (B_MULTIPLE_SELECTION_LIST == aListViewType ? "B_MULTIPLE_SELECTION_LIST\n" : "B_SINGLE_SELECTION_LIST\n");
 		pMsg = inValue->SelectionMessage ();
-		GetHexString (hexbuf, (int32) pMsg);
+		GetHexString (hexbuf, (intptr_t) pMsg);
 		strDetails << tabindent << "SelectionMessage: [BMessage object, ptr=" << hexbuf << "]\n";
 		Inspect_BMessage (strDetails, pMsg, inIndent + 1, B_EMPTY_STRING, 1, 1);
 
@@ -916,8 +916,8 @@ Inspect_BMenu
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BMenu object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -963,8 +963,8 @@ Inspect_BMenuBar
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BMenuBar object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1005,8 +1005,8 @@ Inspect_BMenuField
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BMenuField object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1049,8 +1049,8 @@ Inspect_BMenuItem
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMenuItem object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1067,10 +1067,10 @@ Inspect_BMenuItem
 		char aChar[2];
 		aChar[1] = '\0';
 		aChar[0] = inValue->Shortcut (&aUInt32);
-		GetHexString (hexbuf, (int32) aUInt32);
+		GetHexString (hexbuf, (intptr_t) aUInt32);
 		strDetails << tabindent << "Shortcut= " << aChar << ", (modifiers = " << hexbuf << ")\n";
 		aChar[0] = inValue->Trigger ();
-		GetHexString (hexbuf, (int32) aChar);
+		GetHexString (hexbuf, (intptr_t) aChar);
 		strDetails << tabindent << "Trigger= " << aChar << g_pNewline;
 
 /*TODO
@@ -1107,8 +1107,8 @@ Inspect_BPopUpMenu
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BPopUpMenu object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1150,8 +1150,8 @@ Inspect_BBox
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BBox object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1214,8 +1214,8 @@ Inspect_BDragger
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BDragger object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1255,8 +1255,8 @@ Inspect_BOutlineListView
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BOutlineListView object, ptr=" << hexbuf << "]\n";
 
 /*TODO
@@ -1293,8 +1293,8 @@ Inspect_BButton
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BButton object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1334,8 +1334,8 @@ Inspect_BCheckBox
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BCheckBox object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1375,8 +1375,8 @@ Inspect_BColorControl
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BColorControl object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -1419,8 +1419,8 @@ Inspect_BListItem
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BListItem object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1457,8 +1457,8 @@ Inspect_BPolygon
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BPolygon object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -1493,8 +1493,8 @@ Inspect_BRegion
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BRegion object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -1539,8 +1539,8 @@ Inspect_BPictureButton
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BPictureButton object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1594,8 +1594,8 @@ Inspect_BSlider
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BSlider object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1640,7 +1640,7 @@ Inspect_BSlider
 		strDetails << g_pNewline;
 
 		BMessage * pMessage (inValue->ModificationMessage ());
-		GetHexString (hexbuf, (int32) pMessage);
+		GetHexString (hexbuf, (intptr_t) pMessage);
 		strDetails << tabindent << "ModificationMessage: [BMessage object, ptr=" << hexbuf << "]\n";
 		Inspect_BMessage (strDetails, pMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
 		orientation aOrientation (inValue->Orientation ());
@@ -1699,8 +1699,8 @@ Inspect_BScrollView
 	{
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BScrollView object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -1746,8 +1746,8 @@ Inspect_BScrollBar
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BScrollBar object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1803,8 +1803,8 @@ Inspect_BScreen
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BScreen object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1935,8 +1935,8 @@ Inspect_BShelf
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BShelf object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1982,8 +1982,8 @@ Inspect_BStatusBar
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BStatusBar object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2043,8 +2043,8 @@ Inspect_BStringView
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BStringView object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2091,8 +2091,8 @@ Inspect_BTextControl
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTextControl object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2148,8 +2148,8 @@ Inspect_BTab
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTab object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2192,8 +2192,8 @@ Inspect_BTabView
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTabView object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2244,8 +2244,8 @@ Inspect_BPrintJob
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BPrintJob object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2282,8 +2282,8 @@ Inspect_BPicture
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BPicture object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2319,8 +2319,8 @@ Inspect_BSeparatorItem
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSeparatorItem object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2357,8 +2357,8 @@ Inspect_BStringItem
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BStringItem object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2395,8 +2395,8 @@ Inspect_BInputDevice
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BInputDevice object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2433,8 +2433,8 @@ Inspect_unicode_block
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[unicode_block object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2470,8 +2470,8 @@ Inspect_BAlert
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BAlert object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -2508,8 +2508,8 @@ Inspect_BShape
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BShape object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 

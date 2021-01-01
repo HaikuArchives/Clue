@@ -32,8 +32,8 @@ Inspect_BNodeInfo
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BNodeInfo object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -110,8 +110,8 @@ Inspect_BAppFileInfo
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BAppFileInfo object, ptr=" << hexbuf << "]\n";
 
 		status_t aStatusT (inValue->InitCheck ());
@@ -239,8 +239,8 @@ Inspect_BStatable
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BStatable object, ptr=" << hexbuf << "]\n";
 //		strDetails << tabindent << "---- BStatable properties ----\n";
 		tabindent << g_pIndentation;
@@ -352,8 +352,8 @@ Inspect_BNode
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BNode object, ptr=" << hexbuf << "]\n";
 
 		status_t aStatusT (inValue->InitCheck ());
@@ -414,8 +414,8 @@ Inspect_BEntryList
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BEntryList object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -447,8 +447,8 @@ Inspect_BDirectory
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BDirectory object, ptr=" << hexbuf << "]\n";
 
 		status_t aStatusT (inValue->InitCheck ());
@@ -501,8 +501,8 @@ Inspect_BEntry
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BEntry object, ptr=" << hexbuf << "]\n";
 
 		status_t aStatusT (inValue->InitCheck ());
@@ -589,8 +589,8 @@ Inspect_BPath
 	if (NULL != inValue)
 	{
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BPath object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -639,8 +639,8 @@ Inspect_BFile
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BFile object, ptr=" << hexbuf << "]\n";
 
 		status_t aStatusT (inValue->InitCheck ());
@@ -694,8 +694,8 @@ Inspect_BPositionIO
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BPositionIO object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
@@ -728,8 +728,8 @@ Inspect_BFilePanel
 	if (NULL != inValue)
 	{
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BFilePanel object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -791,8 +791,8 @@ Inspect_BMimeType
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BMimeType object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 		++inIndent;
@@ -957,8 +957,8 @@ Inspect_BVolume
 
 	if (NULL != inValue)
 	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString (hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BVolume object, ptr=" << hexbuf << "]\n";
 
 		status_t aStatusT (inValue->InitCheck ());
@@ -1033,8 +1033,8 @@ Inspect_BVolumeRoster
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BVolumeRoster object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1071,8 +1071,8 @@ Inspect_BSymLink
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSymLink object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1109,8 +1109,8 @@ Inspect_BResources
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BResources object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1147,8 +1147,8 @@ Inspect_BResourceStrings
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BResourceStrings object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -1185,8 +1185,8 @@ Inspect_BQuery
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BQuery object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 

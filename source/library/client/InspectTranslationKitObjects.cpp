@@ -38,8 +38,8 @@ Inspect_BTranslator
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTranslator object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -76,8 +76,8 @@ Inspect_BTranslatorRoster
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BTranslatorRoster object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -207,8 +207,8 @@ Inspect_BBitmapStream
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BBitmapStream object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 

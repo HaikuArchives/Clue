@@ -55,8 +55,8 @@ GetStatusTDescription
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inStatus);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inStatus);
 	strDetails << tabindent << pDescription << "(" << inStatus << " or " << hexbuf << ") ";
 
 	if (inStatus < B_OS_ERROR_BASE)  //General Error
@@ -744,8 +744,8 @@ Inspect_BGLView
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BGLView object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 

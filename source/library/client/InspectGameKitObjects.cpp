@@ -37,8 +37,8 @@ Inspect_BStreamingGameSound
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BStreamingGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -75,8 +75,8 @@ Inspect_BSimpleGameSound
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BSimpleGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -113,8 +113,8 @@ Inspect_BPushGameSound
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BPushGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -151,8 +151,8 @@ Inspect_BFileGameSound
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BFileGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -189,8 +189,8 @@ Inspect_BDirectWindow
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BDirectWindow object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
@@ -227,8 +227,8 @@ Inspect_BGameSound
 		tabindent << g_pIndentation;
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString (hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BGameSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
