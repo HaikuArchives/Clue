@@ -43,7 +43,6 @@ set(Clue_Viewer_SOURCES
 	PropertyItem.cpp
 	RefFilter.cpp
 	Reporter.cpp
-	SettingsManager.cpp
 	Slider.cpp
 	SplashView.cpp
 	SplashWindow.cpp
