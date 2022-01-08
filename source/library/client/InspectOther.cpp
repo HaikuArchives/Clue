@@ -31,8 +31,8 @@
 #endif
 
 
-extern const char * g_pIndentation;
-extern const char * g_pNewline;
+extern const char* g_pIndentation;
+extern const char* g_pNewline;
 
 
 /***************************************************************
@@ -41,28 +41,24 @@ typedef int32					status_t;
 ***************************************************************/
 void
 GetStatusTDescription
-	(
-	BString & strDetails
-,	status_t inStatus
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	status_t inStatus
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
 
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inStatus);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inStatus);
 	strDetails << tabindent << pDescription << "(" << inStatus << " or " << hexbuf << ") ";
 
-	if (inStatus < B_OS_ERROR_BASE)  //General Error
-	{
-		switch (inStatus)
-		{
+	if (inStatus < B_OS_ERROR_BASE) { //General Error
+		switch (inStatus) {
 			case B_NO_MEMORY:
 				strDetails << "B_NO_MEMORY";
 				break;
@@ -93,13 +89,13 @@ GetStatusTDescription
 			case B_TIMED_OUT:
 				strDetails << "B_TIMED_OUT";
 				break;
-		 	case B_INTERRUPTED:
+			case B_INTERRUPTED:
 				strDetails << "B_INTERRUPTED";
 				break;
 			case B_WOULD_BLOCK:
 				strDetails << "B_WOULD_BLOCK";
 				break;
-		 	case B_CANCELED:
+			case B_CANCELED:
 				strDetails << "B_CANCELED";
 				break;
 			case B_NO_INIT:
@@ -114,11 +110,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_APP_ERROR_BASE) //OS Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_APP_ERROR_BASE) { //OS Error
+		switch (inStatus) {
 			case B_BAD_SEM_ID:
 				strDetails << "B_BAD_SEM_ID";
 				break;
@@ -167,11 +160,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_INTERFACE_ERROR_BASE) //App Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_INTERFACE_ERROR_BASE) { //App Error
+		switch (inStatus) {
 			case B_BAD_REPLY:
 				strDetails << "B_BAD_REPLY";
 				break;
@@ -223,19 +213,13 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_MEDIA_ERROR_BASE) //Interface Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_MEDIA_ERROR_BASE) { //Interface Error
+		switch (inStatus) {
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_TRANSLATION_ERROR_BASE) //Media Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_TRANSLATION_ERROR_BASE) { //Media Error
+		switch (inStatus) {
 			case B_STREAM_NOT_FOUND:
 				strDetails << "B_STREAM_NOT_FOUND";
 				break;
@@ -341,7 +325,7 @@ GetStatusTDescription
 			case B_MEDIA_ADDON_RESTRICTED:
 				strDetails << "B_MEDIA_ADDON_RESTRICTED";
 				break;
-			case B_MEDIA_NO_HANDLER: 
+			case B_MEDIA_NO_HANDLER:
 				strDetails << "B_MEDIA_NO_HANDLER";
 				break;
 			case B_MEDIA_DUPLICATE_FORMAT:
@@ -356,11 +340,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_MIDI_ERROR_BASE) //Translation Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_MIDI_ERROR_BASE) { //Translation Error
+		switch (inStatus) {
 			case B_NO_TRANSLATOR:
 				strDetails << "B_NO_TRANSLATOR";
 				break;
@@ -370,11 +351,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_STORAGE_ERROR_BASE) //Midi Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_STORAGE_ERROR_BASE) { //Midi Error
+		switch (inStatus) {
 			case B_BAD_INSTRUMENT:
 				strDetails << "B_BAD_INSTRUMENT";
 				break;
@@ -396,11 +374,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_POSIX_ERROR_BASE) //Storage Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_POSIX_ERROR_BASE) { //Storage Error
+		switch (inStatus) {
 			case B_FILE_ERROR:
 				strDetails << "B_FILE_ERROR";
 				break;
@@ -452,11 +427,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_MAIL_ERROR_BASE) //Posix Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_MAIL_ERROR_BASE) { //Posix Error
+		switch (inStatus) {
 			case E2BIG:
 				strDetails << "E2BIG";
 				break;
@@ -592,11 +564,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_PRINT_ERROR_BASE) //Mail Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_PRINT_ERROR_BASE) { //Mail Error
+		switch (inStatus) {
 			case B_MAIL_NO_DAEMON:
 				strDetails << "B_MAIL_NO_DAEMON";
 				break;
@@ -624,22 +593,16 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else if (inStatus < B_DEVICE_ERROR_BASE) //Print Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus < B_DEVICE_ERROR_BASE) { //Print Error
+		switch (inStatus) {
 			case B_NO_PRINT_SERVER:
 				strDetails << "B_NO_PRINT_SERVER";
 				break;
 			default:
 				break;
 		}
-	}
-	else if (inStatus <= B_ERRORS_END)  //Device Error
-	{
-		switch (inStatus)
-		{
+	} else if (inStatus <= B_ERRORS_END) { //Device Error
+		switch (inStatus) {
 			case B_DEV_INVALID_IOCTL:
 				strDetails << "B_DEV_INVALID_IOCTL";
 				break;
@@ -700,11 +663,8 @@ GetStatusTDescription
 			default:
 				break;
 		}
-	}
-	else
-	{
-		switch (inStatus)
-		{
+	} else {
+		switch (inStatus) {
 			case B_ERROR:
 				strDetails << "B_ERROR";
 				break;
@@ -717,11 +677,9 @@ GetStatusTDescription
 		}
 	}
 
-	char * pChar (strerror (inStatus));
+	char* pChar(strerror(inStatus));
 	if (NULL != pChar)
-	{
 		strDetails << ", " << pChar;
-	}
 
 	strDetails << "\n";
 }
@@ -731,37 +689,31 @@ GetStatusTDescription
 ***************************************************************/
 void
 Inspect_BGLView
-	(
-	BString & strDetails
-,	BGLView * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BGLView* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BGLView object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "not coded in this release!" << g_pNewline;
 		//if (DoBaseClasses)
 		//{
 		//	strDetails << tabindent << g_pNewline;
 		//	Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
 		//}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BGLView was NULL\n";
-	}
 }
 
 

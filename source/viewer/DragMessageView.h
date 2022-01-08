@@ -1,7 +1,7 @@
 /*
-	
+
 	DropView.h
-	
+
 */
 /*
 	Copyright 1999, Be Incorporated.   All Rights Reserved.
@@ -20,18 +20,17 @@ class BRect;
 class BPoint;
 class ColumnListView;
 
-class DragMessageView : public BStringView 
-{
-	public:
-						DragMessageView (BRect, const char *, ColumnListView *); 
-						~DragMessageView (void);
-		virtual void 	MessageReceived (BMessage *);
-		virtual void 	MouseMoved (BPoint, uint32, const BMessage *);
-	private:
-		void			ProcessMessage (const BMessage *);
-	private:
-		ColumnListView *	m_ColumnListView;
-		BMessage *			m_message;
+class DragMessageView : public BStringView {
+public:
+	DragMessageView(BRect, const char*, ColumnListView*);
+	~DragMessageView(void);
+	virtual void 	MessageReceived(BMessage*);
+	virtual void 	MouseMoved(BPoint, uint32, const BMessage*);
+private:
+	void			ProcessMessage(const BMessage*);
+private:
+	ColumnListView* 	m_ColumnListView;
+	BMessage* 			m_message;
 };
 
 #endif //DROP_VIEW_H

@@ -1,4 +1,4 @@
-/*	
+/*
 	2000 Jeff Braun
 	web: www.citylinq.com/brauns
 	email1: yobkadon@hotmail.com
@@ -27,23 +27,22 @@ class BMessageRunner;
 class definition
 ***************************************************************/
 class StatusBarView
-:	public BView
-{
-	public:
-							StatusBarView (BRect);
-							~StatusBarView (void);
-		virtual void		AllAttached (void);
-		virtual void		MessageReceived (BMessage *);
-		virtual void		Draw (BRect);
-	private:
-							StatusBarView (const StatusBarView &);
-							StatusBarView & operator= (StatusBarView &);
-	public:
-		//void				SetPaneText (int32);
-		void				SetPaneText (const char *);
-	private:
-		char *				m_text;
-		BMessageRunner * 	m_runner;
+	:	public BView {
+public:
+	StatusBarView(BRect);
+	~StatusBarView(void);
+	virtual void		AllAttached(void);
+	virtual void		MessageReceived(BMessage*);
+	virtual void		Draw(BRect);
+private:
+	StatusBarView(const StatusBarView&);
+	StatusBarView& operator= (StatusBarView&);
+public:
+	//void				SetPaneText (int32);
+	void				SetPaneText(const char*);
+private:
+	char* 				m_text;
+	BMessageRunner* 	m_runner;
 };
 
 #endif //STATUSBARVIEW_H

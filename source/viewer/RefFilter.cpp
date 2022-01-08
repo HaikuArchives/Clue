@@ -1,4 +1,4 @@
-/*	
+/*
 	1999 Jeff Braun
 	web: www.citylinq.com/brauns
 	email1: yobkadon@hotmail.com
@@ -39,47 +39,32 @@ include header files
 ***************************************************************/
 bool
 RefFilter :: Filter
-	(
-	const entry_ref * ref
-,	BNode * node
-,	struct stat * st
-,	const char * filetype
-	)
+(
+	const entry_ref* ref
+	,	BNode* node
+	,	struct stat* st
+	,	const char* filetype
+)
 {
 	if (S_ISDIR(st->st_mode))
-	{
 		return true;
-	}
-	else if (S_ISREG(st->st_mode))
-	{
-		if (strcmp (filetype, STR_FILE_SIG) == 0)
-		{
+	else if (S_ISREG(st->st_mode)) {
+		if (strcmp(filetype, STR_FILE_SIG) == 0)
 			return true;
-		}
-	}
-	else if (S_ISLNK(st->st_mode))
-	{
-		BEntry entry (ref, true);
-		if (B_OK == entry.InitCheck ())
-		{
-			BNode node (&entry);
-			if (B_OK == node.InitCheck ())
-			{
-				if (node.IsDirectory ())
-				{
+	} else if (S_ISLNK(st->st_mode)) {
+		BEntry entry(ref, true);
+		if (B_OK == entry.InitCheck()) {
+			BNode node(&entry);
+			if (B_OK == node.InitCheck()) {
+				if (node.IsDirectory())
 					return true;
-				}
-				else
-				{
-					BNodeInfo info (&node);
-					if (B_OK == info.InitCheck ())
-					{
+				else {
+					BNodeInfo info(&node);
+					if (B_OK == info.InitCheck()) {
 						char filetype[B_MIME_TYPE_LENGTH];
-						info.GetType (filetype);
-						if (strcmp (filetype, STR_FILE_SIG) == 0)
-						{
+						info.GetType(filetype);
+						if (strcmp(filetype, STR_FILE_SIG) == 0)
 							return true;
-						}
 					}
 				}
 			}

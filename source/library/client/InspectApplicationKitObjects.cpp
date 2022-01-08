@@ -13,21 +13,21 @@ char CodeUnknown[5] = "    ";
 char buf[200 + B_PATH_NAME_LENGTH] = "";
 char TypeCodeUnknown[20] = "";
 
-extern const char * pTrue;
-extern const char * pFalse;
-extern const char * g_pIndentation;
-extern const char * g_pFailedWithError;
-extern const char * g_pNewline;
+extern const char* pTrue;
+extern const char* pFalse;
+extern const char* g_pIndentation;
+extern const char* g_pFailedWithError;
+extern const char* g_pNewline;
 
 
 /***************************************************************
 ***************************************************************/
 void
 getcode
-	(
+(
 	type_code		code,
-	char *			out  //char array should be about 17
-	)
+	char* 			out  //char array should be about 17
+)
 {
 	char hex[] = "0123456789abcdef";
 	*(out++) = '\'';
@@ -37,11 +37,10 @@ getcode
 		if ((ch < 32) || (ch == '\\') || (ch > 127)) {
 			*(out++) = '\\';
 			*(out++) = 'x';
-			*(out++) = hex[(ch>>4)&0xf];
-			*(out++) = hex[ch&0xf];
-		} else {
+			*(out++) = hex[(ch>>4) & 0xf];
+			*(out++) = hex[ch & 0xf];
+		} else
 			*(out++) = ch;
-		}
 		code <<= 8;
 	}
 	*(out++) = '\'';
@@ -52,14 +51,13 @@ getcode
 
 /***************************************************************
 ***************************************************************/
-const char *
+const char*
 GetTypeCode
-	(
+(
 	type_code tc
-	)
+)
 {
-	switch ((char) (tc >> 24))
-	{
+	switch ((char)(tc >> 24)) {
 		case 'A':
 			if (B_ANY_TYPE == tc)
 				return "B_ANY_TYPE, ";
@@ -70,8 +68,7 @@ GetTypeCode
 
 			break;
 		case 'B':
-			switch ((char) (tc >> 16))
-			{
+			switch ((char)(tc >> 16)) {
 				case 'M':
 					if (B_MEDIA_PARAMETER_TYPE == tc)
 						return "B_MEDIA_PARAMETER_TYPE, BMCT";
@@ -79,7 +76,7 @@ GetTypeCode
 						return "B_MEDIA_PARAMETER_WEB_TYPE, BMCW";
 					else if (B_MEDIA_PARAMETER_GROUP_TYPE == tc)
 						return "B_MEDIA_PARAMETER_GROUP_TYPE, BMCG";
-							
+
 					break;
 				case 'O':
 					if (B_BOOL_TYPE == tc)
@@ -147,7 +144,7 @@ GetTypeCode
 
 			break;
 		case 'P':
-			if ( B_PATTERN_TYPE == tc)
+			if (B_PATTERN_TYPE == tc)
 				return " B_PATTERN_TYPE,";
 			else if (B_POINTER_TYPE == tc)
 				return "B_POINTER_TYPE,";
@@ -195,24 +192,22 @@ GetTypeCode
 				return "B_UINT64_TYPE";
 	}
 
-	getcode (tc, TypeCodeUnknown);
+	getcode(tc, TypeCodeUnknown);
 	return TypeCodeUnknown;
 }
 
 
 /***************************************************************
 ***************************************************************/
-const char *
+const char*
 GetCommandCode
-	(
+(
 	uint32 type
-	)
+)
 {
-	switch ((char) (type >> 24))
-	{
+	switch ((char)(type >> 24)) {
 		case '_':
-			switch ((char) (type >> 16))
-			{
+			switch ((char)(type >> 16)) {
 				case 'A':
 					if ('_ABR' == type)
 						return "B_ABOUT_REQUESTED, _ABR";
@@ -254,8 +249,7 @@ GetCommandCode
 
 					break;
 				case 'M':
-					switch ((char) (type >> 8))
-					{
+					switch ((char)(type >> 8)) {
 						case 'C':
 							if ('_MCH' == type)
 								return "B_MODIFIERS_CHANGED, _MCH";
@@ -277,7 +271,7 @@ GetCommandCode
 							break;
 						case 'M':
 							if ('_MMV' == type)
-									return "B_MOUSE_MOVED, _MMV";
+								return "B_MOUSE_MOVED, _MMV";
 
 							break;
 						case 'N':
@@ -344,8 +338,7 @@ GetCommandCode
 
 					break;
 				case 'U':
-					switch ((char) (type >> 8))
-					{
+					switch ((char)(type >> 8)) {
 						case 'K':
 							if ('_UKD' == type)
 								return "B_UNMAPPED_KEY_DOWN, _UKD";
@@ -414,8 +407,7 @@ GetCommandCode
 
 			break;
 		case 'D':
-			switch ((char) (type >> 16))
-			{
+			switch ((char)(type >> 16)) {
 				case 'A':
 					if ('DATA' == type)
 						return "B_SIMPLE_DATA, DATA";
@@ -488,8 +480,7 @@ GetCommandCode
 
 			break;
 		case 'S':
-			switch ((char) (type >> 16))
-			{
+			switch ((char)(type >> 16)) {
 				case 'A':
 					if ('SALL' == type)
 						return "B_SELECT_ALL, SALL";
@@ -522,702 +513,567 @@ GetCommandCode
 			break;
 	}
 
-	CodeUnknown[0] = (char) (type >> 24);
-	CodeUnknown[1] = (char) (type >> 16);
-	CodeUnknown[2] = (char) (type >> 8);
+	CodeUnknown[0] = (char)(type >> 24);
+	CodeUnknown[1] = (char)(type >> 16);
+	CodeUnknown[2] = (char)(type >> 8);
 	CodeUnknown[3] = (char) type;
 	CodeUnknown[4] = '\0';
 	return (CodeUnknown);
 }
 
 
-					//            1         2         3         4         5         6         7
-					//   12345678901234567890123456789012345678901234567890123456789012345678901
-const char *spaces =	"              ";
+//            1         2         3         4         5         6         7
+//   12345678901234567890123456789012345678901234567890123456789012345678901
+const char* spaces =	"              ";
 
-int	sl (14);
+int	sl(14);
 
 
 /***************************************************************
 ***************************************************************/
 void
 Inspect_BMessage
-	(
-	BString & inDetails
-,	BMessage * inMsg
-,	int32 inIndent
-,	const char * inName
-,	int32 inIndex
-,	int32 inRange
-	)
+(
+	BString& inDetails
+	,	BMessage* inMsg
+	,	int32 inIndent
+	,	const char* inName
+	,	int32 inIndex
+	,	int32 inRange
+)
 {
 	BString tabindent;
-	int32 i (0);
+	int32 i(0);
 	for (i = 0; i < inIndent; i++)
-	{
 		tabindent << g_pIndentation;
-	}
 
-	if (NULL != inMsg)
-	{
+	if (NULL != inMsg) {
 		BRect valBRect;
 		entry_ref valEntryRef;
 		BMessage valBMessage;
 
 #ifdef CLUE_ON_ZETA_HACK
-		char const * name (NULL);
+		char const* name(NULL);
 #else
-		char * name (NULL);
+		char* name(NULL);
 #endif
-		uint32 type (0);
-		ssize_t numBytes (0);
-		void * pvoid (NULL);
+		uint32 type(0);
+		ssize_t numBytes(0);
+		void* pvoid(NULL);
 		char header[1000] = "";
 
-		int32 offset (0);
-		int32 count (0);
-		status_t rc (B_ERROR);
+		int32 offset(0);
+		int32 count(0);
+		status_t rc(B_ERROR);
 
-		offset = strlen (inName);
+		offset = strlen(inName);
 		if (offset > sl)
-		{
 			offset = sl;
-		}
 
-		sprintf (buf, "%-18s (%s),%s [%li of %li], what=%s\n", 
-			"B_MESSAGE_TYPE,", inName, spaces + offset, inIndex, inRange, GetCommandCode (inMsg->what));
+		sprintf(buf, "%-18s (%s),%s [%li of %li], what=%s\n",
+				"B_MESSAGE_TYPE,", inName, spaces + offset, inIndex, inRange, GetCommandCode(inMsg->what));
 
 		inDetails << tabindent << buf;
 
 		tabindent << g_pIndentation;
 
-		for (i = 0; inMsg->GetInfo (B_ANY_TYPE, i, &name, &type, &inRange) == B_OK; i++)
-		{
-			offset = strlen (name);
+		for (i = 0; inMsg->GetInfo(B_ANY_TYPE, i, &name, &type, &inRange) == B_OK; i++) {
+			offset = strlen(name);
 			if (offset > sl)
-			{
 				offset = sl;
-			}
 //			count = inRange;
 			count = 0;
 
-			const char * ptc (GetTypeCode (type));
-			sprintf (header, "%-18s (%s),%s ", ptc, name, spaces + offset);
+			const char* ptc(GetTypeCode(type));
+			sprintf(header, "%-18s (%s),%s ", ptc, name, spaces + offset);
 
-			switch (type)
-			{
+			switch (type) {
 				case B_BOOL_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_BOOL_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (bool) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%s (%hi)\n",
-									count, inRange, numBytes, *((bool *) pvoid) ? "True" : "False",
-									*((bool *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_BOOL_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(bool) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%s (%hi)\n",
+										count, inRange, numBytes, *((bool*) pvoid) ? "True" : "False",
+										*((bool*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
-									count, inRange, numBytes, sizeof (bool));
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
+										count, inRange, numBytes, sizeof(bool));
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (bool));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(bool));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_INT8_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_INT8_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (int8) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%#hx (%hi)\n",
-									count, inRange, numBytes, *((int8 *) pvoid), *((int8 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_INT8_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(int8) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%#hx (%hi)\n",
+										count, inRange, numBytes, *((int8*) pvoid), *((int8*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
-									count, inRange, numBytes, sizeof (int8));
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
+										count, inRange, numBytes, sizeof(int8));
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (int8));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(int8));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_UINT8_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_UINT8_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (uint8) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%#hx (%hu)\n",
-									count, inRange, numBytes, *((uint8 *) pvoid), *((uint8 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_UINT8_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(uint8) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%#hx (%hu)\n",
+										count, inRange, numBytes, *((uint8*) pvoid), *((uint8*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
-									count, inRange, numBytes, sizeof (uint8));
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
+										count, inRange, numBytes, sizeof(uint8));
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (uint8));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(uint8));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_INT16_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_INT16_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (int16) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%#hx (%hi)\n",
-									count, inRange, numBytes, *((int16 *) pvoid), *((int16 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_INT16_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(int16) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%#hx (%hi)\n",
+										count, inRange, numBytes, *((int16*) pvoid), *((int16*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
-									count, inRange, numBytes, sizeof (int16));
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
+										count, inRange, numBytes, sizeof(int16));
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (int16));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(int16));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_UINT16_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_UINT16_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (uint16) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%#hx (%hu)\n",
-									count, inRange, numBytes, *((uint16 *) pvoid), *((uint16 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_UINT16_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(uint16) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%#hx (%hu)\n",
+										count, inRange, numBytes, *((uint16*) pvoid), *((uint16*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
-									count, inRange, numBytes, sizeof (uint16));
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE SIZE OF %li, DISPLAY HEX DUMP:\n",
+										count, inRange, numBytes, sizeof(uint16));
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (uint16));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(uint16));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_INT32_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_INT32_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (int32) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%#x (%li)\n",
-									count, inRange, numBytes, *((int32 *) pvoid), *((int32 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_INT32_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(int32) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%#x (%li)\n",
+										count, inRange, numBytes, *((int32*) pvoid), *((int32*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (int32));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(int32));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_UINT32_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_INT32_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (uint32) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%#x (%lu)\n",
-									count, inRange, numBytes, *((uint32 *) pvoid), *((uint32 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_INT32_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(uint32) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%#x (%lu)\n",
+										count, inRange, numBytes, *((uint32*) pvoid), *((uint32*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (uint32));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(uint32));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_INT64_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_INT64_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (int64) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=0x%#Lx (%Li)\n",
-									count, inRange, numBytes, *((int64 *) pvoid), *((int64 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_INT64_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(int64) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=0x%#Lx (%Li)\n",
+										count, inRange, numBytes, *((int64*) pvoid), *((int64*) pvoid));
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (int64));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(int64));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_UINT64_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_UINT64_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (uint64) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=0x%#Lx (%Lu)\n",
-									count, inRange, numBytes, *((int64 *) pvoid), *((uint64 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_UINT64_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(uint64) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=0x%#Lx (%Lu)\n",
+										count, inRange, numBytes, *((int64*) pvoid), *((uint64*) pvoid));
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (uint64));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(uint64));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_FLOAT_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_FLOAT_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (float) == numBytes) //makes sure the data fits
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%.4Lf\n",
-									count, inRange, numBytes, *((float *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_FLOAT_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(float) == numBytes) { //makes sure the data fits
+								sprintf(buf, "[%li of %li], size=%2li, value=%.4Lf\n",
+										count, inRange, numBytes, *((float*) pvoid));
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (float));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(float));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_DOUBLE_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_DOUBLE_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof(double) == numBytes) //makes sure the data fits
-							{
-								sprintf (buf, "%s[%li of %li], size=%2li, value=%.8Lf\n",
-									header, count, inRange, numBytes, *((double *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_DOUBLE_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(double) == numBytes) { //makes sure the data fits
+								sprintf(buf, "%s[%li of %li], size=%2li, value=%.8Lf\n",
+										header, count, inRange, numBytes, *((double*) pvoid));
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (double));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(double));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_RECT_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_RECT_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof(BRect) == numBytes) //makes sure the data fits
-							{
-								valBRect = *((BRect *) pvoid);
-								sprintf (buf, "[%li of %li], size=%2li, L=%.4f, T=%.4f, R=%.4f, B=%.4f\n",
-									count, inRange, numBytes,
-									valBRect.left, valBRect.top, valBRect.right, valBRect.bottom);
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_RECT_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(BRect) == numBytes) { //makes sure the data fits
+								valBRect = *((BRect*) pvoid);
+								sprintf(buf, "[%li of %li], size=%2li, L=%.4f, T=%.4f, R=%.4f, B=%.4f\n",
+										count, inRange, numBytes,
+										valBRect.left, valBRect.top, valBRect.right, valBRect.bottom);
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (BRect));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(BRect));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_MESSAGE_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindMessage (name, count - 1, &valBMessage);
-						if (B_OK == rc)
-						{
+					while (count++ < inRange) {
+						rc = inMsg->FindMessage(name, count - 1, &valBMessage);
+						if (B_OK == rc) {
 							if (inIndent < 10)
-							{
-								Inspect_BMessage (inDetails, &valBMessage, inIndent + 1, name, count, inRange);
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], MAX NUMBER OF NESTED LEVELS OF BMESSAGES ARE PRINTED\n",
-									count, inRange);
+								Inspect_BMessage(inDetails, &valBMessage, inIndent + 1, name, count, inRange);
+							else {
+								sprintf(buf, "[%li of %li], MAX NUMBER OF NESTED LEVELS OF BMESSAGES ARE PRINTED\n",
+										count, inRange);
 								inDetails << tabindent << header << buf;
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_POINT_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_POINT_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof(BPoint) == numBytes) //makes sure the data fits
-							{
-								sprintf (buf, "[%li of %li], size=%2li, X=%f, Y=%f\n",
-									count, inRange, numBytes, ((BPoint *) pvoid)->x, ((BPoint *) pvoid)->y);
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_POINT_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(BPoint) == numBytes) { //makes sure the data fits
+								sprintf(buf, "[%li of %li], size=%2li, X=%f, Y=%f\n",
+										count, inRange, numBytes, ((BPoint*) pvoid)->x, ((BPoint*) pvoid)->y);
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (BPoint));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(BPoint));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_STRING_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_STRING_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (numBytes < 2000) //don't copy a REALLY LONG string, use HexDump instead
-							{
-								sprintf (buf, "[%li of %li], size=%2li, ",
-									count, inRange, numBytes);
-								inDetails << tabindent << header << buf << (char *) pvoid << g_pNewline;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, DISPLAY HEX DUMP:\n",
-									count, inRange, numBytes);
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_STRING_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (numBytes < 2000) { //don't copy a REALLY LONG string, use HexDump instead
+								sprintf(buf, "[%li of %li], size=%2li, ",
+										count, inRange, numBytes);
+								inDetails << tabindent << header << buf << (char*) pvoid << g_pNewline;
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, DISPLAY HEX DUMP:\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent);
+								HexDump(pvoid, numBytes, inDetails, tabindent);
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_REF_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindRef (name, count - 1, &valEntryRef);
-						if (B_OK == rc)
-						{
+					while (count++ < inRange) {
+						rc = inMsg->FindRef(name, count - 1, &valEntryRef);
+						if (B_OK == rc) {
 							// Find the path...
-							BEntry bentry (&valEntryRef);
+							BEntry bentry(&valEntryRef);
 							BPath path;
-							if (B_OK == bentry.InitCheck ())
-							{
-								bentry.GetPath (&path);
-							}
+							if (B_OK == bentry.InitCheck())
+								bentry.GetPath(&path);
 
-							sprintf (buf, "[%li of %li], device=%li, directory=%Li, name='%s'\n",
-								count, inRange, valEntryRef.device, valEntryRef.directory, valEntryRef.name);
+							sprintf(buf, "[%li of %li], device=%li, directory=%Li, name='%s'\n",
+									count, inRange, valEntryRef.device, valEntryRef.directory, valEntryRef.name);
 							inDetails << tabindent << header << buf;
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
 				case B_POINTER_TYPE:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, B_POINTER_TYPE, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							if (sizeof (int32) == numBytes)
-							{
-								sprintf (buf, "[%li of %li], size=%2li, value=%#x\n",
-									count, inRange, numBytes, *((int32 *) pvoid));
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, B_POINTER_TYPE, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							if (sizeof(int32) == numBytes) {
+								sprintf(buf, "[%li of %li], size=%2li, value=%#x\n",
+										count, inRange, numBytes, *((int32*) pvoid));
 
 								inDetails << tabindent << header << buf;
-							}
-							else
-							{
-								sprintf (buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
-									count, inRange, numBytes);
+							} else {
+								sprintf(buf, "[%li of %li], size=%2li, SIZE DIDN'T MATCH DATA TYPE, DISPLAY HEX DUMP\n",
+										count, inRange, numBytes);
 
 								inDetails << tabindent << header << buf;
-								HexDump (pvoid, numBytes, inDetails, tabindent, sizeof (int32));
+								HexDump(pvoid, numBytes, inDetails, tabindent, sizeof(int32));
 							}
-						}
-						else
-						{
-							sprintf (buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
-								count - 1, inRange, rc, numBytes);
+						} else {
+							sprintf(buf, "[%li of %li], INTERNAL DATA FORMAT WAS BAD, FINDDATA RETURNED %li, %2li\n",
+									count - 1, inRange, rc, numBytes);
 
 							inDetails << tabindent << header << buf;
 						}
 					}
 					break;
-/*
-			case B_MESSENGER_TYPE:
-				*inStr << tabindent << "B_MESSENGER_TYPE\n";
-				break;
-			case B_MIME_TYPE:
-				*inStr << tabindent << "B_MIME_TYPE\n";
-				break;
-			case B_MONOCHROME_1_BIT_TYPE:
-				*inStr << tabindent << "B_MONOCHROME_1_BIT_TYPE\n";
-				break;
-			case B_OBJECT_TYPE:
-				*inStr << tabindent << "B_OBJECT_TYPE\n";
-				break;
-			case B_OFF_T_TYPE:
-				*inStr << tabindent << "B_OFF_T_TYPE\n";
-				break;
-			case B_PATTERN_TYPE:
-				*inStr << tabindent << "B_PATTERN_TYPE\n";
-				break;
-			case B_RAW_TYPE:
-				*inStr << tabindent << "B_RAW_TYPE\n";
-				break;
-			case B_RGB_32_BIT_TYPE:
-				*inStr << tabindent << "B_RGB_32_BIT_TYPE\n";
-				break;
-			case B_RGB_COLOR_TYPE:
-				*inStr << tabindent << "B_RGB_COLOR_TYPE\n";
-				break;
-			case B_SIZE_T_TYPE:
-				*inStr << tabindent << "B_SIZE_T_TYPE\n";
-				break;
-			case B_SSIZE_T_TYPE:
-				*inStr << tabindent << "B_SSIZE_T_TYPE\n";
-				break;
-			case B_TIME_TYPE:
-				*inStr << tabindent << "B_TIME_TYPE\n";
-				break;
-			case B_UINT64_TYPE:
-				*inStr << tabindent << "B_UINT64_TYPE\n";
-				break;
-			case B_MEDIA_PARAMETER_TYPE:
-				*inStr << tabindent << "B_MEDIA_PARAMETER_TYPE\n";
-				break;
-			case B_MEDIA_PARAMETER_WEB_TYPE:
-				*inStr << tabindent << "B_MEDIA_PARAMETER_WEB_TYPE\n";
-				break;
-			case B_MEDIA_PARAMETER_GROUP_TYPE:
-				*inStr << tabindent << "B_MEDIA_PARAMETER_GROUP_TYPE\n";
-				break;
-			case B_ATOM_TYPE:
-				*inStr << tabindent << "B_ATOM_TYPE\n";
-				break;
-			case B_ATOMREF_TYPE:
-				*inStr << tabindent << "B_ATOMREF_TYPE\n";
-				break;
-			case B_ASCII_TYPE:
-				*inStr << tabindent << "B_ASCII_TYPE\n";
-				break;
-			case B_CHAR_TYPE:
-				while (count-- > 0)
-				{
-					inMsg->FindFloat (name, count, &valFloat);
-					*inStr << tabindent << "B_CHAR_TYPE (" << name << ") [" << count + 1 <<" of " << inRange << "]\tvalue=" << valFloat << g_pNewline;
-				}
-				*inStr << tabindent << "B_CHAR_TYPE\n";
-				break;
-			case B_COLOR_8_BIT_TYPE:
-				*inStr << tabindent << "B_COLOR_8_BIT_TYPE\n";
-				break;
-			case B_GRAYSCALE_8_BIT_TYPE:
-				*inStr << tabindent << "B_GRAYSCALE_8_BIT_TYPE\n";
-				break;
-*/
+				/*
+							case B_MESSENGER_TYPE:
+								*inStr << tabindent << "B_MESSENGER_TYPE\n";
+								break;
+							case B_MIME_TYPE:
+								*inStr << tabindent << "B_MIME_TYPE\n";
+								break;
+							case B_MONOCHROME_1_BIT_TYPE:
+								*inStr << tabindent << "B_MONOCHROME_1_BIT_TYPE\n";
+								break;
+							case B_OBJECT_TYPE:
+								*inStr << tabindent << "B_OBJECT_TYPE\n";
+								break;
+							case B_OFF_T_TYPE:
+								*inStr << tabindent << "B_OFF_T_TYPE\n";
+								break;
+							case B_PATTERN_TYPE:
+								*inStr << tabindent << "B_PATTERN_TYPE\n";
+								break;
+							case B_RAW_TYPE:
+								*inStr << tabindent << "B_RAW_TYPE\n";
+								break;
+							case B_RGB_32_BIT_TYPE:
+								*inStr << tabindent << "B_RGB_32_BIT_TYPE\n";
+								break;
+							case B_RGB_COLOR_TYPE:
+								*inStr << tabindent << "B_RGB_COLOR_TYPE\n";
+								break;
+							case B_SIZE_T_TYPE:
+								*inStr << tabindent << "B_SIZE_T_TYPE\n";
+								break;
+							case B_SSIZE_T_TYPE:
+								*inStr << tabindent << "B_SSIZE_T_TYPE\n";
+								break;
+							case B_TIME_TYPE:
+								*inStr << tabindent << "B_TIME_TYPE\n";
+								break;
+							case B_UINT64_TYPE:
+								*inStr << tabindent << "B_UINT64_TYPE\n";
+								break;
+							case B_MEDIA_PARAMETER_TYPE:
+								*inStr << tabindent << "B_MEDIA_PARAMETER_TYPE\n";
+								break;
+							case B_MEDIA_PARAMETER_WEB_TYPE:
+								*inStr << tabindent << "B_MEDIA_PARAMETER_WEB_TYPE\n";
+								break;
+							case B_MEDIA_PARAMETER_GROUP_TYPE:
+								*inStr << tabindent << "B_MEDIA_PARAMETER_GROUP_TYPE\n";
+								break;
+							case B_ATOM_TYPE:
+								*inStr << tabindent << "B_ATOM_TYPE\n";
+								break;
+							case B_ATOMREF_TYPE:
+								*inStr << tabindent << "B_ATOMREF_TYPE\n";
+								break;
+							case B_ASCII_TYPE:
+								*inStr << tabindent << "B_ASCII_TYPE\n";
+								break;
+							case B_CHAR_TYPE:
+								while (count-- > 0)
+								{
+									inMsg->FindFloat (name, count, &valFloat);
+									*inStr << tabindent << "B_CHAR_TYPE (" << name << ") [" << count + 1 <<" of " << inRange << "]\tvalue=" << valFloat << g_pNewline;
+								}
+								*inStr << tabindent << "B_CHAR_TYPE\n";
+								break;
+							case B_COLOR_8_BIT_TYPE:
+								*inStr << tabindent << "B_COLOR_8_BIT_TYPE\n";
+								break;
+							case B_GRAYSCALE_8_BIT_TYPE:
+								*inStr << tabindent << "B_GRAYSCALE_8_BIT_TYPE\n";
+								break;
+				*/
 				default:
-					while (count++ < inRange)
-					{
-						rc = inMsg->FindData (name, type, count - 1, (const void **) &pvoid, &numBytes);
-						if (B_OK == rc)
-						{
-							sprintf (buf, "%s[%li of %li], size=%2li\n",
-								header, count, inRange, numBytes);
+					while (count++ < inRange) {
+						rc = inMsg->FindData(name, type, count - 1, (const void**) &pvoid, &numBytes);
+						if (B_OK == rc) {
+							sprintf(buf, "%s[%li of %li], size=%2li\n",
+									header, count, inRange, numBytes);
 
 							inDetails << tabindent << buf;
-							HexDump (pvoid, numBytes, inDetails, tabindent);
-						}
-						else
-						{
+							HexDump(pvoid, numBytes, inDetails, tabindent);
+						} else
 							inDetails << tabindent << "type was invalid[" << rc << "] for name '" << name << "' and index " << count - 1 << g_pNewline;
-						}
 					}
 					break;
 			}
 		}
-	}
-	else
-	{
+	} else
 		inDetails << tabindent << "The BMessage was NULL\n";
-	}
 }
 
 
@@ -1225,47 +1081,37 @@ Inspect_BMessage
 ***************************************************************/
 void
 Inspect_BHandler
-	(
-	BString & strDetails
-,	BHandler * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BHandler* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BHandler object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
-		strDetails << tabindent << "Name= " << inValue->Name () << g_pNewline;
+		strDetails << tabindent << "Name= " << inValue->Name() << g_pNewline;
 		BMessage msg;
-		status_t aStatusT (inValue->GetSupportedSuites (&msg));
-		if (B_OK == aStatusT)
-		{
-			GetHexString (hexbuf, (int32) &msg);
+		status_t aStatusT(inValue->GetSupportedSuites(&msg));
+		if (B_OK == aStatusT) {
+			GetHexString(hexbuf, (intptr_t) &msg);
 			strDetails << tabindent << "GetSupportedSuites: [BMessage object, ptr=" << hexbuf << "]\n";
-			Inspect_BMessage (strDetails, &msg, inIndent + 1, B_EMPTY_STRING, 1, 1);
-		}
-		else
-		{
-			GetStatusTDescription (strDetails, aStatusT, inIndent, "GetSupportedSuites: failed, ");
-		}
-	}
-	else
-	{
+			Inspect_BMessage(strDetails, &msg, inIndent + 1, B_EMPTY_STRING, 1, 1);
+		} else
+			GetStatusTDescription(strDetails, aStatusT, inIndent, "GetSupportedSuites: failed, ");
+	} else
 		strDetails << tabindent << "The BHandler was NULL.\n";
-	}
 }
 
 
@@ -1273,48 +1119,39 @@ Inspect_BHandler
 ***************************************************************/
 void
 Inspect_BInvoker
-	(
-	BString & strDetails
-,	BInvoker * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BInvoker* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
+		char hexbuf[20];
+		GetHexString(hexbuf, (intptr_t) inValue);
 		strDetails << tabindent << pDescription << "[BInvoker object, ptr=" << hexbuf << "]\n";
 		tabindent << g_pIndentation;
 
-		BMessage * pMsg (inValue->Message ());
+		BMessage* pMsg(inValue->Message());
 		if (NULL == pMsg)
-		{
 			strDetails << tabindent << "Message= NULL\n";
-		}
-		else
-		{
-			GetHexString (hexbuf, (int32) pMsg);
+		else {
+			GetHexString(hexbuf, (intptr_t) pMsg);
 			strDetails << tabindent << "Message: [BMessage object, ptr=" << hexbuf << "]\n";
-			Inspect_BMessage (strDetails, pMsg, inIndent + 1, B_EMPTY_STRING, 1, 1);
+			Inspect_BMessage(strDetails, pMsg, inIndent + 1, B_EMPTY_STRING, 1, 1);
 		}
-		strDetails << tabindent << "Command= " << inValue->Command () << g_pNewline;
-		strDetails << tabindent << "IsTargetLocal= " << (inValue->IsTargetLocal () ? pTrue : pFalse);
-		bigtime_t aBigtime (inValue->Timeout ());
+		strDetails << tabindent << "Command= " << inValue->Command() << g_pNewline;
+		strDetails << tabindent << "IsTargetLocal= " << (inValue->IsTargetLocal() ? pTrue : pFalse);
+		bigtime_t aBigtime(inValue->Timeout());
 		strDetails << tabindent << "Timeout= (" << aBigtime << ")" << (B_INFINITE_TIMEOUT == aBigtime ? ", B_INFINITE_TIMEOUT\n" : g_pNewline);
-	}
-	else
-	{
+	} else
 		strDetails << tabindent = "The BInvoker was NULL.\n";
-	}
 }
 
 
@@ -1322,53 +1159,43 @@ Inspect_BInvoker
 ***************************************************************/
 void
 Inspect_BLooper
-	(
-	BString & strDetails
-,	BLooper * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BLooper* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BLooper object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		bool aBool (inValue->IsLocked ());
-		if (aBool) //then we can continue
-		{
-			strDetails << tabindent << "CountHandlers= " << inValue->CountHandlers () << g_pNewline;
-			strDetails << tabindent << "CountLocks= " << inValue->CountLocks () << g_pNewline;
-			strDetails << tabindent << "CountLockRequests= " << inValue->CountLockRequests () << g_pNewline;
+	if (NULL != inValue) {
+		bool aBool(inValue->IsLocked());
+		if (aBool) { //then we can continue
+			strDetails << tabindent << "CountHandlers= " << inValue->CountHandlers() << g_pNewline;
+			strDetails << tabindent << "CountLocks= " << inValue->CountLocks() << g_pNewline;
+			strDetails << tabindent << "CountLockRequests= " << inValue->CountLockRequests() << g_pNewline;
 			strDetails << tabindent << "IsLocked= " << pTrue;
-			strDetails << tabindent << "Team= " << inValue->Team () << g_pNewline;
-			strDetails << tabindent << "Thread= " << inValue->Thread () << g_pNewline;
+			strDetails << tabindent << "Team= " << inValue->Team() << g_pNewline;
+			strDetails << tabindent << "Thread= " << inValue->Thread() << g_pNewline;
 
-/*TODO
-			if (DoBaseClasses)
-			{
-				strDetails << tabindent << g_pNewline;
-				Inspect_BHandler (strDetails, (BHandler *) inValue, inIndent, "  + BLooper baseclass ");
-			}
-*/
-		}
-		else
-		{
+			/*TODO
+						if (DoBaseClasses)
+						{
+							strDetails << tabindent << g_pNewline;
+							Inspect_BHandler (strDetails, (BHandler *) inValue, inIndent, "  + BLooper baseclass ");
+						}
+			*/
+		} else
 			strDetails << tabindent << "The BLooper must be locked before Clue can continue!\n";
-		}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BLooper was NULL.\n";
-	}
 }
 
 
@@ -1376,62 +1203,48 @@ Inspect_BLooper
 ***************************************************************/
 void
 Inspect_BApplication
-	(
-	BString & strDetails
-,	BApplication * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BApplication* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BApplication object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
-		bool aBool (inValue->IsLocked ());
-		if (aBool) //then we can continue
-		{
+		bool aBool(inValue->IsLocked());
+		if (aBool) { //then we can continue
 			app_info aAI;
-			status_t aStatusT (inValue->GetAppInfo (&aAI));
+			status_t aStatusT(inValue->GetAppInfo(&aAI));
 			if (B_OK == aStatusT)
-			{
-				Inspect_Struct_app_info (strDetails, &aAI, inIndent, "GetAppInfo: ");
-			}
+				Inspect_Struct_app_info(strDetails, &aAI, inIndent, "GetAppInfo: ");
 			else
-			{
-				GetStatusTDescription (strDetails, aStatusT, inIndent, "GetAppInfo: failed, ");
-			}
-			strDetails << tabindent << "IsLaunching= " << (inValue->IsLaunching () ? pTrue : pFalse);
-			strDetails << tabindent << "IsCursorHidden= " << (inValue->IsCursorHidden () ? pTrue : pFalse);
-			strDetails << tabindent << "CountWindows= " << inValue->CountWindows () << g_pNewline;
+				GetStatusTDescription(strDetails, aStatusT, inIndent, "GetAppInfo: failed, ");
+			strDetails << tabindent << "IsLaunching= " << (inValue->IsLaunching() ? pTrue : pFalse);
+			strDetails << tabindent << "IsCursorHidden= " << (inValue->IsCursorHidden() ? pTrue : pFalse);
+			strDetails << tabindent << "CountWindows= " << inValue->CountWindows() << g_pNewline;
 
-/*TODO
-			if (DoBaseClasses)
-			{
-				strDetails << tabindent << g_pNewline;
-				Inspect_BLooper (strDetails, (BLooper *) inValue, --inIndent, "  + BApplication baseclass ", true);
-			}
-*/
-		}
-		else
-		{
+			/*TODO
+						if (DoBaseClasses)
+						{
+							strDetails << tabindent << g_pNewline;
+							Inspect_BLooper (strDetails, (BLooper *) inValue, --inIndent, "  + BApplication baseclass ", true);
+						}
+			*/
+		} else
 			strDetails << tabindent << "The BLooper must be locked before Clue can continue!\n";
-		}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BApplication was NULL\n";
-	}
 }
 
 
@@ -1439,49 +1252,39 @@ Inspect_BApplication
 ***************************************************************/
 void
 Inspect_BClipboard
-	(
-	BString & strDetails
-,	BClipboard * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BClipboard* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BClipboard object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
-		bool aBool (inValue->IsLocked ());
-		if (aBool)
-		{
-			BMessage * pMessage (inValue->Data ());
-			GetHexString (hexbuf, (int32) pMessage);
+		bool aBool(inValue->IsLocked());
+		if (aBool) {
+			BMessage* pMessage(inValue->Data());
+			GetHexString(hexbuf, (intptr_t) pMessage);
 			strDetails << tabindent << "Data: [BMessage object, ptr=" << hexbuf << "]\n";
-			Inspect_BMessage (strDetails, pMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
-			strDetails << tabindent << "LocalCount= " << inValue->LocalCount () << g_pNewline;
-			strDetails << tabindent << "SystemCount= " << inValue->SystemCount () << g_pNewline;
+			Inspect_BMessage(strDetails, pMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
+			strDetails << tabindent << "LocalCount= " << inValue->LocalCount() << g_pNewline;
+			strDetails << tabindent << "SystemCount= " << inValue->SystemCount() << g_pNewline;
 			strDetails << tabindent << "IsLocked= " << (aBool ? pTrue : pFalse);
-			strDetails << tabindent << "Name= " << inValue->Name () << g_pNewline;
-		}
-		else
-		{
+			strDetails << tabindent << "Name= " << inValue->Name() << g_pNewline;
+		} else
 			strDetails << tabindent << "The BClipboard must be locked before Clue can continue!\n";
-		}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The BClipboard was NULL\n";
-	}
 }
 
 
@@ -1489,43 +1292,37 @@ Inspect_BClipboard
 ***************************************************************/
 void
 Inspect_BMessageFilter
-	(
-	BString & strDetails
-,	BMessageFilter * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMessageFilter* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessageFilter object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
-		strDetails << tabindent << "Command= " << inValue->Command () << g_pNewline;
-		strDetails << tabindent << "FiltersAnyCommand= " << (inValue->FiltersAnyCommand () ? pTrue : pFalse);
-		BLooper * pLooper (inValue->Looper ());
+		strDetails << tabindent << "Command= " << inValue->Command() << g_pNewline;
+		strDetails << tabindent << "FiltersAnyCommand= " << (inValue->FiltersAnyCommand() ? pTrue : pFalse);
+		BLooper* pLooper(inValue->Looper());
 		//is this safe to do?  Could the BLooper be a different thread?
-		strDetails << tabindent << "Looper: Name= " << (pLooper ? pLooper->Name () : "NULL") << g_pNewline;
+		strDetails << tabindent << "Looper: Name= " << (pLooper ? pLooper->Name() : "NULL") << g_pNewline;
 
-		message_delivery aMD (inValue->MessageDelivery ());
-		Inspect_Enum_message_delivery (strDetails, aMD, inIndent, "MessageDelivery: ");
-		message_source aMS (inValue->MessageSource ());
-		Inspect_Enum_message_source (strDetails, aMS, inIndent, "MessageSource: ");
-	}
-	else
-	{
+		message_delivery aMD(inValue->MessageDelivery());
+		Inspect_Enum_message_delivery(strDetails, aMD, inIndent, "MessageDelivery: ");
+		message_source aMS(inValue->MessageSource());
+		Inspect_Enum_message_source(strDetails, aMS, inIndent, "MessageSource: ");
+	} else
 		strDetails << tabindent << "The BMessageFilter was NULL\n";
-	}
 }
 
 
@@ -1533,33 +1330,27 @@ Inspect_BMessageFilter
 ***************************************************************/
 void
 Inspect_BMessageQueue
-	(
-	BString & strDetails
-,	BMessageQueue * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMessageQueue* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessageQueue object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		strDetails << tabindent << "CountMessages= " << inValue->CountMessages () << g_pNewline;
-		strDetails << tabindent << "IsEmpty= " << (int) inValue->IsEmpty () << g_pNewline;
-	}
-	else
-	{
+	if (NULL != inValue) {
+		strDetails << tabindent << "CountMessages= " << inValue->CountMessages() << g_pNewline;
+		strDetails << tabindent << "IsEmpty= " << (int) inValue->IsEmpty() << g_pNewline;
+	} else
 		strDetails << tabindent << "The BMessageQueue was NULL\n";
-	}
 }
 
 
@@ -1567,52 +1358,38 @@ Inspect_BMessageQueue
 ***************************************************************/
 void
 Inspect_BMessageRunner
-	(
-	BString & strDetails
-,	BMessageRunner * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMessageRunner* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessageRunner object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "InitCheck= ";
-		status_t aStatusT (inValue->InitCheck ());
-		if (B_OK == aStatusT)
-		{
+		status_t aStatusT(inValue->InitCheck());
+		if (B_OK == aStatusT) {
 			strDetails << "B_OK\n" << tabindent << "GetInfo: ";
-			bigtime_t aBigtime (0);
-			int32 aInt32 (0);
-			aStatusT = inValue->GetInfo (&aBigtime, &aInt32);
+			bigtime_t aBigtime(0);
+			int32 aInt32(0);
+			aStatusT = inValue->GetInfo(&aBigtime, &aInt32);
 			if (B_OK == aStatusT)
-			{
 				strDetails << "interval= " << aBigtime << ", count= " << aInt32 << g_pNewline;
-			}
 			else
-			{
-				GetStatusTDescription (strDetails, aStatusT, 0, "failed, ");
-			}
-		}
-		else
-		{
-			GetStatusTDescription (strDetails, aStatusT, 0, "failed, ");
-		}
-	}
-	else
-	{
+				GetStatusTDescription(strDetails, aStatusT, 0, "failed, ");
+		} else
+			GetStatusTDescription(strDetails, aStatusT, 0, "failed, ");
+	} else
 		strDetails << tabindent << "The BMessageRunner was NULL\n";
-	}
 }
 
 
@@ -1620,38 +1397,32 @@ Inspect_BMessageRunner
 ***************************************************************/
 void
 Inspect_BMessenger
-	(
-	BString & strDetails
-,	BMessenger * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BMessenger* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BMessenger object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		strDetails << tabindent << "IsValid= " << (inValue->IsValid () ? pTrue : pFalse);
-		BLooper * pLooper (NULL);
-		BHandler * pHandler (inValue->Target (&pLooper));
-		strDetails << tabindent << "Target: BHandler= " << (NULL != pHandler ? pHandler->Name () : "NULL") << 
-			", BLooper= " << (NULL != pLooper ? pLooper->Name () : "NULL") << g_pNewline;
-		strDetails << tabindent << "IsTargetLocal= " << (inValue->IsTargetLocal () ? pTrue : pFalse);
-		strDetails << tabindent << "Team= " << inValue->Team () << g_pNewline;
-	}
-	else
-	{
+	if (NULL != inValue) {
+		strDetails << tabindent << "IsValid= " << (inValue->IsValid() ? pTrue : pFalse);
+		BLooper* pLooper(NULL);
+		BHandler* pHandler(inValue->Target(&pLooper));
+		strDetails << tabindent << "Target: BHandler= " << (NULL != pHandler ? pHandler->Name() : "NULL") <<
+		", BLooper= " << (NULL != pLooper ? pLooper->Name() : "NULL") << g_pNewline;
+		strDetails << tabindent << "IsTargetLocal= " << (inValue->IsTargetLocal() ? pTrue : pFalse);
+		strDetails << tabindent << "Team= " << inValue->Team() << g_pNewline;
+	} else
 		strDetails << tabindent << "The BMessenger was NULL\n";
-	}
 }
 
 
@@ -1659,34 +1430,28 @@ Inspect_BMessenger
 ***************************************************************/
 void
 Inspect_BFlattenable
-	(
-	BString & strDetails
-,	BFlattenable * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BFlattenable* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BFlattenable object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		strDetails << tabindent << "FlattenedSize= " << inValue->FlattenedSize () << g_pNewline;
-		strDetails << tabindent << "IsFixedSize= " << (int) inValue->IsFixedSize () << g_pNewline;
-		strDetails << tabindent << "TypeCode= " << inValue->TypeCode () << g_pNewline;
-	}
-	else
-	{
+	if (NULL != inValue) {
+		strDetails << tabindent << "FlattenedSize= " << inValue->FlattenedSize() << g_pNewline;
+		strDetails << tabindent << "IsFixedSize= " << (int) inValue->IsFixedSize() << g_pNewline;
+		strDetails << tabindent << "TypeCode= " << inValue->TypeCode() << g_pNewline;
+	} else
 		strDetails << tabindent << "The BFlattenable was NULL\n";
-	}
 }
 
 
@@ -1694,39 +1459,33 @@ Inspect_BFlattenable
 ***************************************************************/
 void
 Inspect_BPropertyInfo
-	(
-	BString & strDetails
-,	BPropertyInfo * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BPropertyInfo* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BPropertyInfo object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 
-/*TODO
-		if (DoBaseClasses)
-		{
-			strDetails << tabindent << g_pNewline;
-			Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
-		}
-*/
-	}
-	else
-	{
+		/*TODO
+				if (DoBaseClasses)
+				{
+					strDetails << tabindent << g_pNewline;
+					Inspect_BFlattenable (strDetails, (BFlattenable *) inValue, inIndent, "  + BPropertyInfo baseclass ");
+				}
+		*/
+	} else
 		strDetails << tabindent << "The BPropertyInfo was NULL\n";
-	}
 }
 
 
@@ -1734,54 +1493,44 @@ Inspect_BPropertyInfo
 ***************************************************************/
 void
 Inspect_BRoster
-	(
-	BString & strDetails
-,	BRoster * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	BRoster* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[BRoster object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
 		app_info aAppInfo;
-		status_t aStatusT (inValue->GetActiveAppInfo (&aAppInfo));
+		status_t aStatusT(inValue->GetActiveAppInfo(&aAppInfo));
 		if (B_OK == aStatusT)
-		{
-			Inspect_Struct_app_info (strDetails, &aAppInfo, inIndent, "GetActiveAppInfo: ");
-		}
+			Inspect_Struct_app_info(strDetails, &aAppInfo, inIndent, "GetActiveAppInfo: ");
 		else
-		{
-			GetStatusTDescription (strDetails, aStatusT, inIndent, "GetActivateAppInfo: failed, ");
-		}
+			GetStatusTDescription(strDetails, aStatusT, inIndent, "GetActivateAppInfo: failed, ");
 
 		BMessage aMessage;
-		GetHexString (hexbuf, (int32) &aMessage);
+		GetHexString(hexbuf, (intptr_t) &aMessage);
 		strDetails << tabindent << "GetRecentDocuments: [BMessage object, ptr=" << hexbuf << "]\n";
-		inValue->GetRecentDocuments (&aMessage, 10);
-		Inspect_BMessage (strDetails, &aMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
+		inValue->GetRecentDocuments(&aMessage, 10);
+		Inspect_BMessage(strDetails, &aMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
 
-		GetHexString (hexbuf, (int32) &aMessage);
+		GetHexString(hexbuf, (intptr_t) &aMessage);
 		strDetails << tabindent << "GetRecentFolders: [BMessage object, ptr=" << hexbuf << "]\n";
-		inValue->GetRecentFolders (&aMessage, 10);
-		Inspect_BMessage (strDetails, &aMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
-	}
-	else
-	{
+		inValue->GetRecentFolders(&aMessage, 10);
+		Inspect_BMessage(strDetails, &aMessage, inIndent + 1, B_EMPTY_STRING, 1, 1);
+	} else
 		strDetails << tabindent << "The BRoster was NULL\n";
-	}
 }
 
 

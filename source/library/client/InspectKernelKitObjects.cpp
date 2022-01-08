@@ -16,11 +16,11 @@
 #include "InspectStorageKitObjects.h"
 #include "utility.h"
 
-extern const char * pTrue;
-extern const char * pFalse;
-extern const char * g_pIndentation;
-extern const char * g_pFailedWithError;
-extern const char * g_pNewline;
+extern const char* pTrue;
+extern const char* pFalse;
+extern const char* g_pIndentation;
+extern const char* g_pFailedWithError;
+extern const char* g_pNewline;
 
 //the one and only instance of a ClueAreaManager, already defined in Clue.cpp
 extern ClueAreaManager CAM;
@@ -30,31 +30,25 @@ extern ClueAreaManager CAM;
 void
 
 Inspect_BApplication
-	(
-	BString & strDetails
-,	BApplication * inValue
-,	int32 inIndent
-,	char * inDescription
-	)
+(
+	BString& strDetails
+	,	BApplication* inValue
+	,	int32 inIndent
+	,	char* inDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i++ < inIndent;)
-	{
+	for (int32 i(0); i++ < inIndent;)
 		tabindent << "  |  ";
-	}
 
-	if (NULL != inValue)
-	{
-		Inspect_BLooper (strDetails, (BLooper *) inValue, inIndent, "\nBLooper properties\n-----------------\n");
+	if (NULL != inValue) {
+		Inspect_BLooper(strDetails, (BLooper*) inValue, inIndent, "\nBLooper properties\n-----------------\n");
 		strDetails << tabindent << inDescription << "\n";
 		app_info aAI;
-		inValue->GetAppInfo (&aAI);
-		strDetails << tabindent << "IsLaunching= " << (inValue->IsLaunching () ? pTrue : pFalse);
-		strDetails << tabindent << "IsCursorHidden= " << (inValue->IsCursorHidden () ? pTrue : pFalse);
-		strDetails << tabindent << "CountWindows= " << inValue->CountWindows () << "\n";
-	}
-	else
-	{
+		inValue->GetAppInfo(&aAI);
+		strDetails << tabindent << "IsLaunching= " << (inValue->IsLaunching() ? pTrue : pFalse);
+		strDetails << tabindent << "IsCursorHidden= " << (inValue->IsCursorHidden() ? pTrue : pFalse);
+		strDetails << tabindent << "CountWindows= " << inValue->CountWindows() << "\n";
+	} else
 		strDetails << "The BApplication was NULL\n";
-	}
 }

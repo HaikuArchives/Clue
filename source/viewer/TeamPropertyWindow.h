@@ -1,4 +1,4 @@
-/*	
+/*
 	2000 Jeff Braun
 	web: www.citylinq.com/brauns
 	email1: yobkadon@hotmail.com
@@ -21,13 +21,12 @@
 #endif
 
 
-class TeamPropertyWindow : public BWindow
-{
-	public:
-		TeamPropertyWindow (const BWindow *, const BView *, const TeamItem *);
-	private:
-		TeamPropertyWindow (const TeamPropertyWindow &);
-		TeamPropertyWindow & operator= (TeamPropertyWindow &);
+class TeamPropertyWindow : public BWindow {
+public:
+	TeamPropertyWindow(const BWindow*, const BView*, const TeamItem*);
+private:
+	TeamPropertyWindow(const TeamPropertyWindow&);
+	TeamPropertyWindow& operator= (TeamPropertyWindow&);
 };
 
 #endif

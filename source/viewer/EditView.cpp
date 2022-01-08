@@ -95,31 +95,29 @@
 
 
 EditView :: EditView
-	(
+(
 	BRect frame
-,	BMessage * message
-,	const char * name
-,	uint32 resizeFlags
-,	uint32 flags
-,	border_style border
-	)
-:	BBox (frame, name, resizeFlags, flags, border)
-,	m_Message (message)
+	,	BMessage* message
+	,	const char* name
+	,	uint32 resizeFlags
+	,	uint32 flags
+	,	border_style border
+)
+	:	BBox(frame, name, resizeFlags, flags, border)
+	,	m_Message(message)
 {
-	ssize_t numBytes (0);
-	rgb_color * pColor;
+	ssize_t numBytes(0);
+	rgb_color* pColor;
 
-	if (B_OK == m_Message->FindData ("value", B_RGB_COLOR_TYPE, (const void **) &pColor, &numBytes))
-	{
-		PRINT (("\n\nEditView color: red=%i, green=%i, blue=%i\n\n", pColor->red, pColor->green, pColor->blue));
-	}
+	if (B_OK == m_Message->FindData("value", B_RGB_COLOR_TYPE, (const void**) &pColor, &numBytes))
+		PRINT(("\n\nEditView color: red=%i, green=%i, blue=%i\n\n", pColor->red, pColor->green, pColor->blue));
 }
 
 
 EditView :: ~EditView
-	(
+(
 	void
-	)
+)
 {
 }
 

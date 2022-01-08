@@ -40,90 +40,82 @@
 #include "constants.h"
 #endif
 
-static const BRect g_windowDefaultRectStartup (100.0f, 100.0f, 610.0f, 300.0f);
+static const BRect g_windowDefaultRectStartup(100.0f, 100.0f, 610.0f, 300.0f);
 extern BMessage g_Settings;
 
 
 PreferencesWnd :: PreferencesWnd
-	(
-	PreferencesWnd ** ppOutside
-,	BMessage * message
-	)
-:	BWindow (g_windowDefaultRectStartup, STR_PREFERENCES_WINDOW_TITLE, B_TITLED_WINDOW_LOOK, 
-		B_FLOATING_APP_WINDOW_FEEL, B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE | B_NOT_MINIMIZABLE)
-,	m_ppOutside (ppOutside)
+(
+	PreferencesWnd** ppOutside
+	,	BMessage* message
+)
+	:	BWindow(g_windowDefaultRectStartup, STR_PREFERENCES_WINDOW_TITLE, B_TITLED_WINDOW_LOOK,
+				B_FLOATING_APP_WINDOW_FEEL, B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE | B_NOT_MINIMIZABLE)
+	,	m_ppOutside(ppOutside)
 {
 	BMessage msgtmp;
-	if (B_OK == g_Settings.FindMessage ("Window:Preferences", &msgtmp))
-	{
-		PRINT (("\nConstructor found Window:Preferences\n"));
-		BRect rc (0.0f, 0.0f, 0.0f, 0.0f);
-		if (B_OK == msgtmp.FindRect ("WinRect", &rc))
-		{
-			PRINT (("  Found BRect, moveto and resize\n"));
-			MoveTo (rc.left, rc.top);
-			ResizeTo (rc.right, rc.bottom);
+	if (B_OK == g_Settings.FindMessage("Window:Preferences", &msgtmp)) {
+		PRINT(("\nConstructor found Window:Preferences\n"));
+		BRect rc(0.0f, 0.0f, 0.0f, 0.0f);
+		if (B_OK == msgtmp.FindRect("WinRect", &rc)) {
+			PRINT(("  Found BRect, moveto and resize\n"));
+			MoveTo(rc.left, rc.top);
+			ResizeTo(rc.right, rc.bottom);
 		}
 	}
 
 //	BScreen screen (this);
 //	BRect rcScreen (screen.Frame ());
-	BRect rcWnd (Bounds ());
+	BRect rcWnd(Bounds());
 //	BPoint pt ((rcScreen.Width () / 2) - (rcWnd.Width () / 2), (rcScreen.Height () / 2) - (rcWnd.Height () / 2));
 //	MoveTo (pt.x, pt.y);
 
-	PreferencesView * pPreferencesView (static_cast<PreferencesView *>(new PreferencesView (rcWnd, message)));
-	AddChild (pPreferencesView);
-	Show ();
+	PreferencesView* pPreferencesView(static_cast<PreferencesView*>(new PreferencesView(rcWnd, message)));
+	AddChild(pPreferencesView);
+	Show();
 }
 
 
 PreferencesWnd :: ~PreferencesWnd
-	(
+(
 	void
-	)
+)
 {
-	BRect rc (Frame ());
-	rc.right =  Bounds().Width ();
-	rc.bottom = Bounds().Height ();
+	BRect rc(Frame());
+	rc.right =  Bounds().Width();
+	rc.bottom = Bounds().Height();
 	BMessage msgtmp;
 
-	if (B_OK == g_Settings.FindMessage ("Window:Preferences", &msgtmp))
-	{
-		PRINT (("\nFound Window:Preferences\n"));
+	if (B_OK == g_Settings.FindMessage("Window:Preferences", &msgtmp)) {
+		PRINT(("\nFound Window:Preferences\n"));
 
-		BMessage msgData (B_RECT_TYPE);
-		msgData.AddRect ("WinRect", rc);
-		g_Settings.ReplaceMessage ("Window:Preferences", &msgData);
-	}
-	else
-	{
-		PRINT (("Window:Preferences not found, Add a message\n"));
-		BMessage msgData (B_RECT_TYPE);
-		msgData.AddRect ("WinRect", rc);
-		g_Settings.AddMessage ("Window:Preferences", &msgData);
+		BMessage msgData(B_RECT_TYPE);
+		msgData.AddRect("WinRect", rc);
+		g_Settings.ReplaceMessage("Window:Preferences", &msgData);
+	} else {
+		PRINT(("Window:Preferences not found, Add a message\n"));
+		BMessage msgData(B_RECT_TYPE);
+		msgData.AddRect("WinRect", rc);
+		g_Settings.AddMessage("Window:Preferences", &msgData);
 	}
 
 	if (m_ppOutside)
-	{
 		*m_ppOutside = NULL;
-	}
 }
 
 
 void
 PreferencesWnd :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	switch (message->what)
-	{
-	case MSG_BROADCAST_SETTINGS_CHANGED:
-		SendNotices (MSG_SETTINGS_CHANGED);
-		break;
-	default:
-		BWindow::MessageReceived (message);
-		break;
+	switch (message->what) {
+		case MSG_BROADCAST_SETTINGS_CHANGED:
+			SendNotices(MSG_SETTINGS_CHANGED);
+			break;
+		default:
+			BWindow::MessageReceived(message);
+			break;
 	}
 }

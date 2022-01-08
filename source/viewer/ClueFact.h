@@ -1,5 +1,5 @@
 //
-// Clue - Clue Fact - Tracks the data on an event.	
+// Clue - Clue Fact - Tracks the data on an event.
 // Copyright 1999-2006 Jeff Braun and Mathew Hounsell.
 // All rights reserved. Distributed under the terms of the MIT License.
 //
@@ -39,101 +39,99 @@ class BString;
 
 //-------------------------------------------------------------------------------
 /// A Clue Fact tracks all the data for a single event sent to the server.
-class ClueFact
-{
+class ClueFact {
 	// Construction & Destruction
-	public:
-		bool
-		Check
-		(
-			void
-		) const;
-		
-	// Construction & Destruction
-	public:
-		ClueFact
-		(
-			FingerPrint const * const
-		,	BString const * const
-		,	BString const *const
-		,	BString const * const
-		,	BString const * const
-		,	intptr_t const
-		);
-		
-		~ClueFact
-		(
-			void
-		);
-		
-	// Copy and Assignment DISABLED
-	private:
-		ClueFact 
-		(
-			ClueFact const &
-		); // Do NOT Implement
-		
-		ClueFact &
-		operator=
-		(
-			ClueFact const &
-		); // Do NOT Implement
-	
-	// Serialization
-	public:
-		static int32 const				ARCHIVE_FORMAT;
+public:
+	bool
+	Check
+	(
+		void
+	) const;
 
-		ClueFact
-		(
-			BMessage const * const
+	// Construction & Destruction
+public:
+	ClueFact
+	(
+		FingerPrint const* const
+		,	BString const* const
+		,	BString const* const
+		,	BString const* const
+		,	BString const* const
+		,	intptr_t const
+	);
+
+	~ClueFact
+	(
+		void
+	);
+
+	// Copy and Assignment DISABLED
+private:
+	ClueFact
+	(
+		ClueFact const&
+	); // Do NOT Implement
+
+	ClueFact&
+	operator=
+	(
+		ClueFact const&
+	); // Do NOT Implement
+
+	// Serialization
+public:
+	static int32 const				ARCHIVE_FORMAT;
+
+	ClueFact
+	(
+		BMessage const* const
 		,	int32 const
-		);
-		
-		status_t
-		Archive
-		(
-			BMessage * const
-		) const;
+	);
+
+	status_t
+	Archive
+	(
+		BMessage* const
+	) const;
 
 	// Helpers
-	private:
-		struct ClueFactString
-		{
-			char const *				value;
+private:
+	struct ClueFactString {
+		char const* 				value;
 
-			ClueFactString (void)
+		ClueFactString(void)
 			:
-				value ((char *)B_EMPTY_STRING)
-			{ }
+			value((char*)B_EMPTY_STRING)
+		{ }
 
-			void Load (BMessage const * const, char const * const);
+		void Load(BMessage const* const, char const* const);
 
-			~ClueFactString (void)
-			{
-				if (B_EMPTY_STRING != value)
-					delete [] value;
-				value = NULL;
-			}
+		~ClueFactString(void)
+		{
+			if (B_EMPTY_STRING != value)
+				delete [] value;
+			value = NULL;
+		}
 
-			private: ClueFactString(ClueFactString const &); // Do NOT Implement
-			private: ClueFactString & operator=(ClueFactString const &); // Do NOT Implement
-		};
+	private: ClueFactString(ClueFactString const&);  // Do NOT Implement
+	private: ClueFactString& operator=(ClueFactString const&);   // Do NOT Implement
+	};
 
 	// Data
-	private:
-		ClueCategory					m_CAT;
-		ClueEvent						m_EVT;
-		bigtime_t						m_Time;
-		thread_id						m_ThreadID;
-		team_id							m_TeamID;
-		uint32							m_Line;
-		uint32							m_Sequence;
-		intptr_t						m_Inst;
-		ClueFactString					m_File;
-		ClueFactString					m_Method;
-		ClueFactString					m_Class;
-		ClueFactString					m_Description;
-		ClueFactString					m_Detail;
+private:
+	ClueCategory					m_CAT;
+	ClueEvent						m_EVT;
+	bigtime_t						m_Time;
+	thread_id						m_ThreadID;
+	team_id							m_TeamID;
+	uint32							m_Line;
+	uint32							m_Sequence;
+	intptr_t						m_Inst;
+	ClueFactString					m_File;
+	ClueFactString					m_Method;
+	ClueFactString					m_Class;
+	ClueFactString					m_Description;
+	ClueFactString					m_Detail;
 };
 
 //-------------------------------------------------------------------------------
@@ -142,7 +140,7 @@ bool
 ClueCheck
 <ClueFact>
 (
-	ClueFact const & 					rFact
+	ClueFact const& 					rFact
 )
 {
 	return (rFact.Check());

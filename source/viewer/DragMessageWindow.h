@@ -1,7 +1,7 @@
 /*
-	
+
 	DropWindow.h
-	
+
 */
 /*
 	Copyright 1999, Be Incorporated.   All Rights Reserved.
@@ -16,16 +16,15 @@
 #endif
 
 // DropWindow class
-class DragMessageWindow : public BWindow  
-{
-	public:
-						DragMessageWindow (void);
-						~DragMessageWindow (void);
-		virtual	bool	QuitRequested (void);
-		virtual void	MessageReceived (BMessage *);
-	private:
-		void			Register (void);
-		void			UnRegister (void);
+class DragMessageWindow : public BWindow {
+public:
+	DragMessageWindow(void);
+	~DragMessageWindow(void);
+	virtual	bool	QuitRequested(void);
+	virtual void	MessageReceived(BMessage*);
+private:
+	void			Register(void);
+	void			UnRegister(void);
 };
 
 #endif

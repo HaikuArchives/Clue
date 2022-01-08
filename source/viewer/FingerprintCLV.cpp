@@ -51,31 +51,31 @@
 **** ColumnListView CLASS IMPLEMENTATION
 ***************************************************************/
 FingerprintCLV :: FingerprintCLV
-	(
+(
 	BRect Frame
-,	BTextView * pTextView
-,	rgb_color CornerColor
-,	BetterScrollView ** ContainerView
-,	const char * Name
-,	uint32 ResizingMode
-,	uint32 flags
-,	list_view_type Type
-,	bool hierarchical
-,	bool horizontal
-,	bool vertical
-,	border_style border
-,	const BFont * LabelFont
-	)
-:	ColumnListView (Frame, CornerColor, ContainerView, Name, ResizingMode, flags, Type, hierarchical, horizontal, vertical, border, LabelFont)
-,	m_txtDetails (pTextView)
+	,	BTextView* pTextView
+	,	rgb_color CornerColor
+	,	BetterScrollView** ContainerView
+	,	const char* Name
+	,	uint32 ResizingMode
+	,	uint32 flags
+	,	list_view_type Type
+	,	bool hierarchical
+	,	bool horizontal
+	,	bool vertical
+	,	border_style border
+	,	const BFont* LabelFont
+)
+	:	ColumnListView(Frame, CornerColor, ContainerView, Name, ResizingMode, flags, Type, hierarchical, horizontal, vertical, border, LabelFont)
+	,	m_txtDetails(pTextView)
 {
 }
 
 
 FingerprintCLV :: ~FingerprintCLV
-	(
+(
 	void
-	)
+)
 {
 }
 
@@ -84,17 +84,16 @@ FingerprintCLV :: ~FingerprintCLV
 ***************************************************************/
 void
 FingerprintCLV :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	switch (message->what)
-	{
+	switch (message->what) {
 		case B_COPY:
-			CopyToClipboard ();
+			CopyToClipboard();
 			break;
 		default:
-			ColumnListView::MessageReceived (message);
+			ColumnListView::MessageReceived(message);
 			break;
 	}
 }
@@ -104,42 +103,36 @@ FingerprintCLV :: MessageReceived
 ***************************************************************/
 void
 FingerprintCLV :: CopyToClipboard
-	(
+(
 	void
-	)
+)
 {
-	int32 i (CurrentSelection ());
-	if (i >= 0)
-	{
-		ClueItem * pCI (NULL);
+	int32 i(CurrentSelection());
+	if (i >= 0) {
+		ClueItem* pCI(NULL);
 		BString data;
 
-		int32 selected (0);
+		int32 selected(0);
 		i = 0;
-		while ( (selected = CurrentSelection (i++)) >= 0)
-		{
-			pCI = (ClueItem *) ItemAt (selected);
-			pCI->Copy (data, 0xFFFFFFFF, i);
+		while ((selected = CurrentSelection(i++)) >= 0) {
+			pCI = (ClueItem*) ItemAt(selected);
+			pCI->Copy(data, 0xFFFFFFFF, i);
 		}
 
-		be_clipboard->Lock ();
-		BMessage * pClipMsg (be_clipboard->Data ());
-		if (pClipMsg)
-		{
-			pClipMsg->MakeEmpty ();
-			pClipMsg->AddData ("text/plain", B_MIME_DATA, data.String (), data.Length ());
+		be_clipboard->Lock();
+		BMessage* pClipMsg(be_clipboard->Data());
+		if (pClipMsg) {
+			pClipMsg->MakeEmpty();
+			pClipMsg->AddData("text/plain", B_MIME_DATA, data.String(), data.Length());
 			//pClipMsg->AddData ("text/plain", B_MIME_TYPE, data.String (), data.Length ());
 			//	add the actions
 			pClipMsg->AddInt32("be:actions", B_COPY_TARGET);
 			pClipMsg->AddString("be:clip_name", "Clue Fingerprint");
-			be_clipboard->Commit ();
+			be_clipboard->Commit();
 		}
-		be_clipboard->Unlock ();
-	}
-	else
-	{
-		beep ();
-	}
+		be_clipboard->Unlock();
+	} else
+		beep();
 }
 
 
@@ -147,124 +140,112 @@ FingerprintCLV :: CopyToClipboard
 ***************************************************************/
 bool
 FingerprintCLV :: InitiateDrag
-	(
+(
 	BPoint point
-,	int32 index
-,	bool wasSelected
-	)
+	,	int32 index
+	,	bool wasSelected
+)
 {
 	if (!wasSelected)
-	{
 		return false;
-	}
 
-	ClueItem * pCI ((ClueItem *) ItemAt (index));
+	ClueItem* pCI((ClueItem*) ItemAt(index));
 	BString data;
 
-	int32 selected (0);
-	int32 i (0);
-	while ( (selected = CurrentSelection (i++)) >= 0 )
-	{
-		pCI = (ClueItem *) ItemAt (selected);
-		pCI->Copy (data, 0xFFFFFFFF, i);
+	int32 selected(0);
+	int32 i(0);
+	while ((selected = CurrentSelection(i++)) >= 0) {
+		pCI = (ClueItem*) ItemAt(selected);
+		pCI->Copy(data, 0xFFFFFFFF, i);
 	}
 
-	BMessage dragmsg (B_MIME_DATA);
+	BMessage dragmsg(B_MIME_DATA);
 	//	add the types
-	dragmsg.AddData ("text/plain", B_MIME_DATA, data.String (), data.Length ());
+	dragmsg.AddData("text/plain", B_MIME_DATA, data.String(), data.Length());
 	//	add the actions
 	dragmsg.AddInt32("be:actions", B_COPY_TARGET);
 	dragmsg.AddString("be:clip_name", "Clue Fingerprint");
-	BRect dragrect ((i > 2 ? Bounds () : ItemFrame (index)));
-	DragMessage (&dragmsg, dragrect, this);
+	BRect dragrect((i > 2 ? Bounds() : ItemFrame(index)));
+	DragMessage(&dragmsg, dragrect, this);
 
 	return true;
 }
 
 
-class IntContainer
-{
-	public:
-		IntContainer (int32 v) {m_int = v;}
-		int32	Value(void) {return m_int;}
-	private:
-		int32	m_int;
+class IntContainer {
+public:
+	IntContainer(int32 v) {m_int = v;}
+	int32	Value(void) {return m_int;}
+private:
+	int32	m_int;
 };
 
 /***************************************************************
 ***************************************************************/
 void
 FingerprintCLV :: KeyDown
-	(
-	const char * bytes
-,	int32 numBytes
-	)
+(
+	const char* bytes
+	,	int32 numBytes
+)
 {
 //	int32 mods (modifiers ());
-	switch (bytes[0])
-	{
+	switch (bytes[0]) {
 		case B_DELETE:
-			m_txtDetails->SetText (NULL);
+			m_txtDetails->SetText(NULL);
 			{
-			int32 selected (0);
-			int32 i (0);
-			BList listitems;
-			int32 NextSelectedItem (CurrentSelection ());
+				int32 selected(0);
+				int32 i(0);
+				BList listitems;
+				int32 NextSelectedItem(CurrentSelection());
 
-			IntContainer * IC (NULL);
-			while ( (selected = CurrentSelection (i++)) >= 0)
-			{
-				listitems.AddItem (new IntContainer (selected));
-				//pCI = (ClueItem *) pCLV->ItemAt (selected);
-				//listitems.AddItem (ItemAt (selected));
-			}
-
-			ClueItem * pCI (NULL);
-			int32 cnt (listitems.CountItems ());
-			if (cnt)
-			{
-				while (cnt > 0)
-				{
-					IC = reinterpret_cast<IntContainer *> (listitems.RemoveItem (--cnt));
-					pCI = reinterpret_cast<ClueItem *> (RemoveItem (IC->Value ()));
-					pCI->m_InList = false;
-					//DO NOT DELETE THE ITEM AS IT'S BEING KEPT IN ANOTHER BLIST THE TEAMITEM OWNS!!!!
-					delete IC;
+				IntContainer* IC(NULL);
+				while ((selected = CurrentSelection(i++)) >= 0) {
+					listitems.AddItem(new IntContainer(selected));
+					//pCI = (ClueItem *) pCLV->ItemAt (selected);
+					//listitems.AddItem (ItemAt (selected));
 				}
 
-
-				BScrollView * pScrollView ((BScrollView *) Parent ());
-				if (pScrollView)
-				{
-					BStringView * pBSV ((BStringView *) pScrollView->FindView ("ListCountView"));
-					if (pBSV)
-					{
-						BString s;
-						s << CountItems () << STR_ITEMS;
-						pBSV->SetText (s.String ());
+				ClueItem* pCI(NULL);
+				int32 cnt(listitems.CountItems());
+				if (cnt) {
+					while (cnt > 0) {
+						IC = reinterpret_cast<IntContainer*>(listitems.RemoveItem(--cnt));
+						pCI = reinterpret_cast<ClueItem*>(RemoveItem(IC->Value()));
+						pCI->m_InList = false;
+						//DO NOT DELETE THE ITEM AS IT'S BEING KEPT IN ANOTHER BLIST THE TEAMITEM OWNS!!!!
+						delete IC;
 					}
-					
+
+
+					BScrollView* pScrollView((BScrollView*) Parent());
+					if (pScrollView) {
+						BStringView* pBSV((BStringView*) pScrollView->FindView("ListCountView"));
+						if (pBSV) {
+							BString s;
+							s << CountItems() << STR_ITEMS;
+							pBSV->SetText(s.String());
+						}
+
+					}
+					if (NextSelectedItem < CountItems())
+						Select(NextSelectedItem);
 				}
-				if (NextSelectedItem < CountItems ())
-				{
-					Select (NextSelectedItem);
-				}
-			}
 			}
 			break;
-/*
-		case B_ESCAPE:
-			if (B_MENU_KEY & mods)
-			{
-				DoContextMenu (0, BPoint (0.0f, 0.0f), true);
-			}
-			else
-			{
-				ColumnListView::KeyDown (bytes, numBytes);
-			}
-*/
+		/*
+				case B_ESCAPE:
+					if (B_MENU_KEY & mods)
+					{
+						DoContextMenu (0, BPoint (0.0f, 0.0f), true);
+					}
+					else
+					{
+						ColumnListView::KeyDown (bytes, numBytes);
+					}
+		*/
 		default:
-			ColumnListView::KeyDown (bytes, numBytes);
+			ColumnListView::KeyDown(bytes, numBytes);
 			break;
 	}
 }

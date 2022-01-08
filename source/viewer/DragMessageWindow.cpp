@@ -1,7 +1,7 @@
 /*
 
 	DropWindow.cpp
-	
+
 */
 /*
 	Copyright 1999, Be Incorporated.   All Rights Reserved.
@@ -65,58 +65,58 @@
 /***************************************************************
 ***************************************************************/
 DragMessageWindow :: DragMessageWindow
-	(
+(
 	void
-	)
-:	BWindow (BRect (100.0f, 50.0f, 200.0f, 200.0f), "DragMessage Viewer", B_TITLED_WINDOW, B_NOT_ZOOMABLE)
+)
+	:	BWindow(BRect(100.0f, 50.0f, 200.0f, 200.0f), "DragMessage Viewer", B_TITLED_WINDOW, B_NOT_ZOOMABLE)
 {
 	// menu bar
-	BMenuBar * m_pMenuBar = new BMenuBar (BRect (0, 0, 0, 0), "Clue Menu Bar");
+	BMenuBar* m_pMenuBar = new BMenuBar(BRect(0, 0, 0, 0), "Clue Menu Bar");
 	//add a dummy item to help calculate height, will remove later below
-	BMenu * pMenu (new BMenu (STR_MNU_FILE));
-	pMenu->AddItem (new BMenuItem (STR_MNU_FILE_CLOSE, new BMessage (B_QUIT_REQUESTED), CMD_FILE_CLOSE));
-	m_pMenuBar->AddItem (pMenu);
+	BMenu* pMenu(new BMenu(STR_MNU_FILE));
+	pMenu->AddItem(new BMenuItem(STR_MNU_FILE_CLOSE, new BMessage(B_QUIT_REQUESTED), CMD_FILE_CLOSE));
+	m_pMenuBar->AddItem(pMenu);
 
 	// add child after menus are added so its initially calculated app_server bounds take added menus into account
-	AddChild (m_pMenuBar);
-	
+	AddChild(m_pMenuBar);
+
 	float menuHeight = m_pMenuBar->Bounds().Height();
 
-	BRect rc (Bounds ());
-	BetterScrollView *	m_BSV;
+	BRect rc(Bounds());
+	BetterScrollView* 	m_BSV;
 	rc.top = menuHeight + 31.0f;
 	rc.bottom = 200.0f;
 	rgb_color BotBackground;
-	ColumnListView * m_ColumnListView = new ColumnListView (rc, BotBackground, &m_BSV, "ClueItemsList", B_FOLLOW_ALL,
-		B_WILL_DRAW | B_FRAME_EVENTS | B_NAVIGABLE, B_SINGLE_SELECTION_LIST, true, true, true, B_FANCY_BORDER);
+	ColumnListView* m_ColumnListView = new ColumnListView(rc, BotBackground, &m_BSV, "ClueItemsList", B_FOLLOW_ALL,
+			B_WILL_DRAW | B_FRAME_EVENTS | B_NAVIGABLE, B_SINGLE_SELECTION_LIST, true, true, true, B_FANCY_BORDER);
 	BFont font;
-	m_ColumnListView->GetFont (&font);
-	m_ColumnListView->AddColumn (new CLVColumn ("Entry", font.StringWidth ("entry")));
-	m_ColumnListView->AddColumn (new CLVColumn ("Type", font.StringWidth ("type")));
-	m_ColumnListView->AddColumn (new CLVColumn ("Count", font.StringWidth ("count")));
-	m_ColumnListView->AddColumn (new CLVColumn ("Size", font.StringWidth ("Size")));
-	m_ColumnListView->AddColumn (new CLVColumn ("Data", font.StringWidth ("Data")));
+	m_ColumnListView->GetFont(&font);
+	m_ColumnListView->AddColumn(new CLVColumn("Entry", font.StringWidth("entry")));
+	m_ColumnListView->AddColumn(new CLVColumn("Type", font.StringWidth("type")));
+	m_ColumnListView->AddColumn(new CLVColumn("Count", font.StringWidth("count")));
+	m_ColumnListView->AddColumn(new CLVColumn("Size", font.StringWidth("Size")));
+	m_ColumnListView->AddColumn(new CLVColumn("Data", font.StringWidth("Data")));
 
 	rc.top = menuHeight + 1.0f;
 	rc.bottom = rc.top + 30.0f;
-	DragMessageView * dropView (new DragMessageView (rc, "myView", m_ColumnListView));
-	
-	// add view to window
-	AddChild (dropView);
-	AddChild (m_BSV);
+	DragMessageView* dropView(new DragMessageView(rc, "myView", m_ColumnListView));
 
-	Register ();
+	// add view to window
+	AddChild(dropView);
+	AddChild(m_BSV);
+
+	Register();
 }
 
 
 /***************************************************************
 ***************************************************************/
 DragMessageWindow :: ~DragMessageWindow
-	(
+(
 	void
-	)
+)
 {
-	UnRegister ();
+	UnRegister();
 }
 
 
@@ -124,9 +124,9 @@ DragMessageWindow :: ~DragMessageWindow
 ***************************************************************/
 bool
 DragMessageWindow :: QuitRequested
-	(
+(
 	void
-	)
+)
 {
 	return (true);
 }
@@ -136,18 +136,17 @@ DragMessageWindow :: QuitRequested
 ***************************************************************/
 void
 DragMessageWindow :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	switch (message->what)
-	{
+	switch (message->what) {
 		case 'bltm':
-			PRINT (("switch to this window.\n"));
-			Activate ();
+			PRINT(("switch to this window.\n"));
+			Activate();
 			break;
 		default:
-			BWindow::MessageReceived (message);
+			BWindow::MessageReceived(message);
 			break;
 	}
 }
@@ -157,16 +156,16 @@ DragMessageWindow :: MessageReceived
 ***************************************************************/
 void
 DragMessageWindow :: Register
-	(
+(
 	void
-	)
+)
 {
-	BMessenger messenger (be_app);
-	BMessage message (MSG_WINDOW_REGISTRY_ADD);
-	message.AddBool ("DragMessageViewer", true);
-	message.AddString ("title", Title ());
-	message.AddPointer ("window", this);
-	messenger.SendMessage (&message, this);
+	BMessenger messenger(be_app);
+	BMessage message(MSG_WINDOW_REGISTRY_ADD);
+	message.AddBool("DragMessageViewer", true);
+	message.AddString("title", Title());
+	message.AddPointer("window", this);
+	messenger.SendMessage(&message, this);
 }
 
 
@@ -174,13 +173,13 @@ DragMessageWindow :: Register
 ***************************************************************/
 void
 DragMessageWindow :: UnRegister
-	(
+(
 	void
-	)
+)
 {
-	BMessenger messenger (be_app);
-	BMessage message (MSG_WINDOW_REGISTRY_SUB);
-	message.AddPointer ("window", this);
-	messenger.SendMessage (&message);
+	BMessenger messenger(be_app);
+	BMessage message(MSG_WINDOW_REGISTRY_SUB);
+	message.AddPointer("window", this);
+	messenger.SendMessage(&message);
 }
 

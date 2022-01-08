@@ -52,11 +52,11 @@
 #include "InspectStorageKitObjects.h"
 #include "utility.h"
 
-const char * pTrue ("True\n");
-const char * pFalse ("False\n");
-const char * g_pIndentation ("  |  ");
-const char * g_pFailedWithError (" failed with error ");
-const char * g_pNewline ("\n");
+const char* pTrue("True\n");
+const char* pFalse("False\n");
+const char* g_pIndentation("  |  ");
+const char* g_pFailedWithError(" failed with error ");
+const char* g_pNewline("\n");
 
 
 /***************************************************************
@@ -69,21 +69,19 @@ enum button_width {
 ***************************************************************/
 void
 Inspect_Enum_button_width
-	(
-	BString & strDetails
-,	button_width inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	button_width inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[button_width enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -92,21 +90,20 @@ Inspect_Enum_button_width
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_WIDTH_AS_USUAL:
-				strDetails << tabindent << "B_WIDTH_AS_USUAL\n";
-				break;
-			case B_WIDTH_FROM_WIDEST:
-				strDetails << tabindent << "B_WIDTH_FROM_WIDEST\n";
-				break;
-			case B_WIDTH_FROM_LABEL:
-				strDetails << tabindent << "B_WIDTH_FROM_LABEL\n";
-				break;
-			default:
-				strDetails << tabindent << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_WIDTH_AS_USUAL:
+			strDetails << tabindent << "B_WIDTH_AS_USUAL\n";
+			break;
+		case B_WIDTH_FROM_WIDEST:
+			strDetails << tabindent << "B_WIDTH_FROM_WIDEST\n";
+			break;
+		case B_WIDTH_FROM_LABEL:
+			strDetails << tabindent << "B_WIDTH_FROM_LABEL\n";
+			break;
+		default:
+			strDetails << tabindent << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -124,21 +121,19 @@ enum file_panel_mode {
 ***************************************************************/
 void
 Inspect_Enum_file_panel_mode
-	(
-	BString & strDetails
-,	file_panel_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	file_panel_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[file_panel_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -147,18 +142,17 @@ Inspect_Enum_file_panel_mode
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_OPEN_PANEL:
-				strDetails << tabindent << "B_OPEN_PANEL\n";
-				break;
-			case B_SAVE_PANEL:
-				strDetails << tabindent << "B_SAVE_PANEL\n";
-				break;
-			default:
-				strDetails << tabindent << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_OPEN_PANEL:
+			strDetails << tabindent << "B_OPEN_PANEL\n";
+			break;
+		case B_SAVE_PANEL:
+			strDetails << tabindent << "B_SAVE_PANEL\n";
+			break;
+		default:
+			strDetails << tabindent << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -176,21 +170,19 @@ enum file_panel_button {
 ***************************************************************/
 void
 Inspect_Enum_file_panel_button
-	(
-	BString & strDetails
-,	file_panel_button inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	file_panel_button inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[file_panel_button enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -199,18 +191,17 @@ Inspect_Enum_file_panel_button
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_CANCEL_BUTTON:
-				strDetails << tabindent << "B_CANCEL_BUTTON\n";
-				break;
-			case B_DEFAULT_BUTTON:
-				strDetails << tabindent << "B_DEFAULT_BUTTON\n";
-				break;
-			default:
-				strDetails << tabindent << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_CANCEL_BUTTON:
+			strDetails << tabindent << "B_CANCEL_BUTTON\n";
+			break;
+		case B_DEFAULT_BUTTON:
+			strDetails << tabindent << "B_DEFAULT_BUTTON\n";
+			break;
+		default:
+			strDetails << tabindent << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -229,21 +220,19 @@ enum menu_bar_border {
 ***************************************************************/
 void
 Inspect_Enum_menu_bar_border
-	(
-	BString & strDetails
-,	menu_bar_border inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	menu_bar_border inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 
 	strDetails << tabindent << pDescription << "[menu_bar_border enum, " << hexbuf << "] ";
 //	strDetails << tabindent << pDescription << "[menu_bar_border object, ptr=" << hexbuf << "]\n";
@@ -255,21 +244,20 @@ Inspect_Enum_menu_bar_border
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
 //		switch (*inValue)
-		switch (inValue)
-		{
-			case B_BORDER_FRAME:
-				strDetails << "B_BORDER_FRAME\n";
-				break;
-			case B_BORDER_CONTENTS:
-				strDetails << "B_BORDER_CONTENTS\n";
-				break;
-			case B_BORDER_EACH_ITEM:
-				strDetails << "B_BORDER_EACH_ITEM\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_BORDER_FRAME:
+			strDetails << "B_BORDER_FRAME\n";
+			break;
+		case B_BORDER_CONTENTS:
+			strDetails << "B_BORDER_CONTENTS\n";
+			break;
+		case B_BORDER_EACH_ITEM:
+			strDetails << "B_BORDER_EACH_ITEM\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -281,7 +269,7 @@ Inspect_Enum_menu_bar_border
 /***************************************************************
 defined in Window.h as:
 enum window_feel {
-	B_NORMAL_WINDOW_FEEL			= 0,	
+	B_NORMAL_WINDOW_FEEL			= 0,
 	B_MODAL_SUBSET_WINDOW_FEEL		= 2,
 	B_MODAL_APP_WINDOW_FEEL			= 1,
 	B_MODAL_ALL_WINDOW_FEEL			= 3,
@@ -292,21 +280,19 @@ enum window_feel {
 ***************************************************************/
 void
 Inspect_Enum_window_feel
-	(
-	BString & strDetails
-,	window_feel inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	window_feel inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_feel enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -315,33 +301,32 @@ Inspect_Enum_window_feel
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_NORMAL_WINDOW_FEEL:
-				strDetails << "B_NORMAL_WINDOW_FEEL\n";
-				break;
-			case B_MODAL_SUBSET_WINDOW_FEEL:
-				strDetails << "B_MODAL_SUBSET_WINDOW_FEEL\n";
-				break;
-			case B_MODAL_APP_WINDOW_FEEL:
-				strDetails << "B_MODAL_APP_WINDOW_FEEL\n";
-				break;
-			case B_MODAL_ALL_WINDOW_FEEL:
-				strDetails << "B_MODAL_ALL_WINDOW_FEEL\n";
-				break;
-			case B_FLOATING_SUBSET_WINDOW_FEEL:
-				strDetails << "B_FLOATING_SUBSET_WINDOW_FEEL\n";
-				break;
-			case B_FLOATING_APP_WINDOW_FEEL:
-				strDetails << "B_FLOATING_APP_WINDOW_FEEL\n";
-				break;
-			case B_FLOATING_ALL_WINDOW_FEEL:
-				strDetails << "B_FLOATING_ALL_WINDOW_FEEL\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_NORMAL_WINDOW_FEEL:
+			strDetails << "B_NORMAL_WINDOW_FEEL\n";
+			break;
+		case B_MODAL_SUBSET_WINDOW_FEEL:
+			strDetails << "B_MODAL_SUBSET_WINDOW_FEEL\n";
+			break;
+		case B_MODAL_APP_WINDOW_FEEL:
+			strDetails << "B_MODAL_APP_WINDOW_FEEL\n";
+			break;
+		case B_MODAL_ALL_WINDOW_FEEL:
+			strDetails << "B_MODAL_ALL_WINDOW_FEEL\n";
+			break;
+		case B_FLOATING_SUBSET_WINDOW_FEEL:
+			strDetails << "B_FLOATING_SUBSET_WINDOW_FEEL\n";
+			break;
+		case B_FLOATING_APP_WINDOW_FEEL:
+			strDetails << "B_FLOATING_APP_WINDOW_FEEL\n";
+			break;
+		case B_FLOATING_ALL_WINDOW_FEEL:
+			strDetails << "B_FLOATING_ALL_WINDOW_FEEL\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -355,7 +340,7 @@ defined in Window.h as:
 enum window_look {
 	B_BORDERED_WINDOW_LOOK	= 20,
 	B_NO_BORDER_WINDOW_LOOK	= 19,
-	B_TITLED_WINDOW_LOOK	= 1,	
+	B_TITLED_WINDOW_LOOK	= 1,
 	B_DOCUMENT_WINDOW_LOOK	= 11,
 	B_MODAL_WINDOW_LOOK		= 3,
 	B_FLOATING_WINDOW_LOOK	= 7
@@ -363,21 +348,19 @@ enum window_look {
 ***************************************************************/
 void
 Inspect_Enum_window_look
-	(
-	BString & strDetails
-,	window_look inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	window_look inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_look enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -386,30 +369,29 @@ Inspect_Enum_window_look
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_BORDERED_WINDOW_LOOK:
-				strDetails << "B_BORDERED_WINDOW_LOOK\n";
-				break;
-			case B_NO_BORDER_WINDOW_LOOK:
-				strDetails << "B_NO_BORDER_WINDOW_LOOK\n";
-				break;
-			case B_TITLED_WINDOW_LOOK:
-				strDetails << "B_TITLED_WINDOW_LOOK\n";
-				break;
-			case B_DOCUMENT_WINDOW_LOOK:
-				strDetails << "B_DOCUMENT_WINDOW_LOOK\n";
-				break;
-			case B_MODAL_WINDOW_LOOK:
-				strDetails << "B_MODAL_WINDOW_LOOK\n";
-				break;
-			case B_FLOATING_WINDOW_LOOK:
-				strDetails << "B_FLOATING_WINDOW_LOOK\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_BORDERED_WINDOW_LOOK:
+			strDetails << "B_BORDERED_WINDOW_LOOK\n";
+			break;
+		case B_NO_BORDER_WINDOW_LOOK:
+			strDetails << "B_NO_BORDER_WINDOW_LOOK\n";
+			break;
+		case B_TITLED_WINDOW_LOOK:
+			strDetails << "B_TITLED_WINDOW_LOOK\n";
+			break;
+		case B_DOCUMENT_WINDOW_LOOK:
+			strDetails << "B_DOCUMENT_WINDOW_LOOK\n";
+			break;
+		case B_MODAL_WINDOW_LOOK:
+			strDetails << "B_MODAL_WINDOW_LOOK\n";
+			break;
+		case B_FLOATING_WINDOW_LOOK:
+			strDetails << "B_FLOATING_WINDOW_LOOK\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -431,21 +413,19 @@ enum window_type {
 ***************************************************************/
 void
 Inspect_Enum_window_type
-	(
-	BString & strDetails
-,	window_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	window_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_type enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -454,30 +434,29 @@ Inspect_Enum_window_type
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_UNTYPED_WINDOW:
-				strDetails << "B_UNTYPED_WINDOW\n";
-				break;
-			case B_TITLED_WINDOW:
-				strDetails << "B_TITLED_WINDOW\n";
-				break;
-			case B_MODAL_WINDOW:
-				strDetails << "B_MODAL_WINDOW\n";
-				break;
-			case B_DOCUMENT_WINDOW:
-				strDetails << "B_DOCUMENT_WINDOW\n";
-				break;
-			case B_BORDERED_WINDOW:
-				strDetails << "B_BORDERED_WINDOW\n";
-				break;
-			case B_FLOATING_WINDOW:
-				strDetails << "B_FLOATING_WINDOW\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_UNTYPED_WINDOW:
+			strDetails << "B_UNTYPED_WINDOW\n";
+			break;
+		case B_TITLED_WINDOW:
+			strDetails << "B_TITLED_WINDOW\n";
+			break;
+		case B_MODAL_WINDOW:
+			strDetails << "B_MODAL_WINDOW\n";
+			break;
+		case B_DOCUMENT_WINDOW:
+			strDetails << "B_DOCUMENT_WINDOW\n";
+			break;
+		case B_BORDERED_WINDOW:
+			strDetails << "B_BORDERED_WINDOW\n";
+			break;
+		case B_FLOATING_WINDOW:
+			strDetails << "B_FLOATING_WINDOW\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -498,21 +477,19 @@ enum join_mode {
 ***************************************************************/
 void
 Inspect_Enum_join_mode
-	(
-	BString & strDetails
-,	join_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	join_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[join_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -521,27 +498,26 @@ Inspect_Enum_join_mode
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_ROUND_JOIN:
-				strDetails << "B_ROUND_JOIN\n";
-				break;
-			case B_MITER_JOIN:
-				strDetails << "B_MITER_JOIN\n";
-				break;
-			case B_BEVEL_JOIN:
-				strDetails << "B_BEVEL_JOIN\n";
-				break;
-			case B_BUTT_JOIN:
-				strDetails << "B_BUTT_JOIN\n";
-				break;
-			case B_SQUARE_JOIN:
-				strDetails << "B_SQUARE_JOIN\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_ROUND_JOIN:
+			strDetails << "B_ROUND_JOIN\n";
+			break;
+		case B_MITER_JOIN:
+			strDetails << "B_MITER_JOIN\n";
+			break;
+		case B_BEVEL_JOIN:
+			strDetails << "B_BEVEL_JOIN\n";
+			break;
+		case B_BUTT_JOIN:
+			strDetails << "B_BUTT_JOIN\n";
+			break;
+		case B_SQUARE_JOIN:
+			strDetails << "B_SQUARE_JOIN\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -560,21 +536,19 @@ enum cap_mode {
 ***************************************************************/
 void
 Inspect_Enum_cap_mode
-	(
-	BString & strDetails
-,	cap_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	cap_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[cap_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -583,21 +557,20 @@ Inspect_Enum_cap_mode
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_ROUND_CAP:
-				strDetails << "B_ROUND_CAP\n";
-				break;
-			case B_BUTT_CAP:
-				strDetails << "B_BUTT_CAP\n";
-				break;
-			case B_SQUARE_CAP:
-				strDetails << "B_SQUARE_CAP\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_ROUND_CAP:
+			strDetails << "B_ROUND_CAP\n";
+			break;
+		case B_BUTT_CAP:
+			strDetails << "B_BUTT_CAP\n";
+			break;
+		case B_SQUARE_CAP:
+			strDetails << "B_SQUARE_CAP\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -624,21 +597,19 @@ enum drawing_mode {
 ***************************************************************/
 void
 Inspect_Enum_drawing_mode
-	(
-	BString & strDetails
-,	drawing_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	drawing_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[drawing_mode enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -647,42 +618,41 @@ Inspect_Enum_drawing_mode
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_OP_COPY:
-				strDetails << "B_OP_COPY\n";
-				break;
-			case B_OP_OVER:
-				strDetails << "B_OP_OVER\n";
-				break;
-			case B_OP_ERASE:
-				strDetails << "B_OP_ERASE\n";
-				break;
-			case B_OP_INVERT:
-				strDetails << "B_OP_INVERT\n";
-				break;
-			case B_OP_SELECT:
-				strDetails << "B_OP_SELECT\n";
-				break;
-			case B_OP_ALPHA:
-				strDetails << "B_OP_ALPHA\n";
-				break;
-			case B_OP_MIN:
-				strDetails << "B_OP_MIN\n";
-				break;
-			case B_OP_MAX:
-				strDetails << "B_OP_ADD\n";
-				break;
-			case B_OP_SUBTRACT:
-				strDetails << "B_OP_SUBTRACE\n";
-				break;
-			case B_OP_BLEND:
-				strDetails << "B_OP_BLEND\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_OP_COPY:
+			strDetails << "B_OP_COPY\n";
+			break;
+		case B_OP_OVER:
+			strDetails << "B_OP_OVER\n";
+			break;
+		case B_OP_ERASE:
+			strDetails << "B_OP_ERASE\n";
+			break;
+		case B_OP_INVERT:
+			strDetails << "B_OP_INVERT\n";
+			break;
+		case B_OP_SELECT:
+			strDetails << "B_OP_SELECT\n";
+			break;
+		case B_OP_ALPHA:
+			strDetails << "B_OP_ALPHA\n";
+			break;
+		case B_OP_MIN:
+			strDetails << "B_OP_MIN\n";
+			break;
+		case B_OP_MAX:
+			strDetails << "B_OP_ADD\n";
+			break;
+		case B_OP_SUBTRACT:
+			strDetails << "B_OP_SUBTRACE\n";
+			break;
+		case B_OP_BLEND:
+			strDetails << "B_OP_BLEND\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -704,21 +674,19 @@ enum undo_state {
 ***************************************************************/
 void
 Inspect_Enum_undo_state
-	(
-	BString & strDetails
-,	undo_state inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	undo_state inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[undo_state enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -727,30 +695,29 @@ Inspect_Enum_undo_state
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_UNDO_UNAVAILABLE:
-				strDetails << "B_UNDO_UNAVAILABLE\n";
-				break;
-			case B_UNDO_TYPING:
-				strDetails << "B_UNDO_TYPING\n";
-				break;
-			case B_UNDO_CUT:
-				strDetails << "B_UNDO_CUT\n";
-				break;
-			case B_UNDO_PASTE:
-				strDetails << "B_UNDO_PASTE\n";
-				break;
-			case B_UNDO_CLEAR:
-				strDetails << "B_UNDO_CLEAR\n";
-				break;
-			case B_UNDO_DROP:
-				strDetails << "B_UNDO_DROP\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_UNDO_UNAVAILABLE:
+			strDetails << "B_UNDO_UNAVAILABLE\n";
+			break;
+		case B_UNDO_TYPING:
+			strDetails << "B_UNDO_TYPING\n";
+			break;
+		case B_UNDO_CUT:
+			strDetails << "B_UNDO_CUT\n";
+			break;
+		case B_UNDO_PASTE:
+			strDetails << "B_UNDO_PASTE\n";
+			break;
+		case B_UNDO_CLEAR:
+			strDetails << "B_UNDO_CLEAR\n";
+			break;
+		case B_UNDO_DROP:
+			strDetails << "B_UNDO_DROP\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -769,21 +736,19 @@ enum alignment {
 ***************************************************************/
 void
 Inspect_Enum_alignment
-	(
-	BString & strDetails
-,	alignment inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	alignment inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[alignment enum, " << hexbuf << "] ";
 
 //	if (NULL != inValue)
@@ -792,21 +757,20 @@ Inspect_Enum_alignment
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_ALIGN_LEFT:
-				strDetails << "B_ALIGN_LEFT\n";
-				break;
-			case B_ALIGN_RIGHT:
-				strDetails << "B_ALIGN_RIGHT\n";
-				break;
-			case B_ALIGN_CENTER:
-				strDetails << "B_ALIGN_CENTER\n";
-				break;
-			default:
-				strDetails << tabindent << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_ALIGN_LEFT:
+			strDetails << "B_ALIGN_LEFT\n";
+			break;
+		case B_ALIGN_RIGHT:
+			strDetails << "B_ALIGN_RIGHT\n";
+			break;
+		case B_ALIGN_CENTER:
+			strDetails << "B_ALIGN_CENTER\n";
+			break;
+		default:
+			strDetails << tabindent << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -820,173 +784,167 @@ defined in Font.h
 ***************************************************************/
 void
 Inspect_Class_unicode_block
-	(
-	BString & strDetails
-,	unicode_block * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	unicode_block* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[unicode_block object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		if (inValue->Includes (B_BASIC_LATIN_BLOCK))
+	if (NULL != inValue) {
+		if (inValue->Includes(B_BASIC_LATIN_BLOCK))
 			strDetails << tabindent << "B_BASIC_LATIN_BLOCK\n";
-		if (inValue->Includes (B_LATIN1_SUPPLEMENT_BLOCK))
+		if (inValue->Includes(B_LATIN1_SUPPLEMENT_BLOCK))
 			strDetails << tabindent << "B_LATIN1_SUPPLEMENT_BLOCK\n";
-		if (inValue->Includes (B_LATIN_EXTENDED_A_BLOCK))
+		if (inValue->Includes(B_LATIN_EXTENDED_A_BLOCK))
 			strDetails << tabindent << "B_LATIN_EXTENDED_A_BLOCK\n";
-		if (inValue->Includes (B_LATIN_EXTENDED_B_BLOCK))
+		if (inValue->Includes(B_LATIN_EXTENDED_B_BLOCK))
 			strDetails << tabindent << "B_LATIN_EXTENDED_B_BLOCK\n";
-		if (inValue->Includes (B_IPA_EXTENSIONS_BLOCK))
+		if (inValue->Includes(B_IPA_EXTENSIONS_BLOCK))
 			strDetails << tabindent << "B_IPA_EXTENSIONS_BLOCK\n";
-		if (inValue->Includes (B_SPACING_MODIFIER_LETTERS_BLOCK))
+		if (inValue->Includes(B_SPACING_MODIFIER_LETTERS_BLOCK))
 			strDetails << tabindent << "B_SPACING_MODIFIER_LETTERS_BLOCK\n";
-		if (inValue->Includes (B_COMBINING_DIACRITICAL_MARKS_BLOCK))
+		if (inValue->Includes(B_COMBINING_DIACRITICAL_MARKS_BLOCK))
 			strDetails << tabindent << "B_COMBINING_DIACRITICAL_MARKS_BLOCK\n";
-		if (inValue->Includes (B_BASIC_GREEK_BLOCK))
+		if (inValue->Includes(B_BASIC_GREEK_BLOCK))
 			strDetails << tabindent << "B_BASIC_GREEK_BLOCK\n";
-		if (inValue->Includes (B_GREEK_SYMBOLS_AND_COPTIC_BLOCK))
+		if (inValue->Includes(B_GREEK_SYMBOLS_AND_COPTIC_BLOCK))
 			strDetails << tabindent << "B_GREEK_SYMBOLS_AND_COPTIC_BLOCK\n";
-		if (inValue->Includes (B_CYRILLIC_BLOCK))
+		if (inValue->Includes(B_CYRILLIC_BLOCK))
 			strDetails << tabindent << "B_CYRILLIC_BLOCK\n";
-		if (inValue->Includes (B_ARMENIAN_BLOCK))
+		if (inValue->Includes(B_ARMENIAN_BLOCK))
 			strDetails << tabindent << "B_ARMENIAN_BLOCK\n";
-		if (inValue->Includes (B_BASIC_HEBREW_BLOCK))
+		if (inValue->Includes(B_BASIC_HEBREW_BLOCK))
 			strDetails << tabindent << "B_BASIC_HEBREW_BLOCK\n";
-		if (inValue->Includes (B_HEBREW_EXTENDED_BLOCK))
+		if (inValue->Includes(B_HEBREW_EXTENDED_BLOCK))
 			strDetails << tabindent << "B_HEBREW_EXTENDED_BLOCK\n";
-		if (inValue->Includes (B_BASIC_ARABIC_BLOCK))
+		if (inValue->Includes(B_BASIC_ARABIC_BLOCK))
 			strDetails << tabindent << "B_BASIC_ARABIC_BLOCK\n";
-		if (inValue->Includes (B_ARABIC_EXTENDED_BLOCK))
+		if (inValue->Includes(B_ARABIC_EXTENDED_BLOCK))
 			strDetails << tabindent << "B_ARABIC_EXTENDED_BLOCK\n";
-		if (inValue->Includes (B_DEVANAGARI_BLOCK))
+		if (inValue->Includes(B_DEVANAGARI_BLOCK))
 			strDetails << tabindent << "B_DEVANAGARI_BLOCK\n";
-		if (inValue->Includes (B_BENGALI_BLOCK))
+		if (inValue->Includes(B_BENGALI_BLOCK))
 			strDetails << tabindent << "B_BENGALI_BLOCK\n";
-		if (inValue->Includes (B_GURMUKHI_BLOCK))
+		if (inValue->Includes(B_GURMUKHI_BLOCK))
 			strDetails << tabindent << "B_GURMUKHI_BLOCK\n";
-		if (inValue->Includes (B_GUJARATI_BLOCK))
+		if (inValue->Includes(B_GUJARATI_BLOCK))
 			strDetails << tabindent << "B_GUJARATI_BLOCK\n";
-		if (inValue->Includes (B_ORIYA_BLOCK))
+		if (inValue->Includes(B_ORIYA_BLOCK))
 			strDetails << tabindent << "B_ORIYA_BLOCK\n";
-		if (inValue->Includes (B_TAMIL_BLOCK))
+		if (inValue->Includes(B_TAMIL_BLOCK))
 			strDetails << tabindent << "B_TAMIL_BLOCK\n";
-		if (inValue->Includes (B_TELUGU_BLOCK))
+		if (inValue->Includes(B_TELUGU_BLOCK))
 			strDetails << tabindent << "B_TELUGU_BLOCK\n";
-		if (inValue->Includes (B_KANNADA_BLOCK))
+		if (inValue->Includes(B_KANNADA_BLOCK))
 			strDetails << tabindent << "B_KANNADA_BLOCK\n";
-		if (inValue->Includes (B_MALAYALAM_BLOCK))
+		if (inValue->Includes(B_MALAYALAM_BLOCK))
 			strDetails << tabindent << "B_MALAYALAM_BLOCK\n";
-		if (inValue->Includes (B_THAI_BLOCK))
+		if (inValue->Includes(B_THAI_BLOCK))
 			strDetails << tabindent << "B_THAI_BLOCK\n";
-		if (inValue->Includes (B_LAO_BLOCK))
+		if (inValue->Includes(B_LAO_BLOCK))
 			strDetails << tabindent << "B_LAO_BLOCK\n";
-		if (inValue->Includes (B_BASIC_GEORGIAN_BLOCK))
+		if (inValue->Includes(B_BASIC_GEORGIAN_BLOCK))
 			strDetails << tabindent << "B_BASIC_GEORGIAN_BLOCK\n";
-		if (inValue->Includes (B_GEORGIAN_EXTENDED_BLOCK))
+		if (inValue->Includes(B_GEORGIAN_EXTENDED_BLOCK))
 			strDetails << tabindent << "B_GEORGIAN_EXTENDED_BLOCK\n";
-		if (inValue->Includes (B_HANGUL_JAMO_BLOCK))
+		if (inValue->Includes(B_HANGUL_JAMO_BLOCK))
 			strDetails << tabindent << "B_HANGUL_JAMO_BLOCK\n";
-		if (inValue->Includes (B_LATIN_EXTENDED_ADDITIONAL_BLOCK))
+		if (inValue->Includes(B_LATIN_EXTENDED_ADDITIONAL_BLOCK))
 			strDetails << tabindent << "B_LATIN_EXTENDED_ADDITIONAL_BLOCK\n";
-		if (inValue->Includes (B_GREEK_EXTENDED_BLOCK))
+		if (inValue->Includes(B_GREEK_EXTENDED_BLOCK))
 			strDetails << tabindent << "B_GREEK_EXTENDED_BLOCK\n";
-		if (inValue->Includes (B_GENERAL_PUNCTUATION_BLOCK))
+		if (inValue->Includes(B_GENERAL_PUNCTUATION_BLOCK))
 			strDetails << tabindent << "B_GENERAL_PUNCTUATION_BLOCK\n";
-		if (inValue->Includes (B_SUPERSCRIPTS_AND_SUBSCRIPTS_BLOCK))
+		if (inValue->Includes(B_SUPERSCRIPTS_AND_SUBSCRIPTS_BLOCK))
 			strDetails << tabindent << "B_SUPERSCRIPTS_AND_SUBSCRIPTS_BLOCK\n";
-		if (inValue->Includes (B_CURRENCY_SYMBOLS_BLOCK))
+		if (inValue->Includes(B_CURRENCY_SYMBOLS_BLOCK))
 			strDetails << tabindent << "B_CURRENCY_SYMBOLS_BLOCK\n";
-		if (inValue->Includes (B_COMBINING_MARKS_FOR_SYMBOLS_BLOCK))
+		if (inValue->Includes(B_COMBINING_MARKS_FOR_SYMBOLS_BLOCK))
 			strDetails << tabindent << "B_COMBINING_MARKS_FOR_SYMBOLS_BLOCK\n";
-		if (inValue->Includes (B_LETTERLIKE_SYMBOLS_BLOCK))
+		if (inValue->Includes(B_LETTERLIKE_SYMBOLS_BLOCK))
 			strDetails << tabindent << "B_LETTERLIKE_SYMBOLS_BLOCK\n";
-		if (inValue->Includes (B_NUMBER_FORMS_BLOCK))
+		if (inValue->Includes(B_NUMBER_FORMS_BLOCK))
 			strDetails << tabindent << "B_NUMBER_FORMS_BLOCK\n";
-		if (inValue->Includes (B_ARROWS_BLOCK))
+		if (inValue->Includes(B_ARROWS_BLOCK))
 			strDetails << tabindent << "B_ARROWS_BLOCK\n";
-		if (inValue->Includes (B_MATHEMATICAL_OPERATORS_BLOCK))
+		if (inValue->Includes(B_MATHEMATICAL_OPERATORS_BLOCK))
 			strDetails << tabindent << "B_MATHEMATICAL_OPERATORS_BLOCK\n";
-		if (inValue->Includes (B_MISCELLANEOUS_TECHNICAL_BLOCK))
+		if (inValue->Includes(B_MISCELLANEOUS_TECHNICAL_BLOCK))
 			strDetails << tabindent << "B_MISCELLANEOUS_TECHNICAL_BLOCK\n";
-		if (inValue->Includes (B_CONTROL_PICTURES_BLOCK))
+		if (inValue->Includes(B_CONTROL_PICTURES_BLOCK))
 			strDetails << tabindent << "B_CONTROL_PICTURES_BLOCK\n";
-		if (inValue->Includes (B_OPTICAL_CHARACTER_RECOGNITION_BLOCK))
+		if (inValue->Includes(B_OPTICAL_CHARACTER_RECOGNITION_BLOCK))
 			strDetails << tabindent << "B_OPTICAL_CHARACTER_RECOGNITION_BLOCK\n";
-		if (inValue->Includes (B_ENCLOSED_ALPHANUMERICS_BLOCK))
+		if (inValue->Includes(B_ENCLOSED_ALPHANUMERICS_BLOCK))
 			strDetails << tabindent << "B_ENCLOSED_ALPHANUMERICS_BLOCK\n";
-		if (inValue->Includes (B_BOX_DRAWING_BLOCK))
+		if (inValue->Includes(B_BOX_DRAWING_BLOCK))
 			strDetails << tabindent << "B_BOX_DRAWING_BLOCK\n";
-		if (inValue->Includes (B_BLOCK_ELEMENTS_BLOCK))
+		if (inValue->Includes(B_BLOCK_ELEMENTS_BLOCK))
 			strDetails << tabindent << "B_BLOCK_ELEMENTS_BLOCK\n";
-		if (inValue->Includes (B_GEOMETRIC_SHAPES_BLOCK))
+		if (inValue->Includes(B_GEOMETRIC_SHAPES_BLOCK))
 			strDetails << tabindent << "B_GEOMETRIC_SHAPES_BLOCK\n";
-		if (inValue->Includes (B_MISCELLANEOUS_SYMBOLS_BLOCK))
+		if (inValue->Includes(B_MISCELLANEOUS_SYMBOLS_BLOCK))
 			strDetails << tabindent << "B_MISCELLANEOUS_SYMBOLS_BLOCK\n";
-		if (inValue->Includes (B_DINGBATS_BLOCK))
+		if (inValue->Includes(B_DINGBATS_BLOCK))
 			strDetails << tabindent << "B_DINGBATS_BLOCK\n";
-		if (inValue->Includes (B_CJK_SYMBOLS_AND_PUNCTUATION_BLOCK))
+		if (inValue->Includes(B_CJK_SYMBOLS_AND_PUNCTUATION_BLOCK))
 			strDetails << tabindent << "B_CJK_SYMBOLS_AND_PUNCTUATION_BLOCK\n";
-		if (inValue->Includes (B_HIRAGANA_BLOCK))
+		if (inValue->Includes(B_HIRAGANA_BLOCK))
 			strDetails << tabindent << "B_HIRAGANA_BLOCK\n";
-		if (inValue->Includes (B_KATAKANA_BLOCK))
+		if (inValue->Includes(B_KATAKANA_BLOCK))
 			strDetails << tabindent << "B_KATAKANA_BLOCK\n";
-		if (inValue->Includes (B_BOPOMOFO_BLOCK))
+		if (inValue->Includes(B_BOPOMOFO_BLOCK))
 			strDetails << tabindent << "B_BOPOMOFO_BLOCK\n";
-		if (inValue->Includes (B_HANGUL_COMPATIBILITY_JAMO_BLOCK))
+		if (inValue->Includes(B_HANGUL_COMPATIBILITY_JAMO_BLOCK))
 			strDetails << tabindent << "B_HANGUL_COMPATIBILITY_JAMO_BLOCK\n";
-		if (inValue->Includes (B_CJK_MISCELLANEOUS_BLOCK))
+		if (inValue->Includes(B_CJK_MISCELLANEOUS_BLOCK))
 			strDetails << tabindent << "B_CJK_MISCELLANEOUS_BLOCK\n";
-		if (inValue->Includes (B_ENCLOSED_CJK_LETTERS_AND_MONTHS_BLOCK))
+		if (inValue->Includes(B_ENCLOSED_CJK_LETTERS_AND_MONTHS_BLOCK))
 			strDetails << tabindent << "B_ENCLOSED_CJK_LETTERS_AND_MONTHS_BLOCK\n";
-		if (inValue->Includes (B_CJK_COMPATIBILITY_BLOCK))
+		if (inValue->Includes(B_CJK_COMPATIBILITY_BLOCK))
 			strDetails << tabindent << "B_CJK_COMPATIBILITY_BLOCK\n";
-		if (inValue->Includes (B_HANGUL_BLOCK))
+		if (inValue->Includes(B_HANGUL_BLOCK))
 			strDetails << tabindent << "B_HANGUL_BLOCK\n";
-		if (inValue->Includes (B_HIGH_SURROGATES_BLOCK))
+		if (inValue->Includes(B_HIGH_SURROGATES_BLOCK))
 			strDetails << tabindent << "B_HIGH_SURROGATES_BLOCK\n";
-		if (inValue->Includes (B_LOW_SURROGATES_BLOCK))
+		if (inValue->Includes(B_LOW_SURROGATES_BLOCK))
 			strDetails << tabindent << "B_LOW_SURROGATES_BLOCK\n";
-		if (inValue->Includes (B_CJK_UNIFIED_IDEOGRAPHS_BLOCK))
+		if (inValue->Includes(B_CJK_UNIFIED_IDEOGRAPHS_BLOCK))
 			strDetails << tabindent << "B_CJK_UNIFIED_IDEOGRAPHS_BLOCK\n";
-		if (inValue->Includes (B_PRIVATE_USE_AREA_BLOCK))
+		if (inValue->Includes(B_PRIVATE_USE_AREA_BLOCK))
 			strDetails << tabindent << "B_PRIVATE_USE_AREA_BLOCK\n";
-		if (inValue->Includes (B_CJK_COMPATIBILITY_IDEOGRAPHS_BLOCK))
+		if (inValue->Includes(B_CJK_COMPATIBILITY_IDEOGRAPHS_BLOCK))
 			strDetails << tabindent << "B_CJK_COMPATIBILITY_IDEOGRAPHS_BLOCK\n";
-		if (inValue->Includes (B_ALPHABETIC_PRESENTATION_FORMS_BLOCK))
+		if (inValue->Includes(B_ALPHABETIC_PRESENTATION_FORMS_BLOCK))
 			strDetails << tabindent << "B_ALPHABETIC_PRESENTATION_FORMS_BLOCK\n";
-		if (inValue->Includes (B_ARABIC_PRESENTATION_FORMS_A_BLOCK))
+		if (inValue->Includes(B_ARABIC_PRESENTATION_FORMS_A_BLOCK))
 			strDetails << tabindent << "B_ARABIC_PRESENTATION_FORMS_A_BLOCK\n";
-		if (inValue->Includes (B_COMBINING_HALF_MARKS_BLOCK))
+		if (inValue->Includes(B_COMBINING_HALF_MARKS_BLOCK))
 			strDetails << tabindent << "B_COMBINING_HALF_MARKS_BLOCK\n";
-		if (inValue->Includes (B_CJK_COMPATIBILITY_FORMS_BLOCK))
+		if (inValue->Includes(B_CJK_COMPATIBILITY_FORMS_BLOCK))
 			strDetails << tabindent << "B_CJK_COMPATIBILITY_FORMS_BLOCK\n";
-		if (inValue->Includes (B_SMALL_FORM_VARIANTS_BLOCK))
+		if (inValue->Includes(B_SMALL_FORM_VARIANTS_BLOCK))
 			strDetails << tabindent << "B_SMALL_FORM_VARIANTS_BLOCK\n";
-		if (inValue->Includes (B_ARABIC_PRESENTATION_FORMS_B_BLOCK))
+		if (inValue->Includes(B_ARABIC_PRESENTATION_FORMS_B_BLOCK))
 			strDetails << tabindent << "B_ARABIC_PRESENTATION_FORMS_B_BLOCK\n";
-		if (inValue->Includes (B_HALFWIDTH_AND_FULLWIDTH_FORMS_BLOCK))
+		if (inValue->Includes(B_HALFWIDTH_AND_FULLWIDTH_FORMS_BLOCK))
 			strDetails << tabindent << "B_HALFWIDTH_AND_FULLWIDTH_FORMS_BLOCK\n";
-		if (inValue->Includes (B_SPECIALS_BLOCK))
+		if (inValue->Includes(B_SPECIALS_BLOCK))
 			strDetails << tabindent << "B_SPECIALS_BLOCK\n";
-		if (inValue->Includes (B_TIBETAN_BLOCK))
+		if (inValue->Includes(B_TIBETAN_BLOCK))
 			strDetails << tabindent << "B_TIBETAN_BLOCK\n";
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The unicode_block was NULL.\n";
-	}
 }
 
 /***************************************************************
@@ -998,39 +956,36 @@ enum font_direction {
 ***************************************************************/
 void
 Inspect_Enum_font_direction
-	(
-	BString & strDetails
-,	font_direction inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	font_direction inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[font_direction enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[font_direction enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_FONT_LEFT_TO_RIGHT:
-				strDetails << "B_FONT_LEFT_TO_RIGHT\n";
-				break;
-			case B_FONT_RIGHT_TO_LEFT:
-				strDetails << "B_FONT_RIGHT_TO_LEFT\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_FONT_LEFT_TO_RIGHT:
+			strDetails << "B_FONT_LEFT_TO_RIGHT\n";
+			break;
+		case B_FONT_RIGHT_TO_LEFT:
+			strDetails << "B_FONT_RIGHT_TO_LEFT\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1048,39 +1003,36 @@ enum font_file_format {
 ***************************************************************/
 void
 Inspect_Enum_font_file_format
-	(
-	BString & strDetails
-,	font_file_format inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	font_file_format inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[font_file_format enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[font_file_format enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_TRUETYPE_WINDOWS:
-				strDetails << "B_TRUETYPE_WINDOWS\n";
-				break;
-			case B_POSTSCRIPT_TYPE1_WINDOWS:
-				strDetails << "B_POSTSCRIPT_TYPE1_WINDOWS\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_TRUETYPE_WINDOWS:
+			strDetails << "B_TRUETYPE_WINDOWS\n";
+			break;
+		case B_POSTSCRIPT_TYPE1_WINDOWS:
+			strDetails << "B_POSTSCRIPT_TYPE1_WINDOWS\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1098,42 +1050,39 @@ enum message_source {
 ***************************************************************/
 void
 Inspect_Enum_message_source
-	(
-	BString & strDetails
-,	message_source inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	message_source inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[message_source enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[message_source enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_ANY_SOURCE:
-				strDetails << "B_ANY_SOURCE\n";
-				break;
-			case B_REMOTE_SOURCE:
-				strDetails << "B_REMOTE_SOURCE\n";
-				break;
-			case B_LOCAL_SOURCE:
-				strDetails << "B_LOCAL_SOURCE\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_ANY_SOURCE:
+			strDetails << "B_ANY_SOURCE\n";
+			break;
+		case B_REMOTE_SOURCE:
+			strDetails << "B_REMOTE_SOURCE\n";
+			break;
+		case B_LOCAL_SOURCE:
+			strDetails << "B_LOCAL_SOURCE\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1152,42 +1101,39 @@ enum message_delivery {
 ***************************************************************/
 void
 Inspect_Enum_message_delivery
-	(
-	BString & strDetails
-,	message_delivery inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	message_delivery inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[message_delivery enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[message_delivery enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_ANY_DELIVERY:
-				strDetails << "B_ANY_DELIVERY\n";
-				break;
-			case B_DROPPED_DELIVERY:
-				strDetails << "B_DROPPED_DELIVERY\n";
-				break;
-			case B_PROGRAMMED_DELIVERY:
-				strDetails << "B_PROGRAMMED_DELIVERY\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_ANY_DELIVERY:
+			strDetails << "B_ANY_DELIVERY\n";
+			break;
+		case B_DROPPED_DELIVERY:
+			strDetails << "B_DROPPED_DELIVERY\n";
+			break;
+		case B_PROGRAMMED_DELIVERY:
+			strDetails << "B_PROGRAMMED_DELIVERY\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1203,39 +1149,31 @@ typedef unsigned int        mode_t;
 ***************************************************************/
 void
 Inspect_Flags_mode_t
-	(
-	BString & strDetails
-,	mode_t inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	mode_t inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[mode_t flag, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[mode_t flag, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "mask= [" << (unsigned int) *inValue << "], ";
-		if (S_ISUID & inValue)       /* set user id on execution */
-		{
-			strDetails << "S_ISUID, ";
-		}
-		if (S_ISGID & inValue)       /* set group id on execution */
-		{
-			strDetails << "S_ISGID, ";
-		}
-		if (S_ISVTX & inValue)       /* save swapped text even after use */
-		{
-			strDetails << "S_ISVTX, ";
-		}
+	if (S_ISUID & inValue)       /* set user id on execution */
+		strDetails << "S_ISUID, ";
+	if (S_ISGID & inValue)       /* set group id on execution */
+		strDetails << "S_ISGID, ";
+	if (S_ISVTX & inValue)       /* save swapped text even after use */
+		strDetails << "S_ISVTX, ";
 
 
 //		if (S_IRWXU == (S_IRWXU & inValue)) /* read, write, execute: owner */
@@ -1244,18 +1182,12 @@ Inspect_Flags_mode_t
 //		}
 //		else
 //		{
-			if (S_IRUSR & inValue) /* read permission: owner */
-			{
-				strDetails << "S_IRUSR, ";
-			}
-			if (S_IWUSR & inValue) /* write permission: owner */
-			{
-				strDetails << "S_IWUSR, ";
-			}
-			if (S_IXUSR & inValue) /* execute permission: owner */
-			{
-				strDetails << "S_IXUSR, ";
-			}
+	if (S_IRUSR & inValue) /* read permission: owner */
+		strDetails << "S_IRUSR, ";
+	if (S_IWUSR & inValue) /* write permission: owner */
+		strDetails << "S_IWUSR, ";
+	if (S_IXUSR & inValue) /* execute permission: owner */
+		strDetails << "S_IXUSR, ";
 //		}
 
 //		if (S_IRWXG == (S_IRWXG & inValue)) /* read, write, execute: group */
@@ -1264,18 +1196,12 @@ Inspect_Flags_mode_t
 //		}
 //		else
 //		{
-			if (S_IRGRP & inValue) /* read permission: group */
-			{
-				strDetails << "S_IRGRP, ";
-			}
-			if (S_IWGRP & inValue) /* write permission: group */
-			{
-				strDetails << "S_IWGRP, ";
-			}
-			if (S_IXGRP & inValue) /* execute permission: group */
-			{
-				strDetails << "S_IXGRP, ";
-			}
+	if (S_IRGRP & inValue) /* read permission: group */
+		strDetails << "S_IRGRP, ";
+	if (S_IWGRP & inValue) /* write permission: group */
+		strDetails << "S_IWGRP, ";
+	if (S_IXGRP & inValue) /* execute permission: group */
+		strDetails << "S_IXGRP, ";
 //		}
 
 //		if (S_IRWXO == (S_IRWXO & inValue)) /* read, write, execute: other */
@@ -1284,38 +1210,32 @@ Inspect_Flags_mode_t
 //		}
 //		else
 //		{
-			if (S_IROTH & inValue) /* read permission: other */
-			{
-				strDetails << "S_IROTH, ";
-			}
-			if (S_IWOTH & inValue) /* write permission: other */
-			{
-				strDetails << "S_IWOTH, ";
-			}
-			if (S_IXOTH & inValue) /* execute permission: other */
-			{
-				strDetails << "S_IXOTH,";
-			}
+	if (S_IROTH & inValue) /* read permission: other */
+		strDetails << "S_IROTH, ";
+	if (S_IWOTH & inValue) /* write permission: other */
+		strDetails << "S_IWOTH, ";
+	if (S_IXOTH & inValue) /* execute permission: other */
+		strDetails << "S_IXOTH,";
 //		}
 
-		strDetails.RemoveLast (",");
-		strDetails << g_pNewline;
-/*
-strDetails << "value= " << inValue << g_pNewline;
+	strDetails.RemoveLast(",");
+	strDetails << g_pNewline;
+	/*
+	strDetails << "value= " << inValue << g_pNewline;
 
-strDetails << "S_IRWXU= " << S_IRWXU << ",   & inValue= " << (S_IRWXU & inValue) << g_pNewline;
-strDetails << "S_IRUSR= " << S_IRUSR << ",   & inValue= " << (S_IRUSR & inValue) << g_pNewline;
-strDetails << "S_IWUSR= " << S_IWUSR << ",   & inValue= " << (S_IWUSR & inValue) << g_pNewline;
-strDetails << "S_IXUSR= " << S_IXUSR << ",   & inValue= " << (S_IXUSR & inValue) << g_pNewline;
-strDetails << "S_IRWXG= " << S_IRWXG << ",   & inValue= " << (S_IRWXG & inValue) << g_pNewline;
-strDetails << "S_IRGRP= " << S_IRGRP << ",   & inValue= " << (S_IRGRP & inValue) << g_pNewline;
-strDetails << "S_IWGRP= " << S_IWGRP << ",   & inValue= " << (S_IWGRP & inValue) << g_pNewline;
-strDetails << "S_IXGRP= " << S_IXGRP << ",   & inValue= " << (S_IXGRP & inValue) << g_pNewline;
-strDetails << "S_IRWXO= " << S_IRWXO << ",   & inValue= " << (S_IRWXO & inValue) << g_pNewline;
-strDetails << "S_IROTH= " << S_IROTH << ",   & inValue= " << (S_IROTH & inValue) << g_pNewline;
-strDetails << "S_IWOTH= " << S_IWOTH << ",   & inValue= " << (S_IWOTH & inValue) << g_pNewline;
-strDetails << "S_IXOTH= " << S_IXOTH << ",   & inValue= " << (S_IXOTH & inValue) << g_pNewline;
-*/
+	strDetails << "S_IRWXU= " << S_IRWXU << ",   & inValue= " << (S_IRWXU & inValue) << g_pNewline;
+	strDetails << "S_IRUSR= " << S_IRUSR << ",   & inValue= " << (S_IRUSR & inValue) << g_pNewline;
+	strDetails << "S_IWUSR= " << S_IWUSR << ",   & inValue= " << (S_IWUSR & inValue) << g_pNewline;
+	strDetails << "S_IXUSR= " << S_IXUSR << ",   & inValue= " << (S_IXUSR & inValue) << g_pNewline;
+	strDetails << "S_IRWXG= " << S_IRWXG << ",   & inValue= " << (S_IRWXG & inValue) << g_pNewline;
+	strDetails << "S_IRGRP= " << S_IRGRP << ",   & inValue= " << (S_IRGRP & inValue) << g_pNewline;
+	strDetails << "S_IWGRP= " << S_IWGRP << ",   & inValue= " << (S_IWGRP & inValue) << g_pNewline;
+	strDetails << "S_IXGRP= " << S_IXGRP << ",   & inValue= " << (S_IXGRP & inValue) << g_pNewline;
+	strDetails << "S_IRWXO= " << S_IRWXO << ",   & inValue= " << (S_IRWXO & inValue) << g_pNewline;
+	strDetails << "S_IROTH= " << S_IROTH << ",   & inValue= " << (S_IROTH & inValue) << g_pNewline;
+	strDetails << "S_IWOTH= " << S_IWOTH << ",   & inValue= " << (S_IWOTH & inValue) << g_pNewline;
+	strDetails << "S_IXOTH= " << S_IXOTH << ",   & inValue= " << (S_IXOTH & inValue) << g_pNewline;
+	*/
 //	}
 //	else
 //	{
@@ -1333,39 +1253,36 @@ enum thumb_style {
 ***************************************************************/
 void
 Inspect_Enum_thumb_style
-	(
-	BString & strDetails
-,	thumb_style inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	thumb_style inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[thumb_style enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[thumb_style enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_BLOCK_THUMB:
-				strDetails << "B_BLOCK_THUMB\n";
-				break;
-			case B_TRIANGLE_THUMB:
-				strDetails << "B_TRIANGLE_THUMB\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_BLOCK_THUMB:
+			strDetails << "B_BLOCK_THUMB\n";
+			break;
+		case B_TRIANGLE_THUMB:
+			strDetails << "B_TRIANGLE_THUMB\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1383,39 +1300,36 @@ enum orientation {
 ***************************************************************/
 void
 Inspect_Enum_orientation
-	(
-	BString & strDetails
-,	orientation inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	orientation inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[orientation enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[orientation enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_HORIZONTAL:
-				strDetails << "B_HORIZONTAL\n";
-				break;
-			case B_VERTICAL:
-				strDetails << "B_VERTICAL\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_HORIZONTAL:
+			strDetails << "B_HORIZONTAL\n";
+			break;
+		case B_VERTICAL:
+			strDetails << "B_VERTICAL\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1437,45 +1351,42 @@ enum hash_mark_location {
 ***************************************************************/
 void
 Inspect_Enum_hash_mark_location
-	(
-	BString & strDetails
-,	hash_mark_location inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	hash_mark_location inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[hash_mark_location enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[hash_mark_location enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_HASH_MARKS_NONE:
-				strDetails << "B_HASH_MARKS_NONE\n";
-				break;
-			case B_HASH_MARKS_LEFT: //same as B_HASH_MARKS_TOP
-				strDetails << "B_HASH_MARKS_TOP or B_HASH_MARKS_LEFT\n";
-				break;
-			case B_HASH_MARKS_RIGHT: //same as B_HASH_MARKS_BOTTOM
-				strDetails << "B_HASH_MARKS_BOTTOM or B_HASH_MARKS_RIGHT\n";
-				break;
-			case B_HASH_MARKS_BOTH:
-				strDetails << "B_HASH_MARKS_BOTH\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_HASH_MARKS_NONE:
+			strDetails << "B_HASH_MARKS_NONE\n";
+			break;
+		case B_HASH_MARKS_LEFT: //same as B_HASH_MARKS_TOP
+			strDetails << "B_HASH_MARKS_TOP or B_HASH_MARKS_LEFT\n";
+			break;
+		case B_HASH_MARKS_RIGHT: //same as B_HASH_MARKS_BOTTOM
+			strDetails << "B_HASH_MARKS_BOTTOM or B_HASH_MARKS_RIGHT\n";
+			break;
+		case B_HASH_MARKS_BOTH:
+			strDetails << "B_HASH_MARKS_BOTH\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1497,48 +1408,45 @@ enum color_control_layout {
 ***************************************************************/
 void
 Inspect_Enum_color_control_layout
-	(
-	BString & strDetails
-,	color_control_layout inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	color_control_layout inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[color_control_layout enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[color_control_layout enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_CELLS_4x64:
-				strDetails << "B_CELLS_4x64\n";
-				break;
-			case B_CELLS_8x32:
-				strDetails << "B_CELLS_8x32\n";
-				break;
-			case B_CELLS_16x16:
-				strDetails << "B_CELLS_16x16\n";
-				break;
-			case B_CELLS_32x8:
-				strDetails << "B_CELLS_32x8\n";
-				break;
-			case B_CELLS_64x4:
-				strDetails << "B_CELLS_64x4\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_CELLS_4x64:
+			strDetails << "B_CELLS_4x64\n";
+			break;
+		case B_CELLS_8x32:
+			strDetails << "B_CELLS_8x32\n";
+			break;
+		case B_CELLS_16x16:
+			strDetails << "B_CELLS_16x16\n";
+			break;
+		case B_CELLS_32x8:
+			strDetails << "B_CELLS_32x8\n";
+			break;
+		case B_CELLS_64x4:
+			strDetails << "B_CELLS_64x4\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1559,42 +1467,39 @@ enum border_style {
 ***************************************************************/
 void
 Inspect_Enum_border_style
-	(
-	BString & strDetails
-,	border_style inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	border_style inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[border_style enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[border_style enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_PLAIN_BORDER:
-				strDetails << "B_PLAIN_BORDER\n";
-				break;
-			case B_FANCY_BORDER:
-				strDetails << "B_FANCY_BORDER\n";
-				break;
-			case B_NO_BORDER:
-				strDetails << "B_NO_BORDER\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_PLAIN_BORDER:
+			strDetails << "B_PLAIN_BORDER\n";
+			break;
+		case B_FANCY_BORDER:
+			strDetails << "B_FANCY_BORDER\n";
+			break;
+		case B_NO_BORDER:
+			strDetails << "B_NO_BORDER\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1610,171 +1515,167 @@ see file for definition
 ***************************************************************/
 void
 Inspect_Enum_color_space
-	(
-	BString & strDetails
-,	color_space inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	color_space inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	if (inIndent >= 0)
-	{
-		for (int32 i (0); i < inIndent; i++)
-		{
+	if (inIndent >= 0) {
+		for (int32 i(0); i < inIndent; i++)
 			tabindent << g_pIndentation;
-		}
 	}
 
 //	if (NULL != inValue)
 //	{
-		char hexbuf[12];
-		GetHexString (hexbuf, (int32) inValue);
-		strDetails << tabindent << pDescription << "[color_space enum, " << hexbuf << "] ";
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
+	strDetails << tabindent << pDescription << "[color_space enum, " << hexbuf << "] ";
 //		tabindent << g_pIndentation;
 
 //		strDetails << tabindent << "enum= [" << (unsigned int) *inValue << "], ";
-		switch (inValue)
-		{
-			case B_NO_COLOR_SPACE:
-				strDetails << "B_NO_COLOR_SPACE\n";
-				break;
-			case B_RGB32:
-				strDetails << "B_RGB32\n";
-				break;
-			case B_RGBA32:
-				strDetails << "B_RGBA32\n";
-				break;
-			case B_RGB24:
-				strDetails << "B_RGB24\n";
-				break;
-			case B_RGB16:
-				strDetails << "B_RGB16\n";
-				break;
-			case B_RGB15:
-				strDetails << "B_RGB15\n";
-				break;
-			case B_RGBA15:
-				strDetails << "B_RGBA15\n";
-				break;
-			case B_CMAP8:
-				strDetails << "B_CMAP8\n";
-				break;
-			case B_GRAY8:
-				strDetails << "B_GRAY8\n";
-				break;
-			case B_GRAY1:
-				strDetails << "B_GRAY1\n";
-				break;
-			case B_RGB32_BIG:
-				strDetails << "B_RGB32_BIG\n";
-				break;
-			case B_RGBA32_BIG:
-				strDetails << "B_RGBA32_BIG\n";
-				break;
-			case B_RGB24_BIG:
-				strDetails << "B_RGB24_BIG\n";
-				break;
-			case B_RGB16_BIG:
-				strDetails << "B_RGB16_BIG\n";
-				break;
-			case B_RGB15_BIG:
-				strDetails << "B_RGB15_BIG\n";
-				break;
-			case B_RGBA15_BIG:
-				strDetails << "B_RGBA15_BIG\n";
-				break;
-			case B_YCbCr422:
-				strDetails << "B_YCbCr422\n";
-				break;
-			case B_YCbCr411:
-				strDetails << "B_YCbCr411\n";
-				break;
-			case B_YCbCr444:
-				strDetails << "B_YCbCr444\n";
-				break;
-			case B_YCbCr420:
-				strDetails << "B_YCbCr420\n";
-				break;
-			case B_YUV422:
-				strDetails << "B_YUV422\n";
-				break;
-			case B_YUV411:
-				strDetails << "B_YUV411\n";
-				break;
-			case B_YUV444:
-				strDetails << "B_YUV444\n";
-				break;
-			case B_YUV420:
-				strDetails << "B_YUV420\n";
-				break;
-			case B_YUV9:
-				strDetails << "B_YUV9\n";
-				break;
-			case B_YUV12:
-				strDetails << "B_YUV12\n";
-				break;
-			case B_UVL24:
-				strDetails << "B_UVL24\n";
-				break;
-			case B_UVL32:
-				strDetails << "B_UVL32\n";
-				break;
-			case B_UVLA32:
-				strDetails << "B_UVLA32\n";
-				break;
-			case B_LAB24:
-				strDetails << "B_LAB24\n";
-				break;
-			case B_LAB32:
-				strDetails << "B_LAB32\n";
-				break;
-			case B_LABA32:
-				strDetails << "B_LABA32\n";
-				break;
-			case B_HSI24:
-				strDetails << "B_HSI24\n";
-				break;
-			case B_HSI32:
-				strDetails << "B_HSI32\n";
-				break;
-			case B_HSIA32:
-				strDetails << "B_HSIA32\n";
-				break;
-			case B_HSV24:
-				strDetails << "B_HSV24\n";
-				break;
-			case B_HSV32:
-				strDetails << "B_HSV32\n";
-				break;
-			case B_HSVA32:
-				strDetails << "B_HSVA32\n";
-				break;
-			case B_HLS24:
-				strDetails << "B_HLS24\n";
-				break;
-			case B_HLS32:
-				strDetails << "B_HLS32\n";
-				break;
-			case B_HLSA32:
-				strDetails << "B_HLSA32\n";
-				break;
-			case B_CMY24:
-				strDetails << "B_CMY24\n";
-				break;
-			case B_CMY32:
-				strDetails << "B_CMY32\n";
-				break;
-			case B_CMYA32:
-				strDetails << "B_CMYA32\n";
-				break;
-			case B_CMYK32:
-				strDetails << "B_CMYK32\n";
-				break;
-			default:
-				strDetails << "unknown\n";
-				break;
-		}
+	switch (inValue) {
+		case B_NO_COLOR_SPACE:
+			strDetails << "B_NO_COLOR_SPACE\n";
+			break;
+		case B_RGB32:
+			strDetails << "B_RGB32\n";
+			break;
+		case B_RGBA32:
+			strDetails << "B_RGBA32\n";
+			break;
+		case B_RGB24:
+			strDetails << "B_RGB24\n";
+			break;
+		case B_RGB16:
+			strDetails << "B_RGB16\n";
+			break;
+		case B_RGB15:
+			strDetails << "B_RGB15\n";
+			break;
+		case B_RGBA15:
+			strDetails << "B_RGBA15\n";
+			break;
+		case B_CMAP8:
+			strDetails << "B_CMAP8\n";
+			break;
+		case B_GRAY8:
+			strDetails << "B_GRAY8\n";
+			break;
+		case B_GRAY1:
+			strDetails << "B_GRAY1\n";
+			break;
+		case B_RGB32_BIG:
+			strDetails << "B_RGB32_BIG\n";
+			break;
+		case B_RGBA32_BIG:
+			strDetails << "B_RGBA32_BIG\n";
+			break;
+		case B_RGB24_BIG:
+			strDetails << "B_RGB24_BIG\n";
+			break;
+		case B_RGB16_BIG:
+			strDetails << "B_RGB16_BIG\n";
+			break;
+		case B_RGB15_BIG:
+			strDetails << "B_RGB15_BIG\n";
+			break;
+		case B_RGBA15_BIG:
+			strDetails << "B_RGBA15_BIG\n";
+			break;
+		case B_YCbCr422:
+			strDetails << "B_YCbCr422\n";
+			break;
+		case B_YCbCr411:
+			strDetails << "B_YCbCr411\n";
+			break;
+		case B_YCbCr444:
+			strDetails << "B_YCbCr444\n";
+			break;
+		case B_YCbCr420:
+			strDetails << "B_YCbCr420\n";
+			break;
+		case B_YUV422:
+			strDetails << "B_YUV422\n";
+			break;
+		case B_YUV411:
+			strDetails << "B_YUV411\n";
+			break;
+		case B_YUV444:
+			strDetails << "B_YUV444\n";
+			break;
+		case B_YUV420:
+			strDetails << "B_YUV420\n";
+			break;
+		case B_YUV9:
+			strDetails << "B_YUV9\n";
+			break;
+		case B_YUV12:
+			strDetails << "B_YUV12\n";
+			break;
+		case B_UVL24:
+			strDetails << "B_UVL24\n";
+			break;
+		case B_UVL32:
+			strDetails << "B_UVL32\n";
+			break;
+		case B_UVLA32:
+			strDetails << "B_UVLA32\n";
+			break;
+		case B_LAB24:
+			strDetails << "B_LAB24\n";
+			break;
+		case B_LAB32:
+			strDetails << "B_LAB32\n";
+			break;
+		case B_LABA32:
+			strDetails << "B_LABA32\n";
+			break;
+		case B_HSI24:
+			strDetails << "B_HSI24\n";
+			break;
+		case B_HSI32:
+			strDetails << "B_HSI32\n";
+			break;
+		case B_HSIA32:
+			strDetails << "B_HSIA32\n";
+			break;
+		case B_HSV24:
+			strDetails << "B_HSV24\n";
+			break;
+		case B_HSV32:
+			strDetails << "B_HSV32\n";
+			break;
+		case B_HSVA32:
+			strDetails << "B_HSVA32\n";
+			break;
+		case B_HLS24:
+			strDetails << "B_HLS24\n";
+			break;
+		case B_HLS32:
+			strDetails << "B_HLS32\n";
+			break;
+		case B_HLSA32:
+			strDetails << "B_HLSA32\n";
+			break;
+		case B_CMY24:
+			strDetails << "B_CMY24\n";
+			break;
+		case B_CMY32:
+			strDetails << "B_CMY32\n";
+			break;
+		case B_CMYA32:
+			strDetails << "B_CMYA32\n";
+			break;
+		case B_CMYK32:
+			strDetails << "B_CMYK32\n";
+			break;
+		default:
+			strDetails << "unknown\n";
+			break;
+	}
 //	}
 //	else
 //	{
@@ -1796,25 +1697,22 @@ typedef enum {
 ***************************************************************/
 void
 Inspect_Enum_swap_action
-	(
-	BString & strDetails
-,	swap_action inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	swap_action inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[swap_action enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_SWAP_HOST_TO_LENDIAN:
 			strDetails << "B_SWAP_HOST_TO_LENDIAN\n";
 			break;
@@ -1848,25 +1746,22 @@ enum info_location {
 ***************************************************************/
 void
 Inspect_Enum_info_location
-	(
-	BString & strDetails
-,	info_location inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	info_location inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[info_location enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_USE_ATTRIBUTES:
 			strDetails << "B_USE_ATTRIBUTES\n";
 			break;
@@ -1893,25 +1788,22 @@ enum version_kind {
 ***************************************************************/
 void
 Inspect_Enum_version_kind
-	(
-	BString & strDetails
-,	version_kind inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	version_kind inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[version_kind enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_APP_VERSION_KIND:
 			strDetails << "B_APP_VERSION_KIND\n";
 			break;
@@ -1935,25 +1827,22 @@ enum media_parameter_flags {
 ***************************************************************/
 void
 Inspect_Enum_media_parameter_flags
-	(
-	BString & strDetails
-,	media_parameter_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_parameter_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_parameter_flags enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_HIDDEN_PARAMETER:
 			strDetails << "B_HIDDEN_PARAMETER\n";
 			break;
@@ -1975,7 +1864,7 @@ enum direct_buffer_state {
 	B_DIRECT_START		= 0,
 	B_DIRECT_STOP		= 1,
 	B_DIRECT_MODIFY		= 2,
-	
+
 	B_CLIPPING_MODIFIED = 16,
 	B_BUFFER_RESIZED 	= 32,
 	B_BUFFER_MOVED 		= 64,
@@ -1985,25 +1874,22 @@ enum direct_buffer_state {
 ***************************************************************/
 void
 Inspect_Enum_direct_buffer_state
-	(
-	BString & strDetails
-,	direct_buffer_state inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	direct_buffer_state inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[direct_buffer_state enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_DIRECT_MODE_MASK:
 			strDetails << "B_DIRECT_MODE_MASK\n";
 			break;
@@ -2045,25 +1931,22 @@ enum direct_driver_state {
 ***************************************************************/
 void
 Inspect_Enum_direct_driver_state
-	(
-	BString & strDetails
-,	direct_driver_state inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	direct_driver_state inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[direct_driver_state enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_DRIVER_CHANGED:
 			strDetails << "B_DRIVER_CHANGED\n";
 			break;
@@ -2086,79 +1969,68 @@ enum	mail_flags			{B_MAIL_PENDING	= 1,	// waiting to be sent
 ***************************************************************/
 void
 Inspect_Enum_mail_flags
-	(
-	BString & strDetails
-,	mail_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	mail_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mail_flags enum, " << hexbuf << "], ";
 	if (B_MAIL_PENDING & inValue)
-	{
 		strDetails << "B_MAIL_PENDING, ";
-	}
 	if (B_MAIL_SENT & inValue)
-	{
 		strDetails << "B_MAIL_SENT, ";
-	}
 	if (B_MAIL_SAVE & inValue)
-	{
 		strDetails << "B_MAIL_SAVE, ";
-	}
 
-	strDetails.RemoveLast (",");
+	strDetails.RemoveLast(",");
 	strDetails << g_pNewline;
-/*
-	switch (inValue)
-	{
-		case B_MAIL_PENDING:
-			strDetails << "B_MAIL_PENDING\n";
-			break;
-		case B_MAIL_SENT:
-			strDetails << "B_MAIL_SENT\n";
-			break;
-		case B_MAIL_SAVE:
-			strDetails << "B_MAIL_SAVE\n";
-			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+			case B_MAIL_PENDING:
+				strDetails << "B_MAIL_PENDING\n";
+				break;
+			case B_MAIL_SENT:
+				strDetails << "B_MAIL_SENT\n";
+				break;
+			case B_MAIL_SAVE:
+				strDetails << "B_MAIL_SAVE\n";
+				break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 
 
 // TODO: B_USER_...
 void
 Inspect_Enum_directory_which
-	(
-	BString & strDetails
-,	directory_which inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	directory_which inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[directory_which enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_DESKTOP_DIRECTORY:
 			strDetails << "B_DESKTOP_DIRECTORY\n";
 			break;
@@ -2299,25 +2171,22 @@ enum font_metric_mode {
 ***************************************************************/
 void
 Inspect_Enum_font_metric_mode
-	(
-	BString & strDetails
-,	font_metric_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	font_metric_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[font_metric_mode enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_SCREEN_METRIC:
 			strDetails << "B_SCREEN_METRIC\n";
 			break;
@@ -2351,25 +2220,22 @@ not sure I've done this one correctly!
 ***************************************************************/
 void
 Inspect_Enum_gs_attributes
-	(
-	BString & strDetails
-,	gs_attributes inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	gs_attributes inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_attributes enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_GS_NO_ATTRIBUTE:
 			strDetails << "B_GS_NO_ATTRIBUTE\n";
 			break;
@@ -2414,25 +2280,22 @@ enum buffer_orientation {
 ***************************************************************/
 void
 Inspect_Enum_buffer_orientation
-	(
-	BString & strDetails
-,	buffer_orientation inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	buffer_orientation inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[buffer_orientation enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_BUFFER_TOP_TO_BOTTOM:
 			strDetails << "B_BUFFER_TOP_TO_BOTTOM\n";
 			break;
@@ -2448,32 +2311,29 @@ Inspect_Enum_buffer_orientation
 
 /***************************************************************
 defined in GraphicsDefs.h as:
-enum buffer_layout { 
+enum buffer_layout {
 	B_BUFFER_NONINTERLEAVED = 1
 };
 
 ***************************************************************/
 void
 Inspect_Enum_buffer_layout
-	(
-	BString & strDetails
-,	buffer_layout inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	buffer_layout inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[buffer_layout enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_BUFFER_NONINTERLEAVED:
 			strDetails << "B_BUFFER_NONINTERLEAVED\n";
 			break;
@@ -2494,25 +2354,22 @@ enum source_alpha {
 ***************************************************************/
 void
 Inspect_Enum_source_alpha
-	(
-	BString & strDetails
-,	source_alpha inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	source_alpha inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[source_alpha enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_PIXEL_ALPHA:
 			strDetails << "B_PIXEL_ALPHA\n";
 			break;
@@ -2536,25 +2393,22 @@ enum alpha_function {
 ***************************************************************/
 void
 Inspect_Enum_alpha_function
-	(
-	BString & strDetails
-,	alpha_function inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	alpha_function inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[alpha_function enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_ALPHA_OVERLAY:
 			strDetails << "B_ALPHA_OVERLAY\n";
 			break;
@@ -2580,25 +2434,22 @@ typedef enum {
 ***************************************************************/
 void
 Inspect_Enum_image_type
-	(
-	BString & strDetails
-,	image_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	image_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[image_type enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_APP_IMAGE:
 			strDetails << "B_APP_IMAGE\n";
 			break;
@@ -2630,25 +2481,22 @@ enum input_method_op {
 ***************************************************************/
 void
 Inspect_Enum_input_method_op
-	(
-	BString & strDetails
-,	input_method_op inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	input_method_op inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[input_method_op enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_INPUT_METHOD_STARTED:
 			strDetails << "B_INPUT_METHOD_STARTED\n";
 			break;
@@ -2679,25 +2527,22 @@ enum input_device_type {
 ***************************************************************/
 void
 Inspect_Enum_input_device_type
-	(
-	BString & strDetails
-,	input_device_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	input_device_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[input_device_type enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_POINTING_DEVICE:
 			strDetails << "B_POINTING_DEVICE\n";
 			break;
@@ -2726,25 +2571,22 @@ enum input_device_notification {
 ***************************************************************/
 void
 Inspect_Enum_input_device_notification
-	(
-	BString & strDetails
-,	input_device_notification inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	input_device_notification inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[input_device_notification enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_INPUT_DEVICE_ADDED:
 			strDetails << "B_INPUT_DEVICE_ADDED\n";
 			break;
@@ -2774,25 +2616,22 @@ enum list_view_type {
 ***************************************************************/
 void
 Inspect_Enum_list_view_type
-	(
-	BString & strDetails
-,	list_view_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	list_view_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[list_view_type enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_SINGLE_SELECTION_LIST:
 			strDetails << "B_SINGLE_SELECTION_LIST\n";
 			break;
@@ -2830,25 +2669,22 @@ enum media_type {
 ***************************************************************/
 void
 Inspect_Enum_media_type
-	(
-	BString & strDetails
-,	media_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_type enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_MEDIA_NO_TYPE:
 			strDetails << "B_MEDIA_NO_TYPE\n";
 			break;
@@ -2919,72 +2755,52 @@ enum node_kind {
 ***************************************************************/
 void
 Inspect_Enum_node_kind
-	(
-	BString & strDetails
-,	node_kind inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	node_kind inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[node_kind enum, " << hexbuf << "], ";
 	if (B_BUFFER_PRODUCER & inValue)
-	{
 		strDetails << "B_BUFFER_PRODUCER, ";
-	}
 	if (B_BUFFER_CONSUMER & inValue)
-	{
 		strDetails << "B_BUFFER_CONSUMER, ";
-	}
 	if (B_TIME_SOURCE & inValue)
-	{
 		strDetails << "B_TIME_SOURCE, ";
-	}
 	if (B_CONTROLLABLE & inValue)
-	{
 		strDetails << "B_CONTROLLABLE, ";
-	}
 	if (B_FILE_INTERFACE & inValue)
-	{
 		strDetails << "B_FILE_INTERFACE, ";
-	}
 	if (B_ENTITY_INTERFACE & inValue)
-	{
 		strDetails << "B_ENTITY_INTERFACE, ";
-	}
 	if (B_PHYSICAL_INPUT & inValue)
-	{
 		strDetails << "B_PHYSICAL_INPUT, ";
-	}
 	if (B_PHYSICAL_OUTPUT & inValue)
-	{
 		strDetails << "B_PHYSICAL_OUTPUT, ";
-	}
 	if (B_SYSTEM_MIXER & inValue)
-	{
 		strDetails << "B_SYSTEM_MIXER, ";
-	}
 
-	strDetails.RemoveLast (",");
+	strDetails.RemoveLast(",");
 	strDetails << g_pNewline;
-/*
-	switch (inValue)
-	{
-//		case XXXXXXXXXXXXXXXX:
-//			strDetails << "XXXXXXXXXXXXXXXX\n";
-//			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+	//		case XXXXXXXXXXXXXXXX:
+	//			strDetails << "XXXXXXXXXXXXXXXX\n";
+	//			break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 
 
@@ -2998,25 +2814,22 @@ enum video_orientation {	// for orientation, which pixel is first and how do we 
 ***************************************************************/
 void
 Inspect_Enum_video_orientation
-	(
-	BString & strDetails
-,	video_orientation inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	video_orientation inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[video_orientation enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_VIDEO_TOP_LEFT_RIGHT:
 			strDetails << "B_VIDEO_TOP_LEFT_RIGHT\n";
 			break;
@@ -3042,33 +2855,31 @@ Don't know exactly how to handle this one
 ***************************************************************/
 void
 Inspect_Enum_media_flags
-	(
-	BString & strDetails
-,	media_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_flags enum, " << hexbuf << "] ";
-/*
-	switch (inValue)
-	{
-//		case XXXXXXXXXXXXXXXX:
-//			strDetails << "XXXXXXXXXXXXXXXX\n";
-//			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+	//		case XXXXXXXXXXXXXXXX:
+	//			strDetails << "XXXXXXXXXXXXXXXX\n";
+	//			break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 
 
@@ -3083,25 +2894,22 @@ enum media_producer_status {	// for producer status
 ***************************************************************/
 void
 Inspect_Enum_media_producer_status
-	(
-	BString & strDetails
-,	media_producer_status inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_producer_status inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_producer_status enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_DATA_NOT_AVAILABLE:
 			strDetails << "B_DATA_NOT_AVAILABLE\n";
 			break;
@@ -3130,55 +2938,44 @@ enum media_realtime_flags {
 ***************************************************************/
 void
 Inspect_Enum_media_realtime_flags
-	(
-	BString & strDetails
-,	media_realtime_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_realtime_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_realtime_flags enum, " << hexbuf << "], ";
 	if (B_MEDIA_REALTIME_ANYKIND == inValue)
-	{
 		strDetails << "B_MEDIA_REALTIME_ANYKIND, ";
-	}
-	else
-	{
+	else {
 		if (B_MEDIA_REALTIME_ALLOCATOR & inValue)
-		{
 			strDetails << "B_MEDIA_REALTIME_ALLOCATOR, ";
-		}
 		if (B_MEDIA_REALTIME_AUDIO & inValue)
-		{
 			strDetails << "B_MEDIA_REALTIME_AUDIO, ";
-		}
 		if (B_MEDIA_REALTIME_VIDEO & inValue)
-		{
 			strDetails << "B_MEDIA_REALTIME_VIDEO, ";
-		}
 	}
 
-	strDetails.RemoveLast (",");
+	strDetails.RemoveLast(",");
 	strDetails << g_pNewline;
-/*
-	switch (inValue)
-	{
-//		case XXXXXXXXXXXXXXXX:
-//			strDetails << "XXXXXXXXXXXXXXXX\n";
-//			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+	//		case XXXXXXXXXXXXXXXX:
+	//			strDetails << "XXXXXXXXXXXXXXXX\n";
+	//			break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 
 
@@ -3191,25 +2988,22 @@ enum media_frame_flags {
 ***************************************************************/
 void
 Inspect_Enum_media_frame_flags
-	(
-	BString & strDetails
-,	media_frame_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_frame_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_frame_flags enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_MEDIA_KEY_FRAME:
 			strDetails << "B_MEDIA_KEY_FRAME\n";
 			break;
@@ -3247,109 +3041,71 @@ enum media_multi_channels {
 #ifndef CLUE_ON_ZETA_HACK
 void
 Inspect_Enum_media_multi_channels
-	(
-	BString & strDetails
-,	media_multi_channels inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_multi_channels inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multi_channels enum, " << hexbuf << "], ";
 	if (B_CHANNEL_LEFT & inValue)
-	{
 		strDetails << "B_CHANNEL_LEFT, ";
-	}
 	if (B_CHANNEL_RIGHT & inValue)
-	{
 		strDetails << "B_CHANNEL_RIGHT, ";
-	}
 	if (B_CHANNEL_CENTER & inValue)
-	{
 		strDetails << "B_CHANNEL_CENTER, ";
-	}
 	if (B_CHANNEL_SUB & inValue)
-	{
 		strDetails << "B_CHANNEL_SUB, ";
-	}
 	if (B_CHANNEL_REARLEFT & inValue)
-	{
 		strDetails << "B_CHANNEL_REARLEFT, ";
-	}
 	if (B_CHANNEL_REARRIGHT & inValue)
-	{
 		strDetails << "B_CHANNEL_REARRIGHT, ";
-	}
 	if (B_CHANNEL_FRONT_LEFT_CENTER & inValue)
-	{
 		strDetails << "B_CHANNEL_FRONT_LEFT_CENTER, ";
-	}
 	if (B_CHANNEL_FRONT_RIGHT_CENTER & inValue)
-	{
 		strDetails << "B_CHANNEL_FRONT_RIGHT_CENTER, ";
-	}
 	if (B_CHANNEL_BACK_CENTER & inValue)
-	{
 		strDetails << "B_CHANNEL_BACK_CENTER, ";
-	}
 	if (B_CHANNEL_SIDE_LEFT & inValue)
-	{
 		strDetails << "B_CHANNEL_SIDE_LEFT, ";
-	}
 	if (B_CHANNEL_SIDE_RIGHT & inValue)
-	{
 		strDetails << "B_CHANNEL_SIDE_RIGHT, ";
-	}
 	if (B_CHANNEL_TOP_CENTER & inValue)
-	{
 		strDetails << "B_CHANNEL_TOP_CENTER, ";
-	}
 	if (B_CHANNEL_TOP_FRONT_LEFT & inValue)
-	{
 		strDetails << "B_CHANNEL_TOP_FRONT_LEFT, ";
-	}
 	if (B_CHANNEL_TOP_FRONT_CENTER & inValue)
-	{
 		strDetails << "B_CHANNEL_TOP_FRONT_CENTER, ";
-	}
 	if (B_CHANNEL_TOP_FRONT_RIGHT & inValue)
-	{
 		strDetails << "B_CHANNEL_TOP_FRONT_RIGHT, ";
-	}
 	if (B_CHANNEL_TOP_BACK_LEFT & inValue)
-	{
 		strDetails << "B_CHANNEL_TOP_BACK_LEFT, ";
-	}
 	if (B_CHANNEL_TOP_BACK_CENTER & inValue)
-	{
 		strDetails << "B_CHANNEL_TOP_BACK_CENTER, ";
-	}
 	if (B_CHANNEL_TOP_BACK_RIGHT & inValue)
-	{
 		strDetails << "B_CHANNEL_TOP_BACK_RIGHT, ";
-	}
 
-	strDetails.RemoveLast (",");
+	strDetails.RemoveLast(",");
 	strDetails << g_pNewline;
 
-/*
-	switch (inValue)
-	{
-//		case XXXXXXXXXXXXXXXX:
-//			strDetails << "XXXXXXXXXXXXXXXX\n";
-//			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+	//		case XXXXXXXXXXXXXXXX:
+	//			strDetails << "XXXXXXXXXXXXXXXX\n";
+	//			break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 #endif
 
@@ -3365,33 +3121,31 @@ TODO: Don't know how to deal with this correctly!
 ***************************************************************/
 void
 Inspect_Enum_media_multi_matrix
-	(
-	BString & strDetails
-,	media_multi_matrix inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_multi_matrix inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multi_matrix enum, " << hexbuf << "] ";
-/*
-	switch (inValue)
-	{
-//		case XXXXXXXXXXXXXXXX:
-//			strDetails << "XXXXXXXXXXXXXXXX\n";
-//			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+	//		case XXXXXXXXXXXXXXXX:
+	//			strDetails << "XXXXXXXXXXXXXXXX\n";
+	//			break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 
 
@@ -3407,60 +3161,50 @@ enum media_display_flags {
 ***************************************************************/
 void
 Inspect_Enum_media_display_flags
-	(
-	BString & strDetails
-,	media_display_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_display_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_display_flags enum, " << hexbuf << "], ";
 	if (B_F1_DOMINANT & inValue)
-	{
 		strDetails << "B_F1_DOMINANT, ";
-	}
 	if (B_F2_DOMINANT & inValue)
-	{
 		strDetails << "B_F2_DOMINANT, ";
-	}
 	if (B_TOP_SCANLINE_F1 & inValue)
-	{
 		strDetails << "B_TOP_SCANLINE_F1, ";
-	}
 	if (B_TOP_SCANLINE_F2 & inValue)
-	{
 		strDetails << "B_TOP_SCANLINE_F2, ";
-	}
 
-	strDetails.RemoveLast (",");
+	strDetails.RemoveLast(",");
 	strDetails << g_pNewline;
 
-/*
-	switch (inValue)
-	{
-//		case XXXXXXXXXXXXXXXX:
-//			strDetails << "XXXXXXXXXXXXXXXX\n";
-//			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+	//		case XXXXXXXXXXXXXXXX:
+	//			strDetails << "XXXXXXXXXXXXXXXX\n";
+	//			break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 
 
 /***************************************************************
 defined in MediaDefs.h as:
 enum media_format_flags {
-	B_MEDIA_RETAINED_DATA = 0x1, 
+	B_MEDIA_RETAINED_DATA = 0x1,
 	B_MEDIA_MULTIPLE_BUFFERS = 0x2,
 	B_MEDIA_CONTIGUOUS_BUFFER = 0x4,
 	B_MEDIA_LINEAR_UPDATES = 0x8,
@@ -3470,59 +3214,46 @@ enum media_format_flags {
 ***************************************************************/
 void
 Inspect_Enum_media_format_flags
-	(
-	BString & strDetails
-,	media_format_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_format_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format_flags enum, " << hexbuf << "], ";
 	if (B_MEDIA_MAUI_UNDEFINED_FLAGS & inValue)
-	{
 		strDetails << "B_MEDIA_MAUI_UNDEFINED_FLAGS, ";
-	}
-	else
-	{
+	else {
 		if (B_MEDIA_RETAINED_DATA & inValue)
-		{
 			strDetails << "B_MEDIA_RETAINED_DATA, ";
-		}
 		if (B_MEDIA_MULTIPLE_BUFFERS & inValue)
-		{
 			strDetails << "B_MEDIA_MULTIPLE_BUFFERS, ";
-		}
 		if (B_MEDIA_CONTIGUOUS_BUFFER & inValue)
-		{
 			strDetails << "B_MEDIA_CONTIGUOUS_BUFFER, ";
-		}
 		if (B_MEDIA_LINEAR_UPDATES & inValue)
-		{
 			strDetails << "B_MEDIA_LINEAR_UPDATES, ";
-		}
 	}
 
-	strDetails.RemoveLast (",");
+	strDetails.RemoveLast(",");
 	strDetails << g_pNewline;
-/*
-	switch (inValue)
-	{
-//		case XXXXXXXXXXXXXXXX:
-//			strDetails << "XXXXXXXXXXXXXXXX\n";
-//			break;
-		default:
-			strDetails << "unknown\n";
-			break;
-	}
-*/
+	/*
+		switch (inValue)
+		{
+	//		case XXXXXXXXXXXXXXXX:
+	//			strDetails << "XXXXXXXXXXXXXXXX\n";
+	//			break;
+			default:
+				strDetails << "unknown\n";
+				break;
+		}
+	*/
 }
 
 
@@ -3538,32 +3269,29 @@ typedef enum {
 	B_WAV_FORMAT_FAMILY = 6,
 	B_AIFF_FORMAT_FAMILY = 7,
 	B_AVR_FORMAT_FAMILY = 8,
-	
+
 	B_MISC_FORMAT_FAMILY = 99999
 } media_format_family;
 
 ***************************************************************/
 void
 Inspect_Enum_media_format_family
-	(
-	BString & strDetails
-,	media_format_family inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_format_family inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format_family enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_ANY_FORMAT_FAMILY:
 			strDetails << "B_ANY_FORMAT_FAMILY\n";
 			break;
@@ -3612,25 +3340,22 @@ enum media_seek_type {
 ***************************************************************/
 void
 Inspect_Enum_media_seek_type
-	(
-	BString & strDetails
-,	media_seek_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_seek_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_seek_type enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_MEDIA_SEEK_CLOSEST_FORWARD:
 			strDetails << "B_MEDIA_SEEK_CLOSEST_FORWARD\n";
 			break;
@@ -3656,25 +3381,22 @@ enum media_file_accept_format_flags {
 ***************************************************************/
 void
 Inspect_Enum_media_file_accept_format_flags
-	(
-	BString & strDetails
-,	media_file_accept_format_flags inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_file_accept_format_flags inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_file_accept_format_flags enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_MEDIA_REJECT_WILDCARDS:
 			strDetails << "B_MEDIA_REJECT_WILDCARDS\n";
 			break;
@@ -3698,25 +3420,22 @@ enum mpeg_id {
 ***************************************************************/
 void
 Inspect_Enum_mpeg_id
-	(
-	BString & strDetails
-,	mpeg_id inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	mpeg_id inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mpeg_id enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_MPEG_ANY:
 			strDetails << "B_MPEG_ANY\n";
 			break;
@@ -3750,25 +3469,22 @@ enum menu_layout {
 ***************************************************************/
 void
 Inspect_Enum_menu_layout
-	(
-	BString & strDetails
-,	menu_layout inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	menu_layout inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[menu_layout enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_ITEMS_IN_ROW:
 			strDetails << "B_ITEMS_IN_ROW\n";
 			break;
@@ -3795,25 +3511,22 @@ enum filter_result {
 ***************************************************************/
 void
 Inspect_Enum_filter_result
-	(
-	BString & strDetails
-,	filter_result inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	filter_result inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[filter_result enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_SKIP_MESSAGE:
 			strDetails << "B_SKIP_MESSAGE\n";
 			break;
@@ -3840,25 +3553,22 @@ typedef enum synth_mode {
 ***************************************************************/
 void
 Inspect_Enum_synth_mode
-	(
-	BString & strDetails
-,	synth_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	synth_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[synth_mode enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_NO_SYNTH:
 			strDetails << "B_NO_SYNTH\n";
 			break;
@@ -3924,7 +3634,7 @@ typedef enum midi_axe {
   B_OVERDRIVEN_GUITAR,
   B_DISTORTION_GUITAR,
   B_GUITAR_HARMONICS,
-  
+
   // Basses
   B_ACOUSTIC_BASS,
   B_ELECTRIC_BASS_FINGER,
@@ -4002,7 +3712,7 @@ typedef enum midi_axe {
   B_FIFTHS = B_LEAD_7,
   B_LEAD_8,
   B_BASS_LEAD = B_LEAD_8,
-  
+
   // Synth Pads
   B_PAD_1,
   B_NEW_AGE = B_PAD_1,
@@ -4018,7 +3728,7 @@ typedef enum midi_axe {
   B_METALLIC = B_PAD_6,
   B_PAD_7,
   B_HALO = B_PAD_7,
-  B_PAD_8,  
+  B_PAD_8,
   B_SWEEP = B_PAD_8,
 
   // Effects
@@ -4065,25 +3775,22 @@ typedef enum midi_axe {
 ***************************************************************/
 void
 Inspect_Enum_midi_axe
-	(
-	BString & strDetails
-,	midi_axe inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	midi_axe inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[midi_axe enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_ACOUSTIC_GRAND:
 			strDetails << "B_ACOUSTIC_GRAND\n";
 			break;
@@ -4493,25 +4200,22 @@ enum icon_size {
 ***************************************************************/
 void
 Inspect_Enum_icon_size
-	(
-	BString & strDetails
-,	icon_size inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	icon_size inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[icon_size enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_LARGE_ICON:
 			strDetails << "B_LARGE_ICON\n";
 			break;
@@ -4539,25 +4243,22 @@ typedef enum {
 ***************************************************************/
 void
 Inspect_Enum_thread_state
-	(
-	BString & strDetails
-,	thread_state inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	thread_state inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[thread_state enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_THREAD_RUNNING:
 			strDetails << "B_THREAD_RUNNING\n";
 			break;
@@ -4592,25 +4293,22 @@ enum value_kind {
 ***************************************************************/
 void
 Inspect_Enum_value_kind
-	(
-	BString & strDetails
-,	value_kind inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	value_kind inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[value_kind enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_COMMAND_KIND:
 			strDetails << "B_COMMAND_KIND\n";
 			break;
@@ -4646,25 +4344,22 @@ typedef enum {
 ***************************************************************/
 void
 Inspect_Enum_query_op
-	(
-	BString & strDetails
-,	query_op inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	query_op inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[query_op enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_INVALID_OP:
 			strDetails << "B_INVALID_OP\n";
 			break;
@@ -4719,31 +4414,28 @@ defined in SerialPort.h as:
 enum data_rate { B_0_BPS = 0, B_50_BPS, B_75_BPS, B_110_BPS, B_134_BPS,
 				 B_150_BPS, B_200_BPS, B_300_BPS, B_600_BPS, B_1200_BPS,
 				 B_1800_BPS, B_2400_BPS, B_4800_BPS, B_9600_BPS, B_19200_BPS,
-				 B_38400_BPS, B_57600_BPS, B_115200_BPS, 
+				 B_38400_BPS, B_57600_BPS, B_115200_BPS,
 				 B_230400_BPS, B_31250_BPS };
 
 ***************************************************************/
 void
 Inspect_Enum_data_rate
-	(
-	BString & strDetails
-,	data_rate inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	data_rate inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[data_rate enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_0_BPS:
 			strDetails << "B_0_BPS\n";
 			break;
@@ -4818,25 +4510,22 @@ enum data_bits { B_DATA_BITS_7, B_DATA_BITS_8 };
 ***************************************************************/
 void
 Inspect_Enum_data_bits
-	(
-	BString & strDetails
-,	data_bits inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	data_bits inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[data_bits enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_DATA_BITS_7:
 			strDetails << "B_DATA_BITS_7\n";
 			break;
@@ -4857,25 +4546,22 @@ enum stop_bits { B_STOP_BITS_1, B_STOP_BITS_2 };
 ***************************************************************/
 void
 Inspect_Enum_stop_bits
-	(
-	BString & strDetails
-,	stop_bits inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	stop_bits inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[stop_bits enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_STOP_BITS_1:
 			strDetails << "B_STOP_BITS_1\n";
 			break;
@@ -4896,25 +4582,22 @@ enum parity_mode { B_NO_PARITY, B_ODD_PARITY, B_EVEN_PARITY };
 ***************************************************************/
 void
 Inspect_Enum_parity_mode
-	(
-	BString & strDetails
-,	parity_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	parity_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[parity_mode enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_NO_PARITY:
 			strDetails << "B_NO_PARITY\n";
 			break;
@@ -4943,41 +4626,30 @@ enum node_flavor {
 ***************************************************************/
 void
 Inspect_Enum_node_flavor
-	(
-	BString & strDetails
-,	node_flavor inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	node_flavor inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
-	BString tabindent (B_EMPTY_STRING);
-	for (int32 i (0); i < inIndent; i++)
-	{
+	BString tabindent(B_EMPTY_STRING);
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[node_flavor enum, " << hexbuf << "] ";
 
 	if (B_ANY_NODE == inValue)
-	{
 		strDetails << "B_ANY_NODE\n";
-	}
-	else
-	{
+	else {
 		if (B_FILE_NODE == (B_FILE_NODE & inValue))
-		{
 			strDetails << "B_FILE_NODE \n";
-		}
 		if (B_SYMLINK_NODE == (B_SYMLINK_NODE & inValue))
-		{
 			strDetails << "B_SYMLINK_NODE \n";
-		}
 		if (B_DIRECTORY_NODE == (B_DIRECTORY_NODE & inValue))
-		{
 			strDetails << "B_DIRECTORY_NODE \n";
-		}
 	}
 }
 
@@ -4994,25 +4666,22 @@ typedef enum interpolation_mode
 ***************************************************************/
 void
 Inspect_Enum_interpolation_mode
-	(
-	BString & strDetails
-,	interpolation_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	interpolation_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[interpolation_mode enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_DROP_SAMPLE:
 			strDetails << "B_DROP_SAMPLE\n";
 			break;
@@ -5033,36 +4702,33 @@ Inspect_Enum_interpolation_mode
 defined in Synth.h as:
 typedef enum reverb_mode
 {
-	B_REVERB_NONE = 1,		
-	B_REVERB_CLOSET,	
-	B_REVERB_GARAGE,	
-	B_REVERB_BALLROOM,	
-	B_REVERB_CAVERN,	
-	B_REVERB_DUNGEON	
+	B_REVERB_NONE = 1,
+	B_REVERB_CLOSET,
+	B_REVERB_GARAGE,
+	B_REVERB_BALLROOM,
+	B_REVERB_CAVERN,
+	B_REVERB_DUNGEON
   } reverb_mode;
 
 ***************************************************************/
 void
 Inspect_Enum_reverb_mode
-	(
-	BString & strDetails
-,	reverb_mode inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	reverb_mode inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[reverb_mode enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_REVERB_NONE:
 			strDetails << "B_REVERB_NONE\n";
 			break;
@@ -5099,25 +4765,22 @@ enum tab_position {
 ***************************************************************/
 void
 Inspect_Enum_tab_position
-	(
-	BString & strDetails
-,	tab_position inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	tab_position inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[tab_position enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_TAB_FIRST:
 			strDetails << "B_TAB_FIRST\n";
 			break;
@@ -5152,25 +4815,22 @@ enum timecode_type {
 ***************************************************************/
 void
 Inspect_Enum_timecode_type
-	(
-	BString & strDetails
-,	timecode_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	timecode_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[timecode_type enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_TIMECODE_DEFAULT:
 			strDetails << "B_TIMECODE_DEFAULT\n";
 			break;
@@ -5215,25 +4875,22 @@ enum window_alignment {
 ***************************************************************/
 void
 Inspect_Enum_window_alignment
-	(
-	BString & strDetails
-,	window_alignment inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	window_alignment inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[window_alignment enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_BYTE_ALIGNMENT:
 			strDetails << "B_BYTE_ALIGNMENT\n";
 			break;
@@ -5259,25 +4916,22 @@ enum alert_type {
 ***************************************************************/
 void
 Inspect_Enum_alert_type
-	(
-	BString & strDetails
-,	alert_type inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	alert_type inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[alert_type enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_EMPTY_ALERT:
 			strDetails << "B_EMPTY_ALERT\n";
 			break;
@@ -5308,25 +4962,22 @@ enum button_spacing {
 ***************************************************************/
 void
 Inspect_Enum_button_spacing
-	(
-	BString & strDetails
-,	button_spacing inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	button_spacing inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[button_spacing enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_EVEN_SPACING:
 			strDetails << "B_EVEN_SPACING\n";
 			break;
@@ -5354,25 +5005,22 @@ enum TranslatorGroups {
 ***************************************************************/
 void
 Inspect_Enum_TranslatorGroups
-	(
-	BString & strDetails
-,	TranslatorGroups inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	TranslatorGroups inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorGroups enum, " << hexbuf << "] ";
 
-	switch (inValue)
-	{
+	switch (inValue) {
 		case B_TRANSLATOR_BITMAP:
 			strDetails << "B_TRANSLATOR_BITMAP ('bits')\n";
 			break;

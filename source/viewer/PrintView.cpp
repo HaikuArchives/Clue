@@ -17,31 +17,30 @@
 #endif
 
 
-PrintViewa :: PrintViewa (BRect frame)
-:	BView (frame, "TestView", B_FOLLOW_ALL_SIDES, 0)
-,	m_pBLV (NULL)
+PrintViewa :: PrintViewa(BRect frame)
+	:	BView(frame, "TestView", B_FOLLOW_ALL_SIDES, 0)
+	,	m_pBLV(NULL)
 {
-	m_pBLV = new BListView (BRect (10, 10, 50, 50), "Numbers", B_SINGLE_SELECTION_LIST);
-	AddChild (m_pBLV);
+	m_pBLV = new BListView(BRect(10, 10, 50, 50), "Numbers", B_SINGLE_SELECTION_LIST);
+	AddChild(m_pBLV);
 }
 
 /***************************************************************
 ***************************************************************/
 void
 PrintViewa :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	switch (message->what)
-	{
+	switch (message->what) {
 		case 'data':
-			m_pBLV->AddItem (new BStringItem ("print request"));
-			PRINT (("PrintViewa: request a print\n"));
-			OnPrint ();
+			m_pBLV->AddItem(new BStringItem("print request"));
+			PRINT(("PrintViewa: request a print\n"));
+			OnPrint();
 			break;
 		default:
-			BView::MessageReceived (message);
+			BView::MessageReceived(message);
 			break;
 	}
 }
@@ -55,36 +54,32 @@ PrintViewa :: MessageReceived
 ***************************************************************/
 void
 PrintViewa :: OnPrint
-	(
+(
 	void
-	)
+)
 {
 	// create the object which will manage the print process
-	BPrintJob printJob ("Clue");
-	
-	if (! m_PrintSettings)
-	{
-		if (B_OK != OnPageSetup ())
-		{
+	BPrintJob printJob("Clue");
+
+	if (! m_PrintSettings) {
+		if (B_OK != OnPageSetup()) {
 			return;  // Page Setup cancelled
 		}
 	}
-	
+
 	// update the print job with the document's current
 	// Page Setup settings.
-	printJob.SetSettings (new BMessage (*m_PrintSettings));
-	
+	printJob.SetSettings(new BMessage(*m_PrintSettings));
+
 	// run the standard File>Print dialog to determine page range, # of copies, etc.
-	if (B_OK != printJob.ConfigJob ())
-	{
+	if (B_OK != printJob.ConfigJob())
 		return;
-	}
-	
+
 	// determine page range
-	int32 nFirst = printJob.FirstPage ();
-	int32 nLast = printJob.LastPage ();
+	int32 nFirst = printJob.FirstPage();
+	int32 nLast = printJob.LastPage();
 	int32 nTotal = 1000;
-	
+
 	if (nFirst < 1)
 		nFirst = 1;
 	if (nLast < 1)
@@ -93,40 +88,33 @@ PrintViewa :: OnPrint
 		nFirst = nTotal;
 	if (nLast >= nTotal)
 		nLast = nTotal;
-	
+
 	// start the printing process
 	bool bOk = true;
-	printJob.BeginJob ();
+	printJob.BeginJob();
 
-	for (int32 i = nFirst; i <= nLast; i++)
-	{
-		bOk = PrintPage (printJob, i);
+	for (int32 i = nFirst; i <= nLast; i++) {
+		bOk = PrintPage(printJob, i);
 		if (! bOk)
-		{
 			break;
-		}
 	}
-	
-	if (bOk)
-	{
+
+	if (bOk) {
 		// no errors; complete the printing process
-		printJob.CommitJob ();
-	}
-	else
-	{
+		printJob.CommitJob();
+	} else {
 		// errors in printing; inform the user and bail
 		BAlert* pAlert = new BAlert("print error",
-			"There was an error printing the document.", "OK");
+									"There was an error printing the document.", "OK");
 		pAlert->Go();
-	}	
+	}
 }
 
-class PrintView2 : public BView
-{
+class PrintView2 : public BView {
 public:
-	PrintView2 (BRect rc, const char * text)
-	:	BView (rc, "printview2", B_FOLLOW_NONE, B_WILL_DRAW)
-	,	m_text(text)
+	PrintView2(BRect rc, const char* text)
+		:	BView(rc, "printview2", B_FOLLOW_NONE, B_WILL_DRAW)
+		,	m_text(text)
 	{
 		// .25 in. from top of view to the text
 		m_fAboveText = 18;
@@ -136,21 +124,21 @@ public:
 		m_fBelowLine = 18;
 		// total height of text (also in points)
 		font_height height;
-		GetFontHeight (&height);
+		GetFontHeight(&height);
 		m_fTextHeight = height.ascent + height.descent + height.leading;
-	
+
 		// resize view to the correct height and specified width
-		//float totHeight = m_fAboveText + m_fTextHeight + m_fBelowText + m_fBelowLine;		
+		//float totHeight = m_fAboveText + m_fTextHeight + m_fBelowText + m_fBelowLine;
 		//ResizeTo(width, totHeight);
 	}
-	virtual void Draw (BRect)
+	virtual void Draw(BRect)
 	{
 		// draw string m_fAboveText units down
-		float y (m_fAboveText);
-		DrawString (m_text, BPoint (0, y));
+		float y(m_fAboveText);
+		DrawString(m_text, BPoint(0, y));
 		// draw ruler m_fBelowText units below text
 		y += m_fTextHeight + m_fBelowText;
-		StrokeLine (BPoint (0, y), BPoint (Bounds ().Width (), y));
+		StrokeLine(BPoint(0, y), BPoint(Bounds().Width(), y));
 	}
 private:
 	float m_fTextHeight;
@@ -168,29 +156,29 @@ private:
 ***************************************************************/
 bool
 PrintViewa :: PrintPage
-	(
-	BPrintJob & printJob
-,	int32 nPage
-	)
+(
+	BPrintJob& printJob
+	,	int32 nPage
+)
 {
 	BRect r = printJob.PrintableRect();	// relative to left top corner of paper
-	BWindow * pWin (Window ());
+	BWindow* pWin(Window());
 
-	// create a view which draws the header	
-	PrintView2 * pPrintView (new PrintView2 (r, "Here is some text to print from Clue!"));
-	
-	pPrintView->Hide ();	// so the view won't be seen on screen
-	pWin->AddChild (pPrintView);  // view needs to be attached to a window to be drawn
+	// create a view which draws the header
+	PrintView2* pPrintView(new PrintView2(r, "Here is some text to print from Clue!"));
 
-	r.OffsetTo(0,0);	// we draw relative to left top corner of printable area
-	printJob.DrawView (pPrintView, r, r.LeftTop ());
-	
+	pPrintView->Hide();	// so the view won't be seen on screen
+	pWin->AddChild(pPrintView);   // view needs to be attached to a window to be drawn
+
+	r.OffsetTo(0, 0);	// we draw relative to left top corner of printable area
+	printJob.DrawView(pPrintView, r, r.LeftTop());
+
 	// clean up
-	pWin->RemoveChild (pPrintView);
+	pWin->RemoveChild(pPrintView);
 	delete pPrintView;
-			
-	printJob.SpoolPage ();
-	return (printJob.CanContinue ());
+
+	printJob.SpoolPage();
+	return (printJob.CanContinue());
 }
 
 
@@ -201,31 +189,29 @@ PrintViewa :: PrintPage
 ***************************************************************/
 status_t
 PrintViewa :: OnPageSetup
-	(
+(
 	void
-	)
+)
 {
-	BPrintJob printJob ("Clue");
-	
+	BPrintJob printJob("Clue");
+
 	// MFC NOTE: The print settings are stored in a message, in an
 	// undocumented format. BPrintJob is in charge of reading and
 	// writing these settings, and we are in charge of storing them.
 	//BMessage* printSettings = m_pDocument->PrintSettings();
-	if (m_PrintSettings)
-	{
+	if (m_PrintSettings) {
 		// we transfer ownership of the print settings to the print job
-		printJob.SetSettings (new BMessage (*m_PrintSettings));
+		printJob.SetSettings(new BMessage(*m_PrintSettings));
 	}
-	
-	// ConfigPage launches the File>Page Setup dialog.	
-	status_t result (printJob.ConfigPage ());
 
-	if (result == B_OK)
-	{
+	// ConfigPage launches the File>Page Setup dialog.
+	status_t result(printJob.ConfigPage());
+
+	if (result == B_OK) {
 		// Page Setup was successful; store the new settings.
 		// Once we call printJob.Settings(), we own the pointer that it returns.
-		m_PrintSettings = printJob.Settings ();
+		m_PrintSettings = printJob.Settings();
 	}
-	
+
 	return result;
 }

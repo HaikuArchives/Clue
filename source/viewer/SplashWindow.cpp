@@ -30,54 +30,49 @@
 #include "constants.h"
 #endif
 
-static const BRect g_windowDefaultRect (0, 0, 400, 240);
-static const BRect g_windowDefaultRectStartup (0, 0, 400, 200);
+static const BRect g_windowDefaultRect(0, 0, 400, 240);
+static const BRect g_windowDefaultRectStartup(0, 0, 400, 200);
 
 
 /***************************************************************
 ***************************************************************/
 SplashWindow :: SplashWindow
-	(
-	SplashWindow ** ppOutside
-,	bool IsAppStarting
-	)
-:	BWindow (g_windowDefaultRectStartup, STR_WINDOW_TITLE_ABOUT, B_BORDERED_WINDOW_LOOK, B_FLOATING_APP_WINDOW_FEEL, B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE | B_NOT_MINIMIZABLE | B_NOT_RESIZABLE)
-,	m_ppOutside (ppOutside)
+(
+	SplashWindow** ppOutside
+	,	bool IsAppStarting
+)
+	:	BWindow(g_windowDefaultRectStartup, STR_WINDOW_TITLE_ABOUT, B_BORDERED_WINDOW_LOOK, B_FLOATING_APP_WINDOW_FEEL, B_ASYNCHRONOUS_CONTROLS | B_NOT_ZOOMABLE | B_NOT_MINIMIZABLE | B_NOT_RESIZABLE)
+	,	m_ppOutside(ppOutside)
 {
-	if (IsAppStarting)
-	{
-		ResizeTo (g_windowDefaultRectStartup.Width (), g_windowDefaultRectStartup.Height ());
-		SetPulseRate (0);
+	if (IsAppStarting) {
+		ResizeTo(g_windowDefaultRectStartup.Width(), g_windowDefaultRectStartup.Height());
+		SetPulseRate(0);
+	} else {
+		ResizeTo(g_windowDefaultRect.Width(), g_windowDefaultRect.Height());
+		SetLook(B_TITLED_WINDOW_LOOK);
+		SetPulseRate(10000);
 	}
-	else
-	{
-		ResizeTo (g_windowDefaultRect.Width (), g_windowDefaultRect.Height ());
-		SetLook (B_TITLED_WINDOW_LOOK);
-		SetPulseRate (10000);
-	}
-	BScreen screen (this);
-	BRect rcScreen (screen.Frame ());
-	BRect rcWnd (Bounds ());
-	BPoint pt ((rcScreen.Width () / 2) - (rcWnd.Width () / 2), (rcScreen.Height () / 2) - (rcWnd.Height () / 2));
-	MoveTo (pt.x, pt.y);
+	BScreen screen(this);
+	BRect rcScreen(screen.Frame());
+	BRect rcWnd(Bounds());
+	BPoint pt((rcScreen.Width() / 2) - (rcWnd.Width() / 2), (rcScreen.Height() / 2) - (rcWnd.Height() / 2));
+	MoveTo(pt.x, pt.y);
 
-	SplashView * pSplashView (static_cast<SplashView *>(new SplashView (rcWnd, IsAppStarting)));
-	AddChild (pSplashView);
-	Show ();
+	SplashView* pSplashView(static_cast<SplashView*>(new SplashView(rcWnd, IsAppStarting)));
+	AddChild(pSplashView);
+	Show();
 }
 
 
 /***************************************************************
 ***************************************************************/
 SplashWindow :: ~SplashWindow
-	(
+(
 	void
-	)
+)
 {
 	if (m_ppOutside)
-	{
 		*m_ppOutside = NULL;
-	}
 }
 
 
@@ -85,17 +80,16 @@ SplashWindow :: ~SplashWindow
 ***************************************************************/
 void
 SplashWindow :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	switch (message->what)
-	{
+	switch (message->what) {
 		case MSG_BROADCAST_SETTINGS_CHANGED:
-			SendNotices (MSG_SETTINGS_CHANGED);
+			SendNotices(MSG_SETTINGS_CHANGED);
 			break;
 		default:
-			BWindow::MessageReceived (message);
+			BWindow::MessageReceived(message);
 			break;
 	}
 }
@@ -105,10 +99,10 @@ SplashWindow :: MessageReceived
 ***************************************************************/
 void
 SplashWindow :: BeginCountdown
-	(
+(
 	void
-	)
+)
 {
-	SetPulseRate (1000000);
+	SetPulseRate(1000000);
 }
 

@@ -102,21 +102,21 @@ extern BMessage g_Settings;
 /***************************************************************
 ***************************************************************/
 EditTeamView :: EditTeamView
-	(
+(
 	BRect frame
-,	BMessage * message
-	)
-:	EditView (frame, message, "EditTeamView", B_FOLLOW_ALL_SIDES)
-,	m_slider (NULL)
-,	m_bsv (NULL)
-,	m_ColumnListView (NULL)
-,	m_TI (NULL)
-,	m_OK (NULL)
-,	m_CurCat (CC_GENERAL)
-,	m_menufld (NULL)
-,	m_popupmenu (NULL)
+	,	BMessage* message
+)
+	:	EditView(frame, message, "EditTeamView", B_FOLLOW_ALL_SIDES)
+	,	m_slider(NULL)
+	,	m_bsv(NULL)
+	,	m_ColumnListView(NULL)
+	,	m_TI(NULL)
+	,	m_OK(NULL)
+	,	m_CurCat(CC_GENERAL)
+	,	m_menufld(NULL)
+	,	m_popupmenu(NULL)
 {
-	SetViewColor (CLR_BACKGROUND);
+	SetViewColor(CLR_BACKGROUND);
 
 }
 
@@ -124,9 +124,9 @@ EditTeamView :: EditTeamView
 /***************************************************************
 ***************************************************************/
 EditTeamView :: ~EditTeamView
-	(
+(
 	void
-	)
+)
 {
 }
 
@@ -135,27 +135,23 @@ EditTeamView :: ~EditTeamView
 ***************************************************************/
 void
 EditTeamView :: MessageReceived
-	(
-	BMessage * msg
-	)
+(
+	BMessage* msg
+)
 {
-	switch (msg->what)
-	{
-		case B_OBSERVER_NOTICE_CHANGE:
-			{
-			uint32 change (0);
-			msg->FindInt32(B_OBSERVE_WHAT_CHANGE, (int32 *) &change);
-			switch (change)
-			{
-			case MSG_SETTINGS_CHANGED:
-				{
+	switch (msg->what) {
+		case B_OBSERVER_NOTICE_CHANGE: {
+				uint32 change(0);
+				msg->FindInt32(B_OBSERVE_WHAT_CHANGE, (int32*) &change);
+				switch (change) {
+					case MSG_SETTINGS_CHANGED: {
+						}
+						break;
 				}
-				break;
-			}
 			}
 			break;
 		default:
-			BView::MessageReceived (msg);
+			BView::MessageReceived(msg);
 	}
 }
 
@@ -163,14 +159,12 @@ EditTeamView :: MessageReceived
 /***************************************************************
 ***************************************************************/
 void
-EditTeamView :: AllAttached (void)
+EditTeamView :: AllAttached(void)
 {
-	EditView::AllAttached ();
-	BWindow * pwnd (Window ());
+	EditView::AllAttached();
+	BWindow* pwnd(Window());
 	if (pwnd)
-	{
-		((BHandler *)pwnd)->StartWatching ((BHandler *) this, MSG_SETTINGS_CHANGED);
-	}
+		((BHandler*)pwnd)->StartWatching((BHandler*) this, MSG_SETTINGS_CHANGED);
 }
 
 
@@ -178,11 +172,11 @@ EditTeamView :: AllAttached (void)
 *******************************************************************************************************/
 void
 EditTeamView :: AttachedToWindow
-	(
+(
 	void
-	)
+)
 {
-	EditView::AttachedToWindow ();
+	EditView::AttachedToWindow();
 }
 
 
@@ -190,16 +184,14 @@ EditTeamView :: AttachedToWindow
 *******************************************************************************************************/
 void
 EditTeamView :: DetachedFromWindow
-	(
+(
 	void
-	)
+)
 {
-	EditView::DetachedFromWindow ();
-	BWindow * pwnd (Window ());
+	EditView::DetachedFromWindow();
+	BWindow* pwnd(Window());
 	if (pwnd)
-	{
-		((BHandler *)pwnd)->StopWatching ((BHandler *) this, MSG_SETTINGS_CHANGED);
-	}
+		((BHandler*)pwnd)->StopWatching((BHandler*) this, MSG_SETTINGS_CHANGED);
 }
 
 
@@ -207,14 +199,14 @@ EditTeamView :: DetachedFromWindow
 *******************************************************************************************************/
 void
 EditTeamView :: Draw
-	(
+(
 	BRect updateRect
-	)
+)
 {
-	EditView::Draw (updateRect);
-	BRect rc (m_view->Frame ());
-	rc.InsetBy (-1.0f, -1.0f);
-	StrokeRect (rc);
+	EditView::Draw(updateRect);
+	BRect rc(m_view->Frame());
+	rc.InsetBy(-1.0f, -1.0f);
+	StrokeRect(rc);
 }
 
 
@@ -222,38 +214,36 @@ EditTeamView :: Draw
 ***************************************************************/
 bool
 EditTeamView :: Save
-	(
+(
 	void
-	)
+)
 {
-	PRINT (("EditColorView::Save\n"));
-	m_Message->MakeEmpty ();
-	rgb_color colorpref = m_ColorControl->ValueAsColor ();
+	PRINT(("EditColorView::Save\n"));
+	m_Message->MakeEmpty();
+	rgb_color colorpref = m_ColorControl->ValueAsColor();
 	colorpref.alpha = 255;
-	m_Message->AddData ("value", B_RGB_COLOR_TYPE, &colorpref, sizeof(rgb_color));
-	m_Message->PrintToStream ();
-	PRINT (("   color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
+	m_Message->AddData("value", B_RGB_COLOR_TYPE, &colorpref, sizeof(rgb_color));
+	m_Message->PrintToStream();
+	PRINT(("   color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
 	return true;
 }
 
 bool
 EditTeamView :: PopulateData
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	bool retval (false);
-	rgb_color * pColor (NULL);
-	ssize_t numBytes (0);
+	bool retval(false);
+	rgb_color* pColor(NULL);
+	ssize_t numBytes(0);
 
-PRINT (("\n\nEditColorView\n"));
-message->PrintToStream ();
-	if (message->FindData ("value", B_RGB_COLOR_TYPE, (const void **) &pColor, &numBytes) == B_OK)
-	{
-		if (numBytes == sizeof(rgb_color))
-		{
-			memcpy (&m_color, pColor, numBytes);
-			PRINT (("   EVC: color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
+	PRINT(("\n\nEditColorView\n"));
+	message->PrintToStream();
+	if (message->FindData("value", B_RGB_COLOR_TYPE, (const void**) &pColor, &numBytes) == B_OK) {
+		if (numBytes == sizeof(rgb_color)) {
+			memcpy(&m_color, pColor, numBytes);
+			PRINT(("   EVC: color: red=%i, green=%i, blue=%i\n", m_color.red, m_color.green, m_color.blue));
 			retval = true;
 		}
 	}
@@ -264,19 +254,17 @@ message->PrintToStream ();
 
 /***************************************************************
 ***************************************************************/
-EditTeamView *
+EditTeamView*
 EditTeamView :: Create
-	(
+(
 	BRect frame
-,	BMessage * message
-	)
+	,	BMessage* message
+)
 {
-	EditTeamView * pObject (new EditTeamView (frame, message));
+	EditTeamView* pObject(new EditTeamView(frame, message));
 
-	if (pObject)
-	{
-		if (false == pObject->PopulateData (message))
-		{
+	if (pObject) {
+		if (false == pObject->PopulateData(message)) {
 			delete pObject;
 			pObject = NULL;
 		}

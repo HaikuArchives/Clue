@@ -1,5 +1,5 @@
 //
-// Clue - Clue Fact - Tracks the data on an event.	
+// Clue - Clue Fact - Tracks the data on an event.
 // Copyright 1999-2006 Jeff Braun and Mathew Hounsell.
 // All rights reserved. Distributed under the terms of the MIT License.
 //
@@ -39,22 +39,22 @@ ClueFact::Check
 // Construction and Destructions
 ClueFact::ClueFact
 (
-	FingerPrint const * const			pFP
-,	BString const * const				pFileName
-,	BString const *const				pMethodDefinition
-,	BString const * const				pDescription
-,	BString const * const				pDetails
-,	intptr_t const						nInst
+	FingerPrint const* const			pFP
+	,	BString const* const				pFileName
+	,	BString const* const				pMethodDefinition
+	,	BString const* const				pDescription
+	,	BString const* const				pDetails
+	,	intptr_t const						nInst
 )
-:
-	m_CAT (CC_GENERAL)
-,	m_EVT (CE_OK)
-,	m_Time (0)
-,	m_ThreadID (0)
-,	m_TeamID (0)
-,	m_Line (0)
-,	m_Sequence (0)
-,	m_Inst (nInst)
+	:
+	m_CAT(CC_GENERAL)
+	,	m_EVT(CE_OK)
+	,	m_Time(0)
+	,	m_ThreadID(0)
+	,	m_TeamID(0)
+	,	m_Line(0)
+	,	m_Sequence(0)
+	,	m_Inst(nInst)
 {
 	assert(NULL != pFP);
 	assert(NULL != pFileName);
@@ -74,7 +74,7 @@ ClueFact::ClueFact
 
 	assert(CLUE_CHECK_CLUE_FACT(this));
 }
-		
+
 ClueFact::~ClueFact
 (
 	void
@@ -86,26 +86,25 @@ ClueFact::~ClueFact
 	///- String Destruction Handled by Helper Class
 	///
 }
-		
+
 //------------------------------------------------------------------------------
 void
 ClueFact::ClueFactString::Load
 (
-	BMessage const * const				pMessage
-,	char const * const					csName
+	BMessage const* const				pMessage
+	,	char const* const					csName
 )
 {
 	assert(B_EMPTY_STRING == value);
-	
-	char const * csOld (NULL);
-	size_t cbLen (0);
 
-	if (B_OK == pMessage->FindString(csName, &csOld))
-	{
+	char const* csOld(NULL);
+	size_t cbLen(0);
+
+	if (B_OK == pMessage->FindString(csName, &csOld)) {
 		cbLen = strlen(csOld) + 1;
 
-		char * csNew = new char[cbLen]; // @@ALLOCATION@@  @@EXCEPTION@@
-		
+		char* csNew = new char[cbLen];  // @@ALLOCATION@@  @@EXCEPTION@@
+
 		memcpy(csNew, csOld, cbLen);
 
 		value = csNew;
@@ -115,32 +114,32 @@ ClueFact::ClueFactString::Load
 // Serialization
 ClueFact::ClueFact
 (
-	BMessage const * const				pMessage
-,	int32 const							eArchiveFormat
+	BMessage const* const				pMessage
+	,	int32 const							eArchiveFormat
 )
-:
-	m_CAT (CC_GENERAL)
-,	m_EVT (CE_OK)
-,	m_Time (0)
-,	m_ThreadID (0)
-,	m_TeamID (0)
-,	m_Line (0)
-,	m_Sequence (0)
-,	m_Inst(0)
+	:
+	m_CAT(CC_GENERAL)
+	,	m_EVT(CE_OK)
+	,	m_Time(0)
+	,	m_ThreadID(0)
+	,	m_TeamID(0)
+	,	m_Line(0)
+	,	m_Sequence(0)
+	,	m_Inst(0)
 {
 	assert(NULL != pMessage);
 
 	// If these finds fail then it will use the default set above
 	// and in the default constructor.
-	
-	pMessage->FindInt32 ("m_CAT", (int32 *) &m_CAT);
-	pMessage->FindInt32 ("m_EVT", (int32 *) &m_EVT);
-	pMessage->FindInt32 ("m_Line", (int32 *) &m_Line);
-	pMessage->FindInt32 ("m_ThreadID", (int32 *) &m_ThreadID);
-	pMessage->FindInt32 ("m_Sequence", (int32 *) &m_Sequence);
-	pMessage->FindInt64 ("m_Time", (int64 *) &m_Time);
 
-	void * tmp_inst(NULL);
+	pMessage->FindInt32("m_CAT", (int32*) &m_CAT);
+	pMessage->FindInt32("m_EVT", (int32*) &m_EVT);
+	pMessage->FindInt32("m_Line", (int32*) &m_Line);
+	pMessage->FindInt32("m_ThreadID", (int32*) &m_ThreadID);
+	pMessage->FindInt32("m_Sequence", (int32*) &m_Sequence);
+	pMessage->FindInt64("m_Time", (int64*) &m_Time);
+
+	void* tmp_inst(NULL);
 	pMessage->FindPointer("m_Inst_AsPointer", &tmp_inst);
 	m_Inst = (intptr_t)tmp_inst;
 
@@ -152,11 +151,11 @@ ClueFact::ClueFact
 
 	assert(CLUE_CHECK_CLUE_FACT(*this));
 }
-		
+
 status_t
 ClueFact::Archive
 (
-	BMessage * const					pMessage
+	BMessage* const					pMessage
 ) const
 {
 	assert(NULL != pMessage);
@@ -178,7 +177,7 @@ ClueFact::Archive
 	MESSAGE_STORE(AddInt32, "m_Line", m_Line);
 	MESSAGE_STORE(AddInt32, "m_ThreadID", m_ThreadID);
 	MESSAGE_STORE(AddInt32, "m_Sequence", m_Sequence);
-	MESSAGE_STORE(AddPointer, "m_Inst_AsPointer", (const void *)m_Inst);
+	MESSAGE_STORE(AddPointer, "m_Inst_AsPointer", (const void*)m_Inst);
 	MESSAGE_STORE(AddInt64, "m_Time", m_Time);
 	MESSAGE_STORE(AddString, "m_Detail", m_Detail.value);
 	MESSAGE_STORE(AddString, "m_Description", m_Description.value);

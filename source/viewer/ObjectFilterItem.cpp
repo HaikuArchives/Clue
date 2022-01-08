@@ -46,112 +46,101 @@
 
 //the one and only instance of a ClueAreaManager, already defined in LiveView
 extern ClueAreaManager CAM;
-extern BBitmap * g_OtherBmps[];
+extern BBitmap* g_OtherBmps[];
 
 
 
 ObjectFilterItem :: ObjectFilterItem
-	(
-	const char * inText
-,	bool IsLeafNode
-,	uint32 inIndex
-,	uint32 inMask
-,	bool ControlsSubItems
-,	uint32 inOutlineLevel
-,	bool inExpanded
-	)
-:	BListItem (inOutlineLevel, inExpanded)
-,	m_Index (inIndex)
-,	m_Mask (inMask)
-,	m_Text (inText)
-,	m_IsLeafNode (IsLeafNode)
-,	m_GrayedOut (false)
-,	m_ControlsSubItems (ControlsSubItems)
+(
+	const char* inText
+	,	bool IsLeafNode
+	,	uint32 inIndex
+	,	uint32 inMask
+	,	bool ControlsSubItems
+	,	uint32 inOutlineLevel
+	,	bool inExpanded
+)
+	:	BListItem(inOutlineLevel, inExpanded)
+	,	m_Index(inIndex)
+	,	m_Mask(inMask)
+	,	m_Text(inText)
+	,	m_IsLeafNode(IsLeafNode)
+	,	m_GrayedOut(false)
+	,	m_ControlsSubItems(ControlsSubItems)
 {
 }
 
 
 ObjectFilterItem :: ~ObjectFilterItem
-	(
+(
 	void
-	)
+)
 {
 }
 
 void
 ObjectFilterItem :: DrawItem
-	(
-	BView * owner
-,	BRect bounds
-,	bool complete
-	)
+(
+	BView* owner
+	,	BRect bounds
+	,	bool complete
+)
 {
 	rgb_color color;
 	rgb_color textcolor;
-	bool selected (IsSelected());
-	if (selected)
-	{
+	bool selected(IsSelected());
+	if (selected) {
 		textcolor = CLR_LIST_SELECTED_TEXT;
 		color = CLR_LIST_SELECTED_BACKGROUND;
 //		color = CLR_LIST_SELECTED_GREY;
-	}
-	else
-	{
+	} else {
 		textcolor = CLR_LIST_TEXT;
 		color = CLR_LIST_BACKGROUND;
 //		color = CLR_WHITE;
 	}
-	owner->SetLowColor (color);
-	owner->SetDrawingMode (B_OP_COPY);
-	if (selected || complete)
-	{
-		owner->SetHighColor (color);
-		owner->FillRect (bounds);
+	owner->SetLowColor(color);
+	owner->SetDrawingMode(B_OP_COPY);
+	if (selected || complete) {
+		owner->SetHighColor(color);
+		owner->FillRect(bounds);
 	}
 //	BRegion Region;
 //	Region.Include (bounds);
 //	owner->ConstrainClippingRegion (&Region);
 	if (m_GrayedOut)
-	{
-		textcolor = tint_color (textcolor, B_LIGHTEN_2_TINT);
-	}
-	owner->SetHighColor (textcolor);
+		textcolor = tint_color(textcolor, B_LIGHTEN_2_TINT);
+	owner->SetHighColor(textcolor);
 
 
 //	const char * pText (Text ());
 //	((BListItem *)this)->DrawItem (owner, bounds, complete);
 //	float indent (OutlineLevel () * 20.0f);
 	font_height FontAttributes;
-	owner->GetFontHeight (&FontAttributes);
-	float FontHeight = ceil (FontAttributes.ascent) + ceil (FontAttributes.descent);
-	float fTextOffset = ceil (FontAttributes.ascent) + (bounds.Height () - FontHeight) / 2.0;
+	owner->GetFontHeight(&FontAttributes);
+	float FontHeight = ceil(FontAttributes.ascent) + ceil(FontAttributes.descent);
+	float fTextOffset = ceil(FontAttributes.ascent) + (bounds.Height() - FontHeight) / 2.0;
 //	fTextOffset = ceil (FontAttributes.ascent) + (Height () - FontHeight) / 2.0;
 //	owner->DrawString (pText, BPoint (indent + 12.0f, bounds.top + fTextOffset));
 	if (m_Index)
-	{
-		owner->DrawString (m_Text.String (), BPoint (bounds.left + 12.0f, bounds.top + fTextOffset));
-	}
+		owner->DrawString(m_Text.String(), BPoint(bounds.left + 12.0f, bounds.top + fTextOffset));
 	else
-	{
-		owner->DrawString (m_Text.String (), BPoint (bounds.left + 4.0f, bounds.top + fTextOffset));
-	}
+		owner->DrawString(m_Text.String(), BPoint(bounds.left + 4.0f, bounds.top + fTextOffset));
 
 
-	if (m_Index)
-	{
-		float h (bounds.Height() / 2.0f - 3.0f);
-		owner->SetDrawingMode (B_OP_OVER);
-		owner->DrawBitmap (g_OtherBmps[(CAM.m_data->m_mask[m_Index] & m_Mask) ? 1 : 0], BPoint (bounds.left, bounds.top + h));
-		owner->SetDrawingMode (B_OP_COPY);
+	if (m_Index) {
+		float h(bounds.Height() / 2.0f - 3.0f);
+		owner->SetDrawingMode(B_OP_OVER);
+		owner->DrawBitmap(g_OtherBmps[(CAM.m_data->m_mask[m_Index] & m_Mask) ? 1 : 0], BPoint(bounds.left, bounds.top + h));
+		owner->SetDrawingMode(B_OP_COPY);
 	}
 }
 
 
 void
 ObjectFilterItem :: SetChecked
-	(
+(
 	bool checked
-	)
+)
 {
 	//m_Checked = checked;
 	if (checked)
@@ -163,9 +152,9 @@ ObjectFilterItem :: SetChecked
 
 bool
 ObjectFilterItem :: IsChecked
-	(
+(
 	void
-	)
+)
 {
 	return CAM.m_data->m_mask[m_Index] & m_Mask;
 	//return m_Checked;
@@ -174,17 +163,14 @@ ObjectFilterItem :: IsChecked
 
 bool
 ObjectFilterItem :: ToggleChecked
-	(
+(
 	void
-	)
+)
 {
-	if (CAM.m_data->m_mask[m_Index] & m_Mask) //(m_Checked)
-	{
+	if (CAM.m_data->m_mask[m_Index] & m_Mask) { //(m_Checked)
 		//m_Checked = false;
 		CAM.m_data->m_mask[m_Index] = CAM.m_data->m_mask[m_Index] & ~m_Mask;
-	}
-	else
-	{
+	} else {
 		CAM.m_data->m_mask[m_Index] = CAM.m_data->m_mask[m_Index] | m_Mask;
 //		m_Checked = true;
 	}
@@ -195,18 +181,18 @@ ObjectFilterItem :: ToggleChecked
 
 bool
 ObjectFilterItem :: IsLeafNode
-	(
+(
 	void
-	)
+)
 {
 	return m_IsLeafNode;
 }
 
 bool
 ObjectFilterItem :: ControlsSubItems
-	(
+(
 	void
-	)
+)
 {
 	return m_ControlsSubItems;
 }
@@ -214,12 +200,12 @@ ObjectFilterItem :: ControlsSubItems
 
 void
 ObjectFilterItem :: SetGrayed
-	(
+(
 	bool inValue
-	)
+)
 {
 //	if (m_IsLeafNode)
-		m_GrayedOut = inValue;
+	m_GrayedOut = inValue;
 }
 
 

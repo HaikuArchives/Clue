@@ -94,21 +94,21 @@
 
 
 EditBoolView :: EditBoolView
-	(
+(
 	BRect frame
-,	BMessage * message
-	)
-:	EditView (frame, message, "EditBoolView", B_FOLLOW_ALL_SIDES)
+	,	BMessage* message
+)
+	:	EditView(frame, message, "EditBoolView", B_FOLLOW_ALL_SIDES)
 {
-	SetViewColor (CLR_TOOLBAR_GREY);
+	SetViewColor(CLR_TOOLBAR_GREY);
 
 }
 
 
 EditBoolView :: ~EditBoolView
-	(
+(
 	void
-	)
+)
 {
 }
 
@@ -117,14 +117,13 @@ EditBoolView :: ~EditBoolView
 ***************************************************************/
 void
 EditBoolView :: MessageReceived
-	(
-	BMessage * msg
-	)
+(
+	BMessage* msg
+)
 {
-	switch (msg->what)
-	{
+	switch (msg->what) {
 		default:
-			BView::MessageReceived (msg);
+			BView::MessageReceived(msg);
 	}
 }
 
@@ -132,7 +131,7 @@ EditBoolView :: MessageReceived
 /***************************************************************
 ***************************************************************/
 void
-EditBoolView :: AllAttached (void)
+EditBoolView :: AllAttached(void)
 {
 }
 
@@ -141,9 +140,9 @@ EditBoolView :: AllAttached (void)
 ***************************************************************/
 bool
 EditBoolView :: Save
-	(
+(
 	void
-	)
+)
 {
 	return true;
 }

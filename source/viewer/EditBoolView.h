@@ -5,18 +5,17 @@
 #include "EditView.h"
 #endif
 
-class EditBoolView : public EditView
-{
-	public:
-							EditBoolView (BRect, BMessage *);
-		virtual				~EditBoolView (void);
-		virtual void		MessageReceived (BMessage *);
-		virtual void		AllAttached (void);
-	public:
-		virtual bool		Save (void);
-	private:
-		EditBoolView (const EditBoolView &);
-		EditBoolView & operator= (EditBoolView &);
+class EditBoolView : public EditView {
+public:
+	EditBoolView(BRect, BMessage*);
+	virtual				~EditBoolView(void);
+	virtual void		MessageReceived(BMessage*);
+	virtual void		AllAttached(void);
+public:
+	virtual bool		Save(void);
+private:
+	EditBoolView(const EditBoolView&);
+	EditBoolView& operator= (EditBoolView&);
 };
 
 #endif //_EDITBOOLVIEW_H

@@ -14,38 +14,37 @@ class BetterScrollView;
 class ColumnListView;
 class Slider;
 
-class EditTeamView : public EditView
-{
-	public:
-							EditTeamView (BRect, BMessage *);
-		virtual				~EditTeamView (void);
-		virtual void		MessageReceived (BMessage *);
-		virtual void		AllAttached (void);
-		virtual void		AttachedToWindow (void);
-		virtual void		DetachedFromWindow (void);
-		virtual void		Draw (BRect);
-	public:
-		virtual bool		Save (void);
-		static EditTeamView *	Create (BRect, BMessage *);
-	public:
-		void				RefreshList (void);
-	private:
-		bool				PopulateData (BMessage *);
-	private:
-		EditTeamView (const EditTeamView &);
-		EditTeamView & operator= (EditTeamView &);
-	private:
-		void				CategoryChanged (BMessage *);
-		void				SelectUnselect (bool, bool);
-	private:
-		Slider *			m_slider;
-		BetterScrollView *	m_bsv;
-		ColumnListView *	m_ColumnListView;
-		TeamItem *			m_TI;
-		BButton *			m_OK;
-		uint32				m_CurCat;
-		BMenuField *		m_menufld;
-		BPopUpMenu *		m_popupmenu;
+class EditTeamView : public EditView {
+public:
+	EditTeamView(BRect, BMessage*);
+	virtual				~EditTeamView(void);
+	virtual void		MessageReceived(BMessage*);
+	virtual void		AllAttached(void);
+	virtual void		AttachedToWindow(void);
+	virtual void		DetachedFromWindow(void);
+	virtual void		Draw(BRect);
+public:
+	virtual bool		Save(void);
+	static EditTeamView* 	Create(BRect, BMessage*);
+public:
+	void				RefreshList(void);
+private:
+	bool				PopulateData(BMessage*);
+private:
+	EditTeamView(const EditTeamView&);
+	EditTeamView& operator= (EditTeamView&);
+private:
+	void				CategoryChanged(BMessage*);
+	void				SelectUnselect(bool, bool);
+private:
+	Slider* 			m_slider;
+	BetterScrollView* 	m_bsv;
+	ColumnListView* 	m_ColumnListView;
+	TeamItem* 			m_TI;
+	BButton* 			m_OK;
+	uint32				m_CurCat;
+	BMenuField* 		m_menufld;
+	BPopUpMenu* 		m_popupmenu;
 };
 
 #endif

@@ -13,11 +13,11 @@
 #include "utility.h"
 
 //defined in Inspect_Enums.cpp
-extern const char * pTrue;
-extern const char * pFalse;
-extern const char * g_pIndentation;
+extern const char* pTrue;
+extern const char* pFalse;
+extern const char* g_pIndentation;
 //extern const char * g_pFailedWithError;
-extern const char * g_pNewline;
+extern const char* g_pNewline;
 
 
 
@@ -38,37 +38,31 @@ private:
 ***************************************************************/
 void
 Inspect_Struct_buffer_clone_info
-	(
-	BString & strDetails
-,	buffer_clone_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	buffer_clone_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[buffer_clone_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "buffer= " << inValue->buffer << g_pNewline;
 		strDetails << tabindent << "area= " << inValue->area << g_pNewline;
 		strDetails << tabindent << "offset= " << inValue->offset << g_pNewline;
 		strDetails << tabindent << "size= " << inValue->size << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->flags);
+		GetHexString(hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << "), " << inValue->flags << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The buffer_clone_info was NULL.\n";
-	}
 }
 
 
@@ -95,32 +89,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_direct_buffer_info
-	(
-	BString & strDetails
-,	direct_buffer_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	direct_buffer_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[direct_buffer_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The direct_buffer_info was NULL.\n";
-	}
 }
 
 
@@ -140,39 +128,35 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_mail_pop_account
-	(
-	BString & strDetails
-,	mail_pop_account * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	mail_pop_account* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mail_pop_account object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		BString str (inValue->pop_name, B_MAX_USER_NAME_LENGTH);
-		strDetails << tabindent << "pop_name= " << str.String () << g_pNewline;
-		str.SetTo (inValue->pop_password, B_MAX_USER_NAME_LENGTH);
-		strDetails << tabindent << "pop_passwrod= " << str.String () << g_pNewline;
-		str.SetTo (inValue->pop_host, B_MAX_HOST_NAME_LENGTH);
-		strDetails << tabindent << "pop_host= " << str.String () << g_pNewline;
-		str.SetTo (inValue->real_name, 128);
-		strDetails << tabindent << "real_name= " << str.String () << g_pNewline;
-		str.SetTo (inValue->reply_to, 128);
-		strDetails << tabindent << "reply_to= " << str.String () << g_pNewline;
+	if (NULL != inValue) {
+		BString str(inValue->pop_name, B_MAX_USER_NAME_LENGTH);
+		strDetails << tabindent << "pop_name= " << str.String() << g_pNewline;
+		str.SetTo(inValue->pop_password, B_MAX_USER_NAME_LENGTH);
+		strDetails << tabindent << "pop_passwrod= " << str.String() << g_pNewline;
+		str.SetTo(inValue->pop_host, B_MAX_HOST_NAME_LENGTH);
+		strDetails << tabindent << "pop_host= " << str.String() << g_pNewline;
+		str.SetTo(inValue->real_name, 128);
+		strDetails << tabindent << "real_name= " << str.String() << g_pNewline;
+		str.SetTo(inValue->reply_to, 128);
+		strDetails << tabindent << "reply_to= " << str.String() << g_pNewline;
 		strDetails << tabindent << "days= " << inValue->days;
-		switch (inValue->days)
-		{
+		switch (inValue->days) {
 			case B_CHECK_NEVER:
 				strDetails << ", B_CHECK_NEVER";
 				break;
@@ -190,11 +174,8 @@ Inspect_Struct_mail_pop_account
 		strDetails << tabindent << "interval= " << inValue->interval << " seconds" << g_pNewline;
 		strDetails << tabindent << "begin_time= " << inValue->begin_time << " seconds" << g_pNewline;
 		strDetails << tabindent << "end_time= " << inValue->end_time << "seconds" << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The mail_pop_account was NULL.\n";
-	}
 }
 
 
@@ -207,33 +188,27 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_mail_notification
-	(
-	BString & strDetails
-,	mail_notification * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	mail_notification* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mail_notification object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "alert= " << inValue->alert << g_pNewline;
 		strDetails << tabindent << "beep= " << inValue->beep << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The mail_notification was NULL.\n";
-	}
 }
 
 
@@ -244,7 +219,7 @@ struct entry_ref {
   						entry_ref(dev_t dev, ino_t dir, const char *name);
 						entry_ref(const entry_ref &ref);
 						~entry_ref();
-	
+
   	status_t 			set_name(const char *name);
 
 	bool				operator==(const entry_ref &ref) const;
@@ -258,35 +233,29 @@ struct entry_ref {
 ***************************************************************/
 void
 Inspect_Struct_entry_ref
-	(
-	BString & strDetails
-,	entry_ref * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	entry_ref* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[entry_ref struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "device= " << inValue->device << g_pNewline;
 		strDetails << tabindent << "directory= " << inValue->directory << g_pNewline;
 		strDetails << tabindent << "name= " << inValue->name << g_pNewline;
 
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The entry_ref was NULL.\n";
-	}
 }
 
 
@@ -299,33 +268,27 @@ struct edge_info {
 ***************************************************************/
 void
 Inspect_Struct_edge_info
-	(
-	BString & strDetails
-,	edge_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	edge_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[edge_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "left= " << inValue->left << g_pNewline;
 		strDetails << tabindent << "right= " << inValue->right << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The edge_info was NULL.\n";
-	}
 }
 
 
@@ -339,34 +302,28 @@ struct font_height {
 ***************************************************************/
 void
 Inspect_Struct_font_height
-	(
-	BString & strDetails
-,	font_height * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	font_height* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[font_height object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "ascent= " << inValue->ascent << g_pNewline;
 		strDetails << tabindent << "descent= " << inValue->descent << g_pNewline;
 		strDetails << tabindent << "leading= " << inValue->leading << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The font_height was NULL.\n";
-	}
 }
 
 
@@ -379,33 +336,27 @@ struct escapement_delta {
 ***************************************************************/
 void
 Inspect_Struct_escapement_delta
-	(
-	BString & strDetails
-,	escapement_delta * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	escapement_delta* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[escapement_delta object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "nonspace= " << inValue->nonspace << g_pNewline;
 		strDetails << tabindent << "space= " << inValue->space << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The escapement_delta was NULL.\n";
-	}
 }
 
 
@@ -413,7 +364,7 @@ Inspect_Struct_escapement_delta
 defined in Font.h as:
 struct tuned_font_info {
 	float    size;
-	float    shear; 
+	float    shear;
 	float    rotation;
 	uint32   flags;
 	uint16   face;
@@ -421,36 +372,30 @@ struct tuned_font_info {
 ***************************************************************/
 void
 Inspect_Struct_tuned_font_info
-	(
-	BString & strDetails
-,	tuned_font_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	tuned_font_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[tuned_font_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "size= " << inValue->size << g_pNewline;
 		strDetails << tabindent << "shear= " << inValue->shear << g_pNewline;
 		strDetails << tabindent << "rotation= " << inValue->rotation << g_pNewline;
 		strDetails << tabindent << "flags= " << inValue->flags << g_pNewline;
 		strDetails << tabindent << "face= " << inValue->face << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The tuned_font_info was NULL.\n";
-	}
 }
 
 
@@ -473,36 +418,30 @@ struct gs_audio_format
 ***************************************************************/
 void
 Inspect_Struct_gs_audio_format
-	(
-	BString & strDetails
-,	gs_audio_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	gs_audio_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_audio_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "frame_rate= " << inValue->frame_rate << g_pNewline;
 		strDetails << tabindent << "channel_count= " << inValue->channel_count << g_pNewline;
 		strDetails << tabindent << "format= " << inValue->format << g_pNewline;
 		strDetails << tabindent << "byte_order= " << inValue->byte_order << g_pNewline;
 		strDetails << tabindent << "buffer_size= " << inValue->buffer_size << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The gs_audio_format was NULL.\n";
-	}
 }
 
 
@@ -518,29 +457,25 @@ struct gs_attribute
 ***************************************************************/
 void
 Inspect_Struct_gs_attribute
-	(
-	BString & strDetails
-,	gs_attribute * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	gs_attribute* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_attribute object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "attribute= " << inValue->attribute;
-		switch (inValue->attribute)
-		{
+		switch (inValue->attribute) {
 			case B_GS_NO_ATTRIBUTE:
 				strDetails << ", B_GS_NO_ATTRIBUTE\n";
 				break;
@@ -569,11 +504,8 @@ Inspect_Struct_gs_attribute
 		strDetails << tabindent << "duration= " << inValue->duration << g_pNewline;
 		strDetails << tabindent << "value= " << inValue->value << g_pNewline;
 		strDetails << tabindent << "flags= " << inValue->flags << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The gs_attribute was NULL.\n";
-	}
 }
 
 
@@ -589,29 +521,25 @@ struct gs_attribute_info
 ***************************************************************/
 void
 Inspect_Struct_gs_attribute_info
-	(
-	BString & strDetails
-,	gs_attribute_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	gs_attribute_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[gs_attribute_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "attribute= " << inValue->attribute;
-		switch (inValue->attribute)
-		{
+		switch (inValue->attribute) {
 			case B_GS_NO_ATTRIBUTE:
 				strDetails << ", B_GS_NO_ATTRIBUTE\n";
 				break;
@@ -640,11 +568,8 @@ Inspect_Struct_gs_attribute_info
 		strDetails << tabindent << "granularity= " << inValue->granularity << g_pNewline;
 		strDetails << tabindent << "minimum= " << inValue->minimum << g_pNewline;
 		strDetails << tabindent << "maximum= " << inValue->maximum << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The gs_attribute_info was NULL.\n";
-	}
 }
 
 
@@ -656,28 +581,24 @@ typedef struct pattern {
 ***************************************************************/
 void
 Inspect_Struct_pattern
-	(
-	BString & strDetails
-,	pattern * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	pattern* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[pattern object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		for (int i(0); i < 8; ++i)
-		{
+	if (NULL != inValue) {
+		for (int i(0); i < 8; ++i) {
 			strDetails << (inValue->data[i] & (0x80) ? "1" : "0");
 			strDetails << (inValue->data[i] & (0x40) ? "1" : "0");
 			strDetails << (inValue->data[i] & (0x20) ? "1" : "0");
@@ -688,11 +609,8 @@ Inspect_Struct_pattern
 			strDetails << (inValue->data[i] & (0x01) ? "1\n" : "0\n");
 		}
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The pattern was NULL.\n";
-	}
 }
 
 
@@ -707,38 +625,31 @@ typedef struct rgb_color {
 ***************************************************************/
 void
 Inspect_Struct_rgb_color
-	(
-	BString & strDetails
-,	rgb_color * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	rgb_color* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	if (inIndent >= 0)
-	{
-		for (int32 i (0); i < inIndent; i++)
-		{
+	if (inIndent >= 0) {
+		for (int32 i(0); i < inIndent; i++)
 			tabindent << g_pIndentation;
-		}
 	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[rgb_color struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "red= " << (unsigned int) inValue->red << g_pNewline;
 		strDetails << tabindent << "green= " << (unsigned int) inValue->green << g_pNewline;
 		strDetails << tabindent << "blue= " << (unsigned int) inValue->blue << g_pNewline;
 		strDetails << tabindent << "alpha= " << (unsigned int) inValue->alpha << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The rgb_color was NULL.\n";
-	}
 }
 
 
@@ -753,32 +664,26 @@ typedef struct color_map {
 ***************************************************************/
 void
 Inspect_Struct_color_map
-	(
-	BString & strDetails
-,	color_map * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	color_map* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[color_map object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
 	if (NULL != inValue)
-	{
 		strDetails << tabindent << "id= " << inValue->id << g_pNewline;
-	}
 	else
-	{
 		strDetails << tabindent << "The color_map was NULL.\n";
-	}
 }
 
 
@@ -798,26 +703,23 @@ typedef struct overlay_rect_limits {
 ***************************************************************/
 void
 Inspect_Struct_overlay_rect_limits
-	(
-	BString & strDetails
-,	overlay_rect_limits * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	overlay_rect_limits* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[overlay_rect_limits object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "horizontal_alignment= " << inValue->horizontal_alignment << g_pNewline;
 		strDetails << tabindent << "vertical_alignment= " << inValue->vertical_alignment << g_pNewline;
 		strDetails << tabindent << "width_alignment= " << inValue->width_alignment << g_pNewline;
@@ -826,11 +728,8 @@ Inspect_Struct_overlay_rect_limits
 		strDetails << tabindent << "max_width= " << inValue->max_width << g_pNewline;
 		strDetails << tabindent << "min_height= " << inValue->min_height << g_pNewline;
 		strDetails << tabindent << "max_height= " << inValue->max_height << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The overlay_rect_limits was NULL.\n";
-	}
 }
 
 
@@ -848,37 +747,31 @@ typedef struct overlay_restrictions {
 ***************************************************************/
 void
 Inspect_Struct_overlay_restrictions
-	(
-	BString & strDetails
-,	overlay_restrictions * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	overlay_restrictions* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[overlay_restrictions object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		Inspect_Struct_overlay_rect_limits (strDetails, &(inValue->source), inIndent, "source: ");
-		Inspect_Struct_overlay_rect_limits (strDetails, &(inValue->destination), inIndent, "destination: ");
+	if (NULL != inValue) {
+		Inspect_Struct_overlay_rect_limits(strDetails, &(inValue->source), inIndent, "source: ");
+		Inspect_Struct_overlay_rect_limits(strDetails, &(inValue->destination), inIndent, "destination: ");
 		strDetails << tabindent << "min_width_scale= " << inValue->min_width_scale << g_pNewline;
 		strDetails << tabindent << "max_width_scale= " << inValue->max_width_scale << g_pNewline;
 		strDetails << tabindent << "min_height_scale= " << inValue->min_height_scale << g_pNewline;
 		strDetails << tabindent << "max_height_scale= " << inValue->max_height_scale << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The overlay_restrictions was NULL.\n";
-	}
 }
 
 
@@ -888,94 +781,82 @@ struct screen_id { int32 id; };
 ***************************************************************/
 void
 Inspect_Struct_screen_id
-	(
-	BString & strDetails
-,	screen_id * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	screen_id* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[screen_id object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "id= " << inValue->id;
 		if (B_MAIN_SCREEN_ID.id == inValue->id)
 			strDetails << ", B_MAIN_SCREEN_ID";
-		
+
 		strDetails << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The screen_id was NULL.\n";
-	}
 }
 
 
 /***************************************************************
 defined in image.h as:
 typedef struct {
-	image_id	id;					
-	image_type	type;				
-	int32		sequence;			
-	int32		init_order;			
+	image_id	id;
+	image_type	type;
+	int32		sequence;
+	int32		init_order;
 	void		(*init_routine)();
 	void		(*term_routine)();
-	dev_t		device;				
+	dev_t		device;
 	ino_t		node;
-	char        name[MAXPATHLEN];  
-	void		*text;	
+	char        name[MAXPATHLEN];
+	void		*text;
 	void		*data;
-	int32		text_size;	
-	int32		data_size;	
+	int32		text_size;
+	int32		data_size;
 } image_info;
 ***************************************************************/
 void
 Inspect_Struct_image_info
-	(
-	BString & strDetails
-,	image_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	image_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[image_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "id= " << inValue->id << g_pNewline;
-		Inspect_Enum_image_type (strDetails, inValue->type, inIndent, "type: ");
+		Inspect_Enum_image_type(strDetails, inValue->type, inIndent, "type: ");
 		strDetails << tabindent << "sequence= " << inValue->sequence << g_pNewline;
 		strDetails << tabindent << "init_order= " << inValue->init_order << g_pNewline;
 		strDetails << tabindent << "device= " << inValue->device << g_pNewline;
 		strDetails << tabindent << "node= " << inValue->node << g_pNewline;
-		BString str (inValue->name, MAXPATHLEN);
-		strDetails << tabindent << "name= " << str.String () << g_pNewline;
+		BString str(inValue->name, MAXPATHLEN);
+		strDetails << tabindent << "name= " << str.String() << g_pNewline;
 		strDetails << tabindent << "text_size= " << inValue->text_size << g_pNewline;
 		strDetails << tabindent << "data_size= " << inValue->data_size << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The image_info was NULL.\n";
-	}
 }
 
 
@@ -988,26 +869,23 @@ struct key_info {
 ***************************************************************/
 void
 Inspect_Struct_key_info
-	(
-	BString & strDetails
-,	key_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	key_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[key_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
-	if (NULL != inValue)
-	{
-		GetHexString (hexbuf, inValue->modifiers);
+	if (NULL != inValue) {
+		GetHexString(hexbuf, inValue->modifiers);
 		strDetails << tabindent << "modifiers= (" << hexbuf << "), ";
 
 		if (inValue->modifiers & B_SHIFT_KEY)
@@ -1057,18 +935,15 @@ Inspect_Struct_key_info
 
 		if (inValue->modifiers & B_RIGHT_OPTION_KEY)
 			strDetails << "B_RIGHT_OPTION_KEY, ";
-		
-		strDetails.RemoveLast (",");
+
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
 
 
 //TODO
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The key_info was NULL.\n";
-	}
 }
 
 
@@ -1112,26 +987,23 @@ struct key_map {
 ***************************************************************/
 void
 Inspect_Struct_key_map
-	(
-	BString & strDetails
-,	key_map * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	key_map* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[key_map object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "version= " << inValue->version << g_pNewline;
 		strDetails << tabindent << "caps_key= " << inValue->caps_key << g_pNewline;
 		strDetails << tabindent << "scroll_key= " << inValue->scroll_key << g_pNewline;
@@ -1165,11 +1037,8 @@ Inspect_Struct_key_map
 		strDetails << tabindent << "circumflex_tables= " << inValue->circumflex_tables << g_pNewline;
 		strDetails << tabindent << "dieresis_tables= " << inValue->dieresis_tables << g_pNewline;
 		strDetails << tabindent << "tilde_tables= " << inValue->tilde_tables << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The key_map was NULL.\n";
-	}
 }
 
 
@@ -1183,35 +1052,27 @@ struct mouse_map {
 ***************************************************************/
 void
 Inspect_Struct_mouse_map
-	(
-	BString & strDetails
-,	mouse_map * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	mouse_map* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[mouse_map object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		for (int i = 0; i < 3; ++i)
-		{
-	 		strDetails << tabindent << "button[" << i << "]=" << inValue->button[i] << g_pNewline;
-		}
-	}
-	else
-	{
+			strDetails << tabindent << "button[" << i << "]=" << inValue->button[i] << g_pNewline;
+	} else
 		strDetails << tabindent << "The mouse_map was NULL.\n";
-	}
 }
 
 
@@ -1226,35 +1087,29 @@ struct scroll_bar_info {
 ***************************************************************/
 void
 Inspect_Struct_scroll_bar_info
-	(
-	BString & strDetails
-,	scroll_bar_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	scroll_bar_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[scroll_bar_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "proportional= " << (inValue->proportional ? pTrue : pFalse);
 		strDetails << tabindent << "double_arrows= " << (inValue->double_arrows ? pTrue : pFalse);
 		strDetails << tabindent << "knob= " << inValue->knob << g_pNewline;
 		strDetails << tabindent << "min_knob_size= " << inValue->min_knob_size << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The scroll_bar_info was NULL.\n";
-	}
 }
 
 
@@ -1273,35 +1128,29 @@ private:
 ***************************************************************/
 void
 Inspect_Struct_dormant_node_info
-	(
-	BString & strDetails
-,	dormant_node_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	dormant_node_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[dormant_node_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "addon= " << inValue->addon << g_pNewline;
 		strDetails << tabindent << "flavor_id= " << inValue->flavor_id << g_pNewline;
-		BString str (inValue->name, B_MEDIA_NAME_LENGTH);
-		strDetails << tabindent << "name= " << str.String () << g_pNewline;
-	}
-	else
-	{
+		BString str(inValue->name, B_MEDIA_NAME_LENGTH);
+		strDetails << tabindent << "name= " << str.String() << g_pNewline;
+	} else
 		strDetails << tabindent << "The dormant_node_info was NULL.\n";
-	}
 }
 
 
@@ -1331,41 +1180,38 @@ private:
 ***************************************************************/
 void
 Inspect_Struct_flavor_info
-	(
-	BString & strDetails
-,	flavor_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	flavor_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[flavor_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		if (inValue->name != NULL)
 			strDetails << tabindent << "name= " << inValue->name << g_pNewline;
 
 		if (inValue->info != NULL)
 			strDetails << tabindent << "info= " << inValue->info << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->kinds);
+		GetHexString(hexbuf, (intptr_t) inValue->kinds);
 		strDetails << tabindent << "kinds= (" << hexbuf << "), ";
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->flavor_flags);
+		GetHexString(hexbuf, (intptr_t) inValue->flavor_flags);
 		strDetails << tabindent << "flavor_flags= (" << hexbuf << "), ";
 
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
 
 
@@ -1373,18 +1219,15 @@ Inspect_Struct_flavor_info
 		strDetails << tabindent << "possible_count= " << inValue->possible_count << g_pNewline;
 		strDetails << tabindent << "in_format_count= " << inValue->in_format_count << g_pNewline;
 		strDetails << tabindent << "in_format_flags= " << inValue->in_format_flags << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->in_formats);
+		GetHexString(hexbuf, (intptr_t) inValue->in_formats);
 		strDetails << tabindent << "in_formats= pointer value is: " << hexbuf << g_pNewline;
 		strDetails << tabindent << "out_format_count= " << inValue->out_format_count << g_pNewline;
 		strDetails << tabindent << "out_format_flags= " << inValue->out_format_flags << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->out_formats);
+		GetHexString(hexbuf, (intptr_t) inValue->out_formats);
 		strDetails << tabindent << "out_formats= pointer value is: " << hexbuf << g_pNewline;
 		strDetails << tabindent << "_reserved= not implemented in this release\n";
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The flavor_info was NULL.\n";
-	}
 }
 
 
@@ -1417,32 +1260,26 @@ private:
 ***************************************************************/
 void
 Inspect_Struct_dormant_flavor_info
-	(
-	BString & strDetails
-,	dormant_flavor_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	dormant_flavor_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[dormant_flavor_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The dormant_flavor_info was NULL.\n";
-	}
 }
 
 
@@ -1459,33 +1296,27 @@ struct media_destination {
 ***************************************************************/
 void
 Inspect_Struct_media_destination
-	(
-	BString & strDetails
-,	media_destination * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_destination* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_destination object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "port= " << inValue->port << g_pNewline;
 		strDetails << tabindent << "id= " << inValue->id << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_destination was NULL.\n";
-	}
 }
 
 
@@ -1502,33 +1333,27 @@ struct media_source {
 ***************************************************************/
 void
 Inspect_Struct_media_source
-	(
-	BString & strDetails
-,	media_source * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_source* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_source object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "port= " << inValue->port << g_pNewline;
 		strDetails << tabindent << "id= " << inValue->id << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_source was NULL.\n";
-	}
 }
 
 
@@ -1555,36 +1380,30 @@ static media_multi_audio_format wildcard;
 ***************************************************************/
 void
 Inspect_Struct_media_raw_audio_format
-	(
-	BString & strDetails
-,	media_raw_audio_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_raw_audio_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_raw_audio_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "frame_rate= " << inValue->frame_rate << g_pNewline;
 		strDetails << tabindent << "channel_count= " << inValue->channel_count << g_pNewline;
 		strDetails << tabindent << "format= " << inValue->format << g_pNewline;
 		strDetails << tabindent << "byte_order= " << inValue->byte_order << g_pNewline;
 		strDetails << tabindent << "buffer_size= " << inValue->buffer_size << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_raw_audio_format was NULL.\n";
-	}
 }
 
 
@@ -1597,32 +1416,26 @@ struct media_audio_header {
 ***************************************************************/
 void
 Inspect_Struct_media_audio_header
-	(
-	BString & strDetails
-,	media_audio_header * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_audio_header* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_audio_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
 	if (NULL != inValue)
-	{
 		strDetails << tabindent << "_reserved_= not implemented in this release\n";
-	}
 	else
-	{
 		strDetails << tabindent << "The media_audio_header was NULL.\n";
-	}
 }
 
 
@@ -1638,39 +1451,33 @@ struct media_multi_audio_info {
 ***************************************************************/
 void
 Inspect_Struct_media_multi_audio_info
-	(
-	BString & strDetails
-,	media_multi_audio_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_multi_audio_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multi_audio_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		GetHexString (hexbuf, (int32) inValue->channel_mask);
+	if (NULL != inValue) {
+		GetHexString(hexbuf, (intptr_t) inValue->channel_mask);
 		strDetails << tabindent << "channel_mask= (" << hexbuf << "), " << inValue->channel_mask << g_pNewline;
 		strDetails << tabindent << "valid_bits= " << inValue->valid_bits << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->matrix_mask);
+		GetHexString(hexbuf, (intptr_t) inValue->matrix_mask);
 		strDetails << tabindent << "matrix_mask= (" << hexbuf << "), " << inValue->matrix_mask << g_pNewline;
 		strDetails << tabindent << "_reserved_b[0]= " << inValue->_reserved_b[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_b[1]= " << inValue->_reserved_b[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_b[2]= " << inValue->_reserved_b[2] << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_multi_audio_info was NULL.\n";
-	}
 }
 
 
@@ -1695,30 +1502,27 @@ static media_encoded_audio_format wildcard;
 ***************************************************************/
 void
 Inspect_Struct_media_encoded_audio_format
-	(
-	BString & strDetails
-,	media_encoded_audio_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_encoded_audio_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_audio_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		GetHexString (hexbuf, (int32) inValue->encoding);
+	if (NULL != inValue) {
+		GetHexString(hexbuf, (intptr_t) inValue->encoding);
 		strDetails << tabindent << "encoding= (" << hexbuf << "), ";
 
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
 
 		strDetails << tabindent << "bit_rate= " << inValue->bit_rate << g_pNewline;
@@ -1727,18 +1531,15 @@ Inspect_Struct_media_encoded_audio_format
 		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_[2]= " << inValue->_reserved_[2] << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_encoded_audio_format was NULL.\n";
-	}
 }
 
 
 /***************************************************************
 defined in MediaDefs.h as:
 struct media_encoded_audio_header {
-	// please put actual data at the end 
+	// please put actual data at the end
 	int32		_reserved_0[14];	// gotta have something
 	uint32		buffer_flags;		// B_MEDIA_KEY_FRAME for key buffers (ADPCM etc)
 	uchar		unused_mask;		// mask of unused bits for the last byte of data
@@ -1748,26 +1549,23 @@ struct media_encoded_audio_header {
 ***************************************************************/
 void
 Inspect_Struct_media_encoded_audio_header
-	(
-	BString & strDetails
-,	media_encoded_audio_header * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_encoded_audio_header* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_audio_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "_reserved_0= not implemented in this release\n";
 		strDetails << tabindent << "buffer_flags= " << inValue->buffer_flags << g_pNewline;
 		strDetails << tabindent << "unused_mask= " << inValue->unused_mask << g_pNewline;
@@ -1775,11 +1573,8 @@ Inspect_Struct_media_encoded_audio_header
 		strDetails << tabindent << "_reserved_2[0]= " << inValue->_reserved_2[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_2[1]= " << inValue->_reserved_2[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_2[2]= " << inValue->_reserved_2[2] << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_encoded_audio_header was NULL.\n";
-	}
 }
 
 
@@ -1788,11 +1583,11 @@ defined in MediaDefs.h as:
 struct media_video_display_info {
 	color_space	format;
 	uint32		line_width;
-	uint32		line_count;		// total of all interlace fields 
+	uint32		line_count;		// total of all interlace fields
 	uint32		bytes_per_row;	// bytes_per_row is in format, not header, because it's part of SetBuffers
-	uint32		pixel_offset;	// (in pixels) ... These are offsets from the start of the buffer ... 
-	uint32		line_offset;	// (in lines) ... to the start of the field. Think "buffer == framebuffer" ... 
-								// ... when the window displaying the active field moves on screen. 
+	uint32		pixel_offset;	// (in pixels) ... These are offsets from the start of the buffer ...
+	uint32		line_offset;	// (in lines) ... to the start of the field. Think "buffer == framebuffer" ...
+								// ... when the window displaying the active field moves on screen.
 	uint32		flags;
 	uint32		_reserved_[3];
 static media_video_display_info wildcard;
@@ -1800,44 +1595,38 @@ static media_video_display_info wildcard;
 ***************************************************************/
 void
 Inspect_Struct_media_video_display_info
-	(
-	BString & strDetails
-,	media_video_display_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_video_display_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_video_display_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		Inspect_Enum_color_space (strDetails, inValue->format, inIndent, "format= ");
+	if (NULL != inValue) {
+		Inspect_Enum_color_space(strDetails, inValue->format, inIndent, "format= ");
 		strDetails << tabindent << "line_width= " << inValue->line_width << g_pNewline;
 		strDetails << tabindent << "line_count= " << inValue->line_count << g_pNewline;
 		strDetails << tabindent << "bytes_per_row= " << inValue->bytes_per_row << g_pNewline;
 		strDetails << tabindent << "pixel_offset= " << inValue->pixel_offset << g_pNewline;
 		strDetails << tabindent << "line_offset= " << inValue->line_offset << g_pNewline;
-		
-		GetHexString (hexbuf, (int32) inValue->flags);
+
+		GetHexString(hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << "), " << hexbuf << g_pNewline;
 
 		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_[2]= " << inValue->_reserved_[2] << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_video_display_info was NULL.\n";
-	}
 }
 
 
@@ -1860,26 +1649,23 @@ static media_raw_video_format wildcard;
 ***************************************************************/
 void
 Inspect_Struct_media_raw_video_format
-	(
-	BString & strDetails
-,	media_raw_video_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_raw_video_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_raw_video_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "field_rate= " << inValue->field_rate << g_pNewline;
 		strDetails << tabindent << "interlace= " << inValue->interlace << g_pNewline;
 		strDetails << tabindent << "first_active= " << inValue->first_active << g_pNewline;
@@ -1887,11 +1673,8 @@ Inspect_Struct_media_raw_video_format
 		strDetails << tabindent << "orientation= " << inValue->orientation << g_pNewline;
 		strDetails << tabindent << "pixel_width_aspect= " << inValue->pixel_width_aspect << g_pNewline;
 		strDetails << tabindent << "pixel_height_aspect= " << inValue->pixel_height_aspect << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_raw_video_format was NULL.\n";
-	}
 }
 
 
@@ -1909,26 +1692,23 @@ struct media_video_header {
 ***************************************************************/
 void
 Inspect_Struct_media_video_header
-	(
-	BString & strDetails
-,	media_video_header * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_video_header* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_video_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "_reserved_= not implemented in this release\n";
 		strDetails << tabindent << "field_gamma= " << inValue->field_gamma << g_pNewline;
 		strDetails << tabindent << "field_sequence= " << inValue->field_sequence << g_pNewline;
@@ -1936,11 +1716,8 @@ Inspect_Struct_media_video_header
 		strDetails << tabindent << "pulldown_number= " << inValue->pulldown_number << g_pNewline;
 		strDetails << tabindent << "first_active_line= " << inValue->first_active_line << g_pNewline;
 		strDetails << tabindent << "line_count= " << inValue->line_count << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_video_header was NULL.\n";
-	}
 }
 
 
@@ -1965,26 +1742,23 @@ static media_encoded_video_format wildcard;
 ***************************************************************/
 void
 Inspect_Struct_media_encoded_video_format
-	(
-	BString & strDetails
-,	media_encoded_video_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_encoded_video_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_video_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "avg_bit_rate= " << inValue->avg_bit_rate << g_pNewline;
 		strDetails << tabindent << "max_bit_rate= " << inValue->max_bit_rate << g_pNewline;
 		strDetails << tabindent << "encoding= " << inValue->encoding;
@@ -1992,15 +1766,12 @@ Inspect_Struct_media_encoded_video_format
 		strDetails << tabindent << "frame_size= " << inValue->frame_size << g_pNewline;
 		strDetails << tabindent << "forward_history= " << inValue->forward_history << g_pNewline;
 		strDetails << tabindent << "backward_history= " << inValue->backward_history << g_pNewline;
-		
+
 		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_[2]= " << inValue->_reserved_[2] << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_encoded_video_format was NULL.\n";
-	}
 }
 
 
@@ -2008,7 +1779,7 @@ Inspect_Struct_media_encoded_video_format
 defined in MediaDefs.h as:
 struct media_encoded_video_header {
 	// please put actual data at the end
-	int32		_reserved_1[9];		// gotta have something... 
+	int32		_reserved_1[9];		// gotta have something...
 
 	uint32		field_flags;		//	B_MEDIA_KEY_FRAME
 
@@ -2026,26 +1797,23 @@ struct media_encoded_video_header {
 ***************************************************************/
 void
 Inspect_Struct_media_encoded_video_header
-	(
-	BString & strDetails
-,	media_encoded_video_header * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_encoded_video_header* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encoded_video_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "_reserved_1[0]= " << inValue->_reserved_1[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_1[1]= " << inValue->_reserved_1[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_1[2]= " << inValue->_reserved_1[2] << g_pNewline;
@@ -2058,13 +1826,11 @@ Inspect_Struct_media_encoded_video_header
 
 		strDetails << tabindent << "field_flags= " << inValue->field_flags;
 		if (B_MEDIA_KEY_FRAME == inValue->field_flags)
-		{
 			strDetails << ", B_MEDIA_KEY_FRAME";
-		}
 		strDetails << g_pNewline;
 		strDetails << tabindent << "forward_history= " << inValue->forward_history << g_pNewline;
 		strDetails << tabindent << "backward_history= " << inValue->backward_history << g_pNewline;
-		GetHexString (hexbuf, (int32) inValue->unused_mask);
+		GetHexString(hexbuf, (intptr_t) inValue->unused_mask);
 		strDetails << tabindent << "unused_mask= (" << hexbuf << "), " << inValue->unused_mask << g_pNewline;
 
 		strDetails << tabindent << "_reserved_2[0]= " << inValue->_reserved_2[0] << g_pNewline;
@@ -2077,11 +1843,8 @@ Inspect_Struct_media_encoded_video_header
 		strDetails << tabindent << "pulldown_number= " << inValue->pulldown_number << g_pNewline;
 		strDetails << tabindent << "first_active_line= " << inValue->first_active_line << g_pNewline;
 		strDetails << tabindent << "line_count= " << inValue->line_count << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_encoded_video_header was NULL.\n";
-	}
 }
 
 
@@ -2141,99 +1904,81 @@ static media_multistream_format wildcard;
 ***************************************************************/
 void
 Inspect_Struct_media_multistream_format
-	(
-	BString & strDetails
-,	media_multistream_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_multistream_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multistream_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "avg_bit_rate= " << inValue->avg_bit_rate << g_pNewline;
 		strDetails << tabindent << "max_bit_rate= " << inValue->max_bit_rate << g_pNewline;
 		strDetails << tabindent << "avg_chunk_size= " << inValue->avg_chunk_size << g_pNewline;
 		strDetails << tabindent << "max_chunk_size= " << inValue->max_chunk_size << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->flags);
+		GetHexString(hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << ", " << inValue->flags << "), ";
 #ifndef CLUE_ON_ZETA_HACK
 		if (media_multistream_format::B_HEADER_HAS_FLAGS & inValue->flags)
-		{
 			strDetails << "B_HEADER_HAS_FLAGS, ";
-		}
 		if (media_multistream_format::B_CLEAN_BUFFERS & inValue->flags)
-		{
 			strDetails << "B_CLEAN_BUFFERS, ";
-		}
 		if (media_multistream_format::B_HOMOGENOUS_BUFFERS & inValue->flags)
-		{
 			strDetails << "B_HOMOGENOUS_BUFFERS, ";
-		}
 #endif
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
 
 		strDetails << tabindent << "format= " << inValue->format;
 #ifndef CLUE_ON_ZETA_HACK
 		if (inValue->format >= media_multistream_format::B_FIRST_USER_TYPE)
-		{
 			strDetails << ", B_FIRST_USER_TYPE range\n";
-		}
 		else if (inValue->format >= media_multistream_format::B_PRIVATE)
-		{
 			strDetails << ", B_PRIVATE range\n";
-		}
-		else
-		{
-			switch (inValue->format)
-			{
-			case media_multistream_format::B_ANY:
-				strDetails << ", B_ANY\n";
-				break;
-			case media_multistream_format::B_VID:
-				strDetails << ", B_VID\n";
-				break;
-			case media_multistream_format::B_AVI:
-				strDetails << ", B_AVI\n";
-				break;
-			case media_multistream_format::B_MPEG1:
-				strDetails << ", B_MPEG1\n";
-				break;
-			case media_multistream_format::B_MPEG2:
-				strDetails << ", B_MPEG2\n";
-				break;
-			case media_multistream_format::B_QUICKTIME:
-				strDetails << ", B_QUICKTIME\n";
-				break;
-			default:
-				strDetails << ", unknown\n";
-				break;
+		else {
+			switch (inValue->format) {
+				case media_multistream_format::B_ANY:
+					strDetails << ", B_ANY\n";
+					break;
+				case media_multistream_format::B_VID:
+					strDetails << ", B_VID\n";
+					break;
+				case media_multistream_format::B_AVI:
+					strDetails << ", B_AVI\n";
+					break;
+				case media_multistream_format::B_MPEG1:
+					strDetails << ", B_MPEG1\n";
+					break;
+				case media_multistream_format::B_MPEG2:
+					strDetails << ", B_MPEG2\n";
+					break;
+				case media_multistream_format::B_QUICKTIME:
+					strDetails << ", B_QUICKTIME\n";
+					break;
+				default:
+					strDetails << ", unknown\n";
+					break;
 			}
 		}
 #endif
 
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
-		
+
 		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_multistream_format was NULL.\n";
-	}
 }
 
 
@@ -2253,58 +1998,46 @@ struct media_multistream_header {
 ***************************************************************/
 void
 Inspect_Struct_media_multistream_header
-	(
-	BString & strDetails
-,	media_multistream_header * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_multistream_header* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_multistream_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "_reserved_= not implemented in this release\n";
-		GetHexString (hexbuf, (int32) inValue->unused_mask);
+		GetHexString(hexbuf, (intptr_t) inValue->unused_mask);
 		strDetails << tabindent << "unused_mask= (" << hexbuf << ") " << inValue->unused_mask << g_pNewline;
 
 		strDetails << tabindent << "_reserved_2[0]= " << inValue->_reserved_2[0] << g_pNewline;
 		strDetails << tabindent << "_reserved_2[1]= " << inValue->_reserved_2[1] << g_pNewline;
 		strDetails << tabindent << "_reserved_2[2]= " << inValue->_reserved_2[2] << g_pNewline;
 
-		uint32 aUint32 (inValue->flags);
-		GetHexString (hexbuf, aUint32);
+		uint32 aUint32(inValue->flags);
+		GetHexString(hexbuf, aUint32);
 		strDetails << tabindent << "flags= (" << hexbuf << ", " << aUint32 << "), ";
 #ifndef CLUE_ON_ZETA_HACK
 		if (media_multistream_header::B_MASTER_HEADER & aUint32)
-		{
 			strDetails << "B_MASTER_HEADER, ";
-		}
 		if (media_multistream_header::B_SUBSTREAM_HEADER & aUint32)
-		{
 			strDetails << "B_SUBSTREAM_HEADER, ";
-		}
 		if (media_multistream_header::B_COMPLETE_BUFFER & aUint32)
-		{
 			strDetails << "B_COMPLETE_BUFFER, ";
-		}
 #endif
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_multistream_header was NULL.\n";
-	}
 }
 
 
@@ -2338,7 +2071,7 @@ struct media_format {	// no more than 192 bytes
 		media_encoded_video_format	encoded_video;
 		char						_reserved_[96];	 // pad to 96 bytes
 	} u;
-	
+
 	bool 			IsVideo() const		{ return (type==B_MEDIA_ENCODED_VIDEO)||(type==B_MEDIA_RAW_VIDEO); };
 	uint32  		Width() const		{ return (type==B_MEDIA_ENCODED_VIDEO)?u.encoded_video.output.display.line_width:u.raw_video.display.line_width; };
 	uint32 			Height() const		{ return (type==B_MEDIA_ENCODED_VIDEO)?u.encoded_video.output.display.line_count:u.raw_video.display.line_count; };
@@ -2368,27 +2101,24 @@ struct media_format {	// no more than 192 bytes
 ***************************************************************/
 void
 Inspect_Struct_media_format
-	(
-	BString & strDetails
-,	media_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		Inspect_Enum_media_type (strDetails, inValue->type, inIndent, "type= ");
+	if (NULL != inValue) {
+		Inspect_Enum_media_type(strDetails, inValue->type, inIndent, "type= ");
 
 		strDetails << tabindent << "user_data= not implemented in this release\n";
 
@@ -2398,19 +2128,16 @@ Inspect_Struct_media_format
 
 		strDetails << tabindent << "require_flags= " << inValue->require_flags << g_pNewline;
 		strDetails << tabindent << "deny_flags= " << inValue->deny_flags << g_pNewline;
-		strDetails << tabindent << "IsVideo= " << inValue->IsVideo () << g_pNewline;
-		strDetails << tabindent << "Width= " << inValue->Width () << g_pNewline;
-		strDetails << tabindent << "Height= " << inValue->Height () << g_pNewline;
-		Inspect_Enum_color_space (strDetails, inValue->ColorSpace (), inIndent, "ColorSpace= ");
+		strDetails << tabindent << "IsVideo= " << inValue->IsVideo() << g_pNewline;
+		strDetails << tabindent << "Width= " << inValue->Width() << g_pNewline;
+		strDetails << tabindent << "Height= " << inValue->Height() << g_pNewline;
+		Inspect_Enum_color_space(strDetails, inValue->ColorSpace(), inIndent, "ColorSpace= ");
 
-		strDetails << tabindent << "IsAudio= " << inValue->IsAudio () << g_pNewline;
-		strDetails << tabindent << "AudioFormat= " << inValue->AudioFormat () << g_pNewline;
-		strDetails << tabindent << "encoding= " << inValue->Encoding () << g_pNewline;
-	}
-	else
-	{
+		strDetails << tabindent << "IsAudio= " << inValue->IsAudio() << g_pNewline;
+		strDetails << tabindent << "AudioFormat= " << inValue->AudioFormat() << g_pNewline;
+		strDetails << tabindent << "encoding= " << inValue->Encoding() << g_pNewline;
+	} else
 		strDetails << tabindent << "The media_format was NULL.\n";
-	}
 }
 
 
@@ -2422,35 +2149,27 @@ struct media_seek_tag {
 ***************************************************************/
 void
 Inspect_Struct_media_seek_tag
-	(
-	BString & strDetails
-,	media_seek_tag * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_seek_tag* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_seek_tag object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		for (int i = 0; i < 16; i++)
-		{
 			strDetails << tabindent << "data[" << i << "]= " << inValue->data[i] << g_pNewline;
-		}
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_seek_tag was NULL.\n";
-	}
 }
 
 
@@ -2468,26 +2187,23 @@ struct media_header_time_code {
 ***************************************************************/
 void
 Inspect_Struct_media_header_time_code
-	(
-	BString & strDetails
-,	media_header_time_code * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_header_time_code* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_header_time_code object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "type= " << inValue->type << g_pNewline;
 		strDetails << tabindent << "_reserved= " << inValue->_reserved << g_pNewline;
 		strDetails << tabindent << "hours= " << inValue->hours << g_pNewline;
@@ -2495,11 +2211,8 @@ Inspect_Struct_media_header_time_code
 		strDetails << tabindent << "seconds= " << inValue->seconds << g_pNewline;
 		strDetails << tabindent << "frames= " << inValue->frames << g_pNewline;
 		strDetails << tabindent << "subframes= " << inValue->subframes << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_header_time_code was NULL.\n";
-	}
 }
 
 
@@ -2507,7 +2220,7 @@ Inspect_Struct_media_header_time_code
 defined in MediaDefs.h as:
 struct media_header {		// Broadcast() fills in fields marked with "//+"
 	media_type		type;			// what kind of data (for union)
-	media_buffer_id buffer;			//+ what buffer does this header go with? 
+	media_buffer_id buffer;			//+ what buffer does this header go with?
 	int32			destination;	//+ what 'socket' is this intended for?
 	media_node_id	time_source;	// node that encoded start_time
 	uint32			_deprecated_;	// used to be change_tag
@@ -2540,27 +2253,24 @@ struct media_header {		// Broadcast() fills in fields marked with "//+"
 ***************************************************************/
 void
 Inspect_Struct_media_header
-	(
-	BString & strDetails
-,	media_header * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_header* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_header object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		Inspect_Enum_media_type (strDetails, inValue->type, inIndent, "type= ");
+	if (NULL != inValue) {
+		Inspect_Enum_media_type(strDetails, inValue->type, inIndent, "type= ");
 
 		strDetails << tabindent << "buffer= " << inValue->buffer << g_pNewline;
 		strDetails << tabindent << "destination= " << inValue->destination << g_pNewline;
@@ -2571,18 +2281,15 @@ Inspect_Struct_media_header
 		strDetails << tabindent << "owner= " << inValue->owner << g_pNewline;
 		strDetails << tabindent << "user_data_type= " << inValue->user_data_type << g_pNewline;
 		strDetails << tabindent << "user_data[]= not implemented in this release\n";
-
-		strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
-		strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
+		//FIXME update for Haiku
+		//strDetails << tabindent << "_reserved_[0]= " << inValue->_reserved_[0] << g_pNewline;
+		//strDetails << tabindent << "_reserved_[1]= " << inValue->_reserved_[1] << g_pNewline;
 
 		strDetails << tabindent << "file_pos= " << inValue->file_pos << g_pNewline;
 		strDetails << tabindent << "orig_size= " << inValue->orig_size << g_pNewline;
 		strDetails << tabindent << "data_offset= " << inValue->data_offset << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_header was NULL.\n";
-	}
 }
 
 
@@ -2596,34 +2303,28 @@ struct media_file_format_id {
 ***************************************************************/
 void
 Inspect_Struct_media_file_format_id
-	(
-	BString & strDetails
-,	media_file_format_id * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_file_format_id* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_file_format_id object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "node= " << inValue->node << g_pNewline;
 		strDetails << tabindent << "device= " << inValue->device << g_pNewline;
 		strDetails << tabindent << "internal_id= " << inValue->internal_id << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_file_format_id was NULL.\n";
-	}
 }
 
 
@@ -2659,48 +2360,40 @@ struct media_file_format {
 ***************************************************************/
 void
 Inspect_Struct_media_file_format
-	(
-	BString & strDetails
-,	media_file_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_file_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_file_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "capabilities= " << inValue->capabilities << g_pNewline;
-#ifndef CLUE_ON_ZETA_HACK
-		Inspect_Struct_media_file_format_id (strDetails, inValue->id, inIndent, "id= ");
-#endif
-		Inspect_Enum_media_format_family (strDetails, inValue->family, inIndent, "family= ");
+		Inspect_Struct_media_file_format_id(strDetails, &inValue->id, inIndent, "id= ");
+		Inspect_Enum_media_format_family(strDetails, inValue->family, inIndent, "family= ");
 		strDetails << tabindent << "version= " << inValue->version << g_pNewline;
 		strDetails << tabindent << "_reserved_[]= not implemented in this release\n";
 
-		BString str (inValue->mime_type, 64);
-		strDetails << tabindent << "mime_type= " << str.String () << g_pNewline;
-		str.SetTo (inValue->pretty_name, 64);
-		strDetails << tabindent << "pretty_name= " << str.String () << g_pNewline;
-		str.SetTo (inValue->short_name, 32);
-		strDetails << tabindent << "short_name= " << str.String () << g_pNewline;
-		str.SetTo (inValue->file_extension, 8);
-		strDetails << tabindent << "file_extension= " << str.String () << g_pNewline;
+		BString str(inValue->mime_type, 64);
+		strDetails << tabindent << "mime_type= " << str.String() << g_pNewline;
+		str.SetTo(inValue->pretty_name, 64);
+		strDetails << tabindent << "pretty_name= " << str.String() << g_pNewline;
+		str.SetTo(inValue->short_name, 32);
+		strDetails << tabindent << "short_name= " << str.String() << g_pNewline;
+		str.SetTo(inValue->file_extension, 8);
+		strDetails << tabindent << "file_extension= " << str.String() << g_pNewline;
 		strDetails << tabindent << "reserved[]= not implemented in this release\n";
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_file_format was NULL.\n";
-	}
 }
 
 
@@ -2717,38 +2410,32 @@ struct media_encode_info {
 	size_t		file_format_data_size;
 	void		*codec_data;			// codec specific info
 	size_t		codec_data_size;
-	
+
 	media_encode_info();
 };
 ***************************************************************/
 void
 Inspect_Struct_media_encode_info
-	(
-	BString & strDetails
-,	media_encode_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_encode_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_encode_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_encode_info was NULL.\n";
-	}
 }
 
 
@@ -2765,32 +2452,26 @@ struct encode_parameters {
 ***************************************************************/
 void
 Inspect_Struct_encode_parameters
-	(
-	BString & strDetails
-,	encode_parameters * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	encode_parameters* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[encode_parameters object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The encode_parameters was NULL.\n";
-	}
 }
 
 
@@ -2803,38 +2484,32 @@ struct media_decode_info {
 	size_t		file_format_data_size;
 	void		*codec_data;			// codec specific info
 	size_t		codec_data_size;
-	
+
 	media_decode_info();
 };
 ***************************************************************/
 void
 Inspect_Struct_media_decode_info
-	(
-	BString & strDetails
-,	media_decode_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_decode_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_decode_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_decode_info was NULL.\n";
-	}
 }
 
 
@@ -2854,32 +2529,26 @@ private:
 ***************************************************************/
 void
 Inspect_Struct_media_input
-	(
-	BString & strDetails
-,	media_input * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_input* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_input object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_input was NULL.\n";
-	}
 }
 
 
@@ -2899,32 +2568,26 @@ private:
 ***************************************************************/
 void
 Inspect_Struct_media_output
-	(
-	BString & strDetails
-,	media_output * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_output* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_output object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_output was NULL.\n";
-	}
 }
 
 
@@ -2942,32 +2605,26 @@ private:
 ***************************************************************/
 void
 Inspect_Struct_live_node_info
-	(
-	BString & strDetails
-,	live_node_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	live_node_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[live_node_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The live_node_info was NULL.\n";
-	}
 }
 
 
@@ -2977,8 +2634,8 @@ struct media_request_info
 {
 	enum what_code
 	{
-		B_SET_VIDEO_CLIPPING_FOR = 1, 
-		B_REQUEST_FORMAT_CHANGE, 
+		B_SET_VIDEO_CLIPPING_FOR = 1,
+		B_REQUEST_FORMAT_CHANGE,
 		B_SET_OUTPUT_ENABLED,
 		B_SET_OUTPUT_BUFFERS_FOR,
 
@@ -2997,32 +2654,26 @@ struct media_request_info
 ***************************************************************/
 void
 Inspect_Struct_media_request_info
-	(
-	BString & strDetails
-,	media_request_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_request_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_request_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_request_info was NULL.\n";
-	}
 }
 
 
@@ -3042,32 +2693,26 @@ struct media_node_attribute
 ***************************************************************/
 void
 Inspect_Struct_media_node_attribute
-	(
-	BString & strDetails
-,	media_node_attribute * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_node_attribute* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_node_attribute object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_node_attribute was NULL.\n";
-	}
 }
 
 
@@ -3076,41 +2721,35 @@ defined in MediaFormats.h as:
 struct media_codec_info {
 	char	pretty_name[96];   // eg: "SuperSqueeze Encoder by Foo Inc"
 	char	short_name[32];    // eg: "supersqueeze"
-	
+
 	int32	id;                // opaque id passed to BMediaFile::CreateTrack
 	int32	sub_id;
-	
+
 	int32	pad[63];
 };
 ***************************************************************/
 void
 Inspect_Struct_media_codec_info
-	(
-	BString & strDetails
-,	media_codec_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_codec_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_codec_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_codec_info was NULL.\n";
-	}
 }
 
 
@@ -3122,32 +2761,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_GUID
-	(
-	BString & strDetails
-,	GUID * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	GUID* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[GUID object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The GUID was NULL.\n";
-	}
 }
 
 
@@ -3159,32 +2792,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_beos_description
-	(
-	BString & strDetails
-,	media_beos_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_beos_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_beos_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_beos_description was NULL.\n";
-	}
 }
 
 
@@ -3197,32 +2824,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_quicktime_description
-	(
-	BString & strDetails
-,	media_quicktime_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_quicktime_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_quicktime_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_quicktime_description was NULL.\n";
-	}
 }
 
 
@@ -3234,32 +2855,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_avi_description
-	(
-	BString & strDetails
-,	media_avi_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_avi_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_avi_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_avi_description was NULL.\n";
-	}
 }
 
 
@@ -3271,32 +2886,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_avr_description
-	(
-	BString & strDetails
-,	media_avr_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_avr_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_avr_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_avr_description was NULL.\n";
-	}
 }
 
 
@@ -3308,32 +2917,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_asf_description
-	(
-	BString & strDetails
-,	media_asf_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_asf_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_asf_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_asf_description was NULL.\n";
-	}
 }
 
 
@@ -3345,32 +2948,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_mpeg_description
-	(
-	BString & strDetails
-,	media_mpeg_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_mpeg_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_mpeg_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_mpeg_description was NULL.\n";
-	}
 }
 
 
@@ -3382,32 +2979,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_wav_description
-	(
-	BString & strDetails
-,	media_wav_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_wav_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_wav_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_wav_description was NULL.\n";
-	}
 }
 
 
@@ -3419,32 +3010,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_aiff_description
-	(
-	BString & strDetails
-,	media_aiff_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_aiff_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_aiff_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_aiff_description was NULL.\n";
-	}
 }
 
 
@@ -3457,32 +3042,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_media_misc_description
-	(
-	BString & strDetails
-,	media_misc_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_misc_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_misc_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_misc_description was NULL.\n";
-	}
 }
 
 
@@ -3513,32 +3092,26 @@ typedef struct _media_format_description {
 ***************************************************************/
 void
 Inspect_Struct_media_format_description
-	(
-	BString & strDetails
-,	media_format_description * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_format_description* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_format_description object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_format_description was NULL.\n";
-	}
 }
 
 
@@ -3558,32 +3131,26 @@ struct node_ref {
 ***************************************************************/
 void
 Inspect_Struct_node_ref
-	(
-	BString & strDetails
-,	node_ref * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	node_ref* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[node_ref object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The node_ref was NULL.\n";
-	}
 }
 
 
@@ -3599,32 +3166,26 @@ struct compound_type {
 ***************************************************************/
 void
 Inspect_Struct_compound_type
-	(
-	BString & strDetails
-,	compound_type * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	compound_type* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[compound_type object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The compound_type was NULL.\n";
-	}
 }
 
 
@@ -3643,32 +3204,26 @@ struct property_info {
 ***************************************************************/
 void
 Inspect_Struct_property_info
-	(
-	BString & strDetails
-,	property_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	property_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[property_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The property_info was NULL.\n";
-	}
 }
 
 
@@ -3685,32 +3240,26 @@ struct value_info {
 ***************************************************************/
 void
 Inspect_Struct_value_info
-	(
-	BString & strDetails
-,	value_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	value_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[value_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The value_info was NULL.\n";
-	}
 }
 
 
@@ -3732,32 +3281,26 @@ typedef struct area_info {
 ***************************************************************/
 void
 Inspect_Struct_area_info
-	(
-	BString & strDetails
-,	area_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	area_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[area_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The area_info was NULL.\n";
-	}
 }
 
 
@@ -3774,32 +3317,26 @@ typedef struct port_info {
 ***************************************************************/
 void
 Inspect_Struct_port_info
-	(
-	BString & strDetails
-,	port_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	port_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[port_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The port_info was NULL.\n";
-	}
 }
 
 
@@ -3815,32 +3352,26 @@ typedef struct sem_info {
 ***************************************************************/
 void
 Inspect_Struct_sem_info
-	(
-	BString & strDetails
-,	sem_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	sem_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[sem_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The sem_info was NULL.\n";
-	}
 }
 
 
@@ -3861,32 +3392,26 @@ typedef struct  {
 ***************************************************************/
 void
 Inspect_Struct_thread_info
-	(
-	BString & strDetails
-,	thread_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	thread_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[thread_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The thread_info was NULL.\n";
-	}
 }
 
 
@@ -3899,32 +3424,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_team_usage_info
-	(
-	BString & strDetails
-,	team_usage_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	team_usage_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[team_usage_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The team_usage_info was NULL.\n";
-	}
 }
 
 
@@ -3946,32 +3465,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_team_info
-	(
-	BString & strDetails
-,	team_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	team_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[team_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The team_info was NULL.\n";
-	}
 }
 
 
@@ -3983,32 +3496,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_cpu_info
-	(
-	BString & strDetails
-,	cpu_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	cpu_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[cpu_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The cpu_info was NULL.\n";
-	}
 }
 
 
@@ -4040,43 +3547,41 @@ typedef struct {
 
 	char		  kernel_name [B_FILE_NAME_LENGTH];		// name of kernel
 	char          kernel_build_date[B_OS_NAME_LENGTH];	// date kernel built
-	char          kernel_build_time[B_OS_NAME_LENGTH];	// time kernel built 
+	char          kernel_build_time[B_OS_NAME_LENGTH];	// time kernel built
 	int64         kernel_version;             	// version of this kernel
 
 	bigtime_t	  _busy_wait_time;				// reserved for Be
-	int32         pad[4];   	               	// just in case... 
+	int32         pad[4];   	               	// just in case...
 } system_info;
 ***************************************************************/
 void
 Inspect_Struct_system_info
-	(
-	BString & strDetails
-,	system_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	system_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[system_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
-		strDetails << tabindent << "id= " << inValue->id[0] << inValue->id[1] << g_pNewline;
+	if (NULL != inValue) {
+		//FIXME update for Haiku
+		//strDetails << tabindent << "id= " << inValue->id[0] << inValue->id[1] << g_pNewline;
 		strDetails << tabindent << "boot_time= " << inValue->boot_time << g_pNewline;
 		strDetails << tabindent << "cpu_count= " << inValue->cpu_count << g_pNewline;
-		Inspect_Enum_cpu_type (strDetails, inValue->cpu_type, inIndent, "  |  cpu_type= ");
-		strDetails << tabindent << "cpu_revision= " << inValue->cpu_revision << g_pNewline;
-		strDetails << tabindent << "cpu_clock_speed= " << inValue->cpu_clock_speed << g_pNewline;
-		strDetails << tabindent << "bus_clock_speed= " << inValue->bus_clock_speed << g_pNewline;
-		Inspect_Enum_platform_type (strDetails, inValue->platform_type, inIndent, "  |  platform_type= ");
+		//Inspect_Enum_cpu_type (strDetails, inValue->cpu_type, inIndent, "  |  cpu_type= ");
+		//strDetails << tabindent << "cpu_revision= " << inValue->cpu_revision << g_pNewline;
+		//strDetails << tabindent << "cpu_clock_speed= " << inValue->cpu_clock_speed << g_pNewline;
+		//strDetails << tabindent << "bus_clock_speed= " << inValue->bus_clock_speed << g_pNewline;
+		//Inspect_Enum_platform_type (strDetails, inValue->platform_type, inIndent, "  |  platform_type= ");
 		strDetails << tabindent << "max_pages= " << inValue->max_pages << g_pNewline;
 		strDetails << tabindent << "used_pages= " << inValue->used_pages << g_pNewline;
 		strDetails << tabindent << "page_faults= " << inValue->page_faults << g_pNewline;
@@ -4092,12 +3597,9 @@ Inspect_Struct_system_info
 		strDetails << tabindent << "kernel_build_date= " << inValue->kernel_build_date << g_pNewline;
 		strDetails << tabindent << "kernel_build_time= " << inValue->kernel_build_time << g_pNewline;
 		strDetails << tabindent << "kernel_version= " << inValue->kernel_version << g_pNewline;
-		strDetails << tabindent << "_busy_wait_time= " << inValue->_busy_wait_time << g_pNewline;
-	}
-	else
-	{
+		//strDetails << tabindent << "_busy_wait_time= " << inValue->_busy_wait_time << g_pNewline;
+	} else
 		strDetails << tabindent << "The system_info was NULL.\n";
-	}
 }
 
 
@@ -4114,12 +3616,12 @@ struct media_timed_event {
 						void *inPointer, uint32 inCleanup,
 						int32 inData, int64 inBigdata,
 						char *inUserData, size_t dataSize = 0);
-					
+
 					media_timed_event(const media_timed_event & clone);
 					void operator=(const media_timed_event & clone);
-					
+
 					~media_timed_event();
-					
+
 	bigtime_t		event_time;
 	int32			type;
 	void *			pointer;
@@ -4132,32 +3634,26 @@ struct media_timed_event {
 ***************************************************************/
 void
 Inspect_Struct_media_timed_event
-	(
-	BString & strDetails
-,	media_timed_event * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	media_timed_event* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[media_timed_event object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The media_timed_event was NULL.\n";
-	}
 }
 
 
@@ -4173,32 +3669,26 @@ struct TranslatorBitmap {
 ***************************************************************/
 void
 Inspect_Struct_TranslatorBitmap
-	(
-	BString & strDetails
-,	TranslatorBitmap * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	TranslatorBitmap* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorBitmap object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The TranslatorBitmap was NULL.\n";
-	}
 }
 
 
@@ -4215,32 +3705,26 @@ struct TranslatorSound {
 ***************************************************************/
 void
 Inspect_Struct_TranslatorSound
-	(
-	BString & strDetails
-,	TranslatorSound * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	TranslatorSound* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorSound object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The TranslatorSound was NULL.\n";
-	}
 }
 
 
@@ -4254,32 +3738,26 @@ struct TranslatorStyledTextRecordHeader {
 ***************************************************************/
 void
 Inspect_Struct_TranslatorStyledTextRecordHeader
-	(
-	BString & strDetails
-,	TranslatorStyledTextRecordHeader * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	TranslatorStyledTextRecordHeader* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextRecordHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The TranslatorStyledTextRecordHeader was NULL.\n";
-	}
 }
 
 
@@ -4297,32 +3775,26 @@ struct TranslatorStyledTextStreamHeader {
 ***************************************************************/
 void
 Inspect_Struct_TranslatorStyledTextStreamHeader
-	(
-	BString & strDetails
-,	TranslatorStyledTextStreamHeader * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	TranslatorStyledTextStreamHeader* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextStreamHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The TranslatorStyledTextStreamHeader was NULL.\n";
-	}
 }
 
 
@@ -4340,32 +3812,26 @@ struct TranslatorStyledTextTextHeader {
 ***************************************************************/
 void
 Inspect_Struct_TranslatorStyledTextTextHeader
-	(
-	BString & strDetails
-,	TranslatorStyledTextTextHeader * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	TranslatorStyledTextTextHeader* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextTextHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The TranslatorStyledTextTextHeader was NULL.\n";
-	}
 }
 
 
@@ -4384,32 +3850,26 @@ struct TranslatorStyledTextStyleHeader {
 ***************************************************************/
 void
 Inspect_Struct_TranslatorStyledTextStyleHeader
-	(
-	BString & strDetails
-,	TranslatorStyledTextStyleHeader * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	TranslatorStyledTextStyleHeader* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[TranslatorStyledTextStyleHeader object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The TranslatorStyledTextStyleHeader was NULL.\n";
-	}
 }
 
 
@@ -4426,32 +3886,26 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_clipping_rect
-	(
-	BString & strDetails
-,	clipping_rect * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	clipping_rect* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[clipping_rect object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The clipping_rect was NULL.\n";
-	}
 }
 
 
@@ -4465,32 +3919,26 @@ struct text_run {
 ***************************************************************/
 void
 Inspect_Struct_text_run
-	(
-	BString & strDetails
-,	text_run * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	text_run* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[text_run object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The text_run was NULL.\n";
-	}
 }
 
 
@@ -4503,32 +3951,26 @@ struct text_run_array {
 ***************************************************************/
 void
 Inspect_Struct_text_run_array
-	(
-	BString & strDetails
-,	text_run_array * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	text_run_array* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[text_run_array object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The text_run_array was NULL.\n";
-	}
 }
 
 
@@ -4547,32 +3989,26 @@ struct timecode_info {
 ***************************************************************/
 void
 Inspect_Struct_timecode_info
-	(
-	BString & strDetails
-,	timecode_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	timecode_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[timecode_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The timecode_info was NULL.\n";
-	}
 }
 
 
@@ -4583,38 +4019,32 @@ struct translation_format {
 	uint32		group;				// B_TRANSLATOR_BITMAP, B_TRANSLATOR_TEXT, ...
 	float		quality;			// format quality 0.0-1.0
 	float		capability;			// translator capability 0.0-1.0
-	char		MIME[251];			// MIME string 
+	char		MIME[251];			// MIME string
 	char		name[251];			// only descriptive
 };
 ***************************************************************/
 void
 Inspect_Struct_translation_format
-	(
-	BString & strDetails
-,	translation_format * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	translation_format* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[translation_format object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The translation_format was NULL.\n";
-	}
 }
 
 
@@ -4632,32 +4062,26 @@ struct translator_info {			// Info about a specific translation
 ***************************************************************/
 void
 Inspect_Struct_translator_info
-	(
-	BString & strDetails
-,	translator_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	translator_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[translator_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 //		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The translator_info was NULL.\n";
-	}
 }
 
 
@@ -4670,7 +4094,7 @@ typedef struct {
 	uint16	h_blank_min;	// min/max horizontal blank pulse width in pixels, a multiple of h_res
 	uint16	h_blank_max;
 	uint16	v_res;			// minimum effective change in vertical lines, usually 1
-	uint16	v_sync_min;		// min/max vertical sync pulse width in lines, a multiple of v_res 
+	uint16	v_sync_min;		// min/max vertical sync pulse width in lines, a multiple of v_res
 	uint16	v_sync_max;
 	uint16	v_blank_min;	// min/max vertical blank pulse width in linex, a multiple of v_res
 	uint16	v_blank_max;
@@ -4678,26 +4102,23 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_display_timing_constraints
-	(
-	BString & strDetails
-,	display_timing_constraints * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	display_timing_constraints* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[display_timing_constraints object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "h_res= " << (uint32) inValue->h_res  << " pixels\n";
 		strDetails << tabindent << "h_sync_min= " << (uint32) inValue->h_sync_min << " pixels\n";
 		strDetails << tabindent << "h_sync_max= " << (uint32) inValue->h_sync_max << " pixels\n";
@@ -4708,11 +4129,8 @@ Inspect_Struct_display_timing_constraints
 		strDetails << tabindent << "v_sync_max= " << (uint32) inValue->v_sync_max << " lines\n";
 		strDetails << tabindent << "v_blank_min= " << (uint32) inValue->v_blank_min << " lines\n";
 		strDetails << tabindent << "v_blank_max= " << (uint32) inValue->v_blank_max << " lines\n";
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The display_timing_constraints was NULL.\n";
-	}
 }
 
 
@@ -4733,26 +4151,23 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_display_timing
-	(
-	BString & strDetails
-,	display_timing * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	display_timing* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[display_timing object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "pixel_clock= " << inValue->pixel_clock << " kHz\n";
 		strDetails << tabindent << "h_display= " << (uint32) inValue->h_display << " pixels\n";
 		strDetails << tabindent << "h_sync_start= " << (uint32) inValue->h_sync_start << g_pNewline;
@@ -4763,36 +4178,23 @@ Inspect_Struct_display_timing
 		strDetails << tabindent << "v_sync_end= " << (uint32) inValue->v_sync_end << g_pNewline;
 		strDetails << tabindent << "v_total= " << (uint32) inValue->v_total << g_pNewline;
 
-		uint32 aUInt32 (inValue->flags);
+		uint32 aUInt32(inValue->flags);
 		strDetails << tabindent << "flags= (" << aUInt32 << "), ";
 		if (B_BLANK_PEDESTAL & aUInt32)
-		{
 			strDetails << "B_BLANK_PEDESTAL, ";
-		}
 		if (B_TIMING_INTERLACED & aUInt32)
-		{
 			strDetails << "B_TIMING_INTERLACED, ";
-		}
 		if (B_POSITIVE_HSYNC & aUInt32)
-		{
 			strDetails << "B_POSITIVE_HSYNC, ";
-		}
 		if (B_POSITIVE_VSYNC & aUInt32)
-		{
 			strDetails << "B_POSITIVE_VSYNC, ";
-		}
 		if (B_SYNC_ON_GREEN & aUInt32)
-		{
 			strDetails << "B_SYNC_ON_GREEN, ";
-		}
 
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The display_timing was NULL.\n";
-	}
 }
 
 
@@ -4810,30 +4212,27 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_display_mode
-	(
-	BString & strDetails
-,	display_mode * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	display_mode* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[display_mode object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
-		display_timing aDT (inValue->timing);
-		Inspect_Struct_display_timing (strDetails, &aDT, inIndent, "timing: ");
+		display_timing aDT(inValue->timing);
+		Inspect_Struct_display_timing(strDetails, &aDT, inIndent, "timing: ");
 
 		strDetails << tabindent << "space= " << inValue->space << g_pNewline;
 		strDetails << tabindent << "virtual_width= " << (uint32) inValue->virtual_width << g_pNewline;
@@ -4841,40 +4240,25 @@ Inspect_Struct_display_mode
 		strDetails << tabindent << "h_display_start= " << (uint32) inValue->h_display_start << g_pNewline;
 		strDetails << tabindent << "v_display_start= " << (uint32) inValue->v_display_start << g_pNewline;
 
-		uint32 aUInt32 (inValue->flags);
+		uint32 aUInt32(inValue->flags);
 		strDetails << tabindent << "flags= (" << aUInt32 << "), ";
 		if (B_SCROLL & aUInt32)
-		{
 			strDetails << "B_SCROLL, ";
-		}
 		if (B_8_BIT_DAC & aUInt32)
-		{
 			strDetails << "B_8_BIT_DAC, ";
-		}
 		if (B_HARDWARE_CURSOR & aUInt32)
-		{
 			strDetails << "B_HARDWARE_CURSOR, ";
-		}
 		if (B_PARALLEL_ACCESS & aUInt32)
-		{
 			strDetails << "B_PARALLEL_ACCESS, ";
-		}
 		if (B_DPMS & aUInt32)
-		{
 			strDetails << "B_DPMS, ";
-		}
 		if (B_IO_FB_NA & aUInt32)
-		{
 			strDetails << "B_IO_FB_NA,";
-		}
 
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The display_mode was NULL.\n";
-	}
 }
 
 
@@ -4891,37 +4275,31 @@ typedef struct {
 ***************************************************************/
 void
 Inspect_Struct_accelerant_device_info
-	(
-	BString & strDetails
-,	accelerant_device_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	accelerant_device_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[accelerant_device_info object, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "version= " << inValue->version << g_pNewline;
 		strDetails << tabindent << "name= " << inValue->name << g_pNewline;
 		strDetails << tabindent << "chipset= " << inValue->chipset << g_pNewline;
 		strDetails << tabindent << "serial_no= " << inValue->serial_no << g_pNewline;
 		strDetails << tabindent << "memory= " << inValue->memory << g_pNewline;
 		strDetails << tabindent << "dac_speed= " << inValue->dac_speed << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The accelerant_device_info was NULL.\n";
-	}
 }
 
 
@@ -4939,26 +4317,23 @@ struct	version_info {
 ***************************************************************/
 void
 Inspect_Struct_version_info
-	(
-	BString & strDetails
-,	version_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	version_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[version_info struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "major= " << inValue->major << g_pNewline;
 		strDetails << tabindent << "middle= " << inValue->middle << g_pNewline;
 		strDetails << tabindent << "minor= " << inValue->minor << g_pNewline;
@@ -4967,11 +4342,8 @@ Inspect_Struct_version_info
 		strDetails << tabindent << "short_info= " << inValue->short_info << g_pNewline;
 		strDetails << tabindent << "long_info= " << inValue->long_info << g_pNewline;
 
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The version_info was NULL.\n";
-	}
 }
 
 
@@ -4985,33 +4357,27 @@ typedef struct attr_info
 ***************************************************************/
 void
 Inspect_Struct_attr_info
-	(
-	BString & strDetails
-,	attr_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	attr_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[attr_info struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		strDetails << tabindent << "type= " << inValue->type << g_pNewline;
 		strDetails << tabindent << "size= " << inValue->size << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The attr_info was NULL.\n";
-	}
 }
 
 
@@ -5031,36 +4397,32 @@ struct app_info {
 ***************************************************************/
 void
 Inspect_Struct_app_info
-	(
-	BString & strDetails
-,	app_info * inValue
-,	int32 inIndent
-,	const char * pDescription
-	)
+(
+	BString& strDetails
+	,	app_info* inValue
+	,	int32 inIndent
+	,	const char* pDescription
+)
 {
 	BString tabindent;
-	for (int32 i (0); i < inIndent; i++)
-	{
+	for (int32 i(0); i < inIndent; i++)
 		tabindent << g_pIndentation;
-	}
 
-	char hexbuf[12];
-	GetHexString (hexbuf, (int32) inValue);
+	char hexbuf[20];
+	GetHexString(hexbuf, (intptr_t) inValue);
 	strDetails << tabindent << pDescription << "[app_info struct, ptr=" << hexbuf << "]\n";
 	tabindent << g_pIndentation;
 
-	if (NULL != inValue)
-	{
+	if (NULL != inValue) {
 		++inIndent;
 
 		strDetails << tabindent << "thread= " << inValue->thread << g_pNewline;
 		strDetails << tabindent << "team= " << inValue->team << g_pNewline;
 		strDetails << tabindent << "port= " << inValue->port << g_pNewline;
 
-		GetHexString (hexbuf, (int32) inValue->flags);
+		GetHexString(hexbuf, (intptr_t) inValue->flags);
 		strDetails << tabindent << "flags= (" << hexbuf << ") ";
-		switch (B_LAUNCH_MASK & inValue->flags)
-		{
+		switch (B_LAUNCH_MASK & inValue->flags) {
 			case B_SINGLE_LAUNCH:
 				strDetails << "B_SINGLE_LAUNCH,";
 				break;
@@ -5073,23 +4435,16 @@ Inspect_Struct_app_info
 		}
 
 		if (B_BACKGROUND_APP & inValue->flags)
-		{
 			strDetails << "B_BACKGROUND_APP,";
-		}
 		if (B_ARGV_ONLY & inValue->flags)
-		{
 			strDetails << "B_ARGV_ONLY,";
-		}
-		strDetails.RemoveLast (",");
+		strDetails.RemoveLast(",");
 		strDetails << g_pNewline;
 
-		Inspect_Struct_entry_ref (strDetails, &inValue->ref, inIndent, "ref: ");
+		Inspect_Struct_entry_ref(strDetails, &inValue->ref, inIndent, "ref: ");
 		strDetails << tabindent << "signature= " << inValue->signature << g_pNewline;
-	}
-	else
-	{
+	} else
 		strDetails << tabindent << "The app_info was NULL.\n";
-	}
 }
 
 

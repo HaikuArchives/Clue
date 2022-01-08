@@ -54,99 +54,98 @@
 #include "constants.h"
 #endif
 
-static const BRect g_windowDefaultRectStartup (100.0f, 100.0f, 300.0f, 500.0f);
+static const BRect g_windowDefaultRectStartup(100.0f, 100.0f, 300.0f, 500.0f);
 //extern BMessage g_Settings;
 //static const char * strWOF = "Window:ObjectFilter";
 
 
 FingerprintZoomWnd :: FingerprintZoomWnd
-	(
-	ClueItem * pClueItem
-	)
-:	BWindow (g_windowDefaultRectStartup, STR_WINDOW_TITLE_ZOOM, B_DOCUMENT_WINDOW_LOOK, 
-		B_FLOATING_APP_WINDOW_FEEL, B_ASYNCHRONOUS_CONTROLS |  B_NOT_MINIMIZABLE) //B_NOT_ZOOMABLE
+(
+	ClueItem* pClueItem
+)
+	:	BWindow(g_windowDefaultRectStartup, STR_WINDOW_TITLE_ZOOM, B_DOCUMENT_WINDOW_LOOK,
+				B_FLOATING_APP_WINDOW_FEEL, B_ASYNCHRONOUS_CONTROLS |  B_NOT_MINIMIZABLE) //B_NOT_ZOOMABLE
 {
-/*
-	BMessage msgtmp;
-	if (B_OK == g_Settings.FindMessage (strWOF, &msgtmp))
-	{
-		PRINT (("\nConstructor found Window:ObjectFilter\n"));
-		BRect rc (0.0f, 0.0f, 0.0f, 0.0f);
-		if (B_OK == msgtmp.FindRect ("WinRect", &rc))
+	/*
+		BMessage msgtmp;
+		if (B_OK == g_Settings.FindMessage (strWOF, &msgtmp))
 		{
-			PRINT (("  Found BRect, moveto and resize\n"));
-			MoveTo (rc.left, rc.top);
-			ResizeTo (rc.right, rc.bottom);
+			PRINT (("\nConstructor found Window:ObjectFilter\n"));
+			BRect rc (0.0f, 0.0f, 0.0f, 0.0f);
+			if (B_OK == msgtmp.FindRect ("WinRect", &rc))
+			{
+				PRINT (("  Found BRect, moveto and resize\n"));
+				MoveTo (rc.left, rc.top);
+				ResizeTo (rc.right, rc.bottom);
+			}
 		}
-	}
-*/
-	SetPulseRate (0);
-	BRect rcWnd (Bounds ());
+	*/
+	SetPulseRate(0);
+	BRect rcWnd(Bounds());
 
-	FingerprintZoomView * pFingerprintZoomView (static_cast<FingerprintZoomView *>(new FingerprintZoomView (rcWnd, pClueItem)));
+	FingerprintZoomView* pFingerprintZoomView(static_cast<FingerprintZoomView*>(new FingerprintZoomView(rcWnd, pClueItem)));
 //	ObjectFilterView * pObjectFilterView (new ObjectFilterView (rcWnd, message));
-	AddChild (pFingerprintZoomView);
-	float minW (0.0f);
-	float maxW (0.0f);
-	float minH (0.0f);
-	float maxH (0.0f);
+	AddChild(pFingerprintZoomView);
+	float minW(0.0f);
+	float maxW(0.0f);
+	float minH(0.0f);
+	float maxH(0.0f);
 	//GetSizeLimits (&minW, &maxW, &minH, &maxH);
 	//SetSizeLimits (100.0f, maxW, 100.0f, maxH);
-	Show ();
+	Show();
 }
 
 
 FingerprintZoomWnd :: ~FingerprintZoomWnd
-	(
+(
 	void
-	)
+)
 {
-/*
-	BRect rc (Frame ());
-	rc.right =  Bounds().Width ();
-	rc.bottom = Bounds().Height ();
-	BMessage msgtmp;
+	/*
+		BRect rc (Frame ());
+		rc.right =  Bounds().Width ();
+		rc.bottom = Bounds().Height ();
+		BMessage msgtmp;
 
-	if (B_OK == g_Settings.FindMessage (strWOF, &msgtmp))
-	{
-		PRINT (("\nFound Window:ObjectFilter\n"));
+		if (B_OK == g_Settings.FindMessage (strWOF, &msgtmp))
+		{
+			PRINT (("\nFound Window:ObjectFilter\n"));
 
-		BMessage msgData (B_RECT_TYPE);
-		msgData.AddRect ("WinRect", rc);
-		g_Settings.ReplaceMessage (strWOF, &msgData);
-	}
-	else
-	{
-		PRINT (("Window:ObjectFilter not found, Add a message\n"));
-		BMessage msgData (B_RECT_TYPE);
-		msgData.AddRect ("WinRect", rc);
-		g_Settings.AddMessage (strWOF, &msgData);
-	}
+			BMessage msgData (B_RECT_TYPE);
+			msgData.AddRect ("WinRect", rc);
+			g_Settings.ReplaceMessage (strWOF, &msgData);
+		}
+		else
+		{
+			PRINT (("Window:ObjectFilter not found, Add a message\n"));
+			BMessage msgData (B_RECT_TYPE);
+			msgData.AddRect ("WinRect", rc);
+			g_Settings.AddMessage (strWOF, &msgData);
+		}
 
-	if (m_ppOutside)
-	{
-		*m_ppOutside = NULL;
-	}
-*/
+		if (m_ppOutside)
+		{
+			*m_ppOutside = NULL;
+		}
+	*/
 }
 
 
 void
 FingerprintZoomWnd :: MessageReceived
-	(
-	BMessage * message
-	)
+(
+	BMessage* message
+)
 {
-	switch (message->what)
-	{
-	case MSG_BROADCAST_SETTINGS_CHANGED:
-		SendNotices (MSG_SETTINGS_CHANGED);
-		break;
-	case MSG_CLOSE_ALL_ZOOM_WINDOWS:
-		Quit ();
-		break;
-	default:
-		BWindow::MessageReceived (message);
-		break;
+	switch (message->what) {
+		case MSG_BROADCAST_SETTINGS_CHANGED:
+			SendNotices(MSG_SETTINGS_CHANGED);
+			break;
+		case MSG_CLOSE_ALL_ZOOM_WINDOWS:
+			Quit();
+			break;
+		default:
+			BWindow::MessageReceived(message);
+			break;
 	}
 }
