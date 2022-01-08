@@ -6,6 +6,6 @@ set(Clue_Sample_SOURCES
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 
-add_executable(SampleApp ${Clue_Sample_SOURCES})
+haiku_add_executable(SampleApp ${Clue_Sample_SOURCES})
 
 target_link_libraries(SampleApp "be" "tracker" "translation" "stdc++" "clue")
