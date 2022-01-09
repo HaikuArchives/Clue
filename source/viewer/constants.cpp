@@ -12,7 +12,7 @@
 
 //--------------------------------------------------------------------
 //	Colors
-rgb_color CLR_FOREGROUND				= { 255, 133, 151, 255 };
+rgb_color CLR_FOREGROUND				= { 218, 218, 218, 255 };
 rgb_color CLR_FOREGROUND_LITE			= {   0,   0,   0, 255 };
 rgb_color CLR_FOREGROUND_DARK			= {   0,   0,   0, 255 };
 rgb_color CLR_BACKGROUND				= { 222, 219, 222, 255 };

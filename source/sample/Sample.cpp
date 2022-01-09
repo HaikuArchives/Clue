@@ -337,7 +337,7 @@ CView :: CView
 {
 	TRACE_METHOD((CC_INTERFACE, REPORT_METHOD, "frame: l=%0.f, t=%0.f, r=%0.f, b=%0.f",
 				  frame.left, frame.top, frame.right, frame.bottom));
-	SetViewColor(255, 128, 128, 255);
+	SetViewUIColor(B_PANEL_BACKGROUND_COLOR);
 
 	BRect rc(Bounds());
 	rc.InsetBy(5.0f, 5.0f);

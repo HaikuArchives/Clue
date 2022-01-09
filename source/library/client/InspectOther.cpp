@@ -379,9 +379,6 @@ GetStatusTDescription
 			case B_FILE_ERROR:
 				strDetails << "B_FILE_ERROR";
 				break;
-			case B_FILE_NOT_FOUND:
-				strDetails << "B_FILE_NOT_FOUND";
-				break;
 			case B_FILE_EXISTS:
 				strDetails << "B_FILE_EXISTS";
 				break;

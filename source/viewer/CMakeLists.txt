@@ -62,6 +62,6 @@ set(Clue_Viewer_SOURCES
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 
-add_executable(ClueViewer ${Clue_Viewer_SOURCES})
+haiku_add_executable(ClueViewer ${Clue_Viewer_SOURCES})
 
 target_link_libraries(ClueViewer "be" "tracker" "stdc++" "clue")

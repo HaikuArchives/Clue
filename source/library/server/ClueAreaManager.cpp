@@ -30,7 +30,7 @@ ClueAreaManager :: ClueAreaManager
 		PRINT(("CAM : area was NOT found, create it using '%s'\n", g_AreaName));
 		//doesn't exist yet, so we must create it!
 		m_area_id = create_area(g_AreaName, (void**) &m_data, B_ANY_ADDRESS,
-								B_PAGE_SIZE, B_NO_LOCK, B_READ_AREA | B_WRITE_AREA);
+								B_PAGE_SIZE, B_NO_LOCK, B_READ_AREA | B_WRITE_AREA | B_CLONEABLE_AREA);
 		if (B_OK >= m_area_id) {
 			PRINT(("CAM : HUGE ERROR!, create_area failed, %i.\n", m_area_id));
 			//yes, greater than AND equal to!
