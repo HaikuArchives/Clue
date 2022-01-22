@@ -15,6 +15,7 @@ build
 GPATH
 GRTAGS
 GTAGS
+Documentation
 libclue.so
 SampleApp
 ClueViewer
