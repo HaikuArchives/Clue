@@ -15,3 +15,11 @@ include_directories(source/common)
 add_subdirectory(source/library)
 add_subdirectory(source/viewer)
 add_subdirectory(source/sample)
+
+add_custom_target("symlink-docs-to-build-dir"
+	ALL
+	COMMAND ${CMAKE_COMMAND} -E create_symlink "${CMAKE_CURRENT_SOURCE_DIR}/data/documentation" "${PROJECT_BINARY_DIR}/Documentation"
+	SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/data/documentation"
+	VERBATIM)
+
+set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_CLEAN_FILES "${PROJECT_BINARY_DIR}/Documentation")
